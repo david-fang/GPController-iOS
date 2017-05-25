@@ -14,6 +14,7 @@
 		07369DD31ED7406400DF29E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07369DD11ED7406400DF29E3 /* LaunchScreen.storyboard */; };
 		07369DDE1ED7406500DF29E3 /* GPControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DDD1ED7406500DF29E3 /* GPControllerTests.swift */; };
 		07369DE91ED7406500DF29E3 /* GPControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */; };
+		07369DF71ED753BB00DF29E3 /* AxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DF61ED753BB00DF29E3 /* AxisButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		07369DE41ED7406500DF29E3 /* GPControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPControllerUITests.swift; sourceTree = "<group>"; };
 		07369DEA1ED7406500DF29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07369DF61ED753BB00DF29E3 /* AxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +99,12 @@
 		07369DC71ED7406400DF29E3 /* GPController */ = {
 			isa = PBXGroup;
 			children = (
-				07369DC81ED7406400DF29E3 /* AppDelegate.swift */,
-				07369DCA1ED7406400DF29E3 /* ViewController.swift */,
+				07369DF81ED753CB00DF29E3 /* Designables */,
+				07369DF91ED753E800DF29E3 /* Supporting Files */,
+				07369DFA1ED7540400DF29E3 /* Controllers */,
 				07369DCC1ED7406400DF29E3 /* Main.storyboard */,
-				07369DCF1ED7406400DF29E3 /* Assets.xcassets */,
 				07369DD11ED7406400DF29E3 /* LaunchScreen.storyboard */,
+				07369DCF1ED7406400DF29E3 /* Assets.xcassets */,
 				07369DD41ED7406500DF29E3 /* Info.plist */,
 			);
 			path = GPController;
@@ -123,6 +126,30 @@
 				07369DEA1ED7406500DF29E3 /* Info.plist */,
 			);
 			path = GPControllerUITests;
+			sourceTree = "<group>";
+		};
+		07369DF81ED753CB00DF29E3 /* Designables */ = {
+			isa = PBXGroup;
+			children = (
+				07369DF61ED753BB00DF29E3 /* AxisButton.swift */,
+			);
+			name = Designables;
+			sourceTree = "<group>";
+		};
+		07369DF91ED753E800DF29E3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07369DC81ED7406400DF29E3 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07369DFA1ED7540400DF29E3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07369DCA1ED7406400DF29E3 /* ViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07369DF71ED753BB00DF29E3 /* AxisButton.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* ViewController.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
 			);
@@ -512,6 +540,7 @@
 				07369DEF1ED7406500DF29E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07369DF01ED7406500DF29E3 /* Build configuration list for PBXNativeTarget "GPControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +549,7 @@
 				07369DF21ED7406500DF29E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07369DF31ED7406500DF29E3 /* Build configuration list for PBXNativeTarget "GPControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +558,7 @@
 				07369DF51ED7406500DF29E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
