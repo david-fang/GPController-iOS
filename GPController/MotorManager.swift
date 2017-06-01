@@ -13,6 +13,7 @@ class MotorManager {
     
     private var timer: Timer
     
+    // Have it init with a bluetooth manager
     init(left: RoundAxisButton, up: RoundAxisButton, down: RoundAxisButton, right: RoundAxisButton) {
         self.timer = Timer()
     }
@@ -44,6 +45,11 @@ class MotorManager {
         timer.fire()
     }
     
+    func stop() {
+        print("Stopping")
+        timer.invalidate()
+    }
+    
     private func moveLeft() {
         print("Moving left...")
     }
@@ -58,10 +64,5 @@ class MotorManager {
     
     private func moveRight() {
         print("Moving right...")
-    }
-    
-    func stop() {
-        print("Stopping")
-        timer.invalidate()
     }
 }
