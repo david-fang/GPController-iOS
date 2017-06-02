@@ -47,13 +47,24 @@
                                     <action selector="beginSearch:" destination="f0L-5c-wUg" eventType="touchUpInside" id="avE-pH-ye2"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V35-Nj-MFY">
+                                <rect key="frame" x="163" y="616" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchLED:" destination="f0L-5c-wUg" eventType="valueChanged" id="Ob1-0K-r8Z"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yjN-WE-oQn" firstAttribute="centerY" secondItem="eUQ-X6-jGx" secondAttribute="centerY" id="0nL-sb-LkS"/>
                             <constraint firstItem="yjN-WE-oQn" firstAttribute="centerX" secondItem="eUQ-X6-jGx" secondAttribute="centerX" id="ODk-wh-F3s"/>
+                            <constraint firstItem="TqD-l6-5f3" firstAttribute="top" secondItem="V35-Nj-MFY" secondAttribute="bottom" constant="20" id="Wzp-BM-jrp"/>
+                            <constraint firstItem="V35-Nj-MFY" firstAttribute="centerX" secondItem="eUQ-X6-jGx" secondAttribute="centerX" id="k60-u4-NZM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ledSwitch" destination="V35-Nj-MFY" id="Gh3-5W-nOL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9G-o8-OtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
