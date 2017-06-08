@@ -14,62 +14,77 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceSc
 
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
-    @IBOutlet weak var connectButton: FlexiButton!
     
+    @IBOutlet weak var connectButton: FlexiButton!
     @IBOutlet weak var panoramaButton: FlexiButton!
     @IBOutlet weak var controlButton: FlexiButton!
     @IBOutlet weak var changeMeLaterButton: FlexiButton!
     @IBOutlet weak var settingsButton: FlexiButton!
     
-    var gpManager: GPBluetoothManager!
-    var peripheral: CBPeripheral!
+    var gpManager: GPBluetoothManager?
+    var connected: Bool = false {
+        didSet {
+            updateHeader(withDetails: connected)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let menuButtons: [UIButton] = [panoramaButton, controlButton, changeMeLaterButton, settingsButton]
-
-        for button in menuButtons {
-            button.tintColor = .rushmoreBrown
-        }
-        
-        connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
+        initCustomViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    /** Set up the header and menu views */
+    private func initCustomViews() {
+        for button in [panoramaButton, controlButton, changeMeLaterButton, settingsButton] {
+            button?.tintColor = .rushmoreBrown
+        }
+        updateHeader(withDetails: false)
+    }
+    
+    /** Update the header depending on whether or not a GigaPan device
+        has been connected. */
+    private func updateHeader(withDetails shouldShowDetails: Bool) {
+        if (shouldShowDetails) {
+            
+        } else {
+            connectButton.alpha = 1.0
+            connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: - GPBluetoothManagerDelegate
+    
     func didConnectPeripheral(deviceName aName: String?) {
-        // ADD
+        connected = true
     }
     
     func didDisconnectPeripheral() {
-        resetUI()
+        connected = false
     }
+ 
+    // MARK: - DeviceScannerDelegate
     
-    func peripheralReady() {
-        // ADD
-    }
-    
-    func peripheralNotSupported() {
-        // ADD
-    }
-    
-    func resetUI() {
-        // Set default configurations and views here; after device has
-        // been discconnected
-    }
-    
-    
-    // MARK: Device Scanner Delegate
     func centralManagerDidSelectPeripheral(withManager aManager: CBCentralManager, andPeripheral aPeripheral: CBPeripheral) {
-        print("Making manager")
         gpManager = GPBluetoothManager(withManager: aManager)
-        gpManager.delegate = self
-        print("Made manager")
-        gpManager.connectPeripheral(peripheral: aPeripheral)
+        gpManager?.delegate = self
+        gpManager?.connectPeripheral(peripheral: aPeripheral)
     }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toMotorControl") {
@@ -77,16 +92,12 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceSc
                 dest.gpManager = self.gpManager
             }
         } else if (segue.identifier == "scanForDevices") {
-//            let nc = segue.destination as! UINavigationController
-//            let controller = nc.childViewControllerForStatusBarHidden as! NORScannerViewController
-            if let dest = segue.destination as? DevicesTableViewController {
-                dest.delegate = self
+            if let nc = segue.destination as? UINavigationController {
+                if let dest = nc.childViewControllerForStatusBarHidden as? DevicesTableViewController {
+                    dest.delegate = self
+                    dest.filterUUID = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
+                }
             }
         }
-    }
-
-    @IBAction func beginSearch(_ sender: UIButton) {
-        // https://www.youtube.com/watch?v=B9sH_VxPPo4
-        // gpManager.startScanning()
     }
 }

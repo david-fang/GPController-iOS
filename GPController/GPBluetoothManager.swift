@@ -9,11 +9,11 @@
 import UIKit
 import CoreBluetooth
 
-protocol GPBluetoothManagerDelegate {
-    func didConnectPeripheral(deviceName aName : String?)
-    func didDisconnectPeripheral()
-    func peripheralReady()
-    func peripheralNotSupported()
+@objc protocol GPBluetoothManagerDelegate {
+    @objc optional func didConnectPeripheral(deviceName aName : String?)
+    @objc optional func didDisconnectPeripheral()
+    @objc optional func peripheralReady()
+    @objc optional func peripheralNotSupported()
 }
 
 class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
@@ -44,7 +44,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         UARTRXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartRXCharacteristicUUIDString)
         super.init()
         
-        centralManager.delegate = self        
+        centralManager.delegate = self
     }
 
     /**
@@ -85,7 +85,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         // In case the previous connection attempt failed before establishing a connection
         if !connected {
             bluetoothPeripheral = nil
-            delegate?.didDisconnectPeripheral()
+            delegate?.didDisconnectPeripheral?()
         }
     }
     
@@ -96,73 +96,8 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     func isConnected() -> Bool {
         return connected
     }
-
-    /** Start scanning for connectable devices */
-    func startScanning() {
-        print("Scanning...")
-        centralManager.scanForPeripherals(withServices: [UARTServiceUUID], options: nil)
-    }
-
-    /**
-     * This method sends the given test to the UART RX characteristic.
-     * Depending on whether the characteristic has the Write Without Response or Write properties the behaviour is different.
-     * In the latter case the Long Write may be used. To enable it you have to change the flag below in the code.
-     * Otherwise, in both cases, texts longer than 20 (MTU) bytes (not characters) will be splitted into up-to 20-byte packets.
-     *
-     * - parameter aText: text to be sent to the peripheral using Nordic UART Service
-     */
-    func send(text aText : String) {
-        guard self.uartRXCharacteristic != nil else {
-            print("UART RX Characteristic not found")
-            return
-        }
-        
-        // Check what kind of Write Type is supported. By default it will try Without Response.
-        // If the RX charactereisrtic have Write property the Write Request type will be used.
-        var type = CBCharacteristicWriteType.withoutResponse
-        if (self.uartRXCharacteristic!.properties.rawValue & CBCharacteristicProperties.write.rawValue) > 0 {
-            type = CBCharacteristicWriteType.withResponse
-        }
-        
-        // In case of Write Without Response the text needs to be splited in up-to 20-bytes packets.
-        // When Write Request (with response) is used, the Long Write may be used.
-        // It will be handled automatically by the iOS, but must be supported on the device side.
-        // If your device does support Long Write, change the flag below to true.
-        let longWriteSupported = false
-        
-        // The following code will split the text to packets
-        let textData = aText.data(using: String.Encoding.utf8)!
-        textData.withUnsafeBytes { (u8Ptr: UnsafePointer<CChar>) in
-            var buffer = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(u8Ptr))
-            var len = textData.count
-            
-            while(len != 0){
-                var part : String
-                if len > MTU && (type == CBCharacteristicWriteType.withoutResponse || longWriteSupported == false) {
-                    // If the text contains national letters they may be 2-byte long.
-                    // It may happen that only 19 (MTU) bytes can be send so that not of them is splited into 2 packets.
-                    var builder = NSMutableString(bytes: buffer, length: MTU, encoding: String.Encoding.utf8.rawValue)
-                    if builder != nil {
-                        // A 20-byte string has been created successfully
-                        buffer  = buffer + MTU
-                        len     = len - MTU
-                    } else {
-                        // We have to create 19-byte string. Let's ignore some stranger UTF-8 characters that have more than 2 bytes...
-                        builder = NSMutableString(bytes: buffer, length: (MTU - 1), encoding: String.Encoding.utf8.rawValue)
-                        buffer = buffer + (MTU - 1)
-                        len    = len - (MTU - 1)
-                    }
-                    
-                    part = String(describing: builder!)
-                } else {
-                    let builder = NSMutableString(bytes: buffer, length: len, encoding: String.Encoding.utf8.rawValue)
-                    part = String(describing: builder!)
-                    len = 0
-                }
-                send(text: part, withType: type)
-            }
-        }
-    }
+    
+    // MARK: - Data Sending API
     
     /**
      * Sends the given text to the UART RX characteristic using the given write type.
@@ -182,16 +117,63 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         let typeAsString = aType == .withoutResponse ? ".withoutResponse" : ".withResponse"
         let data = aText.data(using: String.Encoding.utf8)!
         
-        //do some logging
         print("Writing to characteristic: \(uartRXCharacteristic!.uuid.uuidString)")
         print("peripheral.writeValue(0x\(data.hexString), for: \(uartRXCharacteristic!.uuid.uuidString), type: \(typeAsString))")
         self.bluetoothPeripheral!.writeValue(data, for: self.uartRXCharacteristic!, type: aType)
-
-        // The transmitted data is not available after the method returns. We have to log the text here.
-        // The callback peripheral:didWriteValueForCharacteristic:error: is called only when the Write Request type was used,
-        // but even if, the data is not available there.
+        
         print("\"\(aText)\" sent")
     }
+    
+    /**
+     * This method sends the given test to the UART RX characteristic.
+     * Depending on whether the characteristic has the Write Without Response or Write properties the behaviour is different.
+     * In the latter case the Long Write may be used. To enable it you have to change the flag below in the code.
+     * Otherwise, in both cases, texts longer than 20 (MTU) bytes (not characters) will be splitted into up-to 20-byte packets.
+     *
+     * - parameter aText: text to be sent to the peripheral using Nordic UART Service
+     */
+    func send(text aText : String) {
+        guard self.uartRXCharacteristic != nil else {
+            print("UART RX Characteristic not found")
+            return
+        }
+        
+        var type = CBCharacteristicWriteType.withoutResponse
+        if (self.uartRXCharacteristic!.properties.rawValue & CBCharacteristicProperties.write.rawValue) > 0 {
+            type = CBCharacteristicWriteType.withResponse
+        }
+
+        let longWriteSupported = false
+        
+        let textData = aText.data(using: String.Encoding.utf8)!
+        textData.withUnsafeBytes { (u8Ptr: UnsafePointer<CChar>) in
+            var buffer = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(u8Ptr))
+            var len = textData.count
+            
+            while(len != 0){
+                var part : String
+                if len > MTU && (type == CBCharacteristicWriteType.withoutResponse || longWriteSupported == false) {
+                    var builder = NSMutableString(bytes: buffer, length: MTU, encoding: String.Encoding.utf8.rawValue)
+                    if builder != nil {
+                        buffer  = buffer + MTU
+                        len     = len - MTU
+                    } else {
+                        builder = NSMutableString(bytes: buffer, length: (MTU - 1), encoding: String.Encoding.utf8.rawValue)
+                        buffer = buffer + (MTU - 1)
+                        len    = len - (MTU - 1)
+                    }
+                    
+                    part = String(describing: builder!)
+                } else {
+                    let builder = NSMutableString(bytes: buffer, length: len, encoding: String.Encoding.utf8.rawValue)
+                    part = String(describing: builder!)
+                    len = 0
+                }
+                send(text: part, withType: type)
+            }
+        }
+    }
+
     
     // MARK: - CBCentralManagerDelegate
     
@@ -203,7 +185,6 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             break
         case .poweredOff:
             state = "Powered OFF"
-            // FIX ME: Reset device here (turn LED off, for example)
             break
         case .resetting:
             state = "Resetting"
@@ -233,21 +214,10 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         connected = true
         bluetoothPeripheral = peripheral
         bluetoothPeripheral!.delegate = self
-        delegate?.didConnectPeripheral(deviceName: peripheral.name)
+        delegate?.didConnectPeripheral?(deviceName: peripheral.name)
         print("Discovering services...")
         print("peripheral.discoverServices([\(UARTServiceUUID.uuidString)])")
         peripheral.discoverServices([UARTServiceUUID])
-    }
-    
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-//        if let name = peripheral.name {
-//            print(name)
-
-            // REMOVE ME
-//            if (name == "GigaPan") {
-//                connectPeripheral(peripheral: peripheral)
-//            }
-//        }
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
@@ -255,7 +225,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         cancelPeripheralConnection()
     }
     
-    // MARK: - CBPeripheralDelegate
+    // MARK: - CBPeripheral Delegate
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard error == nil else {
@@ -276,7 +246,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         }
 
         print("UART Service not found. Try to turn bluetooth Off and On again to clear the cache.")
-        delegate?.peripheralNotSupported()
+        delegate?.peripheralNotSupported?()
         cancelPeripheralConnection()
     }
 
@@ -305,7 +275,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
                 bluetoothPeripheral!.setNotifyValue(true, for: uartTXCharacteristic!)
             } else {
                 print("UART service does not have required characteristics. Try to turn Bluetooth Off and On again to clear cache.")
-                delegate?.peripheralNotSupported()
+                delegate?.peripheralNotSupported?()
                 cancelPeripheralConnection()
             }
         }
@@ -323,7 +293,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             print("Notifications disabled for characteristic: \(characteristic.uuid.uuidString)")
         }
         
-        delegate?.peripheralReady()
+        delegate?.peripheralReady?()
     }
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {

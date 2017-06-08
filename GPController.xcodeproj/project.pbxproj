@@ -23,6 +23,7 @@
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
 		07840A001EE9C181008A0973 /* DevicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078409FF1EE9C181008A0973 /* DevicesTableViewController.swift */; };
 		07840A021EE9CCB7008A0973 /* DeviceScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A011EE9CCB7008A0973 /* DeviceScannerDelegate.swift */; };
+		07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -86,6 +87,7 @@
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
 		078409FF1EE9C181008A0973 /* DevicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTableViewController.swift; sourceTree = "<group>"; };
 		07840A011EE9CCB7008A0973 /* DeviceScannerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceScannerDelegate.swift; sourceTree = "<group>"; };
+		07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				0715BDA51EDF696200035E9D /* MainViewController.swift */,
+				07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
 				078409FF1EE9C181008A0973 /* DevicesTableViewController.swift */,
 			);
@@ -541,6 +544,7 @@
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
+				07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
 				075D07BA1EE0C3BA00592BBA /* LoadingButton.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,

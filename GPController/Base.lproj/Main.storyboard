@@ -49,8 +49,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="beginSearch:" destination="f0L-5c-wUg" eventType="touchUpInside" id="avE-pH-ye2"/>
-                                            <segue destination="PBn-43-I2u" kind="show" identifier="scanForDevices" id="R1a-pc-h8e"/>
+                                            <segue destination="8DY-z1-coM" kind="show" identifier="scanForDevices" id="R1a-pc-h8e"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -71,7 +70,7 @@
                                         <rect key="frame" x="4" y="128" width="120" height="120"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="3">
+                                        <state key="normal" title="4">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -137,7 +136,7 @@
                                         <rect key="frame" x="251.5" y="4" width="119.5" height="120"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="2">
+                                        <state key="normal" title="3">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -157,7 +156,7 @@
                                         <rect key="frame" x="251.5" y="127.5" width="119.5" height="120.5"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="4">
+                                        <state key="normal" title="6">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -177,7 +176,7 @@
                                         <rect key="frame" x="127.5" y="127.5" width="120" height="120.5"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="4">
+                                        <state key="normal" title="5">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -273,10 +272,17 @@
                             <outlet property="delegate" destination="PBn-43-I2u" id="bQn-mj-feT"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Udk-GK-cs4">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="hVA-9S-3Kp">
+                            <connections>
+                                <action selector="returnToMain:" destination="PBn-43-I2u" id="Qdd-Be-pIv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDR-sE-Fxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="-633"/>
+            <point key="canvasLocation" x="799" y="-634"/>
         </scene>
         <!--Camera Pan View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -385,6 +391,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="36"/>
+        </scene>
+        <!--Navigation Controller View Controller-->
+        <scene sceneID="IoR-GA-DLm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8DY-z1-coM" customClass="GPNavigationControllerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aTI-c6-OW9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PBn-43-I2u" kind="relationship" relationship="rootViewController" id="xle-Yd-cYf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBc-hS-eUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="-633.73313343328346"/>
         </scene>
     </scenes>
     <resources>

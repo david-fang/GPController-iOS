@@ -20,7 +20,7 @@ class CameraPanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         left.direction = .Left
         up.direction = .Up
@@ -34,8 +34,6 @@ class CameraPanViewController: UIViewController {
             button.addTarget(self, action: #selector(self.stopMove), for: .touchUpInside)
             button.addTarget(self, action: #selector(self.stopMove), for: .touchUpOutside)
         }
-        
-        print("Done loading view")
     }
 
     override func didReceiveMemoryWarning() {

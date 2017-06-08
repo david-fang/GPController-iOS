@@ -12,39 +12,33 @@ import CoreBluetooth
 class DevicesTableViewController: UITableViewController, CBCentralManagerDelegate {
     let dfuServiceUUIDString  = "00001530-1212-EFDE-1523-785FEABCD123"
     let ANCSServiceUUIDString = "7905F431-B5CE-4E99-A40F-4B1E122D00D0"
-    
-    // MARK: - ViewController Properties
+
     var bluetoothManager : CBCentralManager?
     var delegate         : DeviceScannerDelegate?
     var filterUUID       : CBUUID?
     var peripherals      : [CBPeripheral] = []
-    var timer            : Timer?
-    
-    //MARK: - ViewController Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+
         let centralQueue = DispatchQueue(label: "GPCtrl.devicescan", attributes: [])
         bluetoothManager = CBCentralManager(delegate: self, queue: centralQueue)
-        bluetoothManager?.delegate = self
     }
     
-//    func getRSSIImage(RSSI anRSSIValue: Int32) -> UIImage {
-//        var image: UIImage
-//        
-//        if (anRSSIValue < -90) {
-//            // Change image 0
-//        } else if (anRSSIValue < -70) {
-//            // Change image 1
-//        } else if (anRSSIValue < -50) {
-//            // Change image 2
-//        } else {
-//            // Change image 3
-//        }
-//        
-//        return image
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let success = self.scanForPeripherals(false)
+        if !success {
+            print("Bluetooth is powered off!")
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Bluetooth Functions
     
     func getConnectedPeripherals() -> [CBPeripheral] {
         guard let bluetoothManager = bluetoothManager else {
@@ -84,21 +78,24 @@ class DevicesTableViewController: UITableViewController, CBCentralManagerDelegat
                 }
                 
                 self.tableView.reloadData()
+            } else {
+                self.bluetoothManager?.stopScan()
             }
         }
         
         return true
     }
     
+    /** DELEGATES **/
     
-    //MARK: - CBCentralManagerDelgate
+    //MARK: - CBCentralManager Functions
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         guard central.state == .poweredOn else {
             print("Bluetooth is powered off")
             return
         }
-
+        
         let connectedPeripherals = self.getConnectedPeripherals()
         var newScannedPeripherals: [CBPeripheral] = []
         connectedPeripherals.forEach { (connectedPeripheral: CBPeripheral) in
@@ -125,7 +122,7 @@ class DevicesTableViewController: UITableViewController, CBCentralManagerDelegat
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: - TableView Functions
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -142,23 +139,17 @@ class DevicesTableViewController: UITableViewController, CBCentralManagerDelegat
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        bluetoothManager!.stopScan()
-        self.dismiss(animated: true, completion: nil)
+        bluetoothManager?.stopScan()
 
-        // Call delegate method
         let peripheral = peripherals[indexPath.row]
-        print(peripheral)
         self.delegate?.centralManagerDidSelectPeripheral(withManager: bluetoothManager!, andPeripheral: peripheral)
-
+        
+        self.dismiss(animated: true, completion: nil)
     }
-
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func returnToMain(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
 }
