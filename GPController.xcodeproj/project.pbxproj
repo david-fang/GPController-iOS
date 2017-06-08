@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0715BDA61EDF696200035E9D /* BTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* BTViewController.swift */; };
+		0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* MainViewController.swift */; };
 		071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B01E61ED7788300A117E7 /* RoundAxisButton.swift */; };
 		07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DC81ED7406400DF29E3 /* AppDelegate.swift */; };
 		07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */; };
@@ -21,6 +21,8 @@
 		075D07BA1EE0C3BA00592BBA /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07B91EE0C3BA00592BBA /* LoadingButton.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
+		07840A001EE9C181008A0973 /* DevicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078409FF1EE9C181008A0973 /* DevicesTableViewController.swift */; };
+		07840A021EE9CCB7008A0973 /* DeviceScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A011EE9CCB7008A0973 /* DeviceScannerDelegate.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -62,7 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0715BDA51EDF696200035E9D /* BTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTViewController.swift; sourceTree = "<group>"; };
+		0715BDA51EDF696200035E9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		071B01E61ED7788300A117E7 /* RoundAxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundAxisButton.swift; sourceTree = "<group>"; };
 		07369DC51ED7406400DF29E3 /* GPController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07369DC81ED7406400DF29E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,8 @@
 		075D07B91EE0C3BA00592BBA /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
+		078409FF1EE9C181008A0973 /* DevicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesTableViewController.swift; sourceTree = "<group>"; };
+		07840A011EE9CCB7008A0973 /* DeviceScannerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceScannerDelegate.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
@@ -204,8 +208,9 @@
 		07369DFA1ED7540400DF29E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0715BDA51EDF696200035E9D /* BTViewController.swift */,
+				0715BDA51EDF696200035E9D /* MainViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
+				078409FF1EE9C181008A0973 /* DevicesTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				073D62891ED793B900D28EBA /* MotorManager.swift */,
 				075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */,
+				07840A011EE9CCB7008A0973 /* DeviceScannerDelegate.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -527,7 +533,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0715BDA61EDF696200035E9D /* BTViewController.swift in Sources */,
+				0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */,
+				07840A021EE9CCB7008A0973 /* DeviceScannerDelegate.swift in Sources */,
 				071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */,
 				073D628A1ED793B900D28EBA /* MotorManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
@@ -539,6 +546,7 @@
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
 				07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */,
 				073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */,
+				07840A001EE9C181008A0973 /* DevicesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

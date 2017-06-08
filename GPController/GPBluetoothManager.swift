@@ -44,7 +44,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         UARTRXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartRXCharacteristicUUIDString)
         super.init()
         
-        centralManager.delegate = self
+        centralManager.delegate = self        
     }
 
     /**
@@ -240,14 +240,14 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if let name = peripheral.name {
-            print(name)
+//        if let name = peripheral.name {
+//            print(name)
 
             // REMOVE ME
 //            if (name == "GigaPan") {
 //                connectPeripheral(peripheral: peripheral)
 //            }
-        }
+//        }
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {

@@ -10,7 +10,7 @@ import UIKit
 import CoreBluetooth
 import ChameleonFramework
 
-class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothManagerDelegate {
+class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceScannerDelegate {
 
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
@@ -21,7 +21,6 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
     @IBOutlet weak var changeMeLaterButton: FlexiButton!
     @IBOutlet weak var settingsButton: FlexiButton!
     
-    var manager: CBCentralManager!
     var gpManager: GPBluetoothManager!
     var peripheral: CBPeripheral!
     
@@ -35,21 +34,12 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
         }
         
         connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
-        
-        manager = CBCentralManager(delegate: self, queue: nil)
-        gpManager = GPBluetoothManager(withManager: manager)
-        gpManager.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        
-        // Figure out how to deal with this
-    }
-    
+
     func didConnectPeripheral(deviceName aName: String?) {
         // ADD
     }
@@ -59,7 +49,7 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
     }
     
     func peripheralReady() {
-        performSegue(withIdentifier: "toMotorControl", sender: self)
+        // ADD
     }
     
     func peripheralNotSupported() {
@@ -71,16 +61,32 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
         // been discconnected
     }
     
+    
+    // MARK: Device Scanner Delegate
+    func centralManagerDidSelectPeripheral(withManager aManager: CBCentralManager, andPeripheral aPeripheral: CBPeripheral) {
+        print("Making manager")
+        gpManager = GPBluetoothManager(withManager: aManager)
+        gpManager.delegate = self
+        print("Made manager")
+        gpManager.connectPeripheral(peripheral: aPeripheral)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toMotorControl") {
             if let dest = segue.destination as? CameraPanViewController {
                 dest.gpManager = self.gpManager
             }
+        } else if (segue.identifier == "scanForDevices") {
+//            let nc = segue.destination as! UINavigationController
+//            let controller = nc.childViewControllerForStatusBarHidden as! NORScannerViewController
+            if let dest = segue.destination as? DevicesTableViewController {
+                dest.delegate = self
+            }
         }
     }
-    
+
     @IBAction func beginSearch(_ sender: UIButton) {
         // https://www.youtube.com/watch?v=B9sH_VxPPo4
-        gpManager.startScanning()
+        // gpManager.startScanning()
     }
 }

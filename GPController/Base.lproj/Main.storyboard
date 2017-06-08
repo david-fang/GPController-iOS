@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="sa4-RJ-GoQ">
             <objects>
-                <viewController id="f0L-5c-wUg" customClass="BTViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f0L-5c-wUg" customClass="MainViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="csa-We-z13"/>
                         <viewControllerLayoutGuide type="bottom" id="TqD-l6-5f3"/>
@@ -50,6 +50,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="beginSearch:" destination="f0L-5c-wUg" eventType="touchUpInside" id="avE-pH-ye2"/>
+                                            <segue destination="PBn-43-I2u" kind="show" identifier="scanForDevices" id="R1a-pc-h8e"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -247,7 +248,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9G-o8-OtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775.20000000000005" y="36.431784107946029"/>
+            <point key="canvasLocation" x="-756" y="36"/>
+        </scene>
+        <!--Devices Table View Controller-->
+        <scene sceneID="0Kc-3T-Twk">
+            <objects>
+                <tableViewController id="PBn-43-I2u" customClass="DevicesTableViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9CY-qm-72b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deviceCell" id="Oip-Pb-zUQ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oip-Pb-zUQ" id="0K3-dK-uQJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PBn-43-I2u" id="i2h-O4-a5n"/>
+                            <outlet property="delegate" destination="PBn-43-I2u" id="bQn-mj-feT"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDR-sE-Fxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="-633"/>
         </scene>
         <!--Camera Pan View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -355,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="36"/>
+            <point key="canvasLocation" x="28" y="36"/>
         </scene>
     </scenes>
     <resources>
