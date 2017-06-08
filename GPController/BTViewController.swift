@@ -8,17 +8,23 @@
 
 import UIKit
 import CoreBluetooth
+import ChameleonFramework
 
 class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothManagerDelegate {
-    
+
+    @IBOutlet weak var dashboardContainer: UIView!
+    @IBOutlet weak var headerContainer: UIView!
+    @IBOutlet weak var connectButton: RoundedButton!
+
     var manager: CBCentralManager!
     var gpManager: GPBluetoothManager!
     var peripheral: CBPeripheral!
     
-    @IBOutlet weak var ledSwitch: UISwitch!
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
+        
         manager = CBCentralManager(delegate: self, queue: nil)
         gpManager = GPBluetoothManager(withManager: manager)
         gpManager.delegate = self
@@ -42,7 +48,7 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
     }
     
     func peripheralReady() {
-        // ADD
+        performSegue(withIdentifier: "toMotorControl", sender: self)
     }
     
     func peripheralNotSupported() {
@@ -50,21 +56,20 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
     }
     
     func resetUI() {
-        ledSwitch.setOn(false, animated: true)
+        // Set default configurations and views here; after device has
+        // been discconnected
     }
     
-    @IBAction func beginSearch(_ sender: LoadingButton) {
-        sender.changeState(toState: .Loading)
-        gpManager.startScanning()
-        sender.progress = 1.0
-    }
-
-    @IBAction func switchLED(_ sender: UISwitch) {
-        
-        if (sender.isOn) {
-            gpManager.send(text: "1")
-        } else {
-            gpManager.send(text: "0")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toMotorControl") {
+            if let dest = segue.destination as? CameraPanViewController {
+                dest.gpManager = self.gpManager
+            }
         }
+    }
+    
+    @IBAction func beginSearch(_ sender: UIButton) {
+        // https://www.youtube.com/watch?v=B9sH_VxPPo4
+        gpManager.startScanning()
     }
 }

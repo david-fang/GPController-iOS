@@ -244,9 +244,9 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             print(name)
 
             // REMOVE ME
-            if (name == "GigaPan") {
-                connectPeripheral(peripheral: peripheral)
-            }
+//            if (name == "GigaPan") {
+//                connectPeripheral(peripheral: peripheral)
+//            }
         }
     }
     
@@ -275,7 +275,6 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             }
         }
 
-        //No UART service discovered
         print("UART Service not found. Try to turn bluetooth Off and On again to clear the cache.")
         delegate?.peripheralNotSupported()
         cancelPeripheralConnection()
@@ -300,7 +299,6 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
                 }
             }
 
-            //Enable notifications on TX Characteristic
             if (uartTXCharacteristic != nil && uartRXCharacteristic != nil) {
                 print("Enabling notifications for \(uartTXCharacteristic!.uuid.uuidString)")
                 print("peripheral.setNotifyValue(true, for: \(uartTXCharacteristic!.uuid.uuidString))")
@@ -324,6 +322,8 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         } else {
             print("Notifications disabled for characteristic: \(characteristic.uuid.uuidString)")
         }
+        
+        delegate?.peripheralReady()
     }
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
@@ -353,7 +353,6 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             return
         }
         
-        // try to print a friendly string of received bytes if they can be parsed as UTF8
         guard let bytesReceived = characteristic.value else {
             print("Notification received from: \(characteristic.uuid.uuidString), with empty value")
             print("Empty packet received")
@@ -362,12 +361,11 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         bytesReceived.withUnsafeBytes { (utf8Bytes: UnsafePointer<CChar>) in
             var len = bytesReceived.count
             if utf8Bytes[len - 1] == 0 {
-                len -= 1    // if the string is null terminated, don't pass null terminator into 
-                            // NSMutableString constructor
+                len -= 1
             }
             
             print("Notification received from: \(characteristic.uuid.uuidString), with value: 0x\(bytesReceived.hexString)")
-            if let validUTF8String = String(utf8String: utf8Bytes) {//  NSMutableString(bytes: utf8Bytes, length: len, encoding: String.Encoding.utf8.rawValue) {
+            if let validUTF8String = String(utf8String: utf8Bytes) {
                 print("\"\(validUTF8String)\" received")
             } else {
                 print("\"0x\(bytesReceived.hexString)\" received")

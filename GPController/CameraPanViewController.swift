@@ -15,7 +15,7 @@ class CameraPanViewController: UIViewController {
     @IBOutlet weak var down: RoundAxisButton!
     @IBOutlet weak var left: RoundAxisButton!
     
-    var motorManager: MotorManager!
+    var gpManager: GPBluetoothManager!
     var buttonPulse: PulseLayer?
     
     override func viewDidLoad() {
@@ -34,8 +34,8 @@ class CameraPanViewController: UIViewController {
             button.addTarget(self, action: #selector(self.stopMove), for: .touchUpInside)
             button.addTarget(self, action: #selector(self.stopMove), for: .touchUpOutside)
         }
-
-        motorManager = MotorManager(left: left, up: up, down: down, right: right)
+        
+        print("Done loading view")
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,12 +52,27 @@ class CameraPanViewController: UIViewController {
             self.view.layer.insertSublayer(buttonPulse, below: sender.layer)
         }
 
-        motorManager.moveGigapan(sender: sender)
+        switch sender.direction {
+        case .Left:
+            gpManager.send(text: "3")
+            break
+        case .Up:
+            gpManager.send(text: "1")
+            break
+        case .Down:
+            gpManager.send(text: "2")
+            break
+        case .Right:
+            gpManager.send(text: "4")
+            break
+        }
+        
+        // motorManager.moveGigapan(sender: sender)
     }
     
     func stopMove() {
         buttonPulse?.removeFromSuperlayer()
-        motorManager.stop()
+        gpManager.send(text: "0")
     }
 
 }
