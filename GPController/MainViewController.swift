@@ -10,7 +10,7 @@ import UIKit
 import CoreBluetooth
 import ChameleonFramework
 
-class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceScannerDelegate {
+class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
@@ -20,7 +20,8 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceSc
     @IBOutlet weak var controlButton: FlexiButton!
     @IBOutlet weak var changeMeLaterButton: FlexiButton!
     @IBOutlet weak var settingsButton: FlexiButton!
-    
+
+    var deviceScanner: GPDeviceScanner!
     var gpManager: GPBluetoothManager?
     var connected: Bool = false {
         didSet {
@@ -30,6 +31,10 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceSc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let centralQueue = DispatchQueue(label: "GPCtrl.devicescan", attributes: [])
+        deviceScanner = GPDeviceScanner()
+        deviceScanner.bluetoothManager = CBCentralManager(delegate: deviceScanner, queue: centralQueue)
+        deviceScanner.filterUUID = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
 
         initCustomViews()
     }
@@ -94,8 +99,19 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate, DeviceSc
         } else if (segue.identifier == "scanForDevices") {
             if let nc = segue.destination as? UINavigationController {
                 if let dest = nc.childViewControllerForStatusBarHidden as? DevicesTableViewController {
-                    dest.delegate = self
-                    dest.filterUUID = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
+                    dest.scanner = deviceScanner
+                    deviceScanner?.delegate = dest
+               }
+            }
+        }
+    }
+    
+    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
+        if (segue.identifier == "menuToMain") {
+            if let src = segue.source as? DevicesTableViewController {
+                if let peripheral = src.selectedPeripheral {
+                    gpManager = GPBluetoothManager(withManager: deviceScanner.bluetoothManager)
+                    gpManager?.connectPeripheral(peripheral: peripheral)
                 }
             }
         }
