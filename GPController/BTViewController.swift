@@ -14,8 +14,13 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
 
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
-    @IBOutlet weak var connectButton: RoundedButton!
-
+    @IBOutlet weak var connectButton: FlexiButton!
+    
+    @IBOutlet weak var panoramaButton: FlexiButton!
+    @IBOutlet weak var controlButton: FlexiButton!
+    @IBOutlet weak var changeMeLaterButton: FlexiButton!
+    @IBOutlet weak var settingsButton: FlexiButton!
+    
     var manager: CBCentralManager!
     var gpManager: GPBluetoothManager!
     var peripheral: CBPeripheral!
@@ -23,6 +28,12 @@ class BTViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothM
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let menuButtons: [UIButton] = [panoramaButton, controlButton, changeMeLaterButton, settingsButton]
+
+        for button in menuButtons {
+            button.tintColor = .rushmoreBrown
+        }
+        
         connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
         
         manager = CBCentralManager(delegate: self, queue: nil)

@@ -22,7 +22,7 @@
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
-		07B4579F1EE8A7E200ABF165 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* RoundedButton.swift */; };
+		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B457A81EE8CD4300ABF165 /* CustomColors.swift */; };
 		082CF81EF3424C922F91EDA0 /* Pods_GPControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72315DC1439A7A44ADB53F11 /* Pods_GPControllerTests.framework */; };
@@ -83,7 +83,7 @@
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
-		07B4579E1EE8A7E200ABF165 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		1D2DD39D41C28B9BC5A486F2 /* Pods-GPControllerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPControllerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPControllerUITests/Pods-GPControllerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4230C574549DF2A09B2964EF /* Pods-GPControllerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPControllerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPControllerUITests/Pods-GPControllerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			children = (
 				075D07B91EE0C3BA00592BBA /* LoadingButton.swift */,
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
-				07B4579E1EE8A7E200ABF165 /* RoundedButton.swift */,
+				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
 			);
 			name = Designables;
 			sourceTree = "<group>";
@@ -533,7 +533,7 @@
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
-				07B4579F1EE8A7E200ABF165 /* RoundedButton.swift in Sources */,
+				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
 				075D07BA1EE0C3BA00592BBA /* LoadingButton.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
