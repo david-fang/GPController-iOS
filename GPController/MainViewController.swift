@@ -95,7 +95,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
             }
         } else if (segue.identifier == "scanForDevices") {
             if let nc = segue.destination as? UINavigationController {
-                if let dest = nc.childViewControllerForStatusBarHidden as? DevicesTableViewController {
+                if let dest = nc.childViewControllerForStatusBarHidden as? ScanDevicesViewController {
                     dest.gpBTManager = self.gpBTManager
                }
             }
@@ -103,8 +103,8 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
     }
     
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
-        if (segue.identifier == "menuToMain") {
-            if let src = segue.source as? DevicesTableViewController {
+        if (segue.identifier == "scannerToMain") {
+            if let src = segue.source as? ScanDevicesViewController {
                 if let peripheral = src.selectedPeripheral {
                     gpBTManager?.connectPeripheral(peripheral: peripheral)
                 }

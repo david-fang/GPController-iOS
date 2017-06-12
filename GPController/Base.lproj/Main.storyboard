@@ -49,7 +49,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="8DY-z1-coM" kind="show" identifier="scanForDevices" id="R1a-pc-h8e"/>
+                                            <segue destination="pNv-Ue-sgW" kind="show" identifier="scanForDevices" id="Abj-5V-9Gp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -248,46 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9G-o8-OtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="36"/>
-        </scene>
-        <!--Devices Table View Controller-->
-        <scene sceneID="0Kc-3T-Twk">
-            <objects>
-                <tableViewController id="PBn-43-I2u" customClass="DevicesTableViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9CY-qm-72b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deviceCell" id="Oip-Pb-zUQ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oip-Pb-zUQ" id="0K3-dK-uQJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="PBn-43-I2u" id="i2h-O4-a5n"/>
-                            <outlet property="delegate" destination="PBn-43-I2u" id="bQn-mj-feT"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Udk-GK-cs4">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="hVA-9S-3Kp">
-                            <connections>
-                                <action selector="returnToMain:" destination="PBn-43-I2u" id="Qdd-Be-pIv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="A4M-fv-q22" kind="unwind" identifier="menuToMain" unwindAction="unwindToMainWithSegue:" id="GRb-bv-p1Y"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDR-sE-Fxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="A4M-fv-q22" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1583" y="-629"/>
+            <point key="canvasLocation" x="-294" y="36"/>
         </scene>
         <!--Camera Pan View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -395,25 +356,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="36"/>
+            <point key="canvasLocation" x="558" y="427"/>
         </scene>
-        <!--Navigation Controller View Controller-->
-        <scene sceneID="IoR-GA-DLm">
+        <!--Scan Devices View Controller-->
+        <scene sceneID="lnZ-eE-PgF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8DY-z1-coM" customClass="GPNavigationControllerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aTI-c6-OW9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="Oq5-3H-I4J" customClass="ScanDevicesViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lKI-WE-Cxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ADD-Rp-R7o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fWC-jA-fby">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bMJ-5w-xrH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="discoveredDeviceCell" id="Hkd-R3-Wh0">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYN-LK-ZEE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
+                                        <rect key="frame" x="136" y="263" width="100" height="100"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth is required to scan for devices." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSv-70-Ybh">
+                                        <rect key="frame" x="55" y="387" width="265" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="NJX-YK-9eD" firstAttribute="centerX" secondItem="GYN-LK-ZEE" secondAttribute="centerX" constant="-1.5" id="A6g-nW-Abv"/>
+                                    <constraint firstItem="ZSv-70-Ybh" firstAttribute="top" secondItem="NJX-YK-9eD" secondAttribute="bottom" constant="24" id="I7E-lT-CEK"/>
+                                    <constraint firstItem="ZSv-70-Ybh" firstAttribute="centerX" secondItem="NJX-YK-9eD" secondAttribute="centerX" constant="1.25" id="eCD-Xr-R9i"/>
+                                    <constraint firstItem="NJX-YK-9eD" firstAttribute="centerY" secondItem="GYN-LK-ZEE" secondAttribute="centerY" constant="-20.5" id="uRJ-og-bAE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bMJ-5w-xrH" firstAttribute="leading" secondItem="fWC-jA-fby" secondAttribute="leading" id="9sa-TU-qBr"/>
+                            <constraint firstItem="GYN-LK-ZEE" firstAttribute="leading" secondItem="fWC-jA-fby" secondAttribute="leading" id="LoG-KD-Zs7"/>
+                            <constraint firstAttribute="trailing" secondItem="bMJ-5w-xrH" secondAttribute="trailing" id="YTF-2W-vGd"/>
+                            <constraint firstAttribute="bottom" secondItem="bMJ-5w-xrH" secondAttribute="bottom" id="ahh-RM-476"/>
+                            <constraint firstAttribute="trailing" secondItem="GYN-LK-ZEE" secondAttribute="trailing" id="b82-vw-fjc"/>
+                            <constraint firstAttribute="bottom" secondItem="GYN-LK-ZEE" secondAttribute="bottom" id="ecP-Rk-Mxc"/>
+                            <constraint firstItem="bMJ-5w-xrH" firstAttribute="top" secondItem="fWC-jA-fby" secondAttribute="top" id="nEd-ta-Q9y"/>
+                            <constraint firstItem="GYN-LK-ZEE" firstAttribute="top" secondItem="fWC-jA-fby" secondAttribute="top" id="ucR-db-TQb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="or3-F4-fef">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="wjX-M1-LgK">
+                            <connections>
+                                <segue destination="ye1-v5-G9Q" kind="unwind" identifier="scannerToMain" unwindAction="unwindToMainWithSegue:" id="NY8-q2-utj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="PBn-43-I2u" kind="relationship" relationship="rootViewController" id="xle-Yd-cYf"/>
+                        <outlet property="devicesTableView" destination="bMJ-5w-xrH" id="ezq-Gs-Z6b"/>
+                        <outlet property="noBluetoothView" destination="GYN-LK-ZEE" id="Kwc-FI-5eS"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TBc-hS-eUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-xy-4gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ye1-v5-G9Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="898" y="-629"/>
+            <point key="canvasLocation" x="1351" y="-273"/>
         </scene>
         <!--Navigation Controller View Controller-->
         <scene sceneID="55U-Ur-EbZ">
@@ -431,10 +451,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ED6-Th-bOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-812" y="35.532233883058474"/>
+            <point key="canvasLocation" x="-1220" y="36"/>
+        </scene>
+        <!--Navigation Controller View Controller-->
+        <scene sceneID="swP-SD-rZx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pNv-Ue-sgW" customClass="GPNavigationControllerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SQz-ir-DOG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oq5-3H-I4J" kind="relationship" relationship="rootViewController" id="YIs-jA-k8T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yaG-Gh-TeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="-273"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Bluetooth_Logo" width="100" height="100"/>
         <image name="SepiaRushmore" width="2144" height="1424"/>
     </resources>
 </document>

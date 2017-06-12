@@ -107,6 +107,13 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         return connected
     }
     
+    /**
+     * Returns true if bluetooth capabilities are turned on, false otherwise
+     * - returns: true if bluetooth is on
+     */
+    func isEnabled() -> Bool {
+        return centralManager.state == .poweredOn
+    }
     
     // MARK: - Scanner API
     

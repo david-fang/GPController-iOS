@@ -9,26 +9,27 @@
 import UIKit
 import CoreBluetooth
 
-class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DeviceScannerDelegate {
+class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GPDeviceDiscoveryDelegate {
 
     @IBOutlet weak var noBluetoothView: UIView!
     @IBOutlet weak var devicesTableView: UITableView!
 
     var peripherals: [CBPeripheral] = []
     var selectedPeripheral: CBPeripheral?
-    var scanner: GPDeviceScanner!
+    var gpBTManager: GPBluetoothManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         devicesTableView.delegate = self
         devicesTableView.dataSource = self
+        gpBTManager.scanner = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if (scanner.bluetoothIsOn) {
+        if (gpBTManager.isEnabled()) {
             bluetoothMadeAvailable()
         } else {
             bluetoothMadeUnavailable()
@@ -40,14 +41,14 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func toggleBluetoothWarning(to on: Bool) {
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             self.noBluetoothView.alpha = on ? 1.0 : 0.0
         })
     }
     
-    // MARK: - DeviceScannerDelegate
+    // MARK: - GPDeviceDiscoveryDelegate
     
-    func centralManagerDidDiscoverPeripheral(peripheral: CBPeripheral, deviceRSSI: NSNumber) {
+    func didDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber) {
         if peripheral.name != nil {
             DispatchQueue.main.async(execute: {
                 if ((self.peripherals.contains(peripheral)) == false) {
@@ -56,6 +57,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
                 }
             })
         }
+
     }
     
     func bluetoothMadeUnavailable() {
@@ -64,7 +66,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
             self.toggleBluetoothWarning(to: true)
         }
 
-        scanner.scanForPeripherals(false)
+        gpBTManager.scanForPeripherals(false)
     }
     
     func bluetoothMadeAvailable() {
@@ -73,9 +75,9 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
             self.toggleBluetoothWarning(to: false)
         }
         
-        peripherals = scanner.getConnectedPeripherals()
+        peripherals = gpBTManager.getConnectedPeripherals()
         devicesTableView.reloadData()
-        scanner.scanForPeripherals(true)
+        gpBTManager.scanForPeripherals(true)
     }
     
     // MARK: - TableViewDataSource / TableViewDelegate
@@ -97,14 +99,14 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPeripheral = peripherals[indexPath.row]
-        scanner.scanForPeripherals(false)
+        gpBTManager.scanForPeripherals(false)
         performSegue(withIdentifier: "scannerToMain", sender: self)
     }
     
     // MARK: - Navigation
     
     @IBAction func returnToMain(_ sender: Any) {
-        scanner.scanForPeripherals(false)
+        gpBTManager.scanForPeripherals(false)
         performSegue(withIdentifier: "scannerToMain", sender: self)
     }
 }
