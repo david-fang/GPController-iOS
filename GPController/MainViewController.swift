@@ -10,7 +10,7 @@ import UIKit
 import CoreBluetooth
 import ChameleonFramework
 
-class MainViewController: UIViewController, GPBluetoothManagerDelegate {
+class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothManagerDelegate {
 
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
@@ -21,8 +21,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     @IBOutlet weak var changeMeLaterButton: FlexiButton!
     @IBOutlet weak var settingsButton: FlexiButton!
 
-    var deviceScanner: GPDeviceScanner!
-    var gpManager: GPBluetoothManager?
+    var gpBTManager: GPBluetoothManager!
     var connected: Bool = false {
         didSet {
             updateHeader(withDetails: connected)
@@ -31,10 +30,9 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let centralQueue = DispatchQueue(label: "GPCtrl.devicescan", attributes: [])
-        deviceScanner = GPDeviceScanner()
-        deviceScanner.bluetoothManager = CBCentralManager(delegate: deviceScanner, queue: centralQueue)
-        deviceScanner.filterUUID = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
+        let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
+        let centralManager = CBCentralManager(delegate: self, queue: centralQueue)
+        gpBTManager = GPBluetoothManager(withManager: centralManager)
 
         initCustomViews()
     }
@@ -62,6 +60,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         if (shouldShowDetails) {
             
         } else {
+            connectButton.isUserInteractionEnabled = true
             connectButton.alpha = 1.0
             connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
         }
@@ -71,6 +70,12 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: - CBCentralManagerDelegate
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        // IGNORE
+    }
+    
     // MARK: - GPBluetoothManagerDelegate
     
     func didConnectPeripheral(deviceName aName: String?) {
@@ -81,26 +86,17 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         connected = false
     }
  
-    // MARK: - DeviceScannerDelegate
-    
-    func centralManagerDidSelectPeripheral(withManager aManager: CBCentralManager, andPeripheral aPeripheral: CBPeripheral) {
-        gpManager = GPBluetoothManager(withManager: aManager)
-        gpManager?.delegate = self
-        gpManager?.connectPeripheral(peripheral: aPeripheral)
-    }
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toMotorControl") {
             if let dest = segue.destination as? CameraPanViewController {
-                dest.gpManager = self.gpManager
+                dest.gpBTManager = self.gpBTManager
             }
         } else if (segue.identifier == "scanForDevices") {
             if let nc = segue.destination as? UINavigationController {
                 if let dest = nc.childViewControllerForStatusBarHidden as? DevicesTableViewController {
-                    dest.scanner = deviceScanner
-                    deviceScanner?.delegate = dest
+                    dest.gpBTManager = self.gpBTManager
                }
             }
         }
@@ -110,8 +106,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         if (segue.identifier == "menuToMain") {
             if let src = segue.source as? DevicesTableViewController {
                 if let peripheral = src.selectedPeripheral {
-                    gpManager = GPBluetoothManager(withManager: deviceScanner.bluetoothManager)
-                    gpManager?.connectPeripheral(peripheral: peripheral)
+                    gpBTManager?.connectPeripheral(peripheral: peripheral)
                 }
             }
         }

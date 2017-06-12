@@ -9,28 +9,31 @@
 import UIKit
 import CoreBluetooth
 
-class DevicesTableViewController: UITableViewController, DeviceScannerDelegate {
-    var scanner: GPDeviceScanner!
+class DevicesTableViewController: UITableViewController, GPDeviceDiscoveryDelegate {
+
+    var gpBTManager: GPBluetoothManager!
     var peripherals: [CBPeripheral] = []
     var selectedPeripheral: CBPeripheral?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        gpBTManager.scanner = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        scanner.scanForPeripherals(true)
+        gpBTManager.scanForPeripherals(true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    func centralManagerDidDiscoverPeripheral(peripheral: CBPeripheral, deviceRSSI: NSNumber) {
+    
+    func didDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber) {
         if peripheral.name != nil {
             DispatchQueue.main.async(execute: {
                 if ((self.peripherals.contains(peripheral)) == false) {
+                    print("\(peripheral.name)")
                     self.peripherals.append(peripheral)
                     self.tableView.reloadData()
                 }
@@ -56,14 +59,14 @@ class DevicesTableViewController: UITableViewController, DeviceScannerDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPeripheral = peripherals[indexPath.row]
-        scanner.scanForPeripherals(false)
+        gpBTManager.scanForPeripherals(false)
         performSegue(withIdentifier: "menuToMain", sender: self)
     }
     
     // MARK: - Navigation
     
     @IBAction func returnToMain(_ sender: Any) {
-        scanner.scanForPeripherals(false)
+        gpBTManager.scanForPeripherals(false)
         performSegue(withIdentifier: "menuToMain", sender: self)
     }
 }

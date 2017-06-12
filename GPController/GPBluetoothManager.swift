@@ -9,6 +9,10 @@
 import UIKit
 import CoreBluetooth
 
+@objc protocol GPDeviceDiscoveryDelegate {
+    @objc func didDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber)
+}
+
 @objc protocol GPBluetoothManagerDelegate {
     @objc optional func didConnectPeripheral(deviceName aName : String?)
     @objc optional func didDisconnectPeripheral()
@@ -20,21 +24,22 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
 
     // MARK: - Delegate Properties
     var delegate: GPBluetoothManagerDelegate?
+    var scanner: GPDeviceDiscoveryDelegate?
     
     // MARK: - Class Properties
     fileprivate let MTU = 20
     fileprivate let UARTServiceUUID             : CBUUID
     fileprivate let UARTRXCharacteristicUUID    : CBUUID
     fileprivate let UARTTXCharacteristicUUID    : CBUUID
+    fileprivate var filterUUID                  : CBUUID
     
     fileprivate var centralManager              : CBCentralManager
     fileprivate var bluetoothPeripheral         : CBPeripheral?
     fileprivate var uartRXCharacteristic        : CBCharacteristic?
     fileprivate var uartTXCharacteristic        : CBCharacteristic?
 
-
     fileprivate var connected = false
-    
+
     // MARK: - BluetoothManager API
     
     required init(withManager aManager : CBCentralManager) {
@@ -42,6 +47,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         UARTServiceUUID          = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
         UARTTXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartTXCharacteristicUUIDString)
         UARTRXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartRXCharacteristicUUIDString)
+        filterUUID               = UARTServiceUUID
         super.init()
         
         centralManager.delegate = self
@@ -89,6 +95,10 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         }
     }
     
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        scanner?.didDiscoverPeripheral(peripheral: peripheral, RSSI: RSSI)
+    }
+    
     /**
      * Returns true if the peripheral device is connected, false otherwise
      * - returns: true if device is connected
@@ -97,6 +107,34 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         return connected
     }
     
+    
+    // MARK: - Scanner API
+    
+    /**
+     * Starts scanning for peripherals with rscServiceUUID.
+     * - parameter enable: If YES, this method will enable scanning for bridge devices, if NO it will stop scanning
+     * - returns: true if success, false if Bluetooth Manager is not in CBCentralManagerStatePoweredOn state.
+     */
+    func scanForPeripherals(_ enable:Bool) {
+        if (centralManager.state == .poweredOn) {
+            DispatchQueue.main.async {
+                if enable == true {
+                    print("Starting scan for peripherals")
+                    let options: NSDictionary = NSDictionary(objects: [NSNumber(value: true as Bool)], forKeys: [CBCentralManagerScanOptionAllowDuplicatesKey as NSCopying])
+                    self.centralManager.scanForPeripherals(withServices: [self.filterUUID], options: options as? [String : AnyObject])
+                } else {
+                    print("Stopping scan")
+                    self.centralManager.stopScan()
+                }
+            }
+        }
+    }
+    
+    func getConnectedPeripherals() -> [CBPeripheral] {
+        let retreivedPeripherals : [CBPeripheral] = centralManager.retrieveConnectedPeripherals(withServices: [filterUUID])
+        return retreivedPeripherals
+    }
+
     // MARK: - Data Sending API
     
     /**

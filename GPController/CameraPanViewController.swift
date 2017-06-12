@@ -15,9 +15,9 @@ class CameraPanViewController: UIViewController {
     @IBOutlet weak var down: RoundAxisButton!
     @IBOutlet weak var left: RoundAxisButton!
     
-    var gpManager: GPBluetoothManager!
+    var gpBTManager: GPBluetoothManager!
     var buttonPulse: PulseLayer?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -52,16 +52,16 @@ class CameraPanViewController: UIViewController {
 
         switch sender.direction {
         case .Left:
-            gpManager.send(text: "3")
+            gpBTManager.send(text: "3")
             break
         case .Up:
-            gpManager.send(text: "1")
+            gpBTManager.send(text: "1")
             break
         case .Down:
-            gpManager.send(text: "2")
+            gpBTManager.send(text: "2")
             break
         case .Right:
-            gpManager.send(text: "4")
+            gpBTManager.send(text: "4")
             break
         }
         
@@ -70,7 +70,7 @@ class CameraPanViewController: UIViewController {
     
     func stopMove() {
         buttonPulse?.removeFromSuperlayer()
-        gpManager.send(text: "0")
+        gpBTManager.send(text: "0")
     }
 
 }

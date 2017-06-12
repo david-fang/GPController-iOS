@@ -400,7 +400,6 @@
         <!--Navigation Controller View Controller-->
         <scene sceneID="IoR-GA-DLm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TBc-hS-eUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8DY-z1-coM" customClass="GPNavigationControllerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aTI-c6-OW9">
@@ -412,6 +411,7 @@
                         <segue destination="PBn-43-I2u" kind="relationship" relationship="rootViewController" id="xle-Yd-cYf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBc-hS-eUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="898" y="-629"/>
         </scene>
