@@ -259,7 +259,12 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print(peripheral)
+        
+        if let error = error {
+            print(error)
+        }
+
+        print("Disconnecting \(peripheral)")
         cancelPeripheralConnection()
     }
     
