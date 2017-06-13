@@ -18,6 +18,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     @IBOutlet weak var connectButton: FlexiButton!
     @IBOutlet weak var panoramaButton: FlexiButton!
     @IBOutlet weak var controlButton: FlexiButton!
+    @IBOutlet weak var savedConfigsButton: FlexiButton!
     @IBOutlet weak var changeMeLaterButton: FlexiButton!
     @IBOutlet weak var settingsButton: FlexiButton!
 
@@ -30,17 +31,14 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         gpBTManager = GPBluetoothManager()
+        gpBTManager.delegate = self
         initCustomViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        if (gpBTManager.isConnected()) {
-            print("Returning to main || Displaying stats")
-        } else {
-            print("Returning to main || Hiding stats")
-        }
+        updateMainView(animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,25 +50,37 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         for button in [panoramaButton, controlButton, changeMeLaterButton, settingsButton] {
             button?.tintColor = .rushmoreBrown
         }
-        updateHeader(withDetails: false)
+
+        connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
     }
     
     /** Update the header depending on whether or not a GigaPan device
         has been connected. */
-    private func updateHeader(withDetails shouldShowDetails: Bool) {
-        if (shouldShowDetails) {
-            
-        } else {
-            connectButton.isUserInteractionEnabled = true
-            connectButton.alpha = 1.0
-            connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
-        }
+    func updateMainView(animated: Bool) {
+        let animationDuration = animated ? 0.7 : 0.0
+        let connected = gpBTManager.isConnected()
+        
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.connectButton.isUserInteractionEnabled = !connected
+            self.connectButton.alpha = connected ? 0.0 : 1.0
+
+            self.panoramaButton.isUserInteractionEnabled = connected
+            self.controlButton.isUserInteractionEnabled = connected
+        })
     }
  
-    // GPBluetoothManagerDelegate
+    // MARK: - GPBluetoothManagerDelegate
     
     func peripheralReady() {
-        // Update header and enable navigation
+        DispatchQueue.main.async {
+            self.updateMainView(animated: true)
+        }
+    }
+    
+    func didDisconnectPeripheral() {
+        DispatchQueue.main.async {
+            self.updateMainView(animated: true)
+        }
     }
     
     // MARK: - Navigation

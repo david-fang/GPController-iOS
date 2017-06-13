@@ -42,7 +42,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func toggleBluetoothWarning(to on: Bool) {
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.noBluetoothView.alpha = on ? 1.0 : 0.0
         })
     }

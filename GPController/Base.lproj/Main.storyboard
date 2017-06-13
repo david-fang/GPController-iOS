@@ -243,6 +243,7 @@
                         <outlet property="dashboardContainer" destination="1Nv-Jh-k7K" id="Rtx-4t-3pb"/>
                         <outlet property="headerContainer" destination="6TE-f6-5bU" id="GIb-YC-CS2"/>
                         <outlet property="panoramaButton" destination="QJW-Ii-xKs" id="NTS-Vw-Icq"/>
+                        <outlet property="savedConfigsButton" destination="vxV-0I-QSl" id="PeA-fd-Sku"/>
                         <outlet property="settingsButton" destination="ERL-GN-aDU" id="81x-lP-D1m"/>
                     </connections>
                 </viewController>
