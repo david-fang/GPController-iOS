@@ -409,21 +409,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
-                                        <rect key="frame" x="136" y="263" width="100" height="100"/>
+                                        <rect key="frame" x="138" y="250" width="100" height="100"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth is required to scan for devices." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSv-70-Ybh">
-                                        <rect key="frame" x="55" y="387" width="265" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enable Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSv-70-Ybh">
+                                        <rect key="frame" x="86.5" y="374" width="203.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="0.93998798076923074" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth is required to scan for devices." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocp-O5-e2J">
+                                        <rect key="frame" x="55" y="403.5" width="265" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="0.93998798080000001" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="NJX-YK-9eD" firstAttribute="centerX" secondItem="GYN-LK-ZEE" secondAttribute="centerX" constant="-1.5" id="A6g-nW-Abv"/>
+                                    <constraint firstItem="Ocp-O5-e2J" firstAttribute="centerX" secondItem="NJX-YK-9eD" secondAttribute="centerX" id="8eV-cg-Lnc"/>
+                                    <constraint firstItem="NJX-YK-9eD" firstAttribute="centerX" secondItem="GYN-LK-ZEE" secondAttribute="centerX" constant="0.5" id="A6g-nW-Abv"/>
                                     <constraint firstItem="ZSv-70-Ybh" firstAttribute="top" secondItem="NJX-YK-9eD" secondAttribute="bottom" constant="24" id="I7E-lT-CEK"/>
-                                    <constraint firstItem="ZSv-70-Ybh" firstAttribute="centerX" secondItem="NJX-YK-9eD" secondAttribute="centerX" constant="1.25" id="eCD-Xr-R9i"/>
-                                    <constraint firstItem="NJX-YK-9eD" firstAttribute="centerY" secondItem="GYN-LK-ZEE" secondAttribute="centerY" constant="-20.5" id="uRJ-og-bAE"/>
+                                    <constraint firstItem="Ocp-O5-e2J" firstAttribute="top" secondItem="ZSv-70-Ybh" secondAttribute="bottom" constant="8" symbolic="YES" id="Xej-ht-FVx"/>
+                                    <constraint firstItem="ZSv-70-Ybh" firstAttribute="centerX" secondItem="NJX-YK-9eD" secondAttribute="centerX" id="eCD-Xr-R9i"/>
+                                    <constraint firstItem="NJX-YK-9eD" firstAttribute="centerY" secondItem="GYN-LK-ZEE" secondAttribute="centerY" constant="-33.5" id="uRJ-og-bAE"/>
                                 </constraints>
                             </view>
                         </subviews>

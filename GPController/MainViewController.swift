@@ -30,13 +30,17 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         gpBTManager = GPBluetoothManager()
-
         initCustomViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        if (gpBTManager.isConnected()) {
+            print("Returning to main || Displaying stats")
+        } else {
+            print("Returning to main || Hiding stats")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,17 +66,13 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
             connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
         }
     }
-    
-    // MARK: - GPBluetoothManagerDelegate
-    
-    func didConnectPeripheral(deviceName aName: String?) {
-        updateHeader(withDetails: true)
-    }
-    
-    func didDisconnectPeripheral() {
-        updateHeader(withDetails: false)
-    }
  
+    // GPBluetoothManagerDelegate
+    
+    func peripheralReady() {
+        // Update header and enable navigation
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

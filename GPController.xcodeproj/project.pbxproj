@@ -21,6 +21,7 @@
 		075D07BA1EE0C3BA00592BBA /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07B91EE0C3BA00592BBA /* LoadingButton.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
+		0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831C1EF057FC008AF478 /* NotificationKeys.swift */; };
 		07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */; };
 		07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
@@ -85,6 +86,7 @@
 		075D07B91EE0C3BA00592BBA /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
+		0771831C1EF057FC008AF478 /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPDeviceScanner.swift; sourceTree = "<group>"; };
 		07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */,
+				0771831C1EF057FC008AF478 /* NotificationKeys.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */,
 				07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */,
 				071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */,
+				0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */,
 				073D628A1ED793B900D28EBA /* MotorManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,

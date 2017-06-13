@@ -30,9 +30,10 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewWillAppear(animated)
 
         if (gpBTManager.isEnabled()) {
-            bluetoothMadeAvailable()
+            noBluetoothView.alpha = 0.0
+            gpBTManager.scanForPeripherals(true)
         } else {
-            bluetoothMadeUnavailable()
+            noBluetoothView.alpha = 1.0
         }
     }
     
@@ -60,24 +61,18 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
 
     }
     
-    func bluetoothMadeUnavailable() {
-        print("Notification made. Turning on warning.")
+    func scannerMadeUnavailable() {
         DispatchQueue.main.async {
             self.toggleBluetoothWarning(to: true)
+            self.gpBTManager.scanForPeripherals(false)  // Does nothing; Bluetooth already off
         }
-
-        gpBTManager.scanForPeripherals(false)
     }
     
-    func bluetoothMadeAvailable() {
-        print("Notification made. Turning off warning.")
+    func scannerMadeAvailable() {
         DispatchQueue.main.async {
             self.toggleBluetoothWarning(to: false)
+            self.gpBTManager.scanForPeripherals(true)
         }
-        
-        peripherals = gpBTManager.getConnectedPeripherals()
-        devicesTableView.reloadData()
-        gpBTManager.scanForPeripherals(true)
     }
     
     // MARK: - TableViewDataSource / TableViewDelegate

@@ -11,6 +11,8 @@ import CoreBluetooth
 
 @objc protocol GPDeviceDiscoveryDelegate {
     @objc func didDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber)
+    @objc func scannerMadeAvailable()
+    @objc func scannerMadeUnavailable()
 }
 
 @objc protocol GPBluetoothManagerDelegate {
@@ -20,12 +22,18 @@ import CoreBluetooth
     @objc optional func peripheralNotSupported()
 }
 
+@objc protocol GPMotorManagerInterruptDelegate {
+    @objc func deviceDidDisconnect()
+    // @objc func deviceDidReconnect()
+    @objc func bluetoothDidDisable()
+}
+
 class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
 
     // MARK: - Delegate Properties
     var delegate: GPBluetoothManagerDelegate?
     var scanner: GPDeviceDiscoveryDelegate?
-    
+
     // MARK: - Class Properties
     fileprivate let MTU = 20
     fileprivate let UARTServiceUUID             : CBUUID
@@ -42,14 +50,14 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     private let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
 
     // MARK: - BluetoothManager API
-    
+
     required override init() {
         UARTServiceUUID          = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
         UARTTXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartTXCharacteristicUUIDString)
         UARTRXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartRXCharacteristicUUIDString)
         filterUUID               = UARTServiceUUID
         super.init()
-        
+
         centralManager = CBCentralManager(delegate: self, queue: centralQueue)
     }
 
@@ -116,7 +124,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     }
     
     // MARK: - Scanner API
-    
+
     /**
      * Starts scanning for peripherals with rscServiceUUID.
      * - parameter enable: If YES, this method will enable scanning for bridge devices, if NO it will stop scanning
@@ -126,11 +134,9 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         if (centralManager.state == .poweredOn) {
             DispatchQueue.main.async {
                 if enable == true {
-                    print("Starting scan for peripherals")
                     let options: NSDictionary = NSDictionary(objects: [NSNumber(value: true as Bool)], forKeys: [CBCentralManagerScanOptionAllowDuplicatesKey as NSCopying])
                     self.centralManager.scanForPeripherals(withServices: [self.filterUUID], options: options as? [String : AnyObject])
                 } else {
-                    print("Stopping scan")
                     self.centralManager.stopScan()
                 }
             }
@@ -227,9 +233,11 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         switch(central.state){
         case .poweredOn:
             state = "Powered ON"
+            scanner?.scannerMadeAvailable()
             break
         case .poweredOff:
             state = "Powered OFF"
+            scanner?.scannerMadeUnavailable()
             break
         case .resetting:
             state = "Resetting"
