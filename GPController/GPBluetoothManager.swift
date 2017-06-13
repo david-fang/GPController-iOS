@@ -33,24 +33,24 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     fileprivate let UARTTXCharacteristicUUID    : CBUUID
     fileprivate var filterUUID                  : CBUUID
     
-    fileprivate var centralManager              : CBCentralManager
+    fileprivate var centralManager              : CBCentralManager!
     fileprivate var bluetoothPeripheral         : CBPeripheral?
     fileprivate var uartRXCharacteristic        : CBCharacteristic?
     fileprivate var uartTXCharacteristic        : CBCharacteristic?
 
-    fileprivate var connected = false
+    private var connected = false
+    private let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
 
     // MARK: - BluetoothManager API
     
-    required init(withManager aManager : CBCentralManager) {
-        centralManager = aManager
+    required override init() {
         UARTServiceUUID          = CBUUID(string: ServiceIdentifiers.uartServiceUUIDString)
         UARTTXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartTXCharacteristicUUIDString)
         UARTRXCharacteristicUUID = CBUUID(string: ServiceIdentifiers.uartRXCharacteristicUUIDString)
         filterUUID               = UARTServiceUUID
         super.init()
         
-        centralManager.delegate = self
+        centralManager = CBCentralManager(delegate: self, queue: centralQueue)
     }
 
     /**

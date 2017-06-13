@@ -7,13 +7,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Main-->
         <scene sceneID="sa4-RJ-GoQ">
             <objects>
-                <viewController id="f0L-5c-wUg" customClass="MainViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" id="f0L-5c-wUg" customClass="MainViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="csa-We-z13"/>
                         <viewControllerLayoutGuide type="bottom" id="TqD-l6-5f3"/>
@@ -91,7 +92,7 @@
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                        <state key="normal" image="Axis">
+                                        <state key="normal" image="Rotate">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -234,6 +235,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4eA-ei-got"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="changeMeLaterButton" destination="skz-Fd-3SE" id="F8S-3J-nsz"/>
                         <outlet property="connectButton" destination="yjN-WE-oQn" id="wzI-PA-nL0"/>
@@ -248,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="-364" y="36"/>
         </scene>
-        <!--Camera Pan View Controller-->
+        <!--Camera Pan-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CameraPanViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Camera Pan" id="BYZ-38-t0r" customClass="CameraPanViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -262,65 +264,84 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE2-F9-ejy" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="74" y="298" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="←">
-                                    <color key="titleColor" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boq-bO-CoD" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="152" y="220" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="0mL-dO-2Xt"/>
                                     <constraint firstAttribute="height" constant="70" id="f6E-DW-bFo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="↑">
-                                    <color key="titleColor" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcR-ol-So9" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="230" y="298" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="→">
-                                    <color key="titleColor" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-PJ-pTW" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="152" y="376" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="↓">
-                                    <color key="titleColor" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title="↓"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.25154358939999999" green="0.57909091020000003" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IS-Xq-eHl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                <rect key="frame" x="106" y="589" width="164" height="54"/>
+                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                <state key="normal" title="Trigger Shutter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -328,6 +349,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="boq-bO-CoD" firstAttribute="leading" secondItem="TE2-F9-ejy" secondAttribute="trailing" constant="8" symbolic="YES" id="CsI-f9-L05"/>
+                            <constraint firstItem="5IS-Xq-eHl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HNr-Na-9gC"/>
                             <constraint firstItem="m6K-PJ-pTW" firstAttribute="centerX" secondItem="boq-bO-CoD" secondAttribute="centerX" id="I3e-pt-Wep"/>
                             <constraint firstItem="OcR-ol-So9" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="IHZ-Ir-5gd"/>
                             <constraint firstItem="m6K-PJ-pTW" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="KIN-1Z-MWC"/>
@@ -338,6 +360,7 @@
                             <constraint firstItem="TE2-F9-ejy" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="UA6-z5-0rw"/>
                             <constraint firstItem="OcR-ol-So9" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="8" symbolic="YES" id="eDB-Aw-Gu2"/>
                             <constraint firstItem="m6K-PJ-pTW" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="ffe-j8-f27"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="5IS-Xq-eHl" secondAttribute="bottom" constant="24" id="iZp-3j-OUS"/>
                             <constraint firstItem="boq-bO-CoD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r6g-Px-vVw"/>
                             <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="TE2-F9-ejy" secondAttribute="bottom" constant="8" symbolic="YES" id="ris-lp-uW0"/>
                             <constraint firstItem="TE2-F9-ejy" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="8" symbolic="YES" id="rxv-Vn-QOl"/>
@@ -354,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="-285"/>
+            <point key="canvasLocation" x="558" y="-610"/>
         </scene>
         <!--Scan Devices View Controller-->
         <scene sceneID="lnZ-eE-PgF">
@@ -376,7 +399,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -431,7 +454,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-xy-4gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ye1-v5-G9Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-1426"/>
+            <point key="canvasLocation" x="1377" y="-1281"/>
         </scene>
         <!--Navigation Controller View Controller-->
         <scene sceneID="55U-Ur-EbZ">
@@ -467,15 +490,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaG-Gh-TeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="-1426"/>
+            <point key="canvasLocation" x="558" y="-1281"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Axis" width="100" height="100"/>
         <image name="Bluetooth_Logo" width="100" height="100"/>
         <image name="Floppy" width="100" height="100"/>
         <image name="More" width="100" height="100"/>
         <image name="Panorama" width="100" height="100"/>
+        <image name="Rotate" width="100" height="100"/>
         <image name="SepiaRushmore" width="2144" height="1424"/>
     </resources>
 </document>

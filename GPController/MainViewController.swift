@@ -1,5 +1,5 @@
 //
-//  BTViewController.swift
+//  MainViewController.swift
 //  GPController
 //
 //  Created by David Fang on 5/31/17.
@@ -10,7 +10,7 @@ import UIKit
 import CoreBluetooth
 import ChameleonFramework
 
-class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoothManagerDelegate {
+class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
@@ -22,17 +22,14 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
     @IBOutlet weak var settingsButton: FlexiButton!
 
     var gpBTManager: GPBluetoothManager!
-    var connected: Bool = false {
-        didSet {
-            updateHeader(withDetails: connected)
-        }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
-        let centralManager = CBCentralManager(delegate: self, queue: centralQueue)
-        gpBTManager = GPBluetoothManager(withManager: centralManager)
+        gpBTManager = GPBluetoothManager()
 
         initCustomViews()
     }
@@ -42,8 +39,8 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
     /** Set up the header and menu views */
@@ -65,25 +62,15 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
             connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    // MARK: - CBCentralManagerDelegate
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        // IGNORE
-    }
     
     // MARK: - GPBluetoothManagerDelegate
     
     func didConnectPeripheral(deviceName aName: String?) {
-        connected = true
+        updateHeader(withDetails: true)
     }
     
     func didDisconnectPeripheral() {
-        connected = false
+        updateHeader(withDetails: false)
     }
  
     // MARK: - Navigation
