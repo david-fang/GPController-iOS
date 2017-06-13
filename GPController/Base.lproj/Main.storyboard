@@ -68,7 +68,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skz-Fd-3SE" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="4" y="128" width="120" height="120"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,11 +86,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USu-sV-aPs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USu-sV-aPs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="128" y="4" width="120" height="120"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="2">
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" image="Axis">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -109,14 +110,14 @@
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="toMotorControl" id="6oI-cn-bC8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJW-Ii-xKs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJW-Ii-xKs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="4" y="4" width="120" height="120"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QJW-Ii-xKs" secondAttribute="height" multiplier="1:1" id="JYm-fl-e6K"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="1">
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" image="Panorama">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -132,11 +133,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxV-0I-QSl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxV-0I-QSl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="252" y="4" width="119" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="3">
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                        <state key="normal" image="Floppy">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -152,13 +153,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERL-GN-aDU" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERL-GN-aDU" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="252" y="128" width="119" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="6">
-                                            <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" image="More"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -166,7 +165,6 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
@@ -248,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9G-o8-OtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-294" y="36"/>
+            <point key="canvasLocation" x="-364" y="36"/>
         </scene>
         <!--Camera Pan View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -356,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="427"/>
+            <point key="canvasLocation" x="558" y="-285"/>
         </scene>
         <!--Scan Devices View Controller-->
         <scene sceneID="lnZ-eE-PgF">
@@ -393,7 +391,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth is required to scan for devices." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSv-70-Ybh">
                                         <rect key="frame" x="55" y="387" width="265" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="0.93998798076923074" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -433,7 +431,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-xy-4gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ye1-v5-G9Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="-273"/>
+            <point key="canvasLocation" x="1378" y="-1426"/>
         </scene>
         <!--Navigation Controller View Controller-->
         <scene sceneID="55U-Ur-EbZ">
@@ -469,11 +467,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaG-Gh-TeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="-273"/>
+            <point key="canvasLocation" x="558" y="-1426"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Axis" width="100" height="100"/>
         <image name="Bluetooth_Logo" width="100" height="100"/>
+        <image name="Floppy" width="100" height="100"/>
+        <image name="More" width="100" height="100"/>
+        <image name="Panorama" width="100" height="100"/>
         <image name="SepiaRushmore" width="2144" height="1424"/>
     </resources>
 </document>

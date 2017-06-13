@@ -27,7 +27,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
             updateHeader(withDetails: connected)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
@@ -36,7 +36,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, GPBluetoot
 
         initCustomViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
