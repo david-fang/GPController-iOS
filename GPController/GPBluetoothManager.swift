@@ -10,7 +10,7 @@ import UIKit
 import CoreBluetooth
 
 @objc protocol GPDeviceDiscoveryDelegate {
-    @objc func didDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber)
+    @objc func didDiscoverPeripheral(_ peripheral: CBPeripheral, RSSI: NSNumber)
     @objc func scannerMadeAvailable()
     @objc func scannerMadeUnavailable()
 }
@@ -46,8 +46,8 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     fileprivate var uartRXCharacteristic        : CBCharacteristic?
     fileprivate var uartTXCharacteristic        : CBCharacteristic?
 
-    private var connected = false
-    private let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
+    fileprivate var connected = false
+    fileprivate let centralQueue = DispatchQueue(label: "GPCtrl.ble", attributes: [])
 
     // MARK: - BluetoothManager API
 
@@ -87,8 +87,9 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             print("Peripheral not set")
             return
         }
+
         if connected {
-            print("Disconnecting...")
+            print("Disconnecting from \(bluetoothPeripheral!.name)...")
             connected = false
         } else {
             print("Cancelling connection...")
@@ -104,7 +105,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        scanner?.didDiscoverPeripheral(peripheral: peripheral, RSSI: RSSI)
+        scanner?.didDiscoverPeripheral(peripheral, RSSI: RSSI)
     }
     
     /**
@@ -279,7 +280,6 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             print(error)
         }
 
-        print("Disconnecting \(peripheral)")
         cancelPeripheralConnection()
     }
     

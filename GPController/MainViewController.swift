@@ -9,6 +9,7 @@
 import UIKit
 import CoreBluetooth
 import ChameleonFramework
+import Spring
 
 class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
@@ -46,12 +47,13 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     }
 
     /** Set up the header and menu views */
-    private func initCustomViews() {
+    fileprivate func initCustomViews() {
         for button in [panoramaButton, controlButton, changeMeLaterButton, settingsButton] {
             button?.tintColor = .rushmoreBrown
         }
 
-        connectButton.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
+        connectButton.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
+        CAAnimation.addFlashLayer(to: connectButton.layer)
     }
     
     /** Update the header depending on whether or not a GigaPan device
@@ -78,7 +80,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
             self.updateMainView(animated: true)
         }
     }
-    
+
     func didDisconnectPeripheral() {
         DispatchQueue.main.async {
             self.updateMainView(animated: true)
@@ -101,7 +103,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         }
     }
     
-    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
+    @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
         if (segue.identifier == "scannerToMain") {
             if let src = segue.source as? ScanDevicesViewController {
                 if let peripheral = src.selectedPeripheral {

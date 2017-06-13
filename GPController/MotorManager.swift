@@ -11,31 +11,31 @@ import UIKit
 
 class MotorManager {
     
-    private var timer: Timer
+    fileprivate var timer: Timer
     
     // Have it init with a bluetooth manager
     init(left: RoundAxisButton, up: RoundAxisButton, down: RoundAxisButton, right: RoundAxisButton) {
         self.timer = Timer()
     }
 
-    func moveGigapan(sender: RoundAxisButton) {
+    func moveGigapan(_ sender: RoundAxisButton) {
         switch sender.direction {
-            case .Left:
+            case .left:
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
                     self.moveLeft()
                 })
                 break
-            case .Up:
+            case .up:
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
                     self.moveUp()
                 })
                 break
-            case .Down:
+            case .down:
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
                     self.moveDown()
                 })
                 break
-            case .Right:
+            case .right:
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
                     self.moveRight()
                 })
@@ -50,19 +50,19 @@ class MotorManager {
         timer.invalidate()
     }
     
-    private func moveLeft() {
+    fileprivate func moveLeft() {
         print("Moving left...")
     }
     
-    private func moveUp() {
+    fileprivate func moveUp() {
         print("Moving up...")
     }
     
-    private func moveDown() {
+    fileprivate func moveDown() {
         print("Moving down...")
     }
     
-    private func moveRight() {
+    fileprivate func moveRight() {
         print("Moving right...")
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import CoreBluetooth
 
 protocol DeviceScannerDelegate {
-    func centralManagerDidDiscoverPeripheral(peripheral: CBPeripheral, deviceRSSI: NSNumber)
+    func centralManagerDidDiscoverPeripheral(_ peripheral: CBPeripheral, deviceRSSI: NSNumber)
 }
 
 class GPDeviceScanner: NSObject, CBCentralManagerDelegate {
@@ -77,6 +77,6 @@ class GPDeviceScanner: NSObject, CBCentralManagerDelegate {
     //MARK: - CBCentralManager Functions
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        self.delegate?.centralManagerDidDiscoverPeripheral(peripheral: peripheral, deviceRSSI: RSSI)
+        self.delegate?.centralManagerDidDiscoverPeripheral(peripheral, deviceRSSI: RSSI)
     }
 }

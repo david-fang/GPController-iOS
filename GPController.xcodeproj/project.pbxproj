@@ -18,10 +18,10 @@
 		07369DE91ED7406500DF29E3 /* GPControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */; };
 		073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62861ED77F1500D28EBA /* PulseLayer.swift */; };
 		073D628A1ED793B900D28EBA /* MotorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62891ED793B900D28EBA /* MotorManager.swift */; };
-		075D07BA1EE0C3BA00592BBA /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07B91EE0C3BA00592BBA /* LoadingButton.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
 		0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831C1EF057FC008AF478 /* NotificationKeys.swift */; };
+		0771831F1EF0924A008AF478 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831E1EF0924A008AF478 /* Extensions.swift */; };
 		07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */; };
 		07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
@@ -83,10 +83,10 @@
 		07369DEA1ED7406500DF29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073D62861ED77F1500D28EBA /* PulseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseLayer.swift; sourceTree = "<group>"; };
 		073D62891ED793B900D28EBA /* MotorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotorManager.swift; sourceTree = "<group>"; };
-		075D07B91EE0C3BA00592BBA /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
 		0771831C1EF057FC008AF478 /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
+		0771831E1EF0924A008AF478 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPDeviceScanner.swift; sourceTree = "<group>"; };
 		07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
@@ -192,7 +192,6 @@
 		07369DF81ED753CB00DF29E3 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
-				075D07B91EE0C3BA00592BBA /* LoadingButton.swift */,
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
 				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
 			);
@@ -224,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				073D62861ED77F1500D28EBA /* PulseLayer.swift */,
+				0771831E1EF0924A008AF478 /* Extensions.swift */,
 			);
 			name = Animations;
 			sourceTree = "<group>";
@@ -348,17 +348,20 @@
 					07369DC41ED7406400DF29E3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 65MU9YPD2J;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					07369DD81ED7406500DF29E3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 65MU9YPD2J;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 07369DC41ED7406400DF29E3;
 					};
 					07369DE31ED7406500DF29E3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 65MU9YPD2J;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 07369DC41ED7406400DF29E3;
 					};
@@ -551,7 +554,7 @@
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
 				07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
-				075D07BA1EE0C3BA00592BBA /* LoadingButton.swift in Sources */,
+				0771831F1EF0924A008AF478 /* Extensions.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
 				07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */,
 				073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */,
@@ -704,6 +707,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EDC53D76C3208F25E7C3BDA1 /* Pods-GPController.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65MU9YPD2J;
 				INFOPLIST_FILE = GPController/Info.plist;
@@ -718,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 481D975AE6CCCFFF7C76E3CB /* Pods-GPController.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65MU9YPD2J;
 				INFOPLIST_FILE = GPController/Info.plist;

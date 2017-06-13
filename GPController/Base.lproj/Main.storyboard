@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TE-f6-5bU" userLabel="Header">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SepiaRushmore" translatesAutoresizingMaskIntoConstraints="NO" id="TfA-lV-PI7">
+                                    <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PatternedRushmore" translatesAutoresizingMaskIntoConstraints="NO" id="TfA-lV-PI7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-WE-oQn" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
@@ -39,7 +39,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,7 +54,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TfA-lV-PI7" secondAttribute="trailing" id="8Z7-4q-pMC"/>
                                     <constraint firstItem="yjN-WE-oQn" firstAttribute="centerX" secondItem="6TE-f6-5bU" secondAttribute="centerX" id="AWt-gw-iQO"/>
@@ -69,14 +69,14 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skz-Fd-3SE" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="4" y="128" width="120" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USu-sV-aPs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="128" y="4" width="120" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                         <state key="normal" image="Rotate">
@@ -97,7 +97,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,7 +113,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJW-Ii-xKs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="4" y="4" width="120" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QJW-Ii-xKs" secondAttribute="height" multiplier="1:1" id="JYm-fl-e6K"/>
                                         </constraints>
@@ -123,7 +123,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,14 +136,14 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxV-0I-QSl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="252" y="4" width="119" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
                                         <state key="normal" image="Floppy">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,12 +156,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERL-GN-aDU" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="252" y="128" width="119" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                         <state key="normal" image="More"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,14 +173,14 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25a-nv-c48" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="128" y="128" width="120" height="120"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.961941359" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <state key="normal" title="5">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,7 +192,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90980392156862744" green="0.89411764705882346" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="skz-Fd-3SE" secondAttribute="bottom" constant="4" id="0aX-sC-Cak"/>
                                     <constraint firstItem="25a-nv-c48" firstAttribute="top" secondItem="skz-Fd-3SE" secondAttribute="top" id="3LO-Nd-iUQ"/>
@@ -223,7 +223,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="1Nv-Jh-k7K" secondAttribute="bottom" id="2J8-Zu-VvI"/>
                             <constraint firstItem="1Nv-Jh-k7K" firstAttribute="leading" secondItem="eUQ-X6-jGx" secondAttribute="leading" id="7iD-N2-5gq"/>
@@ -400,7 +399,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -507,7 +506,7 @@
         <image name="Floppy" width="100" height="100"/>
         <image name="More" width="100" height="100"/>
         <image name="Panorama" width="100" height="100"/>
+        <image name="PatternedRushmore" width="2144" height="1424"/>
         <image name="Rotate" width="100" height="100"/>
-        <image name="SepiaRushmore" width="2144" height="1424"/>
     </resources>
 </document>

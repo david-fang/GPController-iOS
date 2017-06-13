@@ -22,10 +22,10 @@ class CameraPanViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
-        left.direction = .Left
-        up.direction = .Up
-        down.direction = .Down
-        right.direction = .Right
+        left.direction = .left
+        up.direction = .up
+        down.direction = .down
+        right.direction = .right
         
         let dirButtons: [RoundAxisButton] = [left, up, down, right]
         for button in dirButtons {
@@ -51,16 +51,16 @@ class CameraPanViewController: UIViewController {
         }
 
         switch sender.direction {
-        case .Left:
+        case .left:
             gpBTManager.send(text: "3")
             break
-        case .Up:
+        case .up:
             gpBTManager.send(text: "1")
             break
-        case .Down:
+        case .down:
             gpBTManager.send(text: "2")
             break
-        case .Right:
+        case .right:
             gpBTManager.send(text: "4")
             break
         }

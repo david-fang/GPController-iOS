@@ -41,7 +41,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
         super.didReceiveMemoryWarning()
     }
     
-    private func toggleBluetoothWarning(to on: Bool) {
+    fileprivate func toggleBluetoothWarning(to on: Bool) {
         UIView.animate(withDuration: 0.5, animations: {
             self.noBluetoothView.alpha = on ? 1.0 : 0.0
         })
@@ -49,7 +49,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: - GPDeviceDiscoveryDelegate
     
-    func didDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber) {
+    func didDiscoverPeripheral(_ peripheral: CBPeripheral, RSSI: NSNumber) {
         if peripheral.name != nil {
             DispatchQueue.main.async(execute: {
                 if ((self.peripherals.contains(peripheral)) == false) {
