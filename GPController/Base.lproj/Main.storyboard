@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,20 +25,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TE-f6-5bU" userLabel="Header">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PatternedRushmore" translatesAutoresizingMaskIntoConstraints="NO" id="TfA-lV-PI7">
+                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PatternedRushmore" translatesAutoresizingMaskIntoConstraints="NO" id="TfA-lV-PI7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjN-WE-oQn" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="59" y="172" width="257" height="70"/>
+                                        <rect key="frame" x="47" y="173" width="281" height="68"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                        <state key="normal" title="Connect to GigaPan">
+                                        <state key="normal" title="CONNECT TO GIGAPAN">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="1.7"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,11 +66,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nv-Jh-k7K">
                                 <rect key="frame" x="0.0" y="415" width="375" height="252"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skz-Fd-3SE" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="128" width="120" height="120"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skz-Fd-3SE" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="127" width="122.5" height="123"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="4">
+                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                        <state key="normal" title="4" image="Notes">
                                             <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -79,7 +78,7 @@
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -88,19 +87,17 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USu-sV-aPs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="128" y="4" width="120" height="120"/>
+                                        <rect key="frame" x="126.5" y="2" width="123" height="123"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                        <state key="normal" image="Rotate">
-                                            <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                        <state key="normal" title="CONTROL" image="Rotate"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -111,42 +108,19 @@
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="toMotorControl" id="6oI-cn-bC8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJW-Ii-xKs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="4" width="120" height="120"/>
-                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="QJW-Ii-xKs" secondAttribute="height" multiplier="1:1" id="JYm-fl-e6K"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                        <state key="normal" image="Panorama">
-                                            <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxV-0I-QSl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="252" y="4" width="119" height="120"/>
+                                        <rect key="frame" x="251.5" y="2" width="121.5" height="123"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
-                                        <state key="normal" image="Floppy">
-                                            <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" title="SAVED" image="Floppy"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -155,35 +129,36 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERL-GN-aDU" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="252" y="128" width="119" height="120"/>
+                                        <rect key="frame" x="251.5" y="127" width="121.5" height="123"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                        <state key="normal" image="More"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                        <state key="normal" title="SETTINGS" image="More"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25a-nv-c48" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="128" y="128" width="120" height="120"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25a-nv-c48" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="126.5" y="127" width="123" height="123"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <state key="normal" title="5">
-                                            <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                        <inset key="imageEdgeInsets" minX="-3" minY="0.0" maxX="3" maxY="0.0"/>
+                                        <state key="normal" title="UTILITIES" image="Toolbox"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -191,10 +166,34 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJW-Ii-xKs" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="2" width="122.5" height="123"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="QJW-Ii-xKs" secondAttribute="height" multiplier="1:1" id="JYm-fl-e6K"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                        <state key="normal" title="PANORAMA" image="Panorama">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="skz-Fd-3SE" secondAttribute="bottom" constant="4" id="0aX-sC-Cak"/>
+                                    <constraint firstAttribute="bottom" secondItem="skz-Fd-3SE" secondAttribute="bottom" constant="2" id="0aX-sC-Cak"/>
                                     <constraint firstItem="25a-nv-c48" firstAttribute="top" secondItem="skz-Fd-3SE" secondAttribute="top" id="3LO-Nd-iUQ"/>
                                     <constraint firstItem="25a-nv-c48" firstAttribute="trailing" secondItem="USu-sV-aPs" secondAttribute="trailing" id="5bA-QX-epM"/>
                                     <constraint firstItem="skz-Fd-3SE" firstAttribute="width" secondItem="QJW-Ii-xKs" secondAttribute="width" id="68B-X0-AR2"/>
@@ -202,23 +201,23 @@
                                     <constraint firstItem="vxV-0I-QSl" firstAttribute="top" secondItem="USu-sV-aPs" secondAttribute="top" id="9nW-ON-K2T"/>
                                     <constraint firstItem="ERL-GN-aDU" firstAttribute="trailing" secondItem="vxV-0I-QSl" secondAttribute="trailing" id="I7a-p2-4OM"/>
                                     <constraint firstItem="25a-nv-c48" firstAttribute="bottom" secondItem="skz-Fd-3SE" secondAttribute="bottom" id="Ixn-gI-aRX"/>
-                                    <constraint firstAttribute="trailing" secondItem="vxV-0I-QSl" secondAttribute="trailing" constant="4" id="MPB-Ab-3wh"/>
+                                    <constraint firstAttribute="trailing" secondItem="vxV-0I-QSl" secondAttribute="trailing" constant="2" id="MPB-Ab-3wh"/>
                                     <constraint firstItem="USu-sV-aPs" firstAttribute="top" secondItem="QJW-Ii-xKs" secondAttribute="top" id="N3L-Ze-3lR"/>
                                     <constraint firstItem="skz-Fd-3SE" firstAttribute="trailing" secondItem="QJW-Ii-xKs" secondAttribute="trailing" id="Sc5-88-isU"/>
                                     <constraint firstItem="QJW-Ii-xKs" firstAttribute="height" secondItem="USu-sV-aPs" secondAttribute="height" id="TBP-Ih-atj"/>
-                                    <constraint firstItem="QJW-Ii-xKs" firstAttribute="top" secondItem="1Nv-Jh-k7K" secondAttribute="top" constant="4" id="U8p-SC-pEP"/>
-                                    <constraint firstItem="QJW-Ii-xKs" firstAttribute="leading" secondItem="1Nv-Jh-k7K" secondAttribute="leading" constant="4" id="Z89-hn-y2e"/>
-                                    <constraint firstItem="USu-sV-aPs" firstAttribute="leading" secondItem="QJW-Ii-xKs" secondAttribute="trailing" constant="4" id="cL5-9M-0Gw"/>
-                                    <constraint firstItem="skz-Fd-3SE" firstAttribute="top" secondItem="QJW-Ii-xKs" secondAttribute="bottom" constant="4" id="d0A-ic-f7k"/>
+                                    <constraint firstItem="QJW-Ii-xKs" firstAttribute="top" secondItem="1Nv-Jh-k7K" secondAttribute="top" constant="2" id="U8p-SC-pEP"/>
+                                    <constraint firstItem="QJW-Ii-xKs" firstAttribute="leading" secondItem="1Nv-Jh-k7K" secondAttribute="leading" constant="2" id="Z89-hn-y2e"/>
+                                    <constraint firstItem="USu-sV-aPs" firstAttribute="leading" secondItem="QJW-Ii-xKs" secondAttribute="trailing" constant="2" id="cL5-9M-0Gw"/>
+                                    <constraint firstItem="skz-Fd-3SE" firstAttribute="top" secondItem="QJW-Ii-xKs" secondAttribute="bottom" constant="2" id="d0A-ic-f7k"/>
                                     <constraint firstItem="skz-Fd-3SE" firstAttribute="leading" secondItem="QJW-Ii-xKs" secondAttribute="leading" id="dda-d8-x2p"/>
                                     <constraint firstItem="USu-sV-aPs" firstAttribute="centerX" secondItem="1Nv-Jh-k7K" secondAttribute="centerX" id="ded-MT-lqn"/>
-                                    <constraint firstItem="vxV-0I-QSl" firstAttribute="leading" secondItem="USu-sV-aPs" secondAttribute="trailing" constant="4" id="iaa-Vi-Otk"/>
+                                    <constraint firstItem="vxV-0I-QSl" firstAttribute="leading" secondItem="USu-sV-aPs" secondAttribute="trailing" constant="2" id="iaa-Vi-Otk"/>
                                     <constraint firstItem="ERL-GN-aDU" firstAttribute="top" secondItem="25a-nv-c48" secondAttribute="top" id="jHR-bX-Fo5"/>
                                     <constraint firstItem="QJW-Ii-xKs" firstAttribute="height" secondItem="vxV-0I-QSl" secondAttribute="height" id="kfy-h1-hfn"/>
                                     <constraint firstItem="USu-sV-aPs" firstAttribute="width" secondItem="QJW-Ii-xKs" secondAttribute="width" id="oxq-eX-cZW"/>
                                     <constraint firstItem="skz-Fd-3SE" firstAttribute="height" secondItem="QJW-Ii-xKs" secondAttribute="height" id="rLI-j5-pZR"/>
                                     <constraint firstItem="ERL-GN-aDU" firstAttribute="bottom" secondItem="25a-nv-c48" secondAttribute="bottom" id="uh6-Na-m9N"/>
-                                    <constraint firstItem="ERL-GN-aDU" firstAttribute="leading" secondItem="25a-nv-c48" secondAttribute="trailing" constant="4" id="vX6-IF-Wax"/>
+                                    <constraint firstItem="ERL-GN-aDU" firstAttribute="leading" secondItem="25a-nv-c48" secondAttribute="trailing" constant="2" id="vX6-IF-Wax"/>
                                     <constraint firstItem="ERL-GN-aDU" firstAttribute="leading" secondItem="vxV-0I-QSl" secondAttribute="leading" id="wqy-oS-Clh"/>
                                 </constraints>
                             </view>
@@ -250,10 +249,10 @@
             </objects>
             <point key="canvasLocation" x="-364" y="36"/>
         </scene>
-        <!--Camera Pan-->
+        <!--Camera Pan View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Camera Pan" id="BYZ-38-t0r" customClass="CameraPanViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CameraPanViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -263,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE2-F9-ejy" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="74" y="298" width="70" height="70"/>
+                                <rect key="frame" x="78" y="298" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="←">
@@ -274,12 +273,12 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boq-bO-CoD" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="152" y="220" width="70" height="70"/>
+                                <rect key="frame" x="152" y="224" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="0mL-dO-2Xt"/>
@@ -294,12 +293,12 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcR-ol-So9" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="230" y="298" width="70" height="70"/>
+                                <rect key="frame" x="226" y="298" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="→">
@@ -307,15 +306,15 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-PJ-pTW" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="152" y="376" width="70" height="70"/>
+                                <rect key="frame" x="152" y="372" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="↓"/>
@@ -324,31 +323,37 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IS-Xq-eHl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="106" y="589" width="164" height="54"/>
-                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="147" y="563" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5IS-Xq-eHl" secondAttribute="height" multiplier="1:1" id="GkO-bl-gJr"/>
+                                    <constraint firstAttribute="height" constant="80" id="z7n-Oh-TaJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                <state key="normal" title="Trigger Shutter">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="boq-bO-CoD" firstAttribute="leading" secondItem="TE2-F9-ejy" secondAttribute="trailing" constant="8" symbolic="YES" id="CsI-f9-L05"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5IS-Xq-eHl" secondAttribute="bottom" constant="24" id="Bg9-lB-Fpa"/>
+                            <constraint firstItem="boq-bO-CoD" firstAttribute="leading" secondItem="TE2-F9-ejy" secondAttribute="trailing" constant="4" id="CsI-f9-L05"/>
                             <constraint firstItem="5IS-Xq-eHl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HNr-Na-9gC"/>
                             <constraint firstItem="m6K-PJ-pTW" firstAttribute="centerX" secondItem="boq-bO-CoD" secondAttribute="centerX" id="I3e-pt-Wep"/>
                             <constraint firstItem="OcR-ol-So9" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="IHZ-Ir-5gd"/>
@@ -356,16 +361,15 @@
                             <constraint firstItem="OcR-ol-So9" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="MkN-HL-M2a"/>
                             <constraint firstItem="OcR-ol-So9" firstAttribute="centerY" secondItem="TE2-F9-ejy" secondAttribute="centerY" id="NSl-fy-FyY"/>
                             <constraint firstItem="TE2-F9-ejy" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="PTt-2I-AjE"/>
-                            <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="OcR-ol-So9" secondAttribute="bottom" constant="8" symbolic="YES" id="RE8-gt-9N6"/>
+                            <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="OcR-ol-So9" secondAttribute="bottom" constant="4" id="RE8-gt-9N6"/>
                             <constraint firstItem="TE2-F9-ejy" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="UA6-z5-0rw"/>
-                            <constraint firstItem="OcR-ol-So9" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="8" symbolic="YES" id="eDB-Aw-Gu2"/>
+                            <constraint firstItem="OcR-ol-So9" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="4" id="eDB-Aw-Gu2"/>
                             <constraint firstItem="m6K-PJ-pTW" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="ffe-j8-f27"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="5IS-Xq-eHl" secondAttribute="bottom" constant="24" id="iZp-3j-OUS"/>
                             <constraint firstItem="boq-bO-CoD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r6g-Px-vVw"/>
-                            <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="TE2-F9-ejy" secondAttribute="bottom" constant="8" symbolic="YES" id="ris-lp-uW0"/>
-                            <constraint firstItem="TE2-F9-ejy" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="8" symbolic="YES" id="rxv-Vn-QOl"/>
+                            <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="TE2-F9-ejy" secondAttribute="bottom" constant="4" id="ris-lp-uW0"/>
+                            <constraint firstItem="TE2-F9-ejy" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="4" id="rxv-Vn-QOl"/>
                             <constraint firstItem="TE2-F9-ejy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sT0-S9-dLm"/>
-                            <constraint firstItem="OcR-ol-So9" firstAttribute="leading" secondItem="boq-bO-CoD" secondAttribute="trailing" constant="8" symbolic="YES" id="vKp-U8-SJ5"/>
+                            <constraint firstItem="OcR-ol-So9" firstAttribute="leading" secondItem="boq-bO-CoD" secondAttribute="trailing" constant="4" id="vKp-U8-SJ5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -377,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="-610"/>
+            <point key="canvasLocation" x="557.60000000000002" y="-610.34482758620697"/>
         </scene>
         <!--Scan Devices View Controller-->
         <scene sceneID="lnZ-eE-PgF">
@@ -405,8 +409,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYN-LK-ZEE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYN-LK-ZEE">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
                                         <rect key="frame" x="138" y="250" width="100" height="100"/>
@@ -450,7 +454,7 @@
                     <navigationItem key="navigationItem" id="or3-F4-fef">
                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="wjX-M1-LgK">
                             <connections>
-                                <segue destination="ye1-v5-G9Q" kind="unwind" identifier="scannerToMain" unwindAction="unwindToMainWithSegue:" id="NY8-q2-utj"/>
+                                <segue destination="ye1-v5-G9Q" kind="unwind" identifier="scannerToMain" unwindAction="unwindToMain:" id="B7V-eJ-goB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -462,7 +466,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOw-xy-4gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ye1-v5-G9Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="-1281"/>
+            <point key="canvasLocation" x="1376.8" y="-1281.4092953523239"/>
         </scene>
         <!--Navigation Controller View Controller-->
         <scene sceneID="55U-Ur-EbZ">
@@ -505,8 +509,10 @@
         <image name="Bluetooth_Logo" width="100" height="100"/>
         <image name="Floppy" width="100" height="100"/>
         <image name="More" width="100" height="100"/>
+        <image name="Notes" width="100" height="100"/>
         <image name="Panorama" width="100" height="100"/>
         <image name="PatternedRushmore" width="2144" height="1424"/>
         <image name="Rotate" width="100" height="100"/>
+        <image name="Toolbox" width="100" height="100"/>
     </resources>
 </document>

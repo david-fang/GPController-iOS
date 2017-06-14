@@ -89,7 +89,9 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         }
 
         if connected {
-            print("Disconnecting from \(bluetoothPeripheral!.name)...")
+            if let name = bluetoothPeripheral?.name {
+                print("Disconnecting from \(name)...")
+            }
             connected = false
         } else {
             print("Cancelling connection...")

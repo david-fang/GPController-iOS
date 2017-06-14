@@ -42,7 +42,7 @@ class CameraPanViewController: UIViewController {
     }
     
     func beginMove(sender: RoundAxisButton) {
-        buttonPulse = PulseLayer(radius: sender.frame.height * 0.8, position: sender.center)
+        buttonPulse = PulseLayer(radius: sender.frame.height * 1.0, position: sender.center)
         buttonPulse?.animationDuration = 1.5
         buttonPulse?.backgroundColor = sender.borderColor.cgColor
 

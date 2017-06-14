@@ -8,20 +8,20 @@
 
 import UIKit
 
-extension CAAnimation {
-    
+extension CALayer {
+
     /** Adds a flashing animation */
-    static func addFlashLayer(to layer: CALayer) {
+    func addFlashLayer() {
         let flash: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
         let easeOut = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        
+
         flash.fromValue = 1.0
-        flash.toValue = 0.7
-        flash.duration = 1.5
+        flash.toValue = 0.675
+        flash.duration = 1.3
         flash.autoreverses = true
         flash.repeatCount = Float.infinity
         flash.timingFunction = easeOut
-        
-        layer.add(flash, forKey: "flashAnimation")
+
+        self.add(flash, forKey: "flashAnimation")
     }
 }

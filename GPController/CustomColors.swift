@@ -26,8 +26,9 @@ extension UIColor {
         return UIColor(averageColorFrom: #imageLiteral(resourceName: "SepiaRushmore"))
     }
     
+    // The color used for icons
     static var goldenBrown: UIColor {
-        return UIColor(red: 170/255, green: 147/255, blue: 99/255, alpha: 1.0)
+        return UIColor(red: 195/255, green: 179/255, blue: 146/255, alpha: 1.0)
     }
     
     static func getWithRGB(_ red: Double, green: Double, blue: Double, alpha: CGFloat) -> UIColor {

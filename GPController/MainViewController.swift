@@ -53,7 +53,6 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         }
 
         connectButton.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
-        CAAnimation.addFlashLayer(to: connectButton.layer)
     }
     
     /** Update the header depending on whether or not a GigaPan device
@@ -63,13 +62,17 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         let connected = gpBTManager.isConnected()
         
         UIView.animate(withDuration: animationDuration, animations: {
+            if (connected) { self.connectButton.layer.removeAllAnimations() }
+            
             self.connectButton.isUserInteractionEnabled = !connected
             self.panoramaButton.isUserInteractionEnabled = connected
             self.controlButton.isUserInteractionEnabled = connected
-            
+
             self.connectButton.alpha = connected ? 0.0 : 1.0
             self.panoramaButton.alpha = connected ? 1.0 : 0.5
             self.controlButton.alpha = connected ? 1.0 : 0.5
+        }, completion: { (finished: Bool) in
+            if (!connected) { self.connectButton.layer.addFlashLayer() }
         })
     }
  
