@@ -41,6 +41,10 @@ class CameraPanViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func triggerShutter(_ sender: Any) {
+        gpBTManager.send(text: "5")
+    }
+    
     func beginMove(sender: RoundAxisButton) {
         buttonPulse = PulseLayer(radius: sender.frame.height * 1.0, position: sender.center)
         buttonPulse?.animationDuration = 1.5

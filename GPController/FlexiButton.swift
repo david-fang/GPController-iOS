@@ -22,4 +22,12 @@ class FlexiButton: UIButton {
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor.cgColor
     }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.2, animations: { _ in
+                self.alpha = self.isHighlighted ? 0.4 : 1.0
+            })
+        }
+    }
 }
