@@ -9,10 +9,8 @@
 import UIKit
 import CoreBluetooth
 import ChameleonFramework
-import Spring
 
 class MainViewController: UIViewController, GPBluetoothManagerDelegate {
-
     @IBOutlet weak var dashboardContainer: UIView!
     @IBOutlet weak var headerContainer: UIView!
     
