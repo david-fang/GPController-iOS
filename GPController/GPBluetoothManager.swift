@@ -22,6 +22,10 @@ import CoreBluetooth
     @objc optional func peripheralNotSupported()
 }
 
+@objc protocol GPCallbackListenerDelegate {
+    @objc func didReceiveCompletionCallback(msg: String)
+}
+
 @objc protocol GPMotorManagerInterruptDelegate {
     @objc func deviceDidDisconnect()
     // @objc func deviceDidReconnect()
@@ -33,6 +37,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     // MARK: - Delegate Properties
     var delegate: GPBluetoothManagerDelegate?
     var scanner: GPDeviceDiscoveryDelegate?
+    var listener: GPCallbackListenerDelegate?
 
     // MARK: - Class Properties
     fileprivate let MTU = 20
@@ -223,6 +228,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
                     part = String(describing: builder!)
                     len = 0
                 }
+                
                 send(text: part, withType: type)
             }
         }
@@ -396,10 +402,11 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             
             print("Notification received from: \(characteristic.uuid.uuidString), with value: 0x\(bytesReceived.hexString)")
             
-            // Callback write received through this function
-            
             if let validUTF8String = String(utf8String: utf8Bytes) {
                 print("\"\(validUTF8String)\" received")
+                if (validUTF8String == "OK") {
+                    listener?.didReceiveCompletionCallback(msg: validUTF8String)
+                }
             } else {
                 print("\"0x\(bytesReceived.hexString)\" received")
             }

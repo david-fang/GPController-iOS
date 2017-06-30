@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* MainViewController.swift */; };
 		071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B01E61ED7788300A117E7 /* RoundAxisButton.swift */; };
+		0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732BCE91F06EE8A006A91DF /* PanoManager.swift */; };
 		07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DC81ED7406400DF29E3 /* AppDelegate.swift */; };
 		07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */; };
 		07369DCE1ED7406400DF29E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07369DCC1ED7406400DF29E3 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		0715BDA51EDF696200035E9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		071B01E61ED7788300A117E7 /* RoundAxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundAxisButton.swift; sourceTree = "<group>"; };
+		0732BCE91F06EE8A006A91DF /* PanoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoManager.swift; sourceTree = "<group>"; };
 		07369DC51ED7406400DF29E3 /* GPController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07369DC81ED7406400DF29E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPanViewController.swift; sourceTree = "<group>"; };
@@ -239,9 +241,10 @@
 		073D628B1ED793C200D28EBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				073D62891ED793B900D28EBA /* MotorManager.swift */,
 				075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */,
 				07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */,
+				073D62891ED793B900D28EBA /* MotorManager.swift */,
+				0732BCE91F06EE8A006A91DF /* PanoManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */,
 				073D628A1ED793B900D28EBA /* MotorManager.swift in Sources */,
 				078506CF1F04609900297F4F /* ConfigModel.xcdatamodeld in Sources */,
+				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,

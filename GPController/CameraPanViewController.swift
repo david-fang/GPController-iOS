@@ -77,50 +77,9 @@ class CameraPanViewController: UIViewController {
     
     /* FOR DEMO */
     
-    // Used for creating command strings with a fixed pan
-    func createCommandString(dir: Direction, angle: Int) -> String {
-        var cmd: String!
-        switch dir {
-            case .up:
-                cmd = GP_FORWARD
-            case .down:
-                cmd = GP_BACKWARD
-            case .left:
-                cmd = GP_LEFT
-            case .right:
-                cmd = GP_RIGHT
-        }
-
-        return "\(cmd) \(angle)"
-    }
-    
-    /**
-     * Panorama demo that closely resembles how the actual automation
-     * will look like
-     *
-     * @arg numColumns: the number of columns this panorama has
-     * @arg numRows: the number of rows this panorama has
-     * @arg angle: the angle to rotate by at each iteration
-     */
-    func demoPanorama(numColumns: Int, numRows: Int, angle: Int) {
-        var curDir: Direction = .right
-        var cmd: String!
-        for _ in 0..<numRows {
-            for _ in 0..<numColumns {
-                gpBTManager.send(text: GP_SHUTTER)
-                cmd = createCommandString(dir: curDir, angle: angle)
-                gpBTManager.send(text: cmd)
-            }
-
-            cmd = createCommandString(dir: .up, angle: angle)
-            gpBTManager.send(text: cmd)
-            
-            if (curDir == .right) {
-                curDir = .left
-            } else {
-                curDir = .right
-            }
-        }
+    @IBAction func testNinetyHorizontal(_ sender: Any) {
+        let panoManager = PanoManager(with: gpBTManager, columns: 3, rows: 3, angle: 30)
+        panoManager.start()
     }
 }
 
