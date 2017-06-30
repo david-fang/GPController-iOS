@@ -8,13 +8,13 @@
 
 import UIKit
 
+enum Direction {
+    case left, right, up, down
+}
+
 @IBDesignable
 class RoundAxisButton: UIButton {
-    
-    enum Direction {
-        case left, right, up, down
-    }
-    
+
     @IBInspectable var borderWidth: CGFloat = 1.5
     @IBInspectable var borderColor: UIColor = UIColor.blue
 

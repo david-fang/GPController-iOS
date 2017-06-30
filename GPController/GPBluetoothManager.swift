@@ -395,6 +395,9 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             }
             
             print("Notification received from: \(characteristic.uuid.uuidString), with value: 0x\(bytesReceived.hexString)")
+            
+            // Callback write received through this function
+            
             if let validUTF8String = String(utf8String: utf8Bytes) {
                 print("\"\(validUTF8String)\" received")
             } else {
