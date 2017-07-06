@@ -33,6 +33,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     /** Performs any final setup and starts the panorama session */
     func start() {
         manager.listener = self
+        pendingPicture = true
         next()
     }
     
@@ -40,7 +41,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * Performs the next action on the queue. By default, the current
      * movement pattern is a snake pattern. 
      */
-    func next() {
+    fileprivate func next() {
         if !isCompleted {
             if (pendingPicture) {
                 pendingPicture = false

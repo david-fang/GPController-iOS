@@ -19,6 +19,8 @@
 		07369DE91ED7406500DF29E3 /* GPControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */; };
 		073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62861ED77F1500D28EBA /* PulseLayer.swift */; };
 		073D628A1ED793B900D28EBA /* MotorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62891ED793B900D28EBA /* MotorManager.swift */; };
+		0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */; };
+		0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
 		0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831C1EF057FC008AF478 /* NotificationKeys.swift */; };
@@ -88,6 +90,8 @@
 		07369DEA1ED7406500DF29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073D62861ED77F1500D28EBA /* PulseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseLayer.swift; sourceTree = "<group>"; };
 		073D62891ED793B900D28EBA /* MotorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotorManager.swift; sourceTree = "<group>"; };
+		0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSetupViewController.swift; sourceTree = "<group>"; };
+		0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaSetupViewController.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
 		0771831C1EF057FC008AF478 /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
@@ -221,9 +225,11 @@
 		07369DFA1ED7540400DF29E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0715BDA51EDF696200035E9D /* MainViewController.swift */,
-				07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
+				0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */,
+				07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */,
+				0715BDA51EDF696200035E9D /* MainViewController.swift */,
+				0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */,
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
 			);
 			name = Controllers;
@@ -565,10 +571,12 @@
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
+				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
 				07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */,
 				078506D11F04652C00297F4F /* CommandStrings.swift in Sources */,
+				0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
 				0771831F1EF0924A008AF478 /* Extensions.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
