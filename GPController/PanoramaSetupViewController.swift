@@ -8,32 +8,48 @@
 
 import UIKit
 
-class PanoramaSetupViewController: UIViewController, UITextFieldDelegate {
+class PanoramaSetupViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    
+    @IBOutlet weak var tableView: FadingTableView!
 
-    @IBOutlet weak var identifierTextfield: UITextField!
-    @IBOutlet weak var rowsCountLabel: UILabel!
-    @IBOutlet weak var columnsCountLabel: UILabel!
-
+    fileprivate let cellPadding = 16    // As specified in storyboard
+    fileprivate let numRowsToShow = 3   // ... at startup
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    fileprivate func setupView() {
-        rowsCountLabel.layer.borderWidth = 1.0
-        rowsCountLabel.layer.borderColor = UIColor.darkGray.cgColor
-        columnsCountLabel.layer.borderWidth = 1.0
-        columnsCountLabel.layer.borderColor = UIColor.darkGray.cgColor
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "panoSelectionCell", for: indexPath) as! GPPanoSelectionCell
+        return cell
     }
 
-    @IBAction func changeCount(_ sender: UIStepper) {
-        let label: UILabel = sender.tag == 0 ? rowsCountLabel : columnsCountLabel
-        label.text = String(Int(sender.value))
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return
+            tableView.frame.height / CGFloat(numRowsToShow)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        tableView.updateGradients()
+    }
 }

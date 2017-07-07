@@ -23,6 +23,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         devicesTableView.delegate = self
         devicesTableView.dataSource = self
+        devicesTableView.tableFooterView = UIView(frame: CGRect.zero)
         gpBTManager.scanner = self
     }
 
