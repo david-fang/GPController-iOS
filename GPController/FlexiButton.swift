@@ -26,7 +26,7 @@ class FlexiButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             UIView.animate(withDuration: 0.2, animations: { _ in
-                self.alpha = self.isHighlighted ? 0.4 : 1.0
+                self.alpha = self.isHighlighted ? 0.65 : 1.0
             })
         }
     }
