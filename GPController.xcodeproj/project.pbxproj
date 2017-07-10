@@ -10,6 +10,7 @@
 		0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* MainViewController.swift */; };
 		071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B01E61ED7788300A117E7 /* RoundAxisButton.swift */; };
 		0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */; };
+		0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B7201F143F2E00F9A4E0 /* GPTextField.swift */; };
 		0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732BCE91F06EE8A006A91DF /* PanoManager.swift */; };
 		07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DC81ED7406400DF29E3 /* AppDelegate.swift */; };
 		07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */; };
@@ -78,6 +79,7 @@
 		0715BDA51EDF696200035E9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		071B01E61ED7788300A117E7 /* RoundAxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundAxisButton.swift; sourceTree = "<group>"; };
 		0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		0720B7201F143F2E00F9A4E0 /* GPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTextField.swift; sourceTree = "<group>"; };
 		0732BCE91F06EE8A006A91DF /* PanoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoManager.swift; sourceTree = "<group>"; };
 		07369DC51ED7406400DF29E3 /* GPController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07369DC81ED7406400DF29E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				07B962591F10328A008B7F9E /* GMStepper.swift */,
 				0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */,
+				0720B7201F143F2E00F9A4E0 /* GPTextField.swift */,
 				07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */,
 				07B962571F0FFA11008B7F9E /* FadingTableView.swift */,
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
@@ -581,6 +584,7 @@
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
+				0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */,
 				07B9625A1F10328A008B7F9E /* GMStepper.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
