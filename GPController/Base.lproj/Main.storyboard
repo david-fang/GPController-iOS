@@ -1174,11 +1174,13 @@
                         <outlet property="colStepper" destination="CvE-Fu-Ghh" id="Qa0-NF-qJK"/>
                         <outlet property="columnsStepper" destination="CvE-Fu-Ghh" id="kbl-7W-E0m"/>
                         <outlet property="continueButton" destination="57i-rH-Fdg" id="dLe-jL-bhJ"/>
+                        <outlet property="digitPicker" destination="9Em-3S-UOO" id="qXP-07-U0I"/>
                         <outlet property="editView" destination="iv6-oA-UXd" id="36P-0K-CUg"/>
                         <outlet property="h180Checkbox" destination="K5X-uV-Wbd" id="0k0-RW-wDH"/>
                         <outlet property="h360Checkbox" destination="yPQ-ep-ht1" id="WJb-O7-aMq"/>
                         <outlet property="hOverlapInput" destination="uRO-np-vm0" id="ydt-7r-vhx"/>
                         <outlet property="identifierTextfield" destination="Bxx-Rg-Vn7" id="WDP-yV-9j4"/>
+                        <outlet property="inputLabel" destination="0eo-Bt-DAK" id="9xE-sC-wcp"/>
                         <outlet property="mainView" destination="DTj-42-Hzm" id="5c9-8w-vFt"/>
                         <outlet property="rowStepper" destination="d12-oZ-4dT" id="fDJ-p9-pAJ"/>
                         <outlet property="rowsStepper" destination="d12-oZ-4dT" id="oZh-Wa-d0L"/>
@@ -1194,14 +1196,15 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-3S-UOO">
-                            <rect key="frame" x="0.0" y="279" width="300" height="216"/>
+                            <rect key="frame" x="8" y="271" width="284" height="216"/>
                             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </pickerView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7R-ag-NHq">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="279"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="271"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eo-Bt-DAK">
-                                    <rect key="frame" x="90" y="79.5" width="120" height="120"/>
+                                    <rect key="frame" x="90" y="75.5" width="120" height="120"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="0eo-Bt-DAK" secondAttribute="height" multiplier="1:1" id="jtn-iP-0HU"/>
@@ -1212,7 +1215,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="0eo-Bt-DAK" firstAttribute="centerY" secondItem="I7R-ag-NHq" secondAttribute="centerY" id="ILf-wH-hUk"/>
                                 <constraint firstItem="0eo-Bt-DAK" firstAttribute="centerX" secondItem="I7R-ag-NHq" secondAttribute="centerX" id="vUJ-Fn-G4g"/>
@@ -1221,13 +1224,13 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="9Em-3S-UOO" firstAttribute="leading" secondItem="iv6-oA-UXd" secondAttribute="leading" id="1x2-IZ-1R1"/>
+                        <constraint firstItem="9Em-3S-UOO" firstAttribute="leading" secondItem="iv6-oA-UXd" secondAttribute="leading" constant="8" id="1x2-IZ-1R1"/>
                         <constraint firstAttribute="trailing" secondItem="I7R-ag-NHq" secondAttribute="trailing" id="43U-xe-AzZ"/>
                         <constraint firstItem="I7R-ag-NHq" firstAttribute="top" secondItem="iv6-oA-UXd" secondAttribute="top" id="5dg-r7-GRr"/>
                         <constraint firstItem="9Em-3S-UOO" firstAttribute="top" secondItem="I7R-ag-NHq" secondAttribute="bottom" id="6CX-8Z-fRo"/>
-                        <constraint firstAttribute="bottom" secondItem="9Em-3S-UOO" secondAttribute="bottom" id="CdG-wt-P7e"/>
+                        <constraint firstAttribute="bottom" secondItem="9Em-3S-UOO" secondAttribute="bottom" constant="8" id="CdG-wt-P7e"/>
                         <constraint firstItem="I7R-ag-NHq" firstAttribute="leading" secondItem="iv6-oA-UXd" secondAttribute="leading" id="dra-C6-guM"/>
-                        <constraint firstAttribute="trailing" secondItem="9Em-3S-UOO" secondAttribute="trailing" id="orh-mo-DhK"/>
+                        <constraint firstAttribute="trailing" secondItem="9Em-3S-UOO" secondAttribute="trailing" constant="8" id="orh-mo-DhK"/>
                     </constraints>
                 </view>
             </objects>

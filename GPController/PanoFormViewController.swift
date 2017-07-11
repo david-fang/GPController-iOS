@@ -8,9 +8,16 @@
 
 import UIKit
 
-class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
+class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    // MARK: - Edit View
+    
     @IBOutlet var editView: UIView!
+    @IBOutlet weak var inputLabel: UILabel!
+    @IBOutlet weak var digitPicker: UIPickerView!
+
+    // MARK: - Main View
+
     @IBOutlet var mainView: UIView!
 
     @IBOutlet weak var identifierTextfield: GPTextField!
@@ -51,14 +58,14 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     fileprivate func showEditView() {
         mainView.isHidden = true
         editView.center = view.center
         editView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        
+        digitPicker.delegate = self
+        digitPicker.dataSource = self
+        
         view.addSubview(editView)
     }
     
@@ -66,6 +73,28 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         continueButton.setTitle("✓", for: .normal)
         backButton.isHidden = true
     }
+    
+    // MARK: - Picker View Delegates
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attributedString = NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName : UIColor.white])
+        return attributedString
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        inputLabel.text = "\(digitPicker.selectedRow(inComponent: 0))\(digitPicker.selectedRow(inComponent: 1))\(digitPicker.selectedRow(inComponent: 2))"
+    }
+    
+    
+    // MARK: - Update/Editing Functions
     
     @IBAction func panoTypeWasSelected(_ sender: CheckboxButton) {
         if (sender == h180Checkbox && h180Checkbox.on) {
