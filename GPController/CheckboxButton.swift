@@ -60,6 +60,7 @@ open class CheckboxButton: UIControl {
     /// A Boolean value that determines the off/on state of the checkbox. If `true`, the checkbox is checked.
     @IBInspectable open var on: Bool = false {
         didSet {
+            
             colorLayers()
         }
     }
