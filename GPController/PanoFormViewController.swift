@@ -15,6 +15,7 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var editView: UIView!
     @IBOutlet weak var inputLabel: UILabel!
     @IBOutlet weak var digitPicker: UIPickerView!
+    @IBOutlet weak var digitPickerWidth: NSLayoutConstraint!
 
     // MARK: - Main View
 
@@ -65,7 +66,8 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         digitPicker.delegate = self
         digitPicker.dataSource = self
-        
+        // digitPicker.selectRow(<#T##row: Int##Int#>, inComponent: <#T##Int#>, animated: <#T##Bool#>)
+
         view.addSubview(editView)
     }
     
@@ -77,7 +79,8 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     // MARK: - Picker View Delegates
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName : UIColor.white])
+        let attributedString = NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 30.0)!])
+
         return attributedString
     }
     
@@ -90,9 +93,8 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        inputLabel.text = "\(digitPicker.selectedRow(inComponent: 0))\(digitPicker.selectedRow(inComponent: 1))\(digitPicker.selectedRow(inComponent: 2))"
+        inputLabel.text = "\(digitPicker.selectedRow(inComponent: 0))\(digitPicker.selectedRow(inComponent: 1))\(digitPicker.selectedRow(inComponent: 2)) %"
     }
-    
     
     // MARK: - Update/Editing Functions
     
