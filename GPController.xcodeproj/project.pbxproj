@@ -191,7 +191,6 @@
 				073D628B1ED793C200D28EBA /* Models */,
 				07369DF91ED753E800DF29E3 /* Supporting Files */,
 				07369DCC1ED7406400DF29E3 /* Main.storyboard */,
-				07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */,
 				07AD73211F16CBE200D909DA /* Utils.swift */,
 				07369DD11ED7406400DF29E3 /* LaunchScreen.storyboard */,
 				07369DCF1ED7406400DF29E3 /* Assets.xcassets */,
@@ -253,6 +252,7 @@
 				0715BDA51EDF696200035E9D /* MainViewController.swift */,
 				0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */,
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
+				07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

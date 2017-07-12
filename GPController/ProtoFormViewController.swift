@@ -11,8 +11,13 @@ import UIKit
 class ProtoFormViewController: UIViewController {
 
     @IBOutlet weak var identifierButton: UIButton!
+
     @IBOutlet weak var hOverlapStepper: GMStepper!
     @IBOutlet weak var vOverlapStepper: GMStepper!
+    @IBOutlet weak var rowStepper: GMStepper!
+    @IBOutlet weak var panStepper: GMStepper!
+    @IBOutlet weak var colStepper: GMStepper!
+    @IBOutlet weak var tiltStepper: GMStepper!
 
     @IBOutlet weak var horSemiFullCheckbox: CheckboxButton!
     @IBOutlet weak var horFullCheckbox: CheckboxButton!
@@ -35,6 +40,11 @@ class ProtoFormViewController: UIViewController {
         verSemiFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
         
         verFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+        
+        rowStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+        panStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+        colStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+        tiltStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
         
         
     }

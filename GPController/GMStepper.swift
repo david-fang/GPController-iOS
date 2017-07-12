@@ -100,7 +100,7 @@ import UIKit
     }
 
     /// Font of the buttons. Defaults to AvenirNext-Bold, 20.0 points in size.
-    public var buttonsFont = UIFont(name: "HelveticaNeue", size: 17.0)! {
+    public var buttonsFont = UIFont(name: "AppleSDGothicNeo-Light", size: 17.0)! {
         didSet {
             for button in [leftButton, rightButton] {
                 button.titleLabel?.font = buttonsFont
@@ -123,7 +123,7 @@ import UIKit
     }
 
     /// Font of the middle label. Defaults to AvenirNext-Bold, 25.0 points in size.
-    public var labelFont = UIFont(name: "HelveticaNeue", size: 17.0)! {
+    public var labelFont = UIFont(name: "AppleSDGothicNeo-Light", size: 17.0)! {
         didSet {
             label.font = labelFont
         }
