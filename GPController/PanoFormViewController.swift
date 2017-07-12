@@ -8,14 +8,7 @@
 
 import UIKit
 
-class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    // MARK: - Edit View
-    
-    @IBOutlet var editView: UIView!
-    @IBOutlet weak var inputLabel: UILabel!
-    @IBOutlet weak var digitPicker: UIPickerView!
-    @IBOutlet weak var digitPickerWidth: NSLayoutConstraint!
+class PanoFormViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Main View
 
@@ -25,14 +18,10 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
 
     @IBOutlet weak var colStepper: GMStepper!
     @IBOutlet weak var rowStepper: GMStepper!
-
-    @IBOutlet weak var angleInput: UITextField!
-    @IBOutlet weak var tiltInput: UITextField!
-    @IBOutlet weak var hOverlapInput: UITextField!
-    @IBOutlet weak var vOverlapInput: UITextField!
-
-    @IBOutlet weak var columnsStepper: GMStepper!
-    @IBOutlet weak var rowsStepper: GMStepper!
+    @IBOutlet weak var panStepper: GMStepper!
+    @IBOutlet weak var tiltStepper: GMStepper!
+    @IBOutlet weak var hOverlapStepper: GMStepper!
+    @IBOutlet weak var vOverlapStepper: GMStepper!
 
     @IBOutlet weak var h180Checkbox: CheckboxButton!
     @IBOutlet weak var h360Checkbox: CheckboxButton!
@@ -52,48 +41,22 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         if let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView {
             statusBar.backgroundColor = UIColor.black
         }
+        
+        identifierTextfield.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    fileprivate func showEditView() {
-        mainView.isHidden = true
-        editView.center = view.center
-        editView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        
-        digitPicker.delegate = self
-        digitPicker.dataSource = self
-        // digitPicker.selectRow(<#T##row: Int##Int#>, inComponent: <#T##Int#>, animated: <#T##Bool#>)
-
-        view.addSubview(editView)
-    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         continueButton.setTitle("✓", for: .normal)
-        backButton.isHidden = true
     }
     
-    // MARK: - Picker View Delegates
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : UIFont(name: "HelveticaNeue", size: 30.0)!])
-
-        return attributedString
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        inputLabel.text = "\(digitPicker.selectedRow(inComponent: 0))\(digitPicker.selectedRow(inComponent: 1))\(digitPicker.selectedRow(inComponent: 2)) %"
+    fileprivate func dismissKeyboard() {
+        view.endEditing(true)
+        continueButton.setTitle("→", for: .normal)
     }
     
     // MARK: - Update/Editing Functions
@@ -113,10 +76,9 @@ class PanoFormViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBAction func doneButtonWasPressed(_ sender: UIButton) {
         if let title = sender.currentTitle {
             if (title == "✓") {
-                // do something
+                dismissKeyboard()
             } else if (title == "→") {
                 // perform segue here
-                showEditView()
             }
         }
     }

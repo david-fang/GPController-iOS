@@ -10,26 +10,33 @@ import UIKit
 
 @IBDesignable public class GMStepper: UIControl {
 
+    @IBInspectable public var suffix: String = "" {
+        didSet {
+            if let text = label.text {
+                label.text = text + suffix
+            }
+        }
+    }
+    
     /// Current value of the stepper. Defaults to 0.
     @IBInspectable public var value: Double = 0 {
         didSet {
             value = min(maximumValue, max(minimumValue, value))
 
             let isInteger = floor(value) == value
-            
+
             //
             // If we have items, we will display them as steps
             //
-            
-            if isInteger && stepValue == 1.0 && items.count > 0 {
-                label.text = items[Int(value)]
-            }
-            else if showIntegerIfDoubleIsInteger && isInteger {
-                label.text = String(stringInterpolationSegment: Int(value))
-            } else {
-                label.text = String(stringInterpolationSegment: value)
-            }
 
+            if isInteger && stepValue == 1.0 && items.count > 0 {
+                label.text = items[Int(value)] + suffix
+            } else if showIntegerIfDoubleIsInteger && isInteger {
+                label.text = String(stringInterpolationSegment: Int(value)) + suffix
+            } else {
+                label.text = String(stringInterpolationSegment: value) + suffix
+            }
+            
             if oldValue != value {
                 sendActions(for: .valueChanged)
             }
@@ -205,9 +212,9 @@ import UIKit
         let label = UILabel()
         label.textAlignment = .center
         if self.showIntegerIfDoubleIsInteger && floor(self.value) == self.value {
-            label.text = String(stringInterpolationSegment: Int(self.value))
+            label.text = String(stringInterpolationSegment: Int(self.value)) + self.suffix
         } else {
-            label.text = String(stringInterpolationSegment: self.value)
+            label.text = String(stringInterpolationSegment: self.value) + self.suffix
         }
         label.textColor = self.labelTextColor
         label.backgroundColor = self.labelBackgroundColor
@@ -262,7 +269,7 @@ import UIKit
                     self.value = Double(value)
                 }
                 else {
-                    label.text = items[value]
+                    label.text = items[value] + suffix
                 }
             }
         }
@@ -277,7 +284,7 @@ import UIKit
         - For the next 1.5 sec, it changes the value every 0.1 sec.
         - Then, every 0.05 sec.
     */
-    let timerInterval = TimeInterval(0.05)
+    let timerInterval = TimeInterval(0.025)
 
     /// Check the handleTimerFire: function. While it is counting the number of fires, it decreases the mod value so that the value is altered more frequently.
     var timerFireCount = 0

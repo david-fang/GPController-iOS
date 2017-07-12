@@ -33,6 +33,8 @@
 		078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 078506CD1F04609900297F4F /* GPCoreData.xcdatamodeld */; };
 		078506D11F04652C00297F4F /* CommandStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078506D01F04652C00297F4F /* CommandStrings.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
+		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
+		07AD73241F16CCFE00D909DA /* ProtoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B457A81EE8CD4300ABF165 /* CustomColors.swift */; };
@@ -109,6 +111,8 @@
 		078506CE1F04609900297F4F /* GPCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPCoreData.xcdatamodel; sourceTree = "<group>"; };
 		078506D01F04652C00297F4F /* CommandStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandStrings.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
+		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoFormViewController.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPPanoSelectionCell.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 				073D628B1ED793C200D28EBA /* Models */,
 				07369DF91ED753E800DF29E3 /* Supporting Files */,
 				07369DCC1ED7406400DF29E3 /* Main.storyboard */,
+				07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */,
+				07AD73211F16CBE200D909DA /* Utils.swift */,
 				07369DD11ED7406400DF29E3 /* LaunchScreen.storyboard */,
 				07369DCF1ED7406400DF29E3 /* Assets.xcassets */,
 				07369DD41ED7406500DF29E3 /* Info.plist */,
@@ -578,6 +584,8 @@
 			files = (
 				0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */,
 				07B962551F0FF18A008B7F9E /* GPPanoSelectionCell.swift in Sources */,
+				07AD73221F16CBE200D909DA /* Utils.swift in Sources */,
+				07AD73241F16CCFE00D909DA /* ProtoFormViewController.swift in Sources */,
 				07B962581F0FFA11008B7F9E /* FadingTableView.swift in Sources */,
 				07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */,
 				07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */,

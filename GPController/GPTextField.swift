@@ -19,6 +19,11 @@ class GPTextField: UITextField {
     
     var tintedClearImage: UIImage?
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        self.layer.cornerRadius = 0
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
