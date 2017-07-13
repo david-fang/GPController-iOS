@@ -30,22 +30,27 @@ class ProtoFormViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        identifierButton.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        hOverlapStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        vOverlapStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
         
-        horSemiFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
         
-        horFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        verSemiFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+        identifierButton.layer.cornerRadius = 4.0
+        identifierButton.clipsToBounds = true
         
-        verFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        
-        rowStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        panStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        colStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        tiltStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        
+//        identifierButton.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        hOverlapStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        vOverlapStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        
+//        horSemiFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        
+//        horFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        verSemiFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        
+//        verFullCheckbox.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        
+//        rowStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        panStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        colStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        tiltStepper.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+//        
         
     }
 

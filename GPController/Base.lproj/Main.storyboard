@@ -693,7 +693,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Vertical Strip" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bxx-Rg-Vn7" customClass="GPTextField" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="20" y="104.5" width="335" height="40"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1Ew-19-4aW"/>
@@ -837,7 +837,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="X8o-Jr-3UE" firstAttribute="top" secondItem="mDb-qn-bNd" secondAttribute="bottom" constant="8" id="2SK-7c-9RG"/>
                                             <constraint firstItem="RBh-fH-JL4" firstAttribute="top" secondItem="btW-YO-zI8" secondAttribute="bottom" constant="8" id="2di-Rc-j4G"/>
@@ -1260,7 +1260,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DTj-42-Hzm" secondAttribute="trailing" id="19u-80-yMY"/>
                             <constraint firstAttribute="trailing" secondItem="KOd-wW-541" secondAttribute="trailing" id="F1I-Ix-Q7u"/>
@@ -1309,21 +1309,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HexagonalPattern" translatesAutoresizingMaskIntoConstraints="NO" id="gld-b7-q9a">
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VectorPattern" translatesAutoresizingMaskIntoConstraints="NO" id="gld-b7-q9a">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mj2-nZ-hx1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8d-6N-zya" customClass="CheckboxButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="199.5" y="229.5" width="34" height="33.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C8d-6N-zya" secondAttribute="height" multiplier="1:1" id="uDV-96-mZl"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="containerLineWidth">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1335,13 +1339,13 @@
                             </view>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28m-d4-Pzx" customClass="CheckboxButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="278" y="229.5" width="33.5" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="containerLineWidth">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1354,30 +1358,30 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I44-Po-eYK">
                                 <rect key="frame" x="318" y="237.5" width="33" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.84080208329999995" green="0.84080208329999995" blue="0.84080208329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRZ-fA-WWx">
                                 <rect key="frame" x="239" y="237.5" width="31" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fi-hU-YEY">
                                 <rect key="frame" x="318" y="323" width="33" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.84080208329999995" green="0.84080208329999995" blue="0.84080208329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="180°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSG-vP-h97">
                                 <rect key="frame" x="239" y="323" width="31" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.84080208329999995" green="0.84080208329999995" blue="0.84080208329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkJ-Za-BlR" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="24" y="36" width="51" height="51"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LkJ-Za-BlR" secondAttribute="height" multiplier="1:1" id="SmE-TR-rL5"/>
                                 </constraints>
@@ -1398,28 +1402,28 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFIER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-Ng-xHm">
                                 <rect key="frame" x="24" y="111" width="68" height="14.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H. OVERLAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jp4-Sv-qC5">
                                 <rect key="frame" x="24" y="200.5" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H. PANO RANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIY-CN-atd">
                                 <rect key="frame" x="199.5" y="200.5" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-Em-KWl">
                                 <rect key="frame" x="24" y="133.5" width="327" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="13"/>
-                                <state key="normal" title="Configuration name">
-                                    <color key="titleColor" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="What should I name this?">
+                                    <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YS9-g0-yyn" customClass="GMStepper" customModule="GPController" customModuleProvider="target">
@@ -1439,38 +1443,38 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                        <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.094117647060000004" green="0.094117647060000004" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.090196078430000007" green="0.090196078430000007" blue="0.090196078430000007" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="limitHitAnimationColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.91595833333333332" green="0.91595833333333332" blue="0.91595833333333332" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="%"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IU5-HC-o81" customClass="CheckboxButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="199" y="315" width="34" height="33.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="IU5-HC-o81" secondAttribute="height" multiplier="1:1" id="KCw-8w-S4a"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="containerLineWidth">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1482,13 +1486,13 @@
                             </view>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-TR-LXp" customClass="CheckboxButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="278" y="315" width="33.5" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="containerLineWidth">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="checkColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1501,13 +1505,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V. OVERLAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xz7-pk-yjK">
                                 <rect key="frame" x="24" y="286" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V. PANO RANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgO-wh-i1o">
                                 <rect key="frame" x="199" y="286" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utL-iz-cPd" customClass="GMStepper" customModule="GPController" customModuleProvider="target">
@@ -1527,22 +1531,22 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                        <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.094117647060000004" green="0.094117647060000004" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.090196078430000007" green="0.090196078430000007" blue="0.090196078430000007" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="limitHitAnimationColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.91595833333333332" green="0.91595833333333332" blue="0.91595833333333332" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="%"/>
                                 </userDefinedRuntimeAttributes>
@@ -1550,7 +1554,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROWS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjf-xD-xby">
                                 <rect key="frame" x="24" y="385" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbm-jf-dci" customClass="GMStepper" customModule="GPController" customModuleProvider="target">
@@ -1570,28 +1574,28 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                        <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.094117647060000004" green="0.094117647060000004" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.090196078430000007" green="0.090196078430000007" blue="0.090196078430000007" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="limitHitAnimationColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.91595833333333332" green="0.91595833333333332" blue="0.91595833333333332" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1S-Ai-eDr" userLabel="Divider">
                                 <rect key="frame" x="40" y="372" width="295" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="kKV-x7-ung"/>
                                 </constraints>
@@ -1599,7 +1603,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAN ANGLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90F-Nh-scj">
                                 <rect key="frame" x="199" y="385" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-W2-KdG" customClass="GMStepper" customModule="GPController" customModuleProvider="target">
@@ -1619,22 +1623,22 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                        <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.094117647060000004" green="0.094117647060000004" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.090196078430000007" green="0.090196078430000007" blue="0.090196078430000007" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="limitHitAnimationColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.91595833333333332" green="0.91595833333333332" blue="0.91595833333333332" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="°"/>
                                 </userDefinedRuntimeAttributes>
@@ -1642,7 +1646,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLUMNS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRJ-z4-IBW">
                                 <rect key="frame" x="24" y="471" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDK-JR-L3g" customClass="GMStepper" customModule="GPController" customModuleProvider="target">
@@ -1662,29 +1666,29 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                        <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.094117647060000004" green="0.094117647060000004" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.090196078430000007" green="0.090196078430000007" blue="0.090196078430000007" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="limitHitAnimationColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.91595833333333332" green="0.91595833333333332" blue="0.91595833333333332" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TILT ANGLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SY8-ha-AL0">
                                 <rect key="frame" x="199" y="471" width="151.5" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2V-a2-EMp" customClass="GMStepper" customModule="GPController" customModuleProvider="target">
@@ -1704,28 +1708,28 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                        <color key="value" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.094117647060000004" green="0.094117647060000004" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.090196078430000007" green="0.090196078430000007" blue="0.090196078430000007" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="limitHitAnimationColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.91595833333333332" green="0.91595833333333332" blue="0.91595833333333332" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                         <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
-                                        <color key="value" red="0.14288541669999999" green="0.14288541669999999" blue="0.14288541669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="°"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.8191666666666666" green="0.8191666666666666" blue="0.8191666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="IU5-HC-o81" firstAttribute="width" secondItem="h2W-TR-LXp" secondAttribute="width" id="01i-Iw-Xoj"/>
                             <constraint firstItem="8fi-hU-YEY" firstAttribute="trailing" secondItem="vgO-wh-i1o" secondAttribute="trailing" id="1LS-oR-Fih"/>
@@ -1736,6 +1740,7 @@
                             <constraint firstItem="xz7-pk-yjK" firstAttribute="trailing" secondItem="jp4-Sv-qC5" secondAttribute="trailing" id="7Rd-fk-mNv"/>
                             <constraint firstItem="Cbm-jf-dci" firstAttribute="trailing" secondItem="Gjf-xD-xby" secondAttribute="trailing" id="8GV-KM-bh5"/>
                             <constraint firstItem="I44-Po-eYK" firstAttribute="leading" secondItem="28m-d4-Pzx" secondAttribute="trailing" constant="6.5" id="BHU-tT-q1h"/>
+                            <constraint firstItem="Mj2-nZ-hx1" firstAttribute="leading" secondItem="IFQ-yI-obw" secondAttribute="leading" id="BwH-B2-8rg"/>
                             <constraint firstAttribute="trailing" secondItem="gld-b7-q9a" secondAttribute="trailing" id="CNk-BH-FZ2"/>
                             <constraint firstItem="LkJ-Za-BlR" firstAttribute="top" secondItem="QGR-j2-sCr" secondAttribute="bottom" constant="16" id="DKn-P6-eFF"/>
                             <constraint firstItem="JDK-JR-L3g" firstAttribute="trailing" secondItem="nRJ-z4-IBW" secondAttribute="trailing" id="DVa-n2-Ziu"/>
@@ -1755,6 +1760,7 @@
                             <constraint firstItem="rSG-vP-h97" firstAttribute="centerY" secondItem="IU5-HC-o81" secondAttribute="centerY" id="Jqn-lk-zXO"/>
                             <constraint firstItem="90F-Nh-scj" firstAttribute="centerY" secondItem="Gjf-xD-xby" secondAttribute="centerY" id="Jx2-Pf-tSO"/>
                             <constraint firstItem="k2V-a2-EMp" firstAttribute="top" secondItem="SY8-ha-AL0" secondAttribute="bottom" constant="8" id="KHe-Pu-PIx"/>
+                            <constraint firstAttribute="trailing" secondItem="Mj2-nZ-hx1" secondAttribute="trailing" id="MZ4-E2-JkS"/>
                             <constraint firstItem="28m-d4-Pzx" firstAttribute="height" secondItem="C8d-6N-zya" secondAttribute="height" id="NWA-OO-cbJ"/>
                             <constraint firstItem="8fi-hU-YEY" firstAttribute="trailing" secondItem="u1S-Ai-eDr" secondAttribute="trailing" constant="16" id="NoT-dc-FNN"/>
                             <constraint firstItem="Gjf-xD-xby" firstAttribute="top" secondItem="u1S-Ai-eDr" secondAttribute="bottom" constant="12" id="O4O-19-KZ8"/>
@@ -1766,6 +1772,7 @@
                             <constraint firstItem="vgO-wh-i1o" firstAttribute="trailing" secondItem="nIY-CN-atd" secondAttribute="trailing" id="T1a-TG-meJ"/>
                             <constraint firstItem="jp4-Sv-qC5" firstAttribute="leading" secondItem="QhN-Em-KWl" secondAttribute="leading" id="Tyn-rf-qu7"/>
                             <constraint firstItem="rSG-vP-h97" firstAttribute="leading" secondItem="IU5-HC-o81" secondAttribute="trailing" constant="6" id="UB1-5T-yBa"/>
+                            <constraint firstItem="Mj2-nZ-hx1" firstAttribute="top" secondItem="IFQ-yI-obw" secondAttribute="top" id="UjV-GG-BHm"/>
                             <constraint firstItem="utL-iz-cPd" firstAttribute="top" secondItem="xz7-pk-yjK" secondAttribute="bottom" constant="8" id="Vch-83-pfJ"/>
                             <constraint firstItem="I44-Po-eYK" firstAttribute="trailing" secondItem="nIY-CN-atd" secondAttribute="trailing" id="Vda-9U-kUW"/>
                             <constraint firstItem="nIY-CN-atd" firstAttribute="centerY" secondItem="jp4-Sv-qC5" secondAttribute="centerY" id="W1f-qq-gAw"/>
@@ -1791,6 +1798,7 @@
                             <constraint firstItem="h2W-TR-LXp" firstAttribute="height" secondItem="IU5-HC-o81" secondAttribute="height" id="k5I-FI-Lq6"/>
                             <constraint firstItem="YRZ-fA-WWx" firstAttribute="leading" secondItem="C8d-6N-zya" secondAttribute="trailing" constant="5.5" id="kXH-Ju-Bhb"/>
                             <constraint firstItem="I44-Po-eYK" firstAttribute="centerY" secondItem="28m-d4-Pzx" secondAttribute="centerY" id="ksD-Hj-dI5"/>
+                            <constraint firstItem="Cru-tY-Zsr" firstAttribute="top" secondItem="Mj2-nZ-hx1" secondAttribute="bottom" id="lCw-s0-8Is"/>
                             <constraint firstItem="utL-iz-cPd" firstAttribute="trailing" secondItem="xz7-pk-yjK" secondAttribute="trailing" id="lEE-59-DQ4"/>
                             <constraint firstItem="cJG-Ng-xHm" firstAttribute="leading" secondItem="IFQ-yI-obw" secondAttribute="leadingMargin" constant="8" id="lPl-9P-Pd1"/>
                             <constraint firstItem="IU5-HC-o81" firstAttribute="centerY" secondItem="utL-iz-cPd" secondAttribute="centerY" id="nJB-f7-4bw"/>
@@ -2133,7 +2141,6 @@
     <resources>
         <image name="Bluetooth_Logo" width="100" height="100"/>
         <image name="Floppy" width="100" height="100"/>
-        <image name="HexagonalPattern" width="1200" height="1200"/>
         <image name="MilanCathedral" width="1524" height="893"/>
         <image name="More" width="100" height="100"/>
         <image name="Notes" width="100" height="100"/>
@@ -2141,5 +2148,6 @@
         <image name="PatternedRushmore" width="2144" height="1424"/>
         <image name="Rotate" width="100" height="100"/>
         <image name="Toolbox" width="100" height="100"/>
+        <image name="VectorPattern" width="1300" height="1300"/>
     </resources>
 </document>
