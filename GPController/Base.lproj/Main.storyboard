@@ -1355,14 +1355,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PANORAMA FOV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jp4-Sv-qC5">
-                                <rect key="frame" x="20" y="351" width="100" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HORIZONTAL PANO FOV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jp4-Sv-qC5">
+                                <rect key="frame" x="20" y="351" width="147" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERCENTAGE OVERLAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIY-CN-atd">
-                                <rect key="frame" x="20" y="439" width="143" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HORIZONTAL OVERLAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIY-CN-atd">
+                                <rect key="frame" x="20" y="439" width="142" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1376,8 +1376,8 @@
                                     <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NUMBER OF COMPONENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjf-xD-xby">
-                                <rect key="frame" x="20" y="263.5" width="166" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NUMBER OF ROWS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjf-xD-xby">
+                                <rect key="frame" x="20" y="263.5" width="114" height="15"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1471,18 +1471,23 @@
                                                 <color key="value" red="0.91595833329999998" green="0.91595833329999998" blue="0.91595833329999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                                <real key="value" value="100"/>
+                                                <real key="value" value="999"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
                                                 <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="%"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="updateValuesWithSender:" destination="LFS-JS-IbL" eventType="valueChanged" id="urm-aU-lM3"/>
+                                        </connections>
                                     </view>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNR-uu-N0T">
                                         <rect key="frame" x="195" y="9" width="51" height="31"/>
                                         <color key="onTintColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="updateSwitchWithSender:" destination="LFS-JS-IbL" eventType="valueChanged" id="zGR-R4-rDF"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1527,18 +1532,24 @@
                                                 <color key="value" red="0.91595833329999998" green="0.91595833329999998" blue="0.91595833329999998" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                                <real key="value" value="100"/>
+                                                <real key="value" value="360"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="buttonsTextColor">
                                                 <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="%"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="°"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="updateValuesWithSender:" destination="LFS-JS-IbL" eventType="valueChanged" id="W5R-vf-EIb"/>
+                                        </connections>
                                     </view>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VC5-lt-Jpf">
                                         <rect key="frame" x="195" y="9" width="51" height="31"/>
                                         <color key="onTintColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="updateSwitchWithSender:" destination="LFS-JS-IbL" eventType="valueChanged" id="75Q-GB-1R7"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1590,11 +1601,17 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="%"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="updateValuesWithSender:" destination="LFS-JS-IbL" eventType="valueChanged" id="otF-WH-Z2v"/>
+                                        </connections>
                                     </view>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fHr-Sx-v7c">
                                         <rect key="frame" x="195" y="9" width="51" height="31"/>
                                         <color key="onTintColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="updateSwitchWithSender:" destination="LFS-JS-IbL" eventType="valueChanged" id="fBd-yi-TNF"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1652,9 +1669,12 @@
                     </view>
                     <connections>
                         <outlet property="componentsStepper" destination="LsZ-oM-O8W" id="wvN-I1-BV3"/>
+                        <outlet property="componentsToggle" destination="DNR-uu-N0T" id="l3G-Bp-sKw"/>
                         <outlet property="fovStepper" destination="2fM-ha-tXP" id="nEA-YT-EEe"/>
+                        <outlet property="fovToggle" destination="VC5-lt-Jpf" id="Lho-2g-hs3"/>
                         <outlet property="identifierButton" destination="QhN-Em-KWl" id="HBg-WD-4m7"/>
                         <outlet property="overlapStepper" destination="g32-EC-BXm" id="PLs-pk-6PA"/>
+                        <outlet property="overlapToggle" destination="fHr-Sx-v7c" id="eii-fv-j2b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa7-F1-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1851,7 +1871,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYN-LK-ZEE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="51628418-A950-4B07-90B4-9CC43AA6FD53" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2464CB8F-4570-4053-B261-D4487BBA9289" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
                                         <rect key="frame" x="138" y="250" width="100" height="100"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enable Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSv-70-Ybh">
@@ -1963,7 +1983,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="51628418-A950-4B07-90B4-9CC43AA6FD53" width="100" height="100">
+        <image name="2464CB8F-4570-4053-B261-D4487BBA9289" width="100" height="100">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
