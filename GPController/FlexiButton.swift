@@ -15,6 +15,13 @@ class FlexiButton: UIButton {
     @IBInspectable var cornerRadius: CGFloat = 30
     @IBInspectable var isCircular: Bool = false
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.titleLabel?.numberOfLines = 1
+        self.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.titleLabel?.lineBreakMode = NSLineBreakMode.byClipping
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.layer.cornerRadius = isCircular ? 0.5 * self.bounds.size.width : cornerRadius

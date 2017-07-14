@@ -18,3 +18,32 @@ extension UIView {
         self.layer.shadowRadius = radius
     }
 }
+
+class GPCalculate {
+
+    static func numComponents(panoFOV: Double, lensFOV: Double, overlap: Double) -> Double {
+        let olapDecimal = overlap / 100
+        let effectiveFOV = lensFOV * (1 - olapDecimal)
+        let numComponents = panoFOV / effectiveFOV
+        
+        return numComponents.rounded(.up)
+    }
+    
+    static func panoFOV(numComponents: Double, lensFOV: Double, overlap: Double) -> Double {
+        let olapDecimal = overlap / 100
+        let effectiveFOV = lensFOV * (1 - olapDecimal)
+        let panoFOV = numComponents * effectiveFOV
+        
+        return panoFOV.rounded(.down)
+    }
+    
+    static func overlap(numComponents: Double, panoFOV: Double, lensFOV: Double) -> Double {
+        
+        let effectiveFOV = panoFOV / numComponents
+        let olapDecimal = 1 - (effectiveFOV / lensFOV)
+        let olap = olapDecimal * 100
+        
+        return olap.rounded(.down)
+    }
+}
+

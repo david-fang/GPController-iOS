@@ -33,8 +33,14 @@
 		078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 078506CD1F04609900297F4F /* GPCoreData.xcdatamodeld */; };
 		078506D11F04652C00297F4F /* CommandStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078506D01F04652C00297F4F /* CommandStrings.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
+		07A5BF661F1832EB00C77BE1 /* ScalingCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5BF631F1832EB00C77BE1 /* ScalingCarouselCell.swift */; };
+		07A5BF671F1832EB00C77BE1 /* ScalingCarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5BF641F1832EB00C77BE1 /* ScalingCarouselLayout.swift */; };
+		07A5BF681F1832EB00C77BE1 /* ScalingCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5BF651F1832EB00C77BE1 /* ScalingCarouselView.swift */; };
+		07A5BF6A1F18331500C77BE1 /* ScalingCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5BF691F18331500C77BE1 /* ScalingCarouselViewController.swift */; };
+		07A5BF6C1F18399500C77BE1 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5BF6B1F18399500C77BE1 /* AKPickerView.swift */; };
+		07A5BF6E1F184D6D00C77BE1 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5BF6D1F184D6D00C77BE1 /* Switch.swift */; };
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
-		07AD73241F16CCFE00D909DA /* ProtoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */; };
+		07AD73241F16CCFE00D909DA /* PanoConfigFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73231F16CCFE00D909DA /* PanoConfigFormVC.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B457A81EE8CD4300ABF165 /* CustomColors.swift */; };
@@ -111,8 +117,14 @@
 		078506CE1F04609900297F4F /* GPCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPCoreData.xcdatamodel; sourceTree = "<group>"; };
 		078506D01F04652C00297F4F /* CommandStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandStrings.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
+		07A5BF631F1832EB00C77BE1 /* ScalingCarouselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselCell.swift; sourceTree = "<group>"; };
+		07A5BF641F1832EB00C77BE1 /* ScalingCarouselLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselLayout.swift; sourceTree = "<group>"; };
+		07A5BF651F1832EB00C77BE1 /* ScalingCarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselView.swift; sourceTree = "<group>"; };
+		07A5BF691F18331500C77BE1 /* ScalingCarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselViewController.swift; sourceTree = "<group>"; };
+		07A5BF6B1F18399500C77BE1 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		07A5BF6D1F184D6D00C77BE1 /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoFormViewController.swift; sourceTree = "<group>"; };
+		07AD73231F16CCFE00D909DA /* PanoConfigFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoConfigFormVC.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPPanoSelectionCell.swift; sourceTree = "<group>"; };
@@ -228,6 +240,11 @@
 				07B962571F0FFA11008B7F9E /* FadingTableView.swift */,
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
 				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
+				07A5BF631F1832EB00C77BE1 /* ScalingCarouselCell.swift */,
+				07A5BF641F1832EB00C77BE1 /* ScalingCarouselLayout.swift */,
+				07A5BF651F1832EB00C77BE1 /* ScalingCarouselView.swift */,
+				07A5BF6B1F18399500C77BE1 /* AKPickerView.swift */,
+				07A5BF6D1F184D6D00C77BE1 /* Switch.swift */,
 			);
 			name = Designables;
 			sourceTree = "<group>";
@@ -248,11 +265,12 @@
 				0747CA401F157C6F00763065 /* PanoFormViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
 				0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */,
+				07A5BF691F18331500C77BE1 /* ScalingCarouselViewController.swift */,
 				07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */,
 				0715BDA51EDF696200035E9D /* MainViewController.swift */,
 				0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */,
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
-				07AD73231F16CCFE00D909DA /* ProtoFormViewController.swift */,
+				07AD73231F16CCFE00D909DA /* PanoConfigFormVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -585,7 +603,8 @@
 				0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */,
 				07B962551F0FF18A008B7F9E /* GPPanoSelectionCell.swift in Sources */,
 				07AD73221F16CBE200D909DA /* Utils.swift in Sources */,
-				07AD73241F16CCFE00D909DA /* ProtoFormViewController.swift in Sources */,
+				07AD73241F16CCFE00D909DA /* PanoConfigFormVC.swift in Sources */,
+				07A5BF681F1832EB00C77BE1 /* ScalingCarouselView.swift in Sources */,
 				07B962581F0FFA11008B7F9E /* FadingTableView.swift in Sources */,
 				07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */,
 				07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */,
@@ -595,10 +614,13 @@
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
+				07A5BF6C1F18399500C77BE1 /* AKPickerView.swift in Sources */,
 				0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */,
 				07B9625A1F10328A008B7F9E /* GMStepper.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
+				07A5BF6E1F184D6D00C77BE1 /* Switch.swift in Sources */,
+				07A5BF661F1832EB00C77BE1 /* ScalingCarouselCell.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
 				07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */,
@@ -608,8 +630,10 @@
 				0771831F1EF0924A008AF478 /* Extensions.swift in Sources */,
 				0747CA411F157C6F00763065 /* PanoFormViewController.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
+				07A5BF6A1F18331500C77BE1 /* ScalingCarouselViewController.swift in Sources */,
 				07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */,
 				073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */,
+				07A5BF671F1832EB00C77BE1 /* ScalingCarouselLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +791,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CyArk.GPController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -782,6 +807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CyArk.GPController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
