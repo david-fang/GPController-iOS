@@ -13,10 +13,9 @@
         <attribute name="columns" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="rows" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="compatibleCam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CameraConfig" syncable="YES"/>
     </entity>
     <elements>
         <element name="CameraConfig" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="PanoConfig" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="PanoConfig" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

@@ -19,24 +19,20 @@ import UIKit
     }
     
     /// Current value of the stepper. Defaults to 0.
-    @IBInspectable public var value: Double = 0 {
+    @IBInspectable public var value: Int = 0 {
         didSet {
             value = min(maximumValue, max(minimumValue, value))
-
-            let isInteger = floor(value) == value
 
             //
             // If we have items, we will display them as steps
             //
 
-            if isInteger && stepValue == 1.0 && items.count > 0 {
-                label.text = items[Int(value)] + suffix
-            } else if showIntegerIfDoubleIsInteger && isInteger {
-                label.text = String(stringInterpolationSegment: Int(value)) + suffix
+            if items.count > 0 {
+                label.text = items[value] + suffix
             } else {
                 label.text = String(stringInterpolationSegment: value) + suffix
             }
-            
+
             if oldValue != value {
                 sendActions(for: .valueChanged)
             }
@@ -44,27 +40,24 @@ import UIKit
     }
 
     /// Minimum value. Must be less than maximumValue. Defaults to 0.
-    @IBInspectable public var minimumValue: Double = 0 {
+    @IBInspectable public var minimumValue: Int = 0 {
         didSet {
             value = min(maximumValue, max(minimumValue, value))
         }
     }
 
     /// Maximum value. Must be more than minimumValue. Defaults to 100.
-    @IBInspectable public var maximumValue: Double = 100 {
+    @IBInspectable public var maximumValue: Int = 100 {
         didSet {
             value = min(maximumValue, max(minimumValue, value))
         }
     }
 
     /// Step/Increment value as in UIStepper. Defaults to 1.
-    @IBInspectable public var stepValue: Double = 1
+    @IBInspectable public var stepValue: Int = 1
 
     /// The same as UIStepper's autorepeat. If true, holding on the buttons or keeping the pan gesture alters the value repeatedly. Defaults to true.
     @IBInspectable public var autorepeat: Bool = true
-
-    /// If the value is integer, it is shown without floating point.
-    @IBInspectable public var showIntegerIfDoubleIsInteger: Bool = true
 
     /// Text on the left button. Be sure that it fits in the button. Defaults to "−".
     @IBInspectable public var leftButtonText: String = "−" {
@@ -211,11 +204,7 @@ import UIKit
     lazy var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        if self.showIntegerIfDoubleIsInteger && floor(self.value) == self.value {
-            label.text = String(stringInterpolationSegment: Int(self.value)) + self.suffix
-        } else {
-            label.text = String(stringInterpolationSegment: self.value) + self.suffix
-        }
+        label.text = String(stringInterpolationSegment: self.value) + self.suffix
         label.textColor = self.labelTextColor
         label.backgroundColor = self.labelBackgroundColor
         label.font = self.labelFont
@@ -254,21 +243,15 @@ import UIKit
     
     public var items : [String] = [] {
         didSet {
-            let isInteger = floor(value) == value
             
             //
             // If we have items, we will display them as steps
             //
             
-            if isInteger && stepValue == 1.0 && items.count > 0 {
-                
-                var value = Int(self.value)
-                
-                if value >= items.count {
-                    value = items.count - 1
-                    self.value = Double(value)
-                }
-                else {
+            if items.count > 0 {
+                if self.value >= items.count {
+                    self.value = items.count - 1
+                } else {
                     label.text = items[value] + suffix
                 }
             }

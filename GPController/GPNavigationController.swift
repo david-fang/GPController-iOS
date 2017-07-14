@@ -8,8 +8,10 @@
 
 import UIKit
 
-class GPNavigationControllerViewController: UINavigationController {
+class GPNavigationController: UINavigationController {
 
+    var gpBTManager: GPBluetoothManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

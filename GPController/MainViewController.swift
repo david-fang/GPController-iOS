@@ -101,6 +101,12 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
                     dest.gpBTManager = self.gpBTManager
                }
             }
+        } else if (segue.identifier == "toCameraSetup") {
+            if let nc = segue.destination as? GPNavigationController {
+                if let dest = nc.childViewControllerForStatusBarHidden as? CameraSetupViewController {
+                    nc.gpBTManager = self.gpBTManager
+                }
+            }
         }
     }
     

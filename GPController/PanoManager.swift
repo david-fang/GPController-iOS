@@ -13,21 +13,23 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate let manager: GPBluetoothManager
     fileprivate let columns: Int
     fileprivate let rows: Int
-    fileprivate let angle: Int
+    fileprivate let vAngle: Int
+    fileprivate let hAngle: Int
     
-    fileprivate var curColumn: Int = 1
-    fileprivate var curRow: Int = 1
+    fileprivate var curColumn: Int = 0
+    fileprivate var curRow: Int = 0
     fileprivate var pendingPicture: Bool = false
 
     var isCompleted: Bool {
         return curColumn == columns && curRow == rows && !pendingPicture
     }
     
-    required init(with manager: GPBluetoothManager, columns: Int, rows: Int, angle: Int) {
+    required init(with manager: GPBluetoothManager, columns: Int, rows: Int, vAngle: Int, hAngle: Int) {
         self.manager = manager
         self.columns = columns
         self.rows = rows
-        self.angle = angle
+        self.vAngle = vAngle
+        self.hAngle = hAngle
     }
     
     /** Performs any final setup and starts the panorama session */
@@ -51,12 +53,12 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
 
             var cmd: String
             if (curColumn == columns) {
-                cmd = createCommandString(dir: .up, angle: angle)
+                cmd = createCommandString(dir: .up, angle: vAngle)
                 curRow = curRow + 1
-                curColumn = 1
+                curColumn = 0
             } else {
                 let dir: Direction = curRow % 2 == 0 ? .left : .right
-                cmd = createCommandString(dir: dir, angle: angle)
+                cmd = createCommandString(dir: dir, angle: hAngle)
                 curColumn = curColumn + 1
             }
 

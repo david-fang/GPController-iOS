@@ -25,14 +25,14 @@
 		0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
-		0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831C1EF057FC008AF478 /* NotificationKeys.swift */; };
 		0771831F1EF0924A008AF478 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831E1EF0924A008AF478 /* Extensions.swift */; };
 		07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */; };
-		07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */; };
+		07840A051EE9EB43008A0973 /* GPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07840A041EE9EB43008A0973 /* GPNavigationController.swift */; };
 		078506CC1F04601800297F4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078506CB1F04601800297F4F /* CoreData.framework */; };
 		078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 078506CD1F04609900297F4F /* GPCoreData.xcdatamodeld */; };
 		078506D11F04652C00297F4F /* CommandStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078506D01F04652C00297F4F /* CommandStrings.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
+		07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */; };
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
 		07AD73241F16CCFE00D909DA /* PanoConfigFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73231F16CCFE00D909DA /* PanoConfigFormVC.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
@@ -103,14 +103,14 @@
 		0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaSetupViewController.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
-		0771831C1EF057FC008AF478 /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		0771831E1EF0924A008AF478 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPDeviceScanner.swift; sourceTree = "<group>"; };
-		07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPNavigationControllerViewController.swift; sourceTree = "<group>"; };
+		07840A041EE9EB43008A0973 /* GPNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPNavigationController.swift; sourceTree = "<group>"; };
 		078506CB1F04601800297F4F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		078506CE1F04609900297F4F /* GPCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPCoreData.xcdatamodel; sourceTree = "<group>"; };
 		078506D01F04652C00297F4F /* CommandStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandStrings.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
+		07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationConstants.swift; sourceTree = "<group>"; };
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		07AD73231F16CCFE00D909DA /* PanoConfigFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoConfigFormVC.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
@@ -191,7 +191,6 @@
 				073D628B1ED793C200D28EBA /* Models */,
 				07369DF91ED753E800DF29E3 /* Supporting Files */,
 				07369DCC1ED7406400DF29E3 /* Main.storyboard */,
-				07AD73211F16CBE200D909DA /* Utils.swift */,
 				07369DD11ED7406400DF29E3 /* LaunchScreen.storyboard */,
 				07369DCF1ED7406400DF29E3 /* Assets.xcassets */,
 				07369DD41ED7406500DF29E3 /* Info.plist */,
@@ -237,6 +236,7 @@
 			children = (
 				07369DC81ED7406400DF29E3 /* AppDelegate.swift */,
 				079DDF391EE1C8910010CB9F /* NORData.swift */,
+				07AD73211F16CBE200D909DA /* Utils.swift */,
 				07B457A81EE8CD4300ABF165 /* CustomColors.swift */,
 			);
 			name = "Supporting Files";
@@ -248,7 +248,7 @@
 				0747CA401F157C6F00763065 /* PanoFormViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
 				0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */,
-				07840A041EE9EB43008A0973 /* GPNavigationControllerViewController.swift */,
+				07840A041EE9EB43008A0973 /* GPNavigationController.swift */,
 				0715BDA51EDF696200035E9D /* MainViewController.swift */,
 				0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */,
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
@@ -281,7 +281,7 @@
 			children = (
 				075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */,
 				078506D01F04652C00297F4F /* CommandStrings.swift */,
-				0771831C1EF057FC008AF478 /* NotificationKeys.swift */,
+				07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -590,7 +590,6 @@
 				07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */,
 				07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */,
 				071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */,
-				0771831D1EF057FC008AF478 /* NotificationKeys.swift in Sources */,
 				078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */,
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
@@ -601,7 +600,8 @@
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
-				07840A051EE9EB43008A0973 /* GPNavigationControllerViewController.swift in Sources */,
+				07840A051EE9EB43008A0973 /* GPNavigationController.swift in Sources */,
+				07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */,
 				078506D11F04652C00297F4F /* CommandStrings.swift in Sources */,
 				0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
