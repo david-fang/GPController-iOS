@@ -15,7 +15,6 @@ class PanoConfigFormVC: UIViewController {
     @IBOutlet weak var fovStepper: GMStepper!
     @IBOutlet weak var overlapStepper: GMStepper!
     
-    
     let hFOV: Double = 70
     let hOverlap: Double = 60
     let hLensFOV: Double = 90
@@ -26,8 +25,6 @@ class PanoConfigFormVC: UIViewController {
         
         identifierButton.layer.cornerRadius = 4.0
         identifierButton.clipsToBounds = true
-
-//        rowStepper.value = GPCalculate.numComponents(panoFOV: 360, lensFOV: hLensFOV, overlap: hOverlap)
     }
 
     override func didReceiveMemoryWarning() {
