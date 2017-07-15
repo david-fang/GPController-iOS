@@ -20,6 +20,7 @@
 		07369DDE1ED7406500DF29E3 /* GPControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DDD1ED7406500DF29E3 /* GPControllerTests.swift */; };
 		07369DE91ED7406500DF29E3 /* GPControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */; };
 		073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62861ED77F1500D28EBA /* PulseLayer.swift */; };
+		073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */; };
 		0747CA411F157C6F00763065 /* PanoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747CA401F157C6F00763065 /* PanoFormViewController.swift */; };
 		0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */; };
 		0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */; };
@@ -98,6 +99,7 @@
 		07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPControllerUITests.swift; sourceTree = "<group>"; };
 		07369DEA1ED7406500DF29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073D62861ED77F1500D28EBA /* PulseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseLayer.swift; sourceTree = "<group>"; };
+		073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoConfigEditor.swift; sourceTree = "<group>"; };
 		0747CA401F157C6F00763065 /* PanoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoFormViewController.swift; sourceTree = "<group>"; };
 		0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSetupViewController.swift; sourceTree = "<group>"; };
 		0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaSetupViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */,
 				07840A011EE9CCB7008A0973 /* GPDeviceScanner.swift */,
 				0732BCE91F06EE8A006A91DF /* PanoManager.swift */,
+				073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
+				073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */,
 				0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */,
 				07B9625A1F10328A008B7F9E /* GMStepper.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
