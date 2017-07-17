@@ -11,14 +11,20 @@ import UIKit
 class GPPanoSelectionCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
-
+    
+    @IBOutlet weak var identifierLabel: UILabel!
+    @IBOutlet weak var rowsLabel: UILabel!
+    @IBOutlet weak var hFOVLabel: UILabel!
+    @IBOutlet weak var hOverlapLabel: UILabel!
+    @IBOutlet weak var columnsLabel: UILabel!
+    @IBOutlet weak var vFOVLabel: UILabel!
+    @IBOutlet weak var vOverlapLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clear
         self.selectionStyle = .none
-        
-        // cardView.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
-        
+
         cardView.layer.cornerRadius = 4.0
     }
 

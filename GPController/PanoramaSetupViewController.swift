@@ -8,19 +8,16 @@
 
 import UIKit
 
-class PanoramaSetupViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     @IBOutlet weak var headerTextContainer: UIView!
     @IBOutlet weak var tableView: FadingTableView!
-    
-    fileprivate let cellPadding = 16    // As specified in storyboard
-    fileprivate let numRowsToShow = 3   // ... at startup
-    
+
     var panoConfigs: [PanoConfig] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerTextContainer.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: headerTextContainer.frame, andColors: [UIColor.sandpaperWhite, UIColor.flatSand])
+        headerTextContainer.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: headerTextContainer.frame, andColors: [UIColor.flatSand, UIColor.sandpaperWhite])
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,26 +40,26 @@ class PanoramaSetupViewController: UIViewController, UITextFieldDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return panoConfigs.count
-        return 20
+        return panoConfigs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let config = panoConfigs[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "panoSelectionCell", for: indexPath) as! GPPanoSelectionCell
         
-        // print(panoConfigs[indexPath.row].columns)
-        // print(panoConfigs[indexPath.row].rows)
+        cell.identifierLabel.text = config.identifier
+        cell.rowsLabel.text = String(config.rows)
+        cell.hFOVLabel.text = String(config.hFOV)
+        cell.hOverlapLabel.text = String(config.hOverlap)
+        cell.columnsLabel.text = String(config.columns)
+        cell.vFOVLabel.text = String(config.vFOV)
+        cell.vOverlapLabel.text = String(config.vOverlap)
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return
-            tableView.frame.height / CGFloat(numRowsToShow)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

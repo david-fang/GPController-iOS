@@ -78,7 +78,7 @@ class PanoConfigEditor {
         let numRows = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_HFOV, lensFOV: cam_HFOV, overlap: DEFAULT_PANO_OVERLAP)
         let numColumns = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_VFOV, lensFOV: cam_VFOV, overlap: DEFAULT_PANO_OVERLAP)
         
-        identifier = ""
+        identifier = "unidentified"
 
         rows = numRows
         hFOV = DEFAULT_PANO_HFOV
