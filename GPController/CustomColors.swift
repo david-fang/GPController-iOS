@@ -22,6 +22,14 @@ extension UIColor {
         return UIColor(red: 232/255, green: 228/255, blue: 217/255, alpha: 1.0)
     }
     
+    static var taupe: UIColor {
+        return UIColor(red: 217/255, green: 206/255, blue: 174/255, alpha: 1.0)
+    }
+    
+    static var darkTaupe: UIColor {
+        return UIColor(red: 167/255, green: 154/255, blue: 118/255, alpha: 1.0)
+    }
+    
     static var rushmoreBrown: UIColor {
         return UIColor(averageColorFrom: #imageLiteral(resourceName: "SepiaRushmore"))
     }

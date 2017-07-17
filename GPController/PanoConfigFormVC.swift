@@ -9,6 +9,7 @@
 import UIKit
 
 class PanoConfigFormVC: UIViewController {
+
     @IBOutlet weak var identifierButton: UIButton!
     @IBOutlet weak var componentsStepper: GMStepper!
     @IBOutlet weak var fovStepper: GMStepper!
@@ -17,14 +18,14 @@ class PanoConfigFormVC: UIViewController {
     @IBOutlet weak var componentsToggle: UISwitch!
     @IBOutlet weak var fovToggle: UISwitch!
     @IBOutlet weak var overlapToggle: UISwitch!
-    
+
     @IBOutlet weak var componentsLabel: UILabel!
     @IBOutlet weak var fovLabel: UILabel!
     @IBOutlet weak var overlapLabel: UILabel!
-    
+
     @IBOutlet weak var horizontalToggle: UIButton!
     @IBOutlet weak var verticalToggle: UIButton!
-    
+
     var panoConfigEditor: PanoConfigEditor!
     var activeAxis: PanoConfigEditor.Axis = .horizontal {
         didSet {
@@ -48,7 +49,6 @@ class PanoConfigFormVC: UIViewController {
     }
 
     @IBAction func savePanoConfig(_sender: UIButton) {
-        
         panoConfigEditor.savePanoConfig()
     }
     
@@ -190,7 +190,7 @@ class PanoConfigFormVC: UIViewController {
     
     fileprivate func toggleStepper(_stepper: GMStepper, on: Bool) {
         _stepper.isEnabled = on
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             _stepper.alpha = on ? 1.0 : 0.5
         }, completion: nil)
     }

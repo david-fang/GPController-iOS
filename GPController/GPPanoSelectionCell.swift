@@ -17,7 +17,9 @@ class GPPanoSelectionCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
         self.selectionStyle = .none
         
-        cardView.layer.cornerRadius = 15.0
+        // cardView.addDropShadow(color: UIColor.darkGray, offset: CGSize(width: 0, height: 7), opacity: 0.3, radius: 4.0)
+        
+        cardView.layer.cornerRadius = 4.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
