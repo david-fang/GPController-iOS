@@ -617,7 +617,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLV-b4-pO2" id="aZr-bq-kBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en6-Uf-Qk6">
@@ -725,7 +725,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="startPano:" destination="LFS-JS-IbL" eventType="touchUpInside" id="YG2-ft-B6N"/>
+                                    <action selector="savePanoConfigWith_sender:" destination="LFS-JS-IbL" eventType="touchUpInside" id="8F4-9k-Zmh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFIER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-Ng-xHm">
@@ -1258,7 +1258,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1267,7 +1267,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYN-LK-ZEE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AD2A8FA5-8236-4948-B917-BB100FF49653" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F9F33D28-A4AB-4B9C-9BF8-C9BA273CFBA7" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-YK-9eD">
                                         <rect key="frame" x="138" y="250" width="100" height="100"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enable Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSv-70-Ybh">
@@ -1379,7 +1379,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AD2A8FA5-8236-4948-B917-BB100FF49653" width="100" height="100">
+        <image name="F9F33D28-A4AB-4B9C-9BF8-C9BA273CFBA7" width="100" height="100">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

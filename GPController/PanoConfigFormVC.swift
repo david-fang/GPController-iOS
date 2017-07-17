@@ -13,7 +13,7 @@ class PanoConfigFormVC: UIViewController {
     @IBOutlet weak var componentsStepper: GMStepper!
     @IBOutlet weak var fovStepper: GMStepper!
     @IBOutlet weak var overlapStepper: GMStepper!
-    
+
     @IBOutlet weak var componentsToggle: UISwitch!
     @IBOutlet weak var fovToggle: UISwitch!
     @IBOutlet weak var overlapToggle: UISwitch!
@@ -31,12 +31,12 @@ class PanoConfigFormVC: UIViewController {
             refreshMenuItems()
         }
     }
-    
+
     let hLensFOV: Int = 90
     let vLensFOV: Int = 30
-    
+
     var gpBTManager: GPBluetoothManager?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initDefaultConfig()
@@ -47,6 +47,11 @@ class PanoConfigFormVC: UIViewController {
         }
     }
 
+    @IBAction func savePanoConfig(_sender: UIButton) {
+        
+        panoConfigEditor.savePanoConfig()
+    }
+    
     @IBAction func startPano(_ sender: Any) {
         if let manager = gpBTManager {
             let h_valueSet = panoConfigEditor.getValueSet(for: .horizontal)

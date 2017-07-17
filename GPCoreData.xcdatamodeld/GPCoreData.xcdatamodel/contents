@@ -9,13 +9,22 @@
         <attribute name="vResolution" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="PanoConfig" representedClassName="PanoConfig" syncable="YES" codeGenerationType="class">
-        <attribute name="angle" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="columns" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="columns" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="columnsLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hFOV" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hFOVLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hOverlap" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hOverlapLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="rows" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rowsLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vFOV" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vFOVLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vOverlap" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vOverlapLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="CameraConfig" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="PanoConfig" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="PanoConfig" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>

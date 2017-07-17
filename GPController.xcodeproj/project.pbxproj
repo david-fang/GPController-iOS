@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705CA751F1C700300BEF34B /* CoreDataKeys.swift */; };
 		0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* MainViewController.swift */; };
 		071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B01E61ED7788300A117E7 /* RoundAxisButton.swift */; };
 		0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */; };
@@ -80,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0705CA751F1C700300BEF34B /* CoreDataKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataKeys.swift; sourceTree = "<group>"; };
 		0715BDA51EDF696200035E9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		071B01E61ED7788300A117E7 /* RoundAxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundAxisButton.swift; sourceTree = "<group>"; };
 		0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */,
 				078506D01F04652C00297F4F /* CommandStrings.swift */,
 				07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */,
+				0705CA751F1C700300BEF34B /* CoreDataKeys.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */,
 				078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */,
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
+				0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
 				073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */,
