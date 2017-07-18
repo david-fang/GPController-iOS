@@ -640,7 +640,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLV-b4-pO2" id="aZr-bq-kBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en6-Uf-Qk6">
@@ -824,10 +824,10 @@
             </objects>
             <point key="canvasLocation" x="2116" y="225"/>
         </scene>
-        <!--Pano Config FormVC-->
+        <!--Pano Form View Controller-->
         <scene sceneID="SWt-xO-Dre">
             <objects>
-                <viewController id="LFS-JS-IbL" customClass="PanoConfigFormVC" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LFS-JS-IbL" customClass="PanoFormViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QGR-j2-sCr"/>
                         <viewControllerLayoutGuide type="bottom" id="Cru-tY-Zsr"/>
@@ -910,6 +910,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segueToSingleEditWithSender:" destination="LFS-JS-IbL" eventType="touchUpInside" id="MVd-1z-eRr"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NUMBER OF ROWS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjf-xD-xby">
                                 <rect key="frame" x="20" y="267.5" width="114" height="15"/>
@@ -1222,6 +1225,7 @@
                         <outlet property="overlapStepper" destination="g32-EC-BXm" id="PLs-pk-6PA"/>
                         <outlet property="overlapToggle" destination="fHr-Sx-v7c" id="pRB-1M-4aa"/>
                         <outlet property="verticalToggle" destination="49P-Je-FAT" id="eOT-UX-b2i"/>
+                        <segue destination="0tV-Ub-8FC" kind="show" identifier="singleEditPanoConfig" id="5TU-L0-cgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa7-F1-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1273,13 +1277,34 @@
                                 <color key="tintColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tE4-95-h90" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                <rect key="frame" x="24" y="36" width="46" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tE4-95-h90" secondAttribute="height" multiplier="1:1" id="0fI-H6-Iws"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="←">
+                                    <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34417708330000002" green="0.29890361440000002" blue="0.20184958250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3OE-PZ-56c" firstAttribute="centerY" secondItem="3Zj-cq-EBB" secondAttribute="centerY" id="4S7-61-uYt"/>
                             <constraint firstItem="3OE-PZ-56c" firstAttribute="centerX" secondItem="3Zj-cq-EBB" secondAttribute="centerX" id="4eE-XW-eXe"/>
+                            <constraint firstItem="tE4-95-h90" firstAttribute="leading" secondItem="3Zj-cq-EBB" secondAttribute="leadingMargin" constant="8" id="6zk-YU-0N8"/>
                             <constraint firstItem="3OE-PZ-56c" firstAttribute="top" secondItem="1hc-H7-M5s" secondAttribute="bottom" constant="24" id="AWq-gF-hWL"/>
                             <constraint firstItem="1hc-H7-M5s" firstAttribute="top" secondItem="CQh-T4-HIG" secondAttribute="bottom" constant="8" id="Fil-aR-XRi"/>
                             <constraint firstItem="CQh-T4-HIG" firstAttribute="centerX" secondItem="3OE-PZ-56c" secondAttribute="centerX" id="Jck-6v-xVH"/>
@@ -1290,14 +1315,19 @@
                             <constraint firstItem="iIa-jk-QJP" firstAttribute="top" secondItem="3Zj-cq-EBB" secondAttribute="top" id="lbs-i0-3p0"/>
                             <constraint firstItem="1hc-H7-M5s" firstAttribute="trailing" secondItem="CQh-T4-HIG" secondAttribute="trailing" constant="8" id="u9I-K8-yh4"/>
                             <constraint firstAttribute="bottom" secondItem="iIa-jk-QJP" secondAttribute="bottom" id="vPq-Xl-Ipd"/>
+                            <constraint firstItem="tE4-95-h90" firstAttribute="top" secondItem="qhQ-gO-sZX" secondAttribute="bottom" constant="16" id="y51-kD-Cvs"/>
                             <constraint firstItem="iIa-jk-QJP" firstAttribute="leading" secondItem="3Zj-cq-EBB" secondAttribute="leading" id="z60-BD-Uwe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="textfield" destination="CQh-T4-HIG" id="9Oj-vW-HgA"/>
+                        <outlet property="updateButton" destination="3OE-PZ-56c" id="a7Y-dh-dil"/>
+                        <segue destination="JrE-HK-jOX" kind="unwind" identifier="unwindToCameraForm" unwindAction="unwindToCameraFormWithSegue:" id="nYv-6N-lXi"/>
+                        <segue destination="JrE-HK-jOX" kind="unwind" identifier="unwindToPanoForm" unwindAction="unwindToPanoFormWithSegue:" id="Cpi-pE-wAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWm-90-xxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JrE-HK-jOX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3720.8000000000002" y="653.52323838080963"/>
         </scene>
@@ -1482,7 +1512,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1785,7 +1815,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7wQ-ND-tvT" id="7hi-A5-xJ9">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83d-Iu-cxt">
@@ -1938,12 +1968,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2le-dQ-Csu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360.8" y="947.67616191904051"/>
+            <point key="canvasLocation" x="2116" y="948"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera Form View Controller-->
         <scene sceneID="4VS-6P-dfM">
             <objects>
-                <viewController id="9L0-LG-8d3" sceneMemberID="viewController">
+                <viewController id="9L0-LG-8d3" customClass="CameraFormViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hXx-jN-ojV"/>
                         <viewControllerLayoutGuide type="bottom" id="Nnw-sr-0s5"/>
@@ -2019,7 +2049,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSj-KU-x1g">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSj-KU-x1g">
                                 <rect key="frame" x="24" y="303.5" width="327" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -2032,6 +2062,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segueToSingleEditWithSender:" destination="9L0-LG-8d3" eventType="touchUpInside" id="EBO-9g-M03"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nikon3200" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-bO-ajp">
                                 <rect key="frame" x="103.5" y="98" width="167" height="167"/>
@@ -2122,7 +2155,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="suffix" value="°"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-h5-lWR">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-h5-lWR">
                                 <rect key="frame" x="23.5" y="496" width="147.5" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -2134,8 +2167,11 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segueToSingleEditWithSender:" destination="9L0-LG-8d3" eventType="touchUpInside" id="Pvj-9z-iYK"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5n-zv-f54">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5n-zv-f54">
                                 <rect key="frame" x="204" y="496" width="147.5" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -2147,6 +2183,9 @@
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segueToSingleEditWithSender:" destination="9L0-LG-8d3" eventType="touchUpInside" id="IVB-eZ-ezz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34417708330000002" green="0.29890361440000002" blue="0.20184958250000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2199,10 +2238,16 @@
                             <constraint firstItem="2V1-qi-A86" firstAttribute="height" secondItem="PSj-KU-x1g" secondAttribute="height" id="zSR-sl-SOK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hRESButton" destination="0Ce-h5-lWR" id="kG6-rB-QK7"/>
+                        <outlet property="identifierButton" destination="PSj-KU-x1g" id="bh4-oS-QUa"/>
+                        <outlet property="vRESButton" destination="P5n-zv-f54" id="BSs-we-7gG"/>
+                        <segue destination="0tV-Ub-8FC" kind="show" identifier="singleEditCamConfig" id="p0F-NA-aRu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vV4-k4-gOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="947.67616191904051"/>
+            <point key="canvasLocation" x="2900" y="948"/>
         </scene>
     </scenes>
     <resources>
@@ -2217,4 +2262,7 @@
         <image name="Toolbox" width="100" height="100"/>
         <image name="VectorPattern" width="1300" height="1300"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5TU-L0-cgQ"/>
+    </inferredMetricsTieBreakers>
 </document>
