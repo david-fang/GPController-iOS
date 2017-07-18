@@ -18,5 +18,4 @@ target 'GPController' do
   end
 
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-
 end

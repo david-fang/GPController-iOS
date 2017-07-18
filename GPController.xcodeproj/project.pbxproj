@@ -43,6 +43,7 @@
 		07B962551F0FF18A008B7F9E /* GPPanoSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */; };
 		07B962581F0FFA11008B7F9E /* FadingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B962571F0FFA11008B7F9E /* FadingTableView.swift */; };
 		07B9625A1F10328A008B7F9E /* GMStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B962591F10328A008B7F9E /* GMStepper.swift */; };
+		07D8111D1F1D97BA0051C31A /* SingleValueEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */; };
 		07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */; };
 		082CF81EF3424C922F91EDA0 /* Pods_GPControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72315DC1439A7A44ADB53F11 /* Pods_GPControllerTests.framework */; };
 		1D79592495035270EA9006EA /* Pods_GPController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; };
@@ -122,6 +123,7 @@
 		07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPPanoSelectionCell.swift; sourceTree = "<group>"; };
 		07B962571F0FFA11008B7F9E /* FadingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadingTableView.swift; sourceTree = "<group>"; };
 		07B962591F10328A008B7F9E /* GMStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMStepper.swift; sourceTree = "<group>"; };
+		07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleValueEditViewController.swift; sourceTree = "<group>"; };
 		07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanDevicesViewController.swift; sourceTree = "<group>"; };
 		1D2DD39D41C28B9BC5A486F2 /* Pods-GPControllerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPControllerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPControllerUITests/Pods-GPControllerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4230C574549DF2A09B2964EF /* Pods-GPControllerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPControllerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPControllerUITests/Pods-GPControllerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		07369DFA1ED7540400DF29E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */,
 				0747CA401F157C6F00763065 /* PanoFormViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
 				0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */,
@@ -596,6 +599,7 @@
 				07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */,
 				07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */,
 				071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */,
+				07D8111D1F1D97BA0051C31A /* SingleValueEditViewController.swift in Sources */,
 				078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */,
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */,
