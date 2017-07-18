@@ -72,7 +72,7 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
             let context = appDelegate.persistentContainer.viewContext
             panoConfigs = try context.fetch(PanoConfig.fetchRequest())
         } catch {
-            print("ERROR: Could not fetch tasks from CoreData")
+            print("ERROR: Could not fetch panos from CoreData")
         }
     }
 }

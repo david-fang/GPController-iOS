@@ -8,17 +8,20 @@
 
 import Foundation
 
-let pano_IdentifierKey = "identifier"
-let pano_RowsKey = "rows"
-let pano_hFOVKey = "hFOV"
-let pano_hOverlapKey = "hOverlap"
-let pano_ColumnsKey = "columns"
-let pano_vFOVKey = "vFOV"
-let pano_vOverlapKey = "vOverlap"
+let core_identifierKey = "identifier"
+let core_rowsKey = "rows"
+let core_hFOVKey = "hFOV"
+let core_hOverlapKey = "hOverlap"
+let core_columnsKey = "columns"
+let core_vFOVKey = "vFOV"
+let core_vOverlapKey = "vOverlap"
+let core_vRESKey = "vRES"
+let core_hRESKey = "hRES"
 
-let pano_RowsLockKey = "rowsLock"
-let pano_ColumnsLockKey = "columnsLock"
-let pano_hFOVLockKey = "hFOVLock"
-let pano_vFOVLockKey = "vFOVLock"
-let pano_hOverlapLockKey = "hOverlapLock"
-let pano_vOverlapLockKey = "vOverlapLock"
+let core_rowsLockKey = "rowsLock"
+let core_columnsLockKey = "columnsLock"
+let core_hFOVLockKey = "hFOVLock"
+let core_vFOVLockKey = "vFOVLock"
+let core_hOverlapLockKey = "hOverlapLock"
+let core_vOverlapLockKey = "vOverlapLock"
+

@@ -13,11 +13,16 @@ class CameraFormViewController: UIViewController {
     @IBOutlet weak var identifierButton: UIButton!
     @IBOutlet weak var hRESButton: UIButton!
     @IBOutlet weak var vRESButton: UIButton!
+    @IBOutlet weak var hFOVStepper: GMStepper!
+    @IBOutlet weak var vFOVStepper: GMStepper!
 
+    var cameraConfigEditor: CameraConfigEditor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initDefaultConfig()
+        refreshMenuItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +30,35 @@ class CameraFormViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func segueToSingleEdit(sender: UIButton) {
-        performSegue(withIdentifier: "singleEditCamConfig", sender: sender)
+    func initDefaultConfig() {
+        cameraConfigEditor = CameraConfigEditor()
+    }
+    
+    func refreshMenuItems() {
+        hFOVStepper.value = cameraConfigEditor.hFOV
+        vFOVStepper.value = cameraConfigEditor.vFOV
+        hRESButton.setTitle(String(cameraConfigEditor.hRES), for: .normal)
+        vRESButton.setTitle(String(cameraConfigEditor.vRES), for: .normal)
+    }
+    
+    @IBAction func updateHFOV(_ sender: GMStepper) {
+        cameraConfigEditor.hFOV = hFOVStepper.value
+    }
+    
+    @IBAction func updatevFOV(_ sender: GMStepper) {
+        cameraConfigEditor.vFOV = vFOVStepper.value
+    }
+    
+    @IBAction func saveCameraConfig(_ sender: UIButton) {
+        cameraConfigEditor.saveCameraConfig()
     }
     
     // MARK: - Navigation
+
+    
+    @IBAction func segueToSingleEdit(_ sender: UIButton) {
+        performSegue(withIdentifier: "singleEditCamConfig", sender: sender)
+    }
 
     @IBAction func unwindToCameraForm(segue: UIStoryboardSegue) {
         if let src = segue.source as? SingleValueEditViewController {
@@ -37,10 +66,13 @@ class CameraFormViewController: UIViewController {
             if let val = src.updatedValue {
                 if (src.updateTypeIdentifier == SingleValueEditViewController.camIDString) {
                     identifierButton.setTitle(val, for: .normal)
+                    cameraConfigEditor.identifier = val
                 } else if (src.updateTypeIdentifier == SingleValueEditViewController.lensHRESString) {
                     hRESButton.setTitle(val, for: .normal)
+                    cameraConfigEditor.hRES = Int(val)!
                 } else if (src.updateTypeIdentifier == SingleValueEditViewController.lensVRESString) {
                     vRESButton.setTitle(val, for: .normal)
+                    cameraConfigEditor.vRES = Int(val)!
                 }
             }
         }

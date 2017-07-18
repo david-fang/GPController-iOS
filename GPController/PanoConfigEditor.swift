@@ -174,7 +174,7 @@ class PanoConfigEditor {
     func savePanoConfig() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let filterPred = NSPredicate(format: "\(pano_IdentifierKey) == %@", self.identifier)
+        let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", self.identifier)
         let fetchRequest: NSFetchRequest<PanoConfig> = PanoConfig.fetchRequest()
         fetchRequest.predicate = filterPred
         fetchRequest.fetchLimit = 1
@@ -192,20 +192,20 @@ class PanoConfigEditor {
                 print("Found one!")
             }
 
-            panoConfig.setValue(identifier, forKey: pano_IdentifierKey)
-            panoConfig.setValue(rows, forKey: pano_RowsKey)
-            panoConfig.setValue(hFOV, forKey: pano_hFOVKey)
-            panoConfig.setValue(hOverlap, forKey: pano_hOverlapKey)
-            panoConfig.setValue(columns, forKey: pano_ColumnsKey)
-            panoConfig.setValue(vFOV, forKey: pano_vFOVKey)
-            panoConfig.setValue(vOverlap, forKey: pano_vOverlapKey)
+            panoConfig.setValue(identifier, forKey: core_identifierKey)
+            panoConfig.setValue(rows, forKey: core_rowsKey)
+            panoConfig.setValue(hFOV, forKey: core_hFOVKey)
+            panoConfig.setValue(hOverlap, forKey: core_hOverlapKey)
+            panoConfig.setValue(columns, forKey: core_columnsKey)
+            panoConfig.setValue(vFOV, forKey: core_vFOVKey)
+            panoConfig.setValue(vOverlap, forKey: core_vOverlapKey)
             
-            panoConfig.setValue(rowsLock, forKey: pano_RowsLockKey)
-            panoConfig.setValue(columnsLock, forKey: pano_ColumnsLockKey)
-            panoConfig.setValue(hFOVLock, forKey: pano_hFOVLockKey)
-            panoConfig.setValue(vFOVLock, forKey: pano_vFOVLockKey)
-            panoConfig.setValue(hOverlapLock, forKey: pano_hOverlapLockKey)
-            panoConfig.setValue(vFOVLock, forKey: pano_vOverlapLockKey)
+            panoConfig.setValue(rowsLock, forKey: core_rowsLockKey)
+            panoConfig.setValue(columnsLock, forKey: core_columnsLockKey)
+            panoConfig.setValue(hFOVLock, forKey: core_hFOVLockKey)
+            panoConfig.setValue(vFOVLock, forKey: core_vFOVLockKey)
+            panoConfig.setValue(hOverlapLock, forKey: core_hOverlapLockKey)
+            panoConfig.setValue(vFOVLock, forKey: core_vOverlapLockKey)
             
             appDelegate.saveContext()
             
