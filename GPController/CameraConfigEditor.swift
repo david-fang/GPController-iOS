@@ -26,7 +26,7 @@ class CameraConfigEditor {
         vRES = 900
     }
     
-    func saveCameraConfig() {
+    func saveCameraConfig(completionHandler: (() -> Void)?) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", self.identifier)
@@ -54,7 +54,8 @@ class CameraConfigEditor {
             appDelegate.saveContext()
             
             print("Saved config!")
-            
+
+            completionHandler?()
         } catch {
             print("Error fetching CameraConfig object")
             return

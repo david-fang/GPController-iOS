@@ -14,6 +14,8 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
     @IBOutlet weak var tableView: FadingTableView!
 
     var panoConfigs: [PanoConfig] = []
+    var cameraConfig: CameraConfig?
+    var selectedConfig: PanoConfig?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
         super.viewWillAppear(animated)
         fetchPanoConfigsFromCoreData()
         tableView.reloadData()
+        selectedConfig = nil
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +63,8 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedConfig = panoConfigs[indexPath.row]
+        performSegue(withIdentifier: "toPanoForm", sender: self)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -73,6 +78,23 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
             panoConfigs = try context.fetch(PanoConfig.fetchRequest())
         } catch {
             print("ERROR: Could not fetch panos from CoreData")
+        }
+    }
+    
+    @IBAction func createNewConfig(_ sender: UIButton) {
+        performSegue(withIdentifier: "toPanoForm", sender: self)
+    }
+    
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toPanoForm") {
+            if let dest = segue.destination as? PanoFormViewController {
+                if selectedConfig != nil {
+                    dest.selectedPanoConfig = selectedConfig
+                }
+            }
         }
     }
 }

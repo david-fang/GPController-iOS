@@ -13,6 +13,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: FadingTableView!
     
     var cameraConfigs: [CameraConfig] = []
+    var selectedConfig: CameraConfig?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,8 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedConfig = cameraConfigs[indexPath.row]
+        performSegue(withIdentifier: "toPanoramaSelect", sender: self)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -74,5 +77,16 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
             print("ERROR: Could not fetch cameras from CoreData")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toPanoramaSelect") {
+            if let dest = segue.destination as? PanoramaSetupViewController {
+                if let selectedConfig = selectedConfig {
+                    dest.cameraConfig = selectedConfig
+                }
+            }
+        }
+    }
+    
     
 }

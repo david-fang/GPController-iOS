@@ -50,7 +50,7 @@ class CameraFormViewController: UIViewController {
     }
     
     @IBAction func saveCameraConfig(_ sender: UIButton) {
-        cameraConfigEditor.saveCameraConfig()
+        cameraConfigEditor.saveCameraConfig(completionHandler: nil)
     }
     
     // MARK: - Navigation

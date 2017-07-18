@@ -33,26 +33,33 @@ class PanoFormViewController: UIViewController {
         }
     }
 
-    let hLensFOV: Int = 90
-    let vLensFOV: Int = 30
-
+    var hLensFOV: Int = 90
+    var vLensFOV: Int = 30
+    
+    var selectedPanoConfig: PanoConfig?
     var gpBTManager: GPBluetoothManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initDefaultConfig()
+        
+        if let panoConfig = selectedPanoConfig {
+            panoConfigEditor = PanoConfigEditor(config: panoConfig, cam_HFOV: hLensFOV, cam_VFOV: vLensFOV)
+        } else {
+            initDefaultConfig()
+        }
+
         refreshMenuItems()
         
         if let nc = self.navigationController as? GPNavigationController {
             self.gpBTManager = nc.gpBTManager
         }
     }
-
+    
     @IBAction func savePanoConfig(_sender: UIButton) {
-        panoConfigEditor.savePanoConfig()
+        panoConfigEditor.savePanoConfig(completionHandler: nil)
     }
     
-    @IBAction func startPano(_ sender: Any) {
+    @IBAction func startPano(_ sender: UIButton) {
         if let manager = gpBTManager {
             let h_valueSet = panoConfigEditor.getValueSet(for: .horizontal)
             let v_valueSet = panoConfigEditor.getValueSet(for: .vertical)
@@ -214,6 +221,7 @@ class PanoFormViewController: UIViewController {
             if let val = src.updatedValue {
                 if (src.updateTypeIdentifier == SingleValueEditViewController.panoIDString) {
                     identifierButton.setTitle(val, for: .normal)
+                    panoConfigEditor.setIdentifier(to: val)
                 }
             }
         }

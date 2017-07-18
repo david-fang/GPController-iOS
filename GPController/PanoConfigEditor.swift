@@ -71,6 +71,27 @@ class PanoConfigEditor {
         // self.delegate = delegate
     // }
     
+    init(config: PanoConfig, cam_HFOV: Int, cam_VFOV: Int) {
+        self.cam_HFOV = cam_HFOV
+        self.cam_VFOV = cam_VFOV
+        
+        identifier = config.identifier!
+
+        rows = Int(config.rows)
+        hFOV = Int(config.hFOV)
+        hOverlap = Int(config.hOverlap)      // REMOVE
+        rowsLock = config.rowsLock
+        hFOVLock = config.hFOVLock
+        hOverlapLock = config.hOverlapLock
+        
+        columns = Int(config.columns)
+        vFOV = Int(config.vFOV)
+        vOverlap = Int(config.vOverlap)
+        columnsLock = config.columnsLock
+        vFOVLock = config.vFOVLock
+        vOverlapLock = config.vOverlapLock
+    }
+    
     init(cam_HFOV: Int, cam_VFOV: Int) {
         self.cam_HFOV = cam_HFOV
         self.cam_VFOV = cam_VFOV
@@ -171,7 +192,7 @@ class PanoConfigEditor {
         }
     }
     
-    func savePanoConfig() {
+    func savePanoConfig(completionHandler: (() -> Void)?) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", self.identifier)
@@ -187,8 +208,6 @@ class PanoConfigEditor {
                 panoConfig = PanoConfig(context: context)
             } else {
                 panoConfig = fetchResults[0]
-                
-                
                 print("Found one!")
             }
 

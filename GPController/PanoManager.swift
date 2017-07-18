@@ -15,15 +15,15 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate let rows: Int
     fileprivate let vAngle: Int
     fileprivate let hAngle: Int
-    
-    fileprivate var curColumn: Int = 0
-    fileprivate var curRow: Int = 0
+
+    fileprivate var curColumn: Int = 1
+    fileprivate var curRow: Int = 1
     fileprivate var pendingPicture: Bool = false
 
     var isCompleted: Bool {
         return curColumn == columns && curRow == rows && !pendingPicture
     }
-    
+
     required init(with manager: GPBluetoothManager, columns: Int, rows: Int, vAngle: Int, hAngle: Int) {
         self.manager = manager
         self.columns = columns
@@ -55,7 +55,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             if (curColumn == columns) {
                 cmd = createCommandString(dir: .up, angle: vAngle)
                 curRow = curRow + 1
-                curColumn = 0
+                curColumn = 1
             } else {
                 let dir: Direction = curRow % 2 == 0 ? .left : .right
                 cmd = createCommandString(dir: dir, angle: hAngle)

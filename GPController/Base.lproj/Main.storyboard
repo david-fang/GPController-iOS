@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="51C-fu-yhk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RTb-2Q-7dy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -254,205 +254,6 @@
             </objects>
             <point key="canvasLocation" x="-375" y="36"/>
         </scene>
-        <!--Camera Setup-->
-        <scene sceneID="9CL-Pl-e3M">
-            <objects>
-                <viewController id="S1A-8M-gai" userLabel="Camera Setup" customClass="CameraSetupViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="49d-4o-uSJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="78A-yf-bIZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Olb-GP-PWa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZh-qC-YPW" userLabel="Header Container">
-                                <rect key="frame" x="0.0" y="20" width="375" height="201"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2M-gv-iVr" userLabel="Text Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQe-Dw-SUQ">
-                                                <rect key="frame" x="146" y="16" width="84" height="29"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a camera setup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yy-s0-Fnd">
-                                                <rect key="frame" x="107" y="49" width="161.5" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bg-DY-tDY">
-                                                <rect key="frame" x="8" y="11.5" width="39" height="39"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="0Bg-DY-tDY" secondAttribute="height" multiplier="1:1" id="NbU-sl-Pas"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                <state key="normal" title="X">
-                                                    <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="nQe-Dw-SUQ" firstAttribute="centerX" secondItem="c2M-gv-iVr" secondAttribute="centerX" id="NVP-qK-mfx"/>
-                                            <constraint firstItem="4yy-s0-Fnd" firstAttribute="centerX" secondItem="nQe-Dw-SUQ" secondAttribute="centerX" id="Pva-AR-ofW"/>
-                                            <constraint firstItem="4yy-s0-Fnd" firstAttribute="top" secondItem="nQe-Dw-SUQ" secondAttribute="bottom" constant="4" id="f0c-Om-Zmq"/>
-                                            <constraint firstAttribute="bottom" secondItem="4yy-s0-Fnd" secondAttribute="bottom" constant="32" id="it2-T6-F84"/>
-                                            <constraint firstItem="nQe-Dw-SUQ" firstAttribute="top" secondItem="c2M-gv-iVr" secondAttribute="top" constant="16" id="lJ1-1C-GNA"/>
-                                            <constraint firstItem="0Bg-DY-tDY" firstAttribute="leading" secondItem="c2M-gv-iVr" secondAttribute="leading" constant="8" id="q4q-jy-61J"/>
-                                            <constraint firstItem="0Bg-DY-tDY" firstAttribute="centerY" secondItem="nQe-Dw-SUQ" secondAttribute="centerY" id="zEu-UK-nqm"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-wL-CT8" userLabel="Steps Container">
-                                        <rect key="frame" x="91" y="82.5" width="192" height="36"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wl-w7-GAz" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
-                                                <color key="backgroundColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="3wl-w7-GAz" secondAttribute="height" multiplier="1:1" id="RSE-Oo-0zp"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="1">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5P-iJ-gjl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="52" y="0.0" width="36" height="36"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="2">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCj-GC-VhM" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="104" y="0.0" width="36" height="36"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="3">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-Sf-Gx9" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="156" y="0.0" width="36" height="36"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="4">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="3wl-w7-GAz" firstAttribute="leading" secondItem="Yep-wL-CT8" secondAttribute="leading" id="0U0-7h-lpo"/>
-                                            <constraint firstItem="E5P-iJ-gjl" firstAttribute="top" secondItem="3wl-w7-GAz" secondAttribute="top" id="4io-Gs-kdl"/>
-                                            <constraint firstItem="MCj-GC-VhM" firstAttribute="height" secondItem="3wl-w7-GAz" secondAttribute="height" id="4r1-SB-YLZ"/>
-                                            <constraint firstItem="uLK-Sf-Gx9" firstAttribute="height" secondItem="3wl-w7-GAz" secondAttribute="height" id="7TF-5c-XZq"/>
-                                            <constraint firstItem="E5P-iJ-gjl" firstAttribute="leading" secondItem="3wl-w7-GAz" secondAttribute="trailing" constant="16" id="Ebb-te-9kf"/>
-                                            <constraint firstAttribute="trailing" secondItem="uLK-Sf-Gx9" secondAttribute="trailing" id="Fsm-s1-3El"/>
-                                            <constraint firstItem="E5P-iJ-gjl" firstAttribute="height" secondItem="3wl-w7-GAz" secondAttribute="height" id="I3R-4W-W1I"/>
-                                            <constraint firstItem="3wl-w7-GAz" firstAttribute="top" secondItem="Yep-wL-CT8" secondAttribute="top" id="Ntg-bI-2xd"/>
-                                            <constraint firstAttribute="bottom" secondItem="uLK-Sf-Gx9" secondAttribute="bottom" id="PCg-47-lic"/>
-                                            <constraint firstItem="E5P-iJ-gjl" firstAttribute="bottom" secondItem="3wl-w7-GAz" secondAttribute="bottom" id="T7K-eB-Do0"/>
-                                            <constraint firstItem="MCj-GC-VhM" firstAttribute="top" secondItem="E5P-iJ-gjl" secondAttribute="top" id="TCo-B4-dNW"/>
-                                            <constraint firstItem="MCj-GC-VhM" firstAttribute="bottom" secondItem="E5P-iJ-gjl" secondAttribute="bottom" id="ej8-rc-meo"/>
-                                            <constraint firstItem="uLK-Sf-Gx9" firstAttribute="leading" secondItem="MCj-GC-VhM" secondAttribute="trailing" constant="16" id="fhb-RU-5zO"/>
-                                            <constraint firstItem="uLK-Sf-Gx9" firstAttribute="top" secondItem="Yep-wL-CT8" secondAttribute="top" id="fli-7S-iuh"/>
-                                            <constraint firstAttribute="bottom" secondItem="3wl-w7-GAz" secondAttribute="bottom" id="hgQ-vo-p6w"/>
-                                            <constraint firstItem="uLK-Sf-Gx9" firstAttribute="width" secondItem="3wl-w7-GAz" secondAttribute="width" id="p4E-7m-SOZ"/>
-                                            <constraint firstItem="MCj-GC-VhM" firstAttribute="leading" secondItem="E5P-iJ-gjl" secondAttribute="trailing" constant="16" id="sXC-D3-H4n"/>
-                                            <constraint firstItem="E5P-iJ-gjl" firstAttribute="width" secondItem="3wl-w7-GAz" secondAttribute="width" id="vZW-uW-wxu"/>
-                                            <constraint firstItem="MCj-GC-VhM" firstAttribute="width" secondItem="3wl-w7-GAz" secondAttribute="width" id="xx3-tj-9Aj"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Yep-wL-CT8" firstAttribute="centerX" secondItem="kZh-qC-YPW" secondAttribute="centerX" id="58f-Rr-xHL"/>
-                                    <constraint firstAttribute="height" secondItem="c2M-gv-iVr" secondAttribute="height" multiplier="2" id="Qzh-L6-ldm"/>
-                                    <constraint firstItem="Yep-wL-CT8" firstAttribute="centerY" secondItem="kZh-qC-YPW" secondAttribute="centerY" id="S8J-Mx-jRG"/>
-                                    <constraint firstAttribute="trailing" secondItem="c2M-gv-iVr" secondAttribute="trailing" id="ccY-Ri-S9G"/>
-                                    <constraint firstItem="c2M-gv-iVr" firstAttribute="top" secondItem="kZh-qC-YPW" secondAttribute="top" id="fYj-Tg-4RD"/>
-                                    <constraint firstItem="c2M-gv-iVr" firstAttribute="leading" secondItem="kZh-qC-YPW" secondAttribute="leading" id="izN-P6-DIg"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ky1-ph-Ibo" userLabel="Top Layout Padding">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="gbc-XX-hy1"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ5-kW-b6U" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="312" y="600" width="47" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="aZ5-kW-b6U" secondAttribute="height" multiplier="1:1" id="iWo-6F-itg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="→">
-                                    <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="p7Q-ab-9GY" kind="show" id="zvI-dI-HCC"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="kZh-qC-YPW" firstAttribute="centerX" secondItem="Olb-GP-PWa" secondAttribute="centerX" id="5eR-rn-aaj"/>
-                            <constraint firstAttribute="trailing" secondItem="kZh-qC-YPW" secondAttribute="trailing" id="CRG-lM-l1h"/>
-                            <constraint firstItem="Ky1-ph-Ibo" firstAttribute="leading" secondItem="Olb-GP-PWa" secondAttribute="leading" id="EFY-X9-p27"/>
-                            <constraint firstItem="Ky1-ph-Ibo" firstAttribute="top" secondItem="Olb-GP-PWa" secondAttribute="top" id="Iey-al-r10"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aZ5-kW-b6U" secondAttribute="trailing" id="VaK-E1-KYw"/>
-                            <constraint firstItem="78A-yf-bIZ" firstAttribute="top" secondItem="aZ5-kW-b6U" secondAttribute="bottom" constant="20" id="b8O-cH-RGy"/>
-                            <constraint firstAttribute="trailing" secondItem="Ky1-ph-Ibo" secondAttribute="trailing" id="sCn-SD-iqz"/>
-                            <constraint firstItem="kZh-qC-YPW" firstAttribute="top" secondItem="Ky1-ph-Ibo" secondAttribute="bottom" id="uiP-dS-5iB"/>
-                            <constraint firstItem="kZh-qC-YPW" firstAttribute="leading" secondItem="Olb-GP-PWa" secondAttribute="leading" id="wvb-ns-012"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="lyU-f6-xbD"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dvb-tr-wrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1361" y="226"/>
-        </scene>
         <!--Panorama Setup-->
         <scene sceneID="O93-TJ-3I2">
             <objects>
@@ -518,7 +319,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="LFS-JS-IbL" kind="show" id="w9h-SF-L9G"/>
+                                                    <action selector="createNewConfig:" destination="p7Q-ab-9GY" eventType="touchUpInside" id="9HQ-OY-M8e"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -818,6 +619,7 @@
                     <connections>
                         <outlet property="headerTextContainer" destination="4S6-TB-R9z" id="XWF-oY-x5V"/>
                         <outlet property="tableView" destination="Tr2-KS-zVQ" id="mUs-sF-Phr"/>
+                        <segue destination="LFS-JS-IbL" kind="show" identifier="toPanoForm" id="MZZ-Wr-uTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0L-WO-guF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -877,6 +679,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="savePanoConfigWith_sender:" destination="LFS-JS-IbL" eventType="touchUpInside" id="8F4-9k-Zmh"/>
+                                    <action selector="startPano:" destination="LFS-JS-IbL" eventType="touchUpInside" id="8Dd-lj-8wN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFIER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-Ng-xHm">
@@ -1230,7 +1033,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa7-F1-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="226"/>
+            <point key="canvasLocation" x="2116" y="957"/>
         </scene>
         <!--Single Value Edit View Controller-->
         <scene sceneID="dRt-pm-FsY">
@@ -1329,7 +1132,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWm-90-xxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JrE-HK-jOX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="608"/>
+            <point key="canvasLocation" x="1743" y="1737"/>
         </scene>
         <!--Camera Pan View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1623,13 +1426,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="shouldHideNavigationBar" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="S1A-8M-gai" kind="relationship" relationship="rootViewController" id="Kvv-PD-zLB"/>
+                        <segue destination="51C-fu-yhk" kind="relationship" relationship="rootViewController" id="xMM-gn-FGZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCp-n2-OZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="227"/>
+            <point key="canvasLocation" x="558" y="224"/>
         </scene>
         <!--Panorama Setup-->
         <scene sceneID="OwV-om-Any">
@@ -1695,6 +1501,9 @@
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="9L0-LG-8d3" kind="show" id="ZbS-2X-Z1N"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1966,11 +1775,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="IUX-Zr-COs" id="w9s-Bi-O8I"/>
+                        <segue destination="p7Q-ab-9GY" kind="show" identifier="toPanoramaSelect" id="8kC-ih-zFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2le-dQ-Csu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="947.67616191904051"/>
+            <point key="canvasLocation" x="1361" y="226"/>
         </scene>
         <!--Camera Form View Controller-->
         <scene sceneID="4VS-6P-dfM">
@@ -2255,7 +2065,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vV4-k4-gOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="948"/>
+            <point key="canvasLocation" x="1361" y="957"/>
         </scene>
     </scenes>
     <resources>
@@ -2271,6 +2081,6 @@
         <image name="VectorPattern" width="1300" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p0F-NA-aRu"/>
+        <segue reference="5TU-L0-cgQ"/>
     </inferredMetricsTieBreakers>
 </document>

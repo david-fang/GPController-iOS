@@ -29,11 +29,10 @@ class GPCalculate {
      *  field of view of the lens is 0, implying zero components.
      */
     static func numComponents(panoFOV: Int, lensFOV: Int, overlap: Int) -> Int {
-        
         guard panoFOV != 0 && lensFOV != 0 && overlap != 100 else {
             fatalError("Invalid arguments to compute components")
         }
-        
+
         let olapDecimal = Double(overlap) / 100
         let effectiveFOV = Double(lensFOV) * (1 - olapDecimal)
         let numComponents = Double(panoFOV) / effectiveFOV

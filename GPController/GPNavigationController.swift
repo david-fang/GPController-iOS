@@ -10,15 +10,21 @@ import UIKit
 
 class GPNavigationController: UINavigationController {
 
-    var gpBTManager: GPBluetoothManager?
+    @IBInspectable var shouldHideNavigationBar: Bool = false
     
+    var gpBTManager: GPBluetoothManager?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.isTranslucent = true
-        self.navigationBar.tintColor = UIColor.rushmoreBrown
+        if (shouldHideNavigationBar) {
+            self.setNavigationBarHidden(true, animated: false)
+        } else {
+            self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            self.navigationBar.shadowImage = UIImage()
+            self.navigationBar.isTranslucent = true
+            self.navigationBar.tintColor = UIColor.rushmoreBrown
+        }
     }
 
     override func didReceiveMemoryWarning() {
