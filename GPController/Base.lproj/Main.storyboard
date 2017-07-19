@@ -296,6 +296,9 @@
                                                 <state key="normal" title="←">
                                                     <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="back:" destination="p7Q-ab-9GY" eventType="touchUpInside" id="OUb-Pb-y6s"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpY-gN-MJI" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="319" y="26.5" width="48" height="48"/>
@@ -660,6 +663,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="back:" destination="LFS-JS-IbL" eventType="touchUpInside" id="nKy-cQ-qR9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQ1-aa-57D" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="305" y="36" width="46" height="46"/>
@@ -1101,6 +1107,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="back:" destination="0tV-Ub-8FC" eventType="touchUpInside" id="psw-Tu-AbC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34417708330000002" green="0.29890361440000002" blue="0.20184958250000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1437,10 +1446,10 @@
             </objects>
             <point key="canvasLocation" x="558" y="224"/>
         </scene>
-        <!--Panorama Setup-->
+        <!--Camera Setup-->
         <scene sceneID="OwV-om-Any">
             <objects>
-                <viewController id="51C-fu-yhk" userLabel="Panorama Setup" customClass="CameraSetupViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="51C-fu-yhk" userLabel="Camera Setup" customClass="CameraSetupViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WjI-U4-P8g"/>
                         <viewControllerLayoutGuide type="bottom" id="4lZ-Zo-j0b"/>
@@ -1479,6 +1488,9 @@
                                                 <state key="normal" title="←">
                                                     <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="back:" destination="51C-fu-yhk" eventType="touchUpInside" id="xuA-6R-6Ws"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXd-bj-tpl" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="319" y="27" width="48" height="48"/>
@@ -1816,6 +1828,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="back:" destination="9L0-LG-8d3" eventType="touchUpInside" id="sZE-Lr-GW4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qt-mL-Yow" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="305" y="36" width="46" height="46"/>

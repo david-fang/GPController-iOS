@@ -88,6 +88,10 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
     
     // MARK: - Navigation
     
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toPanoForm") {
             if let dest = segue.destination as? PanoFormViewController {

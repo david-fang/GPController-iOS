@@ -215,6 +215,12 @@ class PanoFormViewController: UIViewController {
         }, completion: nil)
     }
     
+    // MARK: - Navigation
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func segueToSingleEdit(sender: UIButton) {
         performSegue(withIdentifier: "singleEditPanoConfig", sender: sender)
     }

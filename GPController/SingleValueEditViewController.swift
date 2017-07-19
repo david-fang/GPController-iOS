@@ -51,6 +51,10 @@ class SingleValueEditViewController: UIViewController {
             performSegue(withIdentifier: "unwindToCameraForm", sender: sender)
         }
     }
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     // MARK: - Navigation
 

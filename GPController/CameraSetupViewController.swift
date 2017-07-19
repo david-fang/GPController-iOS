@@ -78,6 +78,18 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    // MARK: - Navigation
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: {
+            if let nc = self.navigationController as? GPNavigationController {
+                nc.gpBTManager = nil
+            }
+
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toPanoramaSelect") {
             if let dest = segue.destination as? PanoramaSetupViewController {
