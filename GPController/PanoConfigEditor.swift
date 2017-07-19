@@ -64,30 +64,23 @@ class PanoConfigEditor {
     fileprivate var vFOVLock:       Bool
     fileprivate var vOverlapLock:   Bool
     
-    // init(identifier: String, delegate: PanoConfigEditorDelegate) {
-        // Find the PanoConfig with this unique identifier
-        // and load the data into this editor model
-
-        // self.delegate = delegate
-    // }
-    
     init(config: PanoConfig, cam_HFOV: Int, cam_VFOV: Int) {
         self.cam_HFOV = cam_HFOV
         self.cam_VFOV = cam_VFOV
         
         identifier = config.identifier!
-
-        rows = Int(config.rows)
+        
+        columns = Int(config.columns)
         hFOV = Int(config.hFOV)
         hOverlap = Int(config.hOverlap)      // REMOVE
-        rowsLock = config.rowsLock
+        columnsLock = config.columnsLock
         hFOVLock = config.hFOVLock
         hOverlapLock = config.hOverlapLock
         
-        columns = Int(config.columns)
+        rows = Int(config.rows)
         vFOV = Int(config.vFOV)
         vOverlap = Int(config.vOverlap)
-        columnsLock = config.columnsLock
+        rowsLock = config.rowsLock
         vFOVLock = config.vFOVLock
         vOverlapLock = config.vOverlapLock
     }
@@ -101,17 +94,17 @@ class PanoConfigEditor {
         
         identifier = "unidentified"
 
-        rows = numRows
+        columns = numColumns
         hFOV = DEFAULT_PANO_HFOV
         hOverlap = DEFAULT_PANO_OVERLAP
-        rowsLock = true
+        columnsLock = true
         hFOVLock = true
         hOverlapLock = false
         
-        columns = numColumns
+        rows = numRows
         vFOV = DEFAULT_PANO_VFOV
         vOverlap = DEFAULT_PANO_OVERLAP
-        columnsLock = true
+        rowsLock = true
         vFOVLock = true
         vOverlapLock = false
     }
@@ -123,9 +116,9 @@ class PanoConfigEditor {
     func setComponents(for axis: Axis, to value: Int) {
         switch axis {
         case .horizontal:
-            rows = value
-        case .vertical:
             columns = value
+        case .vertical:
+            rows = value
         }
     }
     
@@ -150,9 +143,9 @@ class PanoConfigEditor {
     func setComponentsLock(for axis: Axis, to value: Bool) {
         switch axis {
         case .horizontal:
-            rowsLock = value
-        case .vertical:
             columnsLock = value
+        case .vertical:
+            rowsLock = value
         }
     }
     
@@ -177,18 +170,18 @@ class PanoConfigEditor {
     func getValueSet(for axis: Axis) -> PanoValueSet {
         switch axis {
         case .horizontal:
-            return PanoValueSet(components: rows, fov: hFOV, overlap: hOverlap)
-        default:
-            return PanoValueSet(components: columns, fov: vFOV, overlap: vOverlap)
+            return PanoValueSet(components: columns, fov: hFOV, overlap: hOverlap)
+        case .vertical:
+            return PanoValueSet(components: rows, fov: vFOV, overlap: vOverlap)
         }
     }
     
     func getLockSet(for axis: Axis) -> PanoLockSet {
         switch axis {
         case .horizontal:
-            return PanoLockSet(componentsLock: rowsLock, fovLock: hFOVLock, overlapLock: hOverlapLock)
-        default:
-            return PanoLockSet(componentsLock: columnsLock, fovLock: vFOVLock, overlapLock: vOverlapLock)
+            return PanoLockSet(componentsLock: columnsLock, fovLock: hFOVLock, overlapLock: hOverlapLock)
+        case .vertical:
+            return PanoLockSet(componentsLock: rowsLock, fovLock: vFOVLock, overlapLock: vOverlapLock)
         }
     }
     
@@ -212,22 +205,24 @@ class PanoConfigEditor {
             }
 
             panoConfig.setValue(identifier, forKey: core_identifierKey)
-            panoConfig.setValue(rows, forKey: core_rowsKey)
+
+            panoConfig.setValue(columns, forKey: core_columnsKey)
             panoConfig.setValue(hFOV, forKey: core_hFOVKey)
             panoConfig.setValue(hOverlap, forKey: core_hOverlapKey)
-            panoConfig.setValue(columns, forKey: core_columnsKey)
+
+            panoConfig.setValue(rows, forKey: core_rowsKey)
             panoConfig.setValue(vFOV, forKey: core_vFOVKey)
             panoConfig.setValue(vOverlap, forKey: core_vOverlapKey)
-            
+
             panoConfig.setValue(rowsLock, forKey: core_rowsLockKey)
             panoConfig.setValue(columnsLock, forKey: core_columnsLockKey)
             panoConfig.setValue(hFOVLock, forKey: core_hFOVLockKey)
             panoConfig.setValue(vFOVLock, forKey: core_vFOVLockKey)
             panoConfig.setValue(hOverlapLock, forKey: core_hOverlapLockKey)
-            panoConfig.setValue(vFOVLock, forKey: core_vOverlapLockKey)
+            panoConfig.setValue(vOverlapLock, forKey: core_vOverlapLockKey)
             
             appDelegate.saveContext()
-            
+
             print("Saved config!")
             
         } catch {

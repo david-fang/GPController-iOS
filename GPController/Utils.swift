@@ -49,7 +49,6 @@ class GPCalculate {
      *  field of view of the lens is 0, implying a field of view of zero.
      */
     static func panoFOV(numComponents: Int, lensFOV: Int, overlap: Int) -> Int {
-
         guard numComponents != 0 && lensFOV != 0 && overlap != 100 else {
             fatalError("Invalid arguments to compute pano field of view")
         }

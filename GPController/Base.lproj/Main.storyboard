@@ -441,13 +441,13 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLV-b4-pO2" id="aZr-bq-kBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en6-Uf-Qk6">
                                                     <rect key="frame" x="12" y="0.0" width="335" height="172.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROWS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDX-OC-Ru7">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLUMNS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDX-OC-Ru7">
                                                             <rect key="frame" x="12" y="60.5" width="93" height="15"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -465,7 +465,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COLUMNS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8N-ra-3On">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROWS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8N-ra-3On">
                                                             <rect key="frame" x="12" y="116.5" width="93" height="15"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -586,11 +586,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cardView" destination="en6-Uf-Qk6" id="s4Z-ww-wYX"/>
-                                            <outlet property="columnsLabel" destination="P8v-no-g0x" id="skZ-jg-beL"/>
+                                            <outlet property="columnsLabel" destination="mlb-fK-MZa" id="naf-Ae-xeB"/>
                                             <outlet property="hFOVLabel" destination="EU8-aP-6Hm" id="WPo-mU-9JK"/>
                                             <outlet property="hOverlapLabel" destination="3nh-9o-oxc" id="kqw-7V-QtH"/>
                                             <outlet property="identifierLabel" destination="q87-4x-QCJ" id="Uis-87-M4b"/>
-                                            <outlet property="rowsLabel" destination="mlb-fK-MZa" id="CgM-wK-hPv"/>
+                                            <outlet property="rowsLabel" destination="P8v-no-g0x" id="sUo-zf-F8E"/>
                                             <outlet property="vFOVLabel" destination="EqX-Bi-ea6" id="jP7-Ye-WMG"/>
                                             <outlet property="vOverlapLabel" destination="CtI-LR-yG8" id="H9e-Jn-hWy"/>
                                         </connections>
@@ -1315,7 +1315,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1624,7 +1624,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7wQ-ND-tvT" id="7hi-A5-xJ9">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83d-Iu-cxt">

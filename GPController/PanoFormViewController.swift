@@ -66,7 +66,8 @@ class PanoFormViewController: UIViewController {
             let verticalAngle = GPCalculate.angle(panoFOV: v_valueSet.fov, numComponents: v_valueSet.components)
             let horizontalAngle = GPCalculate.angle(panoFOV: h_valueSet.fov, numComponents: h_valueSet.components)
 
-            let panoManager = PanoManager(with: manager, columns: v_valueSet.components, rows: h_valueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle)
+            let panoManager = PanoManager(with: manager, columns: h_valueSet.components, rows: v_valueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle)
+
             panoManager.start()
         }
     }
@@ -82,13 +83,15 @@ class PanoFormViewController: UIViewController {
     
     func refreshMenuItems() {
         if (activeAxis == .horizontal) {
-            componentsLabel.text = "NUMBER OF ROWS"
+            componentsLabel.text = "NUMBER OF COLUMNS"
             fovLabel.text = "HORIZONTAL PANO FOV"
             overlapLabel.text = "HORIZONTAL OVERLAP"
+            fovStepper.maximumValue = 360
         } else {
-            componentsLabel.text = "NUMBER OF COLUMNS"
+            componentsLabel.text = "NUMBER OF ROWS"
             fovLabel.text = "VERTICAL PANO FOV"
             overlapLabel.text = "VERTICAL OVERLAP"
+            fovStepper.maximumValue = 180
         }
         
         let valueSet = panoConfigEditor.getValueSet(for: activeAxis)
