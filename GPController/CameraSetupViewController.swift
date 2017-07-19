@@ -49,10 +49,10 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cameraSelectionCell", for: indexPath) as! GPCamSelectionCell
         
         cell.identifierLabel.text = config.identifier
-        cell.hFOVLabel.text = String(config.hFOV)
-        cell.vFOVLabel.text = String(config.vFOV)
-        cell.hRESLabel.text = String(config.hRES)
-        cell.vRESLabel.text = String(config.vRES)
+        cell.hFOVLabel.text = String(config.hFOV) + "°"
+        cell.vFOVLabel.text = String(config.vFOV) + "°"
+        cell.hRESLabel.text = String(config.hRES) + "px"
+        cell.vRESLabel.text = String(config.vRES) + "px"
         cell.cameraImageView.image = UIImage(named: "Nikon3200")
         
         return cell

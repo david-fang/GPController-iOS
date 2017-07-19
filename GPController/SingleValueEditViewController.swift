@@ -20,7 +20,7 @@ class SingleValueEditViewController: UIViewController {
 
     var updateTypeIdentifier: String!
     var updatedValue: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,16 +35,21 @@ class SingleValueEditViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        textfield.becomeFirstResponder()
+        DispatchQueue.main.async {
+            self.textfield.becomeFirstResponder()
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func updateValue(_ sender: Any) {
-        view.endEditing(true)
+        DispatchQueue.main.async {
+            self.view.endEditing(true)
+        }
+
         if (updateTypeIdentifier == SingleValueEditViewController.panoIDString ) {
             performSegue(withIdentifier: "unwindToPanoForm", sender: sender)
         } else {
@@ -53,6 +58,9 @@ class SingleValueEditViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.view.endEditing(true)
+        }
         _ = self.navigationController?.popViewController(animated: true)
     }
 

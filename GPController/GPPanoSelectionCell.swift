@@ -11,14 +11,7 @@ import UIKit
 class GPPanoSelectionCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
-    
     @IBOutlet weak var identifierLabel: UILabel!
-    @IBOutlet weak var rowsLabel: UILabel!
-    @IBOutlet weak var hFOVLabel: UILabel!
-    @IBOutlet weak var hOverlapLabel: UILabel!
-    @IBOutlet weak var columnsLabel: UILabel!
-    @IBOutlet weak var vFOVLabel: UILabel!
-    @IBOutlet weak var vOverlapLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

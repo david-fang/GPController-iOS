@@ -25,6 +25,8 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 64
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,15 +51,8 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let config = panoConfigs[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "panoSelectionCell", for: indexPath) as! GPPanoSelectionCell
-        
         cell.identifierLabel.text = config.identifier
-        cell.rowsLabel.text = String(config.rows)
-        cell.hFOVLabel.text = String(config.hFOV)
-        cell.hOverlapLabel.text = String(config.hOverlap)
-        cell.columnsLabel.text = String(config.columns)
-        cell.vFOVLabel.text = String(config.vFOV)
-        cell.vOverlapLabel.text = String(config.vOverlap)
-        
+
         return cell
     }
 
