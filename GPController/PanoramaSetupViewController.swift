@@ -89,7 +89,7 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
     // MARK: - Navigation
     
     @IBAction func back(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

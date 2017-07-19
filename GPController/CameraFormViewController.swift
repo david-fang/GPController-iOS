@@ -56,7 +56,7 @@ class CameraFormViewController: UIViewController {
     // MARK: - Navigation
 
     @IBAction func back(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func segueToSingleEdit(_ sender: UIButton) {
