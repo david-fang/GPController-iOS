@@ -8,18 +8,18 @@
         <attribute name="vRES" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="PanoConfig" representedClassName="PanoConfig" syncable="YES" codeGenerationType="class">
-        <attribute name="columns" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="columns" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="columnsLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="hFOV" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hFOV" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hFOVLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="hOverlap" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hOverlap" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hOverlapLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="rows" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rows" optional="YES" attributeType="Integer 16" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rowsLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="vFOV" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vFOV" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vFOVLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="vOverlap" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vOverlap" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vOverlapLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>

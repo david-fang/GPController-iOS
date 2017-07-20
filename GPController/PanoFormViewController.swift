@@ -102,9 +102,9 @@ class PanoFormViewController: UIViewController {
         toggleSwitch(_switch: fovToggle, on: lockSet.fovLock)
         toggleSwitch(_switch: overlapToggle, on: lockSet.overlapLock)
         
-        componentsStepper.value = valueSet.components
-        fovStepper.value = valueSet.fov
-        overlapStepper.value = valueSet.overlap
+        if (componentsToggle.isOn) { componentsStepper.value = valueSet.components }
+        if (fovToggle.isOn)        { fovStepper.value = valueSet.fov }
+        if (overlapToggle.isOn)    { overlapStepper.value = valueSet.overlap }
     }
 
     // MARK: - Settings Toggle Functions

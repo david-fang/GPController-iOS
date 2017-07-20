@@ -72,7 +72,7 @@ class PanoConfigEditor {
         
         columns = Int(config.columns)
         hFOV = Int(config.hFOV)
-        hOverlap = Int(config.hOverlap)      // REMOVE
+        hOverlap = Int(config.hOverlap)
         columnsLock = config.columnsLock
         hFOVLock = config.hFOVLock
         hOverlapLock = config.hOverlapLock
@@ -83,9 +83,6 @@ class PanoConfigEditor {
         rowsLock = config.rowsLock
         vFOVLock = config.vFOVLock
         vOverlapLock = config.vOverlapLock
-        
-        
-        // print(hOverlap)     // optional Ints default to 0
     }
     
     init(cam_HFOV: Int, cam_VFOV: Int) {
@@ -225,7 +222,6 @@ class PanoConfigEditor {
             panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: core_vOverlapKey)
             
             appDelegate.saveContext()
-
             print("Saved config!")
             
         } catch {
