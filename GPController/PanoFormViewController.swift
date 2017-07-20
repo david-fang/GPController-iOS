@@ -35,7 +35,8 @@ class PanoFormViewController: UIViewController {
 
     var hLensFOV: Int = 90
     var vLensFOV: Int = 30
-    
+
+    var selectedCameraConfig: CameraConfig?
     var selectedPanoConfig: PanoConfig?
     var gpBTManager: GPBluetoothManager?
 

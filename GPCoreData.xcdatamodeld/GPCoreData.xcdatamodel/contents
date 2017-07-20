@@ -6,26 +6,24 @@
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="vFOV" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vRES" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="pairedPanos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PanoConfig" inverseName="pairedCamera" inverseEntity="PanoConfig" syncable="YES"/>
     </entity>
     <entity name="PanoConfig" representedClassName="PanoConfig" syncable="YES" codeGenerationType="class">
-        <attribute name="columns" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="columns" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="columnsLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="hFOV" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hFOV" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hFOVLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="hOverlap" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hOverlap" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hOverlapLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="rows" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rows" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rowsLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="vFOV" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vFOV" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vFOVLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="vOverlap" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="vOverlap" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="vOverlapLock" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="pairedCamera" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CameraConfig" inverseName="pairedPanos" inverseEntity="CameraConfig" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CameraConfig" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="PanoConfig" positionX="-63" positionY="-18" width="128" height="255"/>
+        <element name="CameraConfig" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="PanoConfig" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>

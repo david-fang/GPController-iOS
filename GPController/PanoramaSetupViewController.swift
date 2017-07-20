@@ -25,7 +25,7 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 64
+        tableView.estimatedRowHeight = 67
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 

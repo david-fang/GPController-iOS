@@ -67,7 +67,7 @@ class PanoConfigEditor {
     init(config: PanoConfig, cam_HFOV: Int, cam_VFOV: Int) {
         self.cam_HFOV = cam_HFOV
         self.cam_VFOV = cam_VFOV
-        
+
         identifier = config.identifier!
         
         columns = Int(config.columns)
@@ -83,6 +83,9 @@ class PanoConfigEditor {
         rowsLock = config.rowsLock
         vFOVLock = config.vFOVLock
         vOverlapLock = config.vOverlapLock
+        
+        
+        // print(hOverlap)     // optional Ints default to 0
     }
     
     init(cam_HFOV: Int, cam_VFOV: Int) {
@@ -206,20 +209,20 @@ class PanoConfigEditor {
 
             panoConfig.setValue(identifier, forKey: core_identifierKey)
 
-            panoConfig.setValue(columns, forKey: core_columnsKey)
-            panoConfig.setValue(hFOV, forKey: core_hFOVKey)
-            panoConfig.setValue(hOverlap, forKey: core_hOverlapKey)
-
-            panoConfig.setValue(rows, forKey: core_rowsKey)
-            panoConfig.setValue(vFOV, forKey: core_vFOVKey)
-            panoConfig.setValue(vOverlap, forKey: core_vOverlapKey)
-
             panoConfig.setValue(rowsLock, forKey: core_rowsLockKey)
             panoConfig.setValue(columnsLock, forKey: core_columnsLockKey)
             panoConfig.setValue(hFOVLock, forKey: core_hFOVLockKey)
             panoConfig.setValue(vFOVLock, forKey: core_vFOVLockKey)
             panoConfig.setValue(hOverlapLock, forKey: core_hOverlapLockKey)
             panoConfig.setValue(vOverlapLock, forKey: core_vOverlapLockKey)
+
+            panoConfig.setValue(columnsLock ? columns : nil, forKey: core_columnsKey)
+            panoConfig.setValue(hFOVLock ? hFOV : nil, forKey: core_hFOVKey)
+            panoConfig.setValue(hOverlapLock ? hOverlap : nil, forKey: core_hOverlapKey)
+            
+            panoConfig.setValue(rowsLock ? rows : nil, forKey: core_rowsKey)
+            panoConfig.setValue(vFOVLock ? vFOV : nil, forKey: core_vFOVKey)
+            panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: core_vOverlapKey)
             
             appDelegate.saveContext()
 

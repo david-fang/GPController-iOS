@@ -440,26 +440,26 @@
                                 <rect key="frame" x="8" y="155" width="359" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="panoSelectionCell" rowHeight="64" id="zLV-b4-pO2" customClass="GPPanoSelectionCell" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="359" height="64"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="panoSelectionCell" rowHeight="67" id="zLV-b4-pO2" customClass="GPPanoSelectionCell" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLV-b4-pO2" id="aZr-bq-kBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="63"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en6-Uf-Qk6">
-                                                    <rect key="frame" x="12" y="0.0" width="335" height="47.5"/>
+                                                    <rect key="frame" x="12" y="0.0" width="335" height="50.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertical Strip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q87-4x-QCJ">
-                                                            <rect key="frame" x="12" y="12" width="97.5" height="23.5"/>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                                            <rect key="frame" x="12" y="16" width="87" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                             <color key="textColor" red="0.81960784310000001" green="0.70980392160000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="q87-4x-QCJ" firstAttribute="top" secondItem="en6-Uf-Qk6" secondAttribute="top" constant="12" id="0Zh-9v-vjl"/>
+                                                        <constraint firstItem="q87-4x-QCJ" firstAttribute="top" secondItem="en6-Uf-Qk6" secondAttribute="top" constant="16" id="0Zh-9v-vjl"/>
                                                         <constraint firstItem="q87-4x-QCJ" firstAttribute="leading" secondItem="en6-Uf-Qk6" secondAttribute="leading" constant="12" id="8r7-IO-BqN"/>
                                                         <constraint firstAttribute="bottom" secondItem="q87-4x-QCJ" secondAttribute="bottom" constant="12" id="DO1-aX-pJN"/>
                                                     </constraints>
