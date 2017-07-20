@@ -40,9 +40,6 @@ class PanoConfigEditor {
             self.overlapLock = overlapLock
         }
     }
-
-    fileprivate let cam_HFOV:       Int
-    fileprivate let cam_VFOV:       Int
     
     fileprivate var identifier:     String
 
@@ -64,10 +61,7 @@ class PanoConfigEditor {
     fileprivate var vFOVLock:       Bool
     fileprivate var vOverlapLock:   Bool
     
-    init(config: PanoConfig, cam_HFOV: Int, cam_VFOV: Int) {
-        self.cam_HFOV = cam_HFOV
-        self.cam_VFOV = cam_VFOV
-
+    init(config: PanoConfig) {
         identifier = config.identifier!
         
         columns = Int(config.columns)
@@ -85,12 +79,9 @@ class PanoConfigEditor {
         vOverlapLock = config.vOverlapLock
     }
     
-    init(cam_HFOV: Int, cam_VFOV: Int) {
-        self.cam_HFOV = cam_HFOV
-        self.cam_VFOV = cam_VFOV
-        
-        let numRows = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_HFOV, lensFOV: cam_HFOV, overlap: DEFAULT_PANO_OVERLAP)
-        let numColumns = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_VFOV, lensFOV: cam_VFOV, overlap: DEFAULT_PANO_OVERLAP)
+    init(camHFOV: Int, camVFOV: Int) {
+        let numRows = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_HFOV, lensFOV: camHFOV, overlap: DEFAULT_PANO_OVERLAP)
+        let numColumns = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_VFOV, lensFOV: camVFOV, overlap: DEFAULT_PANO_OVERLAP)
         
         identifier = "unidentified"
 

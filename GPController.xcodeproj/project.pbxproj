@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705CA751F1C700300BEF34B /* CoreDataKeys.swift */; };
 		0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* MainViewController.swift */; };
+		0718C73C1F212E6900C4FB39 /* ShootingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */; };
+		0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0718C73D1F21664F00C4FB39 /* PickerView.swift */; };
 		071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B01E61ED7788300A117E7 /* RoundAxisButton.swift */; };
 		0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */; };
 		0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B7201F143F2E00F9A4E0 /* GPTextField.swift */; };
@@ -86,6 +88,8 @@
 /* Begin PBXFileReference section */
 		0705CA751F1C700300BEF34B /* CoreDataKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataKeys.swift; sourceTree = "<group>"; };
 		0715BDA51EDF696200035E9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShootingConfigViewController.swift; sourceTree = "<group>"; };
+		0718C73D1F21664F00C4FB39 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		071B01E61ED7788300A117E7 /* RoundAxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundAxisButton.swift; sourceTree = "<group>"; };
 		0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		0720B7201F143F2E00F9A4E0 /* GPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTextField.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 		07369DF81ED753CB00DF29E3 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
+				0718C73D1F21664F00C4FB39 /* PickerView.swift */,
 				07B962591F10328A008B7F9E /* GMStepper.swift */,
 				0720B7201F143F2E00F9A4E0 /* GPTextField.swift */,
 				07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */,
@@ -265,6 +270,7 @@
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
 				07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */,
 				07D8111E1F1E6ED30051C31A /* CameraFormViewController.swift */,
+				0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -613,9 +619,11 @@
 				0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
 				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
+				0718C73C1F212E6900C4FB39 /* ShootingConfigViewController.swift in Sources */,
 				073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */,
 				0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */,
 				07B9625A1F10328A008B7F9E /* GMStepper.swift in Sources */,
+				0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,

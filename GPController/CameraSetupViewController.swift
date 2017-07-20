@@ -94,7 +94,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         if (segue.identifier == "toPanoramaSelect") {
             if let dest = segue.destination as? PanoramaSetupViewController {
                 if let selectedConfig = selectedConfig {
-                    dest.cameraConfig = selectedConfig
+                    dest.camera = selectedConfig
                 }
             }
         }

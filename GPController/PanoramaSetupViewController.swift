@@ -13,8 +13,8 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
     @IBOutlet weak var headerTextContainer: UIView!
     @IBOutlet weak var tableView: FadingTableView!
 
+    var camera: CameraConfig!
     var panoConfigs: [PanoConfig] = []
-    var cameraConfig: CameraConfig?
     var selectedConfig: PanoConfig?
     
     override func viewDidLoad() {
@@ -90,8 +90,9 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toPanoForm") {
             if let dest = segue.destination as? PanoFormViewController {
+                dest.camera = self.camera
                 if selectedConfig != nil {
-                    dest.selectedPanoConfig = selectedConfig
+                    dest.selectedPano = self.selectedConfig
                 }
             }
         }

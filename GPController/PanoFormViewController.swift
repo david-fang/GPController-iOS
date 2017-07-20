@@ -33,18 +33,17 @@ class PanoFormViewController: UIViewController {
         }
     }
 
-    var hLensFOV: Int = 90
-    var vLensFOV: Int = 30
+    var camera: CameraConfig!           // You should not be able to reach this screen
+                                        // without already having picked a camera
+    var selectedPano: PanoConfig?
 
-    var selectedCameraConfig: CameraConfig?
-    var selectedPanoConfig: PanoConfig?
     var gpBTManager: GPBluetoothManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let panoConfig = selectedPanoConfig {
-            panoConfigEditor = PanoConfigEditor(config: panoConfig, cam_HFOV: hLensFOV, cam_VFOV: vLensFOV)
+        if let panoConfig = selectedPano {
+            panoConfigEditor = PanoConfigEditor(config: panoConfig)
         } else {
             initDefaultConfig()
         }
@@ -79,7 +78,7 @@ class PanoFormViewController: UIViewController {
     }
     
     func initDefaultConfig() {
-        panoConfigEditor = PanoConfigEditor(cam_HFOV: hLensFOV, cam_VFOV: vLensFOV)
+        panoConfigEditor = PanoConfigEditor(camHFOV: Int(camera.hFOV), camVFOV: Int(camera.vFOV))
     }
     
     func refreshMenuItems() {
@@ -172,7 +171,7 @@ class PanoFormViewController: UIViewController {
     }
     
     fileprivate func updateAllStepperValues() {
-        let cameraFOV: Int = activeAxis == .horizontal ? hLensFOV : vLensFOV
+        let cameraFOV: Int = activeAxis == .horizontal ? Int(camera.hFOV) : Int(camera.vFOV)
         let valueSet = panoConfigEditor.getValueSet(for: activeAxis)
         
         if (componentsToggle.isOn && fovToggle.isOn) {
