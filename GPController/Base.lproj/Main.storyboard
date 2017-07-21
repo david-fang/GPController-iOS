@@ -1148,7 +1148,7 @@
                                     <action selector="openPicker:" destination="Quc-wl-q22" eventType="touchUpInside" id="dvd-tb-pPR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IG-MO-15J">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IG-MO-15J">
                                 <rect key="frame" x="48" y="504" width="279" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -1165,7 +1165,7 @@
                                     <action selector="openPicker:" destination="Quc-wl-q22" eventType="touchUpInside" id="yNm-Bm-3pU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOd-2f-Dvn">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOd-2f-Dvn">
                                 <rect key="frame" x="48" y="594" width="279" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -1219,25 +1219,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0og-DG-RH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="rKf-zd-cTS">
-                    <rect key="frame" x="0.0" y="0.0" width="250" height="271.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="284"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0N-rr-Idi" userLabel="PickerContainer">
-                            <rect key="frame" x="0.0" y="0.0" width="250" height="187.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENK-sz-SX7" customClass="PickerView" customModule="GPController" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="187.5"/>
+                                    <rect key="frame" x="0.0" y="15" width="250" height="169"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="tintColor" red="0.91609375000000004" green="0.7955896724" blue="0.53726163059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="d0N-rr-Idi" secondAttribute="height" multiplier="4:3" id="5eE-pU-uBr"/>
-                                <constraint firstAttribute="bottom" secondItem="ENK-sz-SX7" secondAttribute="bottom" id="5qd-7X-npc"/>
+                                <constraint firstAttribute="width" secondItem="d0N-rr-Idi" secondAttribute="height" multiplier="5:4" id="5eE-pU-uBr"/>
+                                <constraint firstAttribute="bottom" secondItem="ENK-sz-SX7" secondAttribute="bottom" constant="16" id="5qd-7X-npc"/>
                                 <constraint firstAttribute="trailing" secondItem="ENK-sz-SX7" secondAttribute="trailing" id="bCH-7x-Za0"/>
                                 <constraint firstItem="ENK-sz-SX7" firstAttribute="leading" secondItem="d0N-rr-Idi" secondAttribute="leading" id="fv4-K9-c6v"/>
-                                <constraint firstItem="ENK-sz-SX7" firstAttribute="top" secondItem="d0N-rr-Idi" secondAttribute="top" id="u6W-z1-ztH"/>
+                                <constraint firstItem="ENK-sz-SX7" firstAttribute="top" secondItem="d0N-rr-Idi" secondAttribute="top" constant="15" id="u6W-z1-ztH"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1246,7 +1246,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEA-b1-ssC" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="95" y="211.5" width="60" height="60"/>
+                            <rect key="frame" x="95" y="224" width="60" height="60"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="JEA-b1-ssC" secondAttribute="height" multiplier="1:1" id="C5w-kE-fmw"/>
@@ -1262,15 +1262,18 @@
                                     <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="dismissPopup:" destination="Quc-wl-q22" eventType="touchUpInside" id="V7T-K8-z9B"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="JEA-b1-ssC" firstAttribute="centerX" secondItem="ENK-sz-SX7" secondAttribute="centerX" id="4fm-ow-BVB"/>
                         <constraint firstItem="d0N-rr-Idi" firstAttribute="top" secondItem="rKf-zd-cTS" secondAttribute="top" id="G5V-Ue-7Tb"/>
+                        <constraint firstItem="JEA-b1-ssC" firstAttribute="top" secondItem="d0N-rr-Idi" secondAttribute="bottom" constant="24" id="S8d-wl-VYR"/>
                         <constraint firstItem="ENK-sz-SX7" firstAttribute="centerX" secondItem="rKf-zd-cTS" secondAttribute="centerX" id="fiz-se-nO3"/>
                         <constraint firstItem="d0N-rr-Idi" firstAttribute="leading" secondItem="rKf-zd-cTS" secondAttribute="leading" id="gcr-06-cTq"/>
-                        <constraint firstItem="JEA-b1-ssC" firstAttribute="top" secondItem="ENK-sz-SX7" secondAttribute="bottom" constant="24" id="udv-TC-ezB"/>
                         <constraint firstAttribute="trailing" secondItem="d0N-rr-Idi" secondAttribute="trailing" id="vdy-9m-FVK"/>
                     </constraints>
                 </view>

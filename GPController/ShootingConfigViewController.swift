@@ -13,20 +13,16 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     // MARK: - Picker Popup
     
     @IBOutlet var pickerPopup: UIView!
-    // @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var pickerView: PickerView!
 
+    let blurEffect = UIBlurEffect(style: .light)
     var blurEffectView: UIVisualEffectView?
     
     var pickerTag: Int = 0 {
         didSet {
-            pickerView.delegate = self
-            pickerView.dataSource = self
-            pickerView.selectionStyle = .defaultIndicator
-            pickerPopup.center = view.center
-            addBlurEffect()
-
-            view.addSubview(pickerPopup)
+            pickerView.reloadPickerView()
+            pickerView.selectRow(0, animated: false)
+            displayPopup()
         }
     }
     
@@ -38,6 +34,13 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.selectionStyle = .defaultIndicator
+        
+        blurEffectView = UIVisualEffectView()
+        blurEffectView?.frame = view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,18 +90,33 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         }
     }
     
-    func addBlurEffect() {
-        let blurEffect = UIBlurEffect(style: .light)
-        blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView?.frame = view.bounds
-        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+    func displayPopup() {
         if let blurView = blurEffectView {
             view.addSubview(blurView)
         }
+
+        view.addSubview(pickerPopup)
+        pickerPopup.center = view.center
+        pickerPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        pickerPopup.alpha = 0
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.blurEffectView?.effect = self.blurEffect
+            self.pickerPopup.alpha = 1
+            self.pickerPopup.transform = .identity
+        })
     }
     
-    
+    @IBAction func dismissPopup(_ sender: Any) {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.pickerPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.pickerPopup.alpha = 0
+            self.blurEffectView?.effect = nil
+        }, completion: { (success: Bool) in
+            self.pickerPopup.removeFromSuperview()
+            self.blurEffectView?.removeFromSuperview()
+        })
+    }
     
     // MARK: - Navigation
 
