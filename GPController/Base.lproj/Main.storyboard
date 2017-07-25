@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nZ6-2W-mxn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RTb-2Q-7dy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -444,7 +444,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLV-b4-pO2" id="aZr-bq-kBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en6-Uf-Qk6">
@@ -564,7 +564,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="savePanoConfigWith_sender:" destination="LFS-JS-IbL" eventType="touchUpInside" id="8F4-9k-Zmh"/>
-                                    <action selector="startPano:" destination="LFS-JS-IbL" eventType="touchUpInside" id="8Dd-lj-8wN"/>
+                                    <action selector="segueToShootingConfig:" destination="LFS-JS-IbL" eventType="touchUpInside" id="4cC-cF-i1l"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFIER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-Ng-xHm">
@@ -976,6 +976,9 @@
                                                 <state key="normal" title="→">
                                                     <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="toReferenceSetting:" destination="Quc-wl-q22" eventType="touchUpInside" id="lKN-LY-dWH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1324,9 +1327,6 @@
                                                 <state key="normal" title="→">
                                                     <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="showSubview:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="1DZ-kK-ep2"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.89411764709999997" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1461,6 +1461,9 @@
                                                         <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="displayInitForm:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="rTr-eA-Zbw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NL-lF-myZ" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="94" y="0.0" width="70" height="70"/>
@@ -1481,6 +1484,9 @@
                                                         <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="displayEditForm:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="E1e-AV-jPa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLH-Jc-4Y8" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="188" y="0.0" width="70" height="70"/>
@@ -1498,6 +1504,9 @@
                                                         <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="displayPreviewForm:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="h3V-JU-lW7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1541,9 +1550,6 @@
                                                 <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="moveGigaPan:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="sEM-kO-Cap"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2s-c0-CQ6" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="151.5" y="16" width="72.5" height="72.5"/>
@@ -1563,9 +1569,6 @@
                                                 <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="moveGigaPan:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="xPo-ez-gem"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Vc-Ac-bWp" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="228" y="92.5" width="72.5" height="72.5"/>
@@ -1582,9 +1585,6 @@
                                                 <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="moveGigaPan:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="xiD-FJ-446"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klv-mi-chO" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="151.5" y="169" width="72.5" height="72.5"/>
@@ -1601,9 +1601,6 @@
                                                 <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="moveGigaPan:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="7e1-X8-mrT"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1649,22 +1646,28 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="controlPanel" destination="Jnw-Dn-lM2" id="tyg-bz-zch"/>
                         <outlet property="displaySection" destination="qcl-uk-4WK" id="Ppp-dV-Qdq"/>
+                        <outlet property="downButton" destination="Klv-mi-chO" id="uCp-g8-hN2"/>
                         <outlet property="editReferenceView" destination="c8e-ZO-KT2" id="k9D-3i-tG8"/>
+                        <outlet property="leftButton" destination="axM-C6-3XG" id="r5u-ib-JbV"/>
                         <outlet property="moveToStartView" destination="vwj-my-M3o" id="Jie-oj-jPx"/>
                         <outlet property="previewView" destination="MH9-Gr-7en" id="ypv-OB-Idp"/>
+                        <outlet property="referencePointLabel" destination="Qfy-Db-7fD" id="1mH-WQ-CNx"/>
+                        <outlet property="rightButton" destination="0Vc-Ac-bWp" id="gqB-xA-bBp"/>
+                        <outlet property="upButton" destination="d2s-c0-CQ6" id="q3o-Vn-bAc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0H-ta-vKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="vwj-my-M3o">
-                    <rect key="frame" x="0.0" y="0.0" width="353" height="157"/>
+                    <rect key="frame" x="0.0" y="0.0" width="325" height="157"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-Rp-vmN">
-                            <rect key="frame" x="16" y="16" width="321" height="65"/>
+                            <rect key="frame" x="16" y="16" width="293" height="65"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move GigaPan to the top left position of the panorama" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSW-W4-7sK">
-                                    <rect key="frame" x="8" y="12" width="305" height="41"/>
+                                    <rect key="frame" x="8" y="12" width="277" height="41"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -1684,7 +1687,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-GN-keG" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="151" y="97" width="50" height="50"/>
+                            <rect key="frame" x="137" y="97" width="50" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Mc1-VW-X3D"/>
@@ -1703,6 +1706,9 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="dismissInitForm:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="tvD-Mi-rER"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1743,7 +1749,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFP-Rn-PD3" userLabel="Bottom Right" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFP-Rn-PD3" userLabel="Bottom Right" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                     <rect key="frame" x="264" y="205" width="44.5" height="44.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     <state key="normal">
@@ -1760,8 +1766,11 @@
                                             <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="moveToCorner:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="jmJ-Hq-9e7"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQy-ia-14h" userLabel="Top Right" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQy-ia-14h" userLabel="Top Right" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                     <rect key="frame" x="264" y="8" width="44.5" height="44.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     <state key="normal">
@@ -1778,6 +1787,9 @@
                                             <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="moveToCorner:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="4kG-aY-K6f"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-Xf-LUU" userLabel="Top Left" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                     <rect key="frame" x="66.5" y="8" width="44.5" height="44.5"/>
@@ -1797,8 +1809,11 @@
                                             <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="moveToCorner:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="61b-AP-N0e"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-pZ-nOD" userLabel="Bottom Left" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-pZ-nOD" userLabel="Bottom Left" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                     <rect key="frame" x="65.5" y="205.5" width="44.5" height="44.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     <state key="normal">
@@ -1815,6 +1830,9 @@
                                             <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="moveToCorner:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="PWD-RO-Y0u"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eft-Eg-Cf6">
                                     <rect key="frame" x="186" y="159.5" width="2" height="67"/>
@@ -1934,10 +1952,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5p-Zj-zcH">
-                            <rect key="frame" x="16" y="47" width="256" height="66"/>
+                            <rect key="frame" x="16" y="16" width="256" height="66"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Row: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzR-nM-iRd" customClass="FlexiLabel" customModule="GPController" customModuleProvider="target">
-                                    <rect key="frame" x="102" y="8" width="52" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting reference point to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzR-nM-iRd" customClass="FlexiLabel" customModule="GPController" customModuleProvider="target">
+                                    <rect key="frame" x="28" y="12" width="200" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -1956,8 +1974,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Column: 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfy-Db-7fD" customClass="FlexiLabel" customModule="GPController" customModuleProvider="target">
-                                    <rect key="frame" x="88.5" y="37" width="79" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(x, y)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfy-Db-7fD" customClass="FlexiLabel" customModule="GPController" customModuleProvider="target">
+                                    <rect key="frame" x="109" y="33" width="38" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -1980,9 +1998,9 @@
                             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="fzR-nM-iRd" firstAttribute="centerX" secondItem="a5p-Zj-zcH" secondAttribute="centerX" id="47s-Cs-a5B"/>
-                                <constraint firstItem="fzR-nM-iRd" firstAttribute="top" secondItem="a5p-Zj-zcH" secondAttribute="top" constant="8" id="6Vm-ae-zLT"/>
-                                <constraint firstItem="Qfy-Db-7fD" firstAttribute="top" secondItem="fzR-nM-iRd" secondAttribute="bottom" constant="8" id="JWc-FI-teH"/>
-                                <constraint firstAttribute="bottom" secondItem="Qfy-Db-7fD" secondAttribute="bottom" constant="8" id="VwI-g4-ayg"/>
+                                <constraint firstItem="fzR-nM-iRd" firstAttribute="top" secondItem="a5p-Zj-zcH" secondAttribute="top" constant="12" id="6Vm-ae-zLT"/>
+                                <constraint firstItem="Qfy-Db-7fD" firstAttribute="top" secondItem="fzR-nM-iRd" secondAttribute="bottom" id="JWc-FI-teH"/>
+                                <constraint firstAttribute="bottom" secondItem="Qfy-Db-7fD" secondAttribute="bottom" constant="12" id="VwI-g4-ayg"/>
                                 <constraint firstItem="Qfy-Db-7fD" firstAttribute="centerX" secondItem="fzR-nM-iRd" secondAttribute="centerX" id="byP-ZF-DGp"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -1991,13 +2009,39 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6O-HL-M2B" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                            <rect key="frame" x="119" y="98" width="50" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="t8A-h0-sOr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
+                            <state key="normal" title="X">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="dismissEditForm:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="ZQe-gG-LyF"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="c6O-HL-M2B" firstAttribute="width" secondItem="c6O-HL-M2B" secondAttribute="height" multiplier="1:1" id="5cM-AW-JKF"/>
                         <constraint firstAttribute="trailing" secondItem="a5p-Zj-zcH" secondAttribute="trailing" constant="16" id="Okx-Ja-8ew"/>
-                        <constraint firstItem="a5p-Zj-zcH" firstAttribute="centerY" secondItem="c8e-ZO-KT2" secondAttribute="centerY" id="mw4-Vr-o1K"/>
+                        <constraint firstItem="c6O-HL-M2B" firstAttribute="top" secondItem="a5p-Zj-zcH" secondAttribute="bottom" constant="16" id="adu-wv-N3i"/>
+                        <constraint firstItem="c6O-HL-M2B" firstAttribute="centerX" secondItem="a5p-Zj-zcH" secondAttribute="centerX" id="hvs-xP-XsB"/>
                         <constraint firstItem="a5p-Zj-zcH" firstAttribute="centerX" secondItem="c8e-ZO-KT2" secondAttribute="centerX" id="u6U-uj-n4C"/>
                         <constraint firstItem="a5p-Zj-zcH" firstAttribute="leading" secondItem="c8e-ZO-KT2" secondAttribute="leading" constant="16" id="uyN-pf-IJi"/>
+                        <constraint firstItem="a5p-Zj-zcH" firstAttribute="top" secondItem="c8e-ZO-KT2" secondAttribute="top" constant="16" id="zIy-u5-cn9"/>
                     </constraints>
                 </view>
             </objects>
@@ -2286,7 +2330,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2598,7 +2642,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7wQ-ND-tvT" id="7hi-A5-xJ9">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83d-Iu-cxt">

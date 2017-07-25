@@ -34,6 +34,7 @@
 		078506CC1F04601800297F4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078506CB1F04601800297F4F /* CoreData.framework */; };
 		078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 078506CD1F04609900297F4F /* GPCoreData.xcdatamodeld */; };
 		078506D11F04652C00297F4F /* CommandStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078506D01F04652C00297F4F /* CommandStrings.swift */; };
+		0792BF591F27C47E009197D1 /* PanoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792BF581F27C47E009197D1 /* PanoGrid.swift */; };
 		079B9EF21F26BFF7003AF2B0 /* FlexiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */; };
@@ -121,6 +122,7 @@
 		078506CB1F04601800297F4F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		078506CE1F04609900297F4F /* GPCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPCoreData.xcdatamodel; sourceTree = "<group>"; };
 		078506D01F04652C00297F4F /* CommandStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandStrings.swift; sourceTree = "<group>"; };
+		0792BF581F27C47E009197D1 /* PanoGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoGrid.swift; sourceTree = "<group>"; };
 		079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiLabel.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationConstants.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				0732BCE91F06EE8A006A91DF /* PanoManager.swift */,
 				073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */,
 				07D811221F1E87570051C31A /* CameraConfigEditor.swift */,
+				0792BF581F27C47E009197D1 /* PanoGrid.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */,
 				07D811211F1E83240051C31A /* GPCamSelectionCell.swift in Sources */,
 				07B962551F0FF18A008B7F9E /* GPPanoSelectionCell.swift in Sources */,
+				0792BF591F27C47E009197D1 /* PanoGrid.swift in Sources */,
 				07D8111F1F1E6ED30051C31A /* CameraFormViewController.swift in Sources */,
 				07AD73221F16CBE200D909DA /* Utils.swift in Sources */,
 				07AD73241F16CCFE00D909DA /* PanoFormViewController.swift in Sources */,

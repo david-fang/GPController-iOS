@@ -8,18 +8,14 @@
 
 import UIKit
 
-enum Direction {
-    case left, right, up, down
-}
-
 @IBDesignable
 class RoundAxisButton: UIButton {
 
     @IBInspectable var borderWidth: CGFloat = 1.5
     @IBInspectable var borderColor: UIColor = UIColor.blue
-
-    var direction: Direction = .left
     
+    var direction: Direction = .left
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setDefaults()
@@ -42,5 +38,13 @@ class RoundAxisButton: UIButton {
     fileprivate func setDefaults() {
         self.isExclusiveTouch = true
         self.adjustsImageWhenHighlighted = false
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.2, animations: { _ in
+                self.alpha = self.isHighlighted ? 0.65 : 1.0
+            })
+        }
     }
 }

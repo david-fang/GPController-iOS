@@ -8,6 +8,22 @@
 
 import Foundation
 
+protocol PanoramaListenerDelegate {
+    func panoramaDidFinish()
+}
+
+enum Direction {
+    case left, right, up, down
+}
+
+enum Corner {
+    case topLeft, topRight, bottomLeft, bottomRight
+}
+
+enum Pattern {
+    case unidirectional, snake
+}
+
 class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     fileprivate let manager: GPBluetoothManager
@@ -15,10 +31,13 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate let rows: Int
     fileprivate let vAngle: Int
     fileprivate let hAngle: Int
-
+    
     fileprivate var curColumn: Int = 1
     fileprivate var curRow: Int = 1
     fileprivate var pendingPicture: Bool = false
+    
+    let grid: PanoGrid
+    var delegate: PanoramaListenerDelegate?
 
     var isCompleted: Bool {
         return curColumn == columns && curRow == rows && !pendingPicture
@@ -30,6 +49,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         self.rows = rows
         self.vAngle = vAngle
         self.hAngle = hAngle
+        self.grid = PanoGrid(rows: rows, columns: columns, startPosition: .topLeft)
     }
     
     /** Performs any final setup and starts the panorama session */
@@ -51,20 +71,20 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
                 return
             }
 
-            var cmd: String
             if (curColumn == columns) {
-                cmd = createCommandString(dir: .up, angle: vAngle)
+                move(dir: .up, angle: vAngle)
                 curRow = curRow + 1
                 curColumn = 1
             } else {
                 let dir: Direction = curRow % 2 == 0 ? .left : .right
-                cmd = createCommandString(dir: dir, angle: hAngle)
+                move(dir: dir, angle: hAngle)
                 curColumn = curColumn + 1
             }
-
+            
             pendingPicture = true
-            manager.send(text: cmd)
+            
         } else {
+            delegate?.panoramaDidFinish()
             print("DONE")
         }
     }
@@ -76,8 +96,9 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * - parameter dir: the direction of rotation
      * - parameter angle: the angle at which to rotate each iteration by
      */
-    fileprivate func createCommandString(dir: Direction, angle: Int) -> String {
+    fileprivate func move(dir: Direction, angle: Int) {
         var cmd: String
+
         switch dir {
         case .up:
             cmd = GP_FORWARD
@@ -88,10 +109,69 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         case .right:
             cmd = GP_RIGHT
         }
-        
-        return "\(cmd) \(angle)"
+
+        manager.send(text: "\(cmd) \(angle)")
     }
     
+    func tiltForward() {
+        if (grid.move(dir: .up)) {
+            move(dir: .up, angle: vAngle)
+        }
+    }
+    
+    func tiltBackward() {
+        if (grid.move(dir: .down)) {
+            move(dir: .down, angle: vAngle)
+        }
+    }
+    
+    func panLeft() {
+        if (grid.move(dir: .left)) {
+            move(dir: .left, angle: hAngle)
+        }
+    }
+    
+    func panRight() {
+        if (grid.move(dir: .right)) {
+            move(dir: .right, angle: hAngle)
+        }
+    }
+    
+    func moveToCorner(corner: Corner) {
+        
+        var numPans = 0
+        var numTilts = 0
+        
+        let panHandler: () -> Void
+        let tiltHandler: () -> Void
+
+        switch corner {
+        case .topLeft:
+            numPans = grid.x * -1
+            numTilts = rows - grid.y - 1
+        case .topRight:
+            numPans = columns - grid.x - 1
+            numTilts = rows - grid.y - 1
+        case .bottomLeft:
+            numPans = grid.x * -1
+            numTilts = grid.y * -1
+        case .bottomRight:
+            numPans = columns - grid.x - 1
+            numTilts = grid.y * -1
+        }
+
+        panHandler = numPans > 0 ? panRight : panLeft
+        tiltHandler = numTilts > 0 ? tiltForward : tiltBackward
+
+        for _ in 0..<abs(numPans) {
+            panHandler()
+        }
+
+        for _ in 0..<abs(numTilts) {
+            tiltHandler()
+        }
+    }
+
     func getColumn() -> Int {
         return curColumn
     }

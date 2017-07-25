@@ -55,23 +55,6 @@ class PanoFormViewController: UIViewController {
         }
     }
     
-    @IBAction func savePanoConfig(_sender: UIButton) {
-        panoConfigEditor.savePanoConfig(completionHandler: nil)
-    }
-    
-    @IBAction func startPano(_ sender: UIButton) {
-        if let manager = gpBTManager {
-            let h_valueSet = panoConfigEditor.getValueSet(for: .horizontal)
-            let v_valueSet = panoConfigEditor.getValueSet(for: .vertical)
-            let verticalAngle = GPCalculate.angle(panoFOV: v_valueSet.fov, numComponents: v_valueSet.components)
-            let horizontalAngle = GPCalculate.angle(panoFOV: h_valueSet.fov, numComponents: h_valueSet.components)
-
-            let panoManager = PanoManager(with: manager, columns: h_valueSet.components, rows: v_valueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle)
-
-            panoManager.start()
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -215,10 +198,20 @@ class PanoFormViewController: UIViewController {
         }, completion: nil)
     }
     
+    // MARK: - CoreData
+    
+    @IBAction func savePanoConfig(_sender: UIButton) {
+        panoConfigEditor.savePanoConfig(completionHandler: nil)
+    }
+    
     // MARK: - Navigation
     
     @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func segueToShootingConfig(_ sender: UIButton) {
+        performSegue(withIdentifier: "toShootingConfig", sender: sender)
     }
     
     @IBAction func segueToSingleEdit(sender: UIButton) {
@@ -240,6 +233,11 @@ class PanoFormViewController: UIViewController {
         if (segue.identifier == "singleEditPanoConfig") {
             if let dest = segue.destination as? SingleValueEditViewController {
                 dest.updateTypeIdentifier = SingleValueEditViewController.panoIDString
+            }
+        } else if (segue.identifier == "toShootingConfig") {
+            if let dest = segue.destination as? ShootingConfigViewController {
+                dest.hValueSet = panoConfigEditor.getValueSet(for: .horizontal)
+                dest.vValueSet = panoConfigEditor.getValueSet(for: .vertical)
             }
         }
     }

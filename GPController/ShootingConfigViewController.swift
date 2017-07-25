@@ -22,6 +22,9 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     let orderTitles = ["Rows", "Columns"]
     let patternTitles = ["Unidirectional", "Snake"]
     
+    var hValueSet: PanoConfigEditor.PanoValueSet!
+    var vValueSet: PanoConfigEditor.PanoValueSet!
+    
     var pickerTag: Int = 0 {
         didSet {
             pickerView.reloadPickerView()
@@ -161,9 +164,25 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         _ = self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func toReferenceSetting(_ sender: UIButton) {
+        performSegue(withIdentifier: "toReferencePoint", sender: sender)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "toReferencePoint") {
+            if let dest = segue.destination as? SetReferenceViewController {
+                if let nc = self.navigationController as? GPNavigationController {
+                    if let manager = nc.gpBTManager {
+                        dest.gpBTManager = manager
+                        
+                        let verticalAngle = GPCalculate.angle(panoFOV: vValueSet.fov, numComponents: vValueSet.components)
+                        let horizontalAngle = GPCalculate.angle(panoFOV: hValueSet.fov, numComponents: hValueSet.components)
+
+                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle)
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func openPicker(_ sender: UIButton) {
