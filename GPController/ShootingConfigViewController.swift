@@ -18,19 +18,38 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     let blurEffect = UIBlurEffect(style: .light)
     var blurEffectView: UIVisualEffectView?
     
-    var pickerTag: Int = 0 {
-        didSet {
-            pickerView.reloadPickerView()
-            pickerView.selectRow(0, animated: false)
-            displayPopup()
-        }
-    }
-    
     let positionTitles = ["Top left", "Top right", "Bottom left", "Bottom right"]
     let orderTitles = ["Rows", "Columns"]
     let patternTitles = ["Unidirectional", "Snake"]
     
+    var pickerTag: Int = 0 {
+        didSet {
+            pickerView.reloadPickerView()
+            
+            switch pickerTag {
+            case 0:
+                pickerView.selectRow(pickPositionIdx, animated: false)
+            case 1:
+                pickerView.selectRow(pickOrderIdx, animated: false)
+            case 2:
+                pickerView.selectRow(pickPatternIdx, animated: false)
+            default:
+                break
+            }
+            
+            displayPopup()
+        }
+    }
+
+    var pickPositionIdx: Int = 0
+    var pickOrderIdx: Int = 0
+    var pickPatternIdx: Int = 0
+    
     // MARK: - Shooting Config View
+    
+    @IBOutlet weak var startPositionBtn: UIButton!
+    @IBOutlet weak var orderBtn: UIButton!
+    @IBOutlet weak var patternBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +109,24 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         }
     }
     
+    func pickerView(_ pickerView: PickerView, didSelectRow row: Int, index: Int) {
+        switch pickerTag {
+        case 0:
+            pickPositionIdx = row
+            startPositionBtn.setTitle(positionTitles[row], for: .normal)
+        case 1:
+            pickOrderIdx = row
+            orderBtn.setTitle(orderTitles[row], for: .normal)
+        case 2:
+            pickPatternIdx = row
+            patternBtn.setTitle(patternTitles[row], for: .normal)
+        default:
+            break
+        }
+    }
+    
+    // MARK: - Picker View Display
+    
     func displayPopup() {
         if let blurView = blurEffectView {
             view.addSubview(blurView)
@@ -120,12 +157,10 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     
     // MARK: - Navigation
 
-     @IBAction func back(_ sender: UIButton) {
+    @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
-     }
-    
-     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

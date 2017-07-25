@@ -34,10 +34,12 @@
 		078506CC1F04601800297F4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078506CB1F04601800297F4F /* CoreData.framework */; };
 		078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 078506CD1F04609900297F4F /* GPCoreData.xcdatamodeld */; };
 		078506D11F04652C00297F4F /* CommandStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078506D01F04652C00297F4F /* CommandStrings.swift */; };
+		079B9EF21F26BFF7003AF2B0 /* FlexiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */; };
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
 		07AD73241F16CCFE00D909DA /* PanoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */; };
+		07AE3C851F2691D100A46FE0 /* SetReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B457A81EE8CD4300ABF165 /* CustomColors.swift */; };
@@ -119,10 +121,12 @@
 		078506CB1F04601800297F4F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		078506CE1F04609900297F4F /* GPCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPCoreData.xcdatamodel; sourceTree = "<group>"; };
 		078506D01F04652C00297F4F /* CommandStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandStrings.swift; sourceTree = "<group>"; };
+		079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiLabel.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationConstants.swift; sourceTree = "<group>"; };
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoFormViewController.swift; sourceTree = "<group>"; };
+		07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetReferenceViewController.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPPanoSelectionCell.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				07B962571F0FFA11008B7F9E /* FadingTableView.swift */,
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
 				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
+				079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */,
 			);
 			name = Designables;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */,
 				07D8111E1F1E6ED30051C31A /* CameraFormViewController.swift */,
 				0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */,
+				07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -613,8 +619,10 @@
 				07EDEF3E1EEF2054008A9D24 /* ScanDevicesViewController.swift in Sources */,
 				07840A021EE9CCB7008A0973 /* GPDeviceScanner.swift in Sources */,
 				071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */,
+				07AE3C851F2691D100A46FE0 /* SetReferenceViewController.swift in Sources */,
 				07D8111D1F1D97BA0051C31A /* SingleValueEditViewController.swift in Sources */,
 				078506CF1F04609900297F4F /* GPCoreData.xcdatamodeld in Sources */,
+				079B9EF21F26BFF7003AF2B0 /* FlexiLabel.swift in Sources */,
 				0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */,
 				0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
@@ -795,7 +803,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CyArk.GPController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -811,7 +819,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CyArk.GPController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
