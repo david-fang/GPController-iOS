@@ -60,9 +60,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate let rows: Int
     fileprivate let vAngle: Int
     fileprivate let hAngle: Int
-    
-    fileprivate var curColumn: Int = 1
-    fileprivate var curRow: Int = 1
+
     fileprivate var pendingPicture: Bool = false
     
     fileprivate var primaryDirection: Direction
@@ -124,7 +122,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             pendingPicture = false
             manager.send(text: GP_SHUTTER)
         } else {
-            snakeNext()
+            unidirectionalNext()
             pendingPicture = true
         }
     }
@@ -135,8 +133,13 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         } else {
             let angle = primaryDirection.movesAlongHorizontal ? hAngle : vAngle
             let numComponents = primaryDirection.movesAlongHorizontal ? columns : rows
-
-            move(dir: primaryDirection.inverse, angle: numComponents * angle)
+            
+            for _ in 0..<numComponents-1 {
+                grid.move(dir: primaryDirection.inverse)
+            }
+            
+            move(dir: primaryDirection.inverse, angle: (numComponents - 1) * angle)
+            takeSingleStep(dir: secondaryDirection)
         }
     }
     
@@ -233,14 +236,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         self.move(dir: verticalDir, angle: numTilts * vAngle)
     }
 
-    func getColumn() -> Int {
-        return curColumn
-    }
-    
-    func getRow() -> Int {
-        return curRow
-    }
-    
     func didReceiveCompletionCallback(msg: String) {
         if (msg == "OK" && isRunning) {
             next()
