@@ -173,11 +173,11 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
                 if let nc = self.navigationController as? GPNavigationController {
                     if let manager = nc.gpBTManager {
                         dest.gpBTManager = manager
-                        
-                        let verticalAngle = GPCalculate.angle(panoFOV: vValueSet.fov, numComponents: vValueSet.components)
-                        let horizontalAngle = GPCalculate.angle(panoFOV: hValueSet.fov, numComponents: hValueSet.components)
 
-                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, tiltAngle: verticalAngle, panAngle: horizontalAngle, start: positions[startPositionIndex], order: orders[orderIndex], pattern: patterns[patternIndex])
+                        let tiltAngle = GPCalculate.angle(panoFOV: vValueSet.fov, numComponents: vValueSet.components)
+                        let panAngle = GPCalculate.angle(panoFOV: hValueSet.fov, numComponents: hValueSet.components)
+
+                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, tiltAngle: tiltAngle, panAngle: panAngle, start: positions[startPositionIndex], order: orders[orderIndex], pattern: patterns[patternIndex])
                     }
                 }
             }

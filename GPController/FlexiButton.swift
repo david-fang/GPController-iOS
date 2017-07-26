@@ -14,6 +14,8 @@ class FlexiButton: UIButton {
     @IBInspectable var borderColor: UIColor = UIColor.black
     @IBInspectable var cornerRadius: CGFloat = 30
     @IBInspectable var isCircular: Bool = false
+
+    fileprivate var cachedBackgroundColor: UIColor?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,6 +37,15 @@ class FlexiButton: UIButton {
             UIView.animate(withDuration: 0.2, animations: { _ in
                 self.alpha = self.isHighlighted ? 0.65 : 1.0
             })
+        }
+    }
+    
+    func activate(_ on: Bool) {
+        if (on) {
+            cachedBackgroundColor = self.backgroundColor
+            self.backgroundColor = UIColor(red: 234/255, green: 203/255, blue: 137/255, alpha: 1.0)
+        } else {
+            self.backgroundColor = cachedBackgroundColor
         }
     }
 }

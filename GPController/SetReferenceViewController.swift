@@ -26,6 +26,15 @@ class SetReferenceViewController: UIViewController {
     // MARK: - Preview View
     
     @IBOutlet var previewView: UIView!
+    @IBOutlet weak var topLeftButton: FlexiButton!
+    @IBOutlet weak var topRightButton: FlexiButton!
+    @IBOutlet weak var centerButton: FlexiButton!
+    @IBOutlet weak var bottomLeftButton: FlexiButton!
+    @IBOutlet weak var bottomRightButton: FlexiButton!
+    
+    var activeCornerButton: FlexiButton!
+    
+    // MARK: - Main View
 
     @IBOutlet weak var upButton: RoundAxisButton!
     @IBOutlet weak var rightButton: RoundAxisButton!
@@ -59,6 +68,21 @@ class SetReferenceViewController: UIViewController {
             // Set up StartView layers
 
             startViewLabel.text = "Move GigaPan to the \(manager.startPosition.asString.lowercased()) position of the panorama"
+            
+            // Set up PreviewView layers
+            
+            switch manager.startPosition {
+            case .topLeft:
+                activeCornerButton = topLeftButton
+            case .topRight:
+                activeCornerButton = topRightButton
+            case .bottomLeft:
+                activeCornerButton = bottomLeftButton
+            case .bottomRight:
+                activeCornerButton = bottomRightButton
+            }
+            
+            activeCornerButton.activate(true)
         }
     }
 
@@ -109,7 +133,11 @@ class SetReferenceViewController: UIViewController {
         controlPanel.isUserInteractionEnabled = true
     }
     
-    @IBAction func moveToCorner(_ sender: UIButton) {
+    @IBAction func moveToCorner(_ sender: FlexiButton) {
+        
+        sender.activate(true)
+        activeCornerButton.activate(false)
+        activeCornerButton = sender
         
         switch sender.tag {
         case 0:

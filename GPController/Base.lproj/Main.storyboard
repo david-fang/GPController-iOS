@@ -1652,6 +1652,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomLeftButton" destination="CO9-pZ-nOD" id="gAt-ex-KOE"/>
+                        <outlet property="bottomRightButton" destination="nFP-Rn-PD3" id="TGy-O4-gbh"/>
+                        <outlet property="centerButton" destination="y5q-v5-Kh8" id="9kM-ew-kFA"/>
                         <outlet property="controlPanel" destination="Jnw-Dn-lM2" id="tyg-bz-zch"/>
                         <outlet property="displaySection" destination="qcl-uk-4WK" id="Ppp-dV-Qdq"/>
                         <outlet property="downButton" destination="Klv-mi-chO" id="uCp-g8-hN2"/>
@@ -1662,6 +1665,8 @@
                         <outlet property="referencePointLabel" destination="Qfy-Db-7fD" id="1mH-WQ-CNx"/>
                         <outlet property="rightButton" destination="0Vc-Ac-bWp" id="gqB-xA-bBp"/>
                         <outlet property="startViewLabel" destination="rSW-W4-7sK" id="Sb4-bZ-Cmh"/>
+                        <outlet property="topLeftButton" destination="l8i-Xf-LUU" id="IZ0-yg-D9T"/>
+                        <outlet property="topRightButton" destination="SQy-ia-14h" id="Rd2-tD-uca"/>
                         <outlet property="upButton" destination="d2s-c0-CQ6" id="q3o-Vn-bAc"/>
                     </connections>
                 </viewController>
@@ -1800,7 +1805,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-Xf-LUU" userLabel="Top Left" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                     <rect key="frame" x="66.5" y="8" width="44.5" height="44.5"/>
-                                    <color key="backgroundColor" red="0.81960784310000001" green="0.70980392160000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.91609375000000004" green="0.7955896724" blue="0.53726163059999998" alpha="1" colorSpace="calibratedRGB"/>
