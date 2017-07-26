@@ -43,14 +43,45 @@ enum Corner {
     func isAlignedToLeft() -> Bool {
         return (self == .topLeft || self == .bottomLeft)
     }
+    
+    var asString: String {
+        switch self {
+        case .topLeft:
+            return "Top left"
+        case .topRight:
+            return "Top right"
+        case .bottomLeft:
+            return "Bottom left"
+        case .bottomRight:
+            return "Bottom right"
+        }
+    }
 }
 
 enum Order {
     case rows, columns
+    
+    var asString: String {
+        switch self {
+        case .rows:
+            return "Rows"
+        case .columns:
+            return "Columns"
+        }
+    }
 }
 
 enum Pattern {
     case unidirectional, snake
+    
+    var asString: String {
+        switch self {
+        case .unidirectional:
+            return "Unidirectional"
+        case .snake:
+            return "Snake"
+        }
+    }
 }
 
 class PanoManager: NSObject, GPCallbackListenerDelegate {
@@ -83,7 +114,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         self.rows = rows
         self.vAngle = vAngle
         self.hAngle = hAngle
-        self.grid = PanoGrid(rows: rows, columns: columns, startPosition: .topLeft)
+        self.grid = PanoGrid(rows: rows, columns: columns, startPosition: start)
 
         switch order {
         case .columns:

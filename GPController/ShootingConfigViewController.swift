@@ -18,24 +18,28 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     let blurEffect = UIBlurEffect(style: .light)
     var blurEffectView: UIVisualEffectView?
     
-    let positionTitles = ["Top left", "Top right", "Bottom left", "Bottom right"]
-    let orderTitles = ["Rows", "Columns"]
-    let patternTitles = ["Unidirectional", "Snake"]
+    let positions: [Corner] = [.topLeft, .topRight, .bottomLeft, .bottomRight]
+    let orders: [Order] = [.rows, .columns]
+    let patterns: [Pattern] = [.unidirectional, .snake]
     
     var hValueSet: PanoConfigEditor.PanoValueSet!
     var vValueSet: PanoConfigEditor.PanoValueSet!
-    
+
+    var startPositionIndex: Int = 0
+    var orderIndex: Int = 0
+    var patternIndex: Int = 0
+
     var pickerTag: Int = 0 {
         didSet {
             pickerView.reloadPickerView()
             
             switch pickerTag {
             case 0:
-                pickerView.selectRow(pickPositionIdx, animated: false)
+                pickerView.selectRow(startPositionIndex, animated: false)
             case 1:
-                pickerView.selectRow(pickOrderIdx, animated: false)
+                pickerView.selectRow(orderIndex, animated: false)
             case 2:
-                pickerView.selectRow(pickPatternIdx, animated: false)
+                pickerView.selectRow(patternIndex, animated: false)
             default:
                 break
             }
@@ -44,10 +48,6 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         }
     }
 
-    var pickPositionIdx: Int = 0
-    var pickOrderIdx: Int = 0
-    var pickPatternIdx: Int = 0
-    
     // MARK: - Shooting Config View
     
     @IBOutlet weak var startPositionBtn: UIButton!
@@ -68,16 +68,15 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
    
     func pickerViewNumberOfRows(_ pickerView: PickerView) -> Int {
         switch pickerTag {
         case 0:
-            return positionTitles.count
+            return positions.count
         case 1:
-            return orderTitles.count
+            return orders.count
         case 2:
-            return patternTitles.count
+            return patterns.count
         default:
             return 0
         }
@@ -86,11 +85,11 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     func pickerView(_ pickerView: PickerView, titleForRow row: Int, index: Int) -> String {
         switch pickerTag {
         case 0:
-            return positionTitles[row]
+            return positions[row].asString
         case 1:
-            return orderTitles[row]
+            return orders[row].asString
         case 2:
-            return patternTitles[row]
+            return patterns[row].asString
         default:
             return ""
         }
@@ -115,14 +114,14 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     func pickerView(_ pickerView: PickerView, didSelectRow row: Int, index: Int) {
         switch pickerTag {
         case 0:
-            pickPositionIdx = row
-            startPositionBtn.setTitle(positionTitles[row], for: .normal)
+            startPositionIndex = row
+            startPositionBtn.setTitle(positions[row].asString, for: .normal)
         case 1:
-            pickOrderIdx = row
-            orderBtn.setTitle(orderTitles[row], for: .normal)
+            orderIndex = row
+            orderBtn.setTitle(orders[row].asString, for: .normal)
         case 2:
-            pickPatternIdx = row
-            patternBtn.setTitle(patternTitles[row], for: .normal)
+            patternIndex = row
+            patternBtn.setTitle(patterns[row].asString, for: .normal)
         default:
             break
         }
@@ -178,7 +177,7 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
                         let verticalAngle = GPCalculate.angle(panoFOV: vValueSet.fov, numComponents: vValueSet.components)
                         let horizontalAngle = GPCalculate.angle(panoFOV: hValueSet.fov, numComponents: hValueSet.components)
 
-                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle, start: .topLeft, order: .rows, pattern: .snake)
+                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle, start: positions[startPositionIndex], order: orders[orderIndex], pattern: patterns[patternIndex])
                     }
                 }
             }
