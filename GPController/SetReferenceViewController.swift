@@ -16,6 +16,7 @@ class SetReferenceViewController: UIViewController {
     // MARK: - Start Position View
     
     @IBOutlet var moveToStartView: UIView!
+    @IBOutlet weak var startViewLabel: UILabel!
     
     // MARK: - Edit Reference View
     
@@ -54,6 +55,10 @@ class SetReferenceViewController: UIViewController {
         
         if let manager = panoManager {
             referencePointLabel.text = "(\(manager.grid.x), \(manager.grid.y))"
+            
+            // Set up StartView layers
+
+            startViewLabel.text = "Move GigaPan to the \(manager.startPosition.asString.lowercased()) position of the panorama"
         }
     }
 
@@ -163,4 +168,14 @@ class SetReferenceViewController: UIViewController {
     @IBAction func startPano(_ sender: UIButton) {
         panoManager?.start()
     }
+    
+    // MARK: - Navigation
+    
+    @IBAction func back(_ sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
 }
+
+
+
+

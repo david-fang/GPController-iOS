@@ -9,19 +9,15 @@
 import Foundation
 
 class PanoGrid {
-    fileprivate let rows: Int
-    fileprivate let columns: Int
-    
+
     fileprivate var _x: Int
     fileprivate var _y: Int
     
-    var x: Int {
-        return _x
-    }
+    let rows: Int
+    let columns: Int
     
-    var y: Int {
-        return _y
-    }
+    var x: Int { return _x }
+    var y: Int { return _y }
     
     init(rows: Int, columns: Int, startPosition: Corner) {
         self.rows = rows

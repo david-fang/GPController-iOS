@@ -1317,6 +1317,9 @@
                                                 <state key="normal" title="←">
                                                     <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="back:" destination="nZ6-2W-mxn" eventType="touchUpInside" id="igx-Ni-SOT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3F-T6-7jE">
                                                 <rect key="frame" x="321" y="28" width="46" height="46"/>
@@ -1658,6 +1661,7 @@
                         <outlet property="previewView" destination="MH9-Gr-7en" id="ypv-OB-Idp"/>
                         <outlet property="referencePointLabel" destination="Qfy-Db-7fD" id="1mH-WQ-CNx"/>
                         <outlet property="rightButton" destination="0Vc-Ac-bWp" id="gqB-xA-bBp"/>
+                        <outlet property="startViewLabel" destination="rSW-W4-7sK" id="Sb4-bZ-Cmh"/>
                         <outlet property="upButton" destination="d2s-c0-CQ6" id="q3o-Vn-bAc"/>
                     </connections>
                 </viewController>
