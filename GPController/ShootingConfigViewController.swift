@@ -178,7 +178,7 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
                         let verticalAngle = GPCalculate.angle(panoFOV: vValueSet.fov, numComponents: vValueSet.components)
                         let horizontalAngle = GPCalculate.angle(panoFOV: hValueSet.fov, numComponents: hValueSet.components)
 
-                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle)
+                        dest.panoManager = PanoManager(with: manager, columns: hValueSet.components, rows: vValueSet.components, vAngle: verticalAngle, hAngle: horizontalAngle, start: .topLeft, order: .rows, pattern: .snake)
                     }
                 }
             }

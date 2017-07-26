@@ -14,10 +14,39 @@ protocol PanoramaListenerDelegate {
 
 enum Direction {
     case left, right, up, down
+    
+    var inverse: Direction {
+        switch self {
+        case .left:
+            return .right
+        case .right:
+            return .left
+        case .up:
+            return .down
+        case .down:
+            return .up
+        }
+    }
+    
+    var movesAlongHorizontal: Bool {
+        return (self == Direction.left || self == Direction.right)
+    }
 }
 
 enum Corner {
     case topLeft, topRight, bottomLeft, bottomRight
+    
+    func isAlignedToTop() -> Bool {
+        return (self == .topLeft || self == .topRight)
+    }
+    
+    func isAlignedToLeft() -> Bool {
+        return (self == .topLeft || self == .bottomLeft)
+    }
+}
+
+enum Order {
+    case rows, columns
 }
 
 enum Pattern {
@@ -36,26 +65,43 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate var curRow: Int = 1
     fileprivate var pendingPicture: Bool = false
     
+    fileprivate var primaryDirection: Direction
+    fileprivate var secondaryDirection: Direction
+    
+    fileprivate var isRunning: Bool = false
+    
     let grid: PanoGrid
     var delegate: PanoramaListenerDelegate?
 
     var isCompleted: Bool {
-        return curColumn == columns && curRow == rows && !pendingPicture
+        return !grid.canMove(dir: primaryDirection) &&
+               !grid.canMove(dir: secondaryDirection) &&
+               !pendingPicture
     }
 
-    required init(with manager: GPBluetoothManager, columns: Int, rows: Int, vAngle: Int, hAngle: Int) {
+    required init(with manager: GPBluetoothManager, columns: Int, rows: Int, vAngle: Int, hAngle: Int, start: Corner, order: Order, pattern: Pattern) {
         self.manager = manager
         self.columns = columns
         self.rows = rows
         self.vAngle = vAngle
         self.hAngle = hAngle
         self.grid = PanoGrid(rows: rows, columns: columns, startPosition: .topLeft)
+
+        switch order {
+        case .columns:
+            primaryDirection = (start.isAlignedToTop()) ? .down : .up
+            secondaryDirection = (start.isAlignedToLeft()) ? .right : .left
+        case .rows:
+            primaryDirection = (start.isAlignedToLeft()) ? .right : .left
+            secondaryDirection = (start.isAlignedToTop()) ? .down : .up
+        }
     }
     
     /** Performs any final setup and starts the panorama session */
     func start() {
         manager.listener = self
         pendingPicture = true
+        isRunning = true
         next()
     }
     
@@ -64,28 +110,42 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * movement pattern is a snake pattern. 
      */
     fileprivate func next() {
-        if !isCompleted {
-            if (pendingPicture) {
-                pendingPicture = false
-                manager.send(text: GP_SHUTTER)
-                return
-            }
 
-            if (curColumn == columns) {
-                move(dir: .up, angle: vAngle)
-                curRow = curRow + 1
-                curColumn = 1
-            } else {
-                let dir: Direction = curRow % 2 == 0 ? .left : .right
-                move(dir: dir, angle: hAngle)
-                curColumn = curColumn + 1
-            }
-            
-            pendingPicture = true
-            
-        } else {
+        if (!isRunning) { return }
+        
+        if (isCompleted) {
+            isRunning = false
             delegate?.panoramaDidFinish()
-            print("DONE")
+            print("Panorama completed")
+            return
+        }
+
+        if (pendingPicture) {
+            pendingPicture = false
+            manager.send(text: GP_SHUTTER)
+        } else {
+            snakeNext()
+            pendingPicture = true
+        }
+    }
+    
+    fileprivate func unidirectionalNext() {
+        if (grid.canMove(dir: primaryDirection)) {
+            takeSingleStep(dir: primaryDirection)
+        } else {
+            let angle = primaryDirection.movesAlongHorizontal ? hAngle : vAngle
+            let numComponents = primaryDirection.movesAlongHorizontal ? columns : rows
+
+            move(dir: primaryDirection.inverse, angle: numComponents * angle)
+        }
+    }
+    
+    fileprivate func snakeNext() {
+        if (grid.canMove(dir: primaryDirection)) {
+            takeSingleStep(dir: primaryDirection)
+        } else {
+            primaryDirection = primaryDirection.inverse
+            takeSingleStep(dir: secondaryDirection)
         }
     }
     
@@ -96,8 +156,13 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * - parameter dir: the direction of rotation
      * - parameter angle: the angle at which to rotate each iteration by
      */
-    fileprivate func move(dir: Direction, angle: Int) {
+    fileprivate func move(dir _dir: Direction, angle: Int) {
         var cmd: String
+        var dir = _dir
+        
+        if (angle < 0) {
+            dir = dir.inverse
+        }
 
         switch dir {
         case .up:
@@ -113,37 +178,19 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         manager.send(text: "\(cmd) \(angle)")
     }
     
-    func tiltForward() {
-        if (grid.move(dir: .up)) {
-            move(dir: .up, angle: vAngle)
+    func takeSingleStep(dir: Direction) {
+        if (grid.canMove(dir: dir)) {
+            let angle = dir.movesAlongHorizontal ? hAngle : vAngle
+            grid.move(dir: dir)
+            self.move(dir: dir, angle: angle)
         }
     }
-    
-    func tiltBackward() {
-        if (grid.move(dir: .down)) {
-            move(dir: .down, angle: vAngle)
-        }
-    }
-    
-    func panLeft() {
-        if (grid.move(dir: .left)) {
-            move(dir: .left, angle: hAngle)
-        }
-    }
-    
-    func panRight() {
-        if (grid.move(dir: .right)) {
-            move(dir: .right, angle: hAngle)
-        }
-    }
-    
+
     func moveToCorner(corner: Corner) {
-        
         var numPans = 0
         var numTilts = 0
-        
-        let panHandler: () -> Void
-        let tiltHandler: () -> Void
+        let horizontalDir: Direction
+        let verticalDir: Direction
 
         switch corner {
         case .topLeft:
@@ -159,17 +206,31 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             numPans = columns - grid.x - 1
             numTilts = grid.y * -1
         }
-
-        panHandler = numPans > 0 ? panRight : panLeft
-        tiltHandler = numTilts > 0 ? tiltForward : tiltBackward
-
-        for _ in 0..<abs(numPans) {
-            panHandler()
+        
+        horizontalDir = numPans > 0 ? .right : .left
+        verticalDir = numTilts > 0 ? .up : .down
+        
+        numPans = abs(numPans)
+        numTilts = abs(numTilts)
+        
+        for i in 0..<numPans {
+            if (!grid.canMove(dir: horizontalDir)) {
+                fatalError("Grid cannot pan past bounds: \(i + 1)/\(numPans)")
+            } else {
+                grid.move(dir: horizontalDir)
+            }
         }
-
-        for _ in 0..<abs(numTilts) {
-            tiltHandler()
+        
+        for i in 0..<numTilts {
+            if (!grid.canMove(dir: verticalDir)) {
+                fatalError("Grid cannot tilt past bounds: \(i + 1)/\(numTilts)")
+            } else {
+                grid.move(dir: verticalDir)
+            }
         }
+        
+        self.move(dir: horizontalDir, angle: numPans * hAngle)
+        self.move(dir: verticalDir, angle: numTilts * vAngle)
     }
 
     func getColumn() -> Int {
@@ -181,7 +242,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     }
     
     func didReceiveCompletionCallback(msg: String) {
-        if (msg == "OK") {
+        if (msg == "OK" && isRunning) {
             next()
         }
     }

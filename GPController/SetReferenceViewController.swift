@@ -145,17 +145,7 @@ class SetReferenceViewController: UIViewController {
     
     func fixedMove(_ sender: RoundAxisButton) {
         if let manager = panoManager {
-            switch sender.direction {
-            case .left:
-                manager.panLeft()
-            case .up:
-                manager.tiltForward()
-            case .down:
-                manager.tiltBackward()
-            case .right:
-                manager.panRight()
-            }
-
+            manager.takeSingleStep(dir: sender.direction)
             referencePointLabel.text = "(\(manager.grid.x), \(manager.grid.y))"
         }
     }
@@ -168,5 +158,9 @@ class SetReferenceViewController: UIViewController {
                 manager.send(text: GP_PAUSE)
             }
         }
+    }
+    
+    @IBAction func startPano(_ sender: UIButton) {
+        panoManager?.start()
     }
 }

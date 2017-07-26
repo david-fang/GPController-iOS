@@ -39,23 +39,32 @@ class PanoGrid {
         }
     }
     
-    func move(dir: Direction) -> Bool {
+    func move(dir: Direction) {
+        if (canMove(dir: dir)) {
+            switch dir {
+            case .left:
+                _x -= 1
+            case .up:
+                _y += 1
+            case .right:
+                _x += 1
+            case .down:
+                _y -= 1
+            }
+        }
+    }
+    
+    func canMove(dir: Direction) -> Bool {
         switch dir {
         case .left:
-            if (x <= 0) { return false }
-            _x -= 1
+            return (x > 0)
         case .up:
-            if (y >= rows - 1) { return false }
-            _y += 1
+            return (y < rows - 1)
         case .right:
-            if (x >= columns - 1) { return false }
-            _x += 1
+            return (x < columns - 1)
         case .down:
-            if (y <= 0) { return false }
-            _y -= 1
+            return (y > 0)
         }
-        
-        return true
     }
 }
 

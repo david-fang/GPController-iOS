@@ -78,7 +78,8 @@ class CameraPanViewController: UIViewController {
     /* FOR DEMO */
     
     @IBAction func testNinetyHorizontal(_ sender: Any) {
-        let panoManager = PanoManager(with: gpBTManager, columns: 3, rows: 3, vAngle: 30, hAngle: 30)
+        let panoManager = PanoManager(with: gpBTManager, columns: 3, rows: 3, vAngle: 30, hAngle: 30, start: .topLeft, order: .rows, pattern: .snake)
+        
         panoManager.start()
     }
 }
