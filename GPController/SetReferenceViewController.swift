@@ -32,7 +32,7 @@ class SetReferenceViewController: UIViewController {
     @IBOutlet weak var bottomLeftButton: FlexiButton!
     @IBOutlet weak var bottomRightButton: FlexiButton!
     
-    var activeCornerButton: FlexiButton!
+    var activeCornerButton: FlexiButton?
     
     // MARK: - Main View
 
@@ -82,7 +82,7 @@ class SetReferenceViewController: UIViewController {
                 activeCornerButton = bottomRightButton
             }
             
-            activeCornerButton.activate(true)
+            activeCornerButton?.activate(true)
         }
     }
 
@@ -127,6 +127,13 @@ class SetReferenceViewController: UIViewController {
         controlPanel.isUserInteractionEnabled = true
     }
     
+    @IBAction func dismissPreviewForm(_ sender: UIButton) {
+        freeformIsEnabled = false
+        previewView.removeFromSuperview()
+        controlPanel.alpha = 1
+        controlPanel.isUserInteractionEnabled = true
+    }
+    
     @IBAction func dismissEditForm(_ sender: UIButton) {
         editReferenceView.removeFromSuperview()
         controlPanel.alpha = 1
@@ -136,7 +143,7 @@ class SetReferenceViewController: UIViewController {
     @IBAction func moveToCorner(_ sender: FlexiButton) {
         
         sender.activate(true)
-        activeCornerButton.activate(false)
+        activeCornerButton?.activate(false)
         activeCornerButton = sender
         
         switch sender.tag {
