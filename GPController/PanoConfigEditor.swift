@@ -12,11 +12,6 @@ import CoreData
 
 class PanoConfigEditor {
     
-    enum Axis {
-        case horizontal
-        case vertical
-    }
-    
     struct PanoValueSet {
         let components: Int
         let fov: Int
@@ -41,7 +36,8 @@ class PanoConfigEditor {
         }
     }
     
-    fileprivate var identifier:     String
+    fileprivate let config:         PanoConfig?
+    fileprivate var identifier:     String?
 
     // HORIZONTAL SETTINGS
 
@@ -62,15 +58,14 @@ class PanoConfigEditor {
     fileprivate var vOverlapLock:   Bool
     
     init(config: PanoConfig) {
+        self.config = config
         identifier = config.identifier!
-        
         columns = Int(config.columns)
         hFOV = Int(config.hFOV)
         hOverlap = Int(config.hOverlap)
         columnsLock = config.columnsLock
         hFOVLock = config.hFOVLock
         hOverlapLock = config.hOverlapLock
-        
         rows = Int(config.rows)
         vFOV = Int(config.vFOV)
         vOverlap = Int(config.vOverlap)
@@ -82,8 +77,8 @@ class PanoConfigEditor {
     init(camHFOV: Int, camVFOV: Int) {
         let numRows = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_HFOV, lensFOV: camHFOV, overlap: DEFAULT_PANO_OVERLAP)
         let numColumns = GPCalculate.numComponents(panoFOV: DEFAULT_PANO_VFOV, lensFOV: camVFOV, overlap: DEFAULT_PANO_OVERLAP)
-        
-        identifier = "unidentified"
+
+        config = nil
 
         columns = numColumns
         hFOV = DEFAULT_PANO_HFOV
@@ -100,7 +95,12 @@ class PanoConfigEditor {
         vOverlapLock = false
     }
 
-    func setIdentifier(to id: String) {
+    
+    /** 
+     * Returns true if the update was successful. Returns false
+     * if the identifier already exists for another panorama.
+     */
+    func setIdentifier(to id: String?) {
         identifier = id
     }
     
@@ -158,6 +158,10 @@ class PanoConfigEditor {
         }
     }
     
+    func getIdentifier() -> String? {
+        return identifier
+    }
+    
     func getValueSet(for axis: Axis) -> PanoValueSet {
         switch axis {
         case .horizontal:
@@ -176,55 +180,79 @@ class PanoConfigEditor {
         }
     }
     
-    func savePanoConfig(completionHandler: (() -> Void)?) {
+    func identifierIsUnique(identifier: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", self.identifier)
+        
+        // Check that identifier is unique
+        
+        let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", identifier)
         let fetchRequest: NSFetchRequest<PanoConfig> = PanoConfig.fetchRequest()
         fetchRequest.predicate = filterPred
         fetchRequest.fetchLimit = 1
         
         do {
             let fetchResults = try context.fetch(fetchRequest)
-            let panoConfig: PanoConfig
-            
-            if (fetchResults.count < 1) {
-                panoConfig = PanoConfig(context: context)
-            } else {
-                panoConfig = fetchResults[0]
-                print("Found one!")
+            if (fetchResults.count > 0) {
+                let queryConfig = fetchResults[0]
+                
+                if let config = self.config {
+                    return queryConfig == config
+                }
+                
+                return false
             }
-
-            panoConfig.setValue(identifier, forKey: core_identifierKey)
-
-            panoConfig.setValue(rowsLock, forKey: core_rowsLockKey)
-            panoConfig.setValue(columnsLock, forKey: core_columnsLockKey)
-            panoConfig.setValue(hFOVLock, forKey: core_hFOVLockKey)
-            panoConfig.setValue(vFOVLock, forKey: core_vFOVLockKey)
-            panoConfig.setValue(hOverlapLock, forKey: core_hOverlapLockKey)
-            panoConfig.setValue(vOverlapLock, forKey: core_vOverlapLockKey)
-
-            panoConfig.setValue(columnsLock ? columns : nil, forKey: core_columnsKey)
-            panoConfig.setValue(hFOVLock ? hFOV : nil, forKey: core_hFOVKey)
-            panoConfig.setValue(hOverlapLock ? hOverlap : nil, forKey: core_hOverlapKey)
-            
-            panoConfig.setValue(rowsLock ? rows : nil, forKey: core_rowsKey)
-            panoConfig.setValue(vFOVLock ? vFOV : nil, forKey: core_vFOVKey)
-            panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: core_vOverlapKey)
-            
-            appDelegate.saveContext()
-            print("Saved config!")
-            
         } catch {
-            print("Error fetching PanoConfig object")
-            return
+            fatalError("Error fetching PanoConfig objects")
         }
+        
+        return true
+    }
+    
+    func savePanoConfig() -> Bool {
+        guard let identifier = self.identifier else {
+            fatalError("Cannot save a pano config with an empty identifier")
+        }
+        
+        let panoConfig: PanoConfig
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        // Check that identifier is unique
+        
+        if (!identifierIsUnique(identifier: identifier)) {
+            return false
+        }
+        
+        // Rewrite this editor's config, or create a new one
+        
+        if (self.config != nil) {
+            panoConfig = self.config!
+        } else {
+            panoConfig = PanoConfig(context: context)
+        }
+
+        panoConfig.setValue(identifier, forKey: core_identifierKey)
+
+        panoConfig.setValue(rowsLock, forKey: core_rowsLockKey)
+        panoConfig.setValue(columnsLock, forKey: core_columnsLockKey)
+        panoConfig.setValue(hFOVLock, forKey: core_hFOVLockKey)
+        panoConfig.setValue(vFOVLock, forKey: core_vFOVLockKey)
+        panoConfig.setValue(hOverlapLock, forKey: core_hOverlapLockKey)
+        panoConfig.setValue(vOverlapLock, forKey: core_vOverlapLockKey)
+
+        panoConfig.setValue(columnsLock ? columns : nil, forKey: core_columnsKey)
+        panoConfig.setValue(hFOVLock ? hFOV : nil, forKey: core_hFOVKey)
+        panoConfig.setValue(hOverlapLock ? hOverlap : nil, forKey: core_hOverlapKey)
+        
+        panoConfig.setValue(rowsLock ? rows : nil, forKey: core_rowsKey)
+        panoConfig.setValue(vFOVLock ? vFOV : nil, forKey: core_vFOVKey)
+        panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: core_vOverlapKey)
+        
+        appDelegate.saveContext()
+        print("Saved config!")
+        
+        return true
     }
 }
-
-
-
-
-
-
 

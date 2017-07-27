@@ -245,23 +245,27 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         numTilts = abs(numTilts)
         
         for i in 0..<numPans {
-            if (!grid.canMove(dir: horizontalDir)) {
+            guard (!grid.canMove(dir: horizontalDir)) else {
                 fatalError("Grid cannot pan past bounds: \(i + 1)/\(numPans)")
-            } else {
-                grid.move(dir: horizontalDir)
             }
+
+            grid.move(dir: horizontalDir)
         }
         
         for i in 0..<numTilts {
-            if (!grid.canMove(dir: verticalDir)) {
+            guard (grid.canMove(dir: verticalDir)) else {
                 fatalError("Grid cannot tilt past bounds: \(i + 1)/\(numTilts)")
-            } else {
-                grid.move(dir: verticalDir)
             }
+
+            grid.move(dir: verticalDir)
         }
         
         self.move(dir: horizontalDir, angle: numPans * panAngle)
         self.move(dir: verticalDir, angle: numTilts * tiltAngle)
+    }
+    
+    func moveToCenter() {
+        
     }
 
     func getStartPosition() -> Corner {

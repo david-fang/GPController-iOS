@@ -159,7 +159,7 @@ class SetReferenceViewController: UIViewController {
             break;
         }
     }
-    
+
     func startMove(_ sender: RoundAxisButton) {
         if (freeformIsEnabled) {
             freeformMove(sender)

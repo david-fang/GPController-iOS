@@ -27,7 +27,7 @@ class PanoFormViewController: UIViewController {
     @IBOutlet weak var verticalToggle: UIButton!
 
     var panoConfigEditor: PanoConfigEditor!
-    var activeAxis: PanoConfigEditor.Axis = .horizontal {
+    var activeAxis: Axis = .horizontal {
         didSet {
             refreshMenuItems()
         }
@@ -77,6 +77,12 @@ class PanoFormViewController: UIViewController {
             fovStepper.maximumValue = 180
         }
         
+        if let title = panoConfigEditor.getIdentifier() {
+            identifierButton.setTitle(title, for: .normal)
+        } else {
+            identifierButton.setTitle("What should I name this?", for: .normal)
+        }
+
         let valueSet = panoConfigEditor.getValueSet(for: activeAxis)
         let lockSet = panoConfigEditor.getLockSet(for: activeAxis)
         
@@ -201,7 +207,23 @@ class PanoFormViewController: UIViewController {
     // MARK: - CoreData
     
     @IBAction func savePanoConfig(_sender: UIButton) {
-        panoConfigEditor.savePanoConfig(completionHandler: nil)
+        if panoConfigEditor.getIdentifier() == nil {
+            let alert = UIAlertController(title: "Missing fields", message: "Panorama configuration cannot be saved without an identifier", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        else if (!panoConfigEditor.savePanoConfig()) {
+            let alert = UIAlertController(title: "Invalid identifier", message: "The desired identifier is already being used by an existing configuration", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Navigation
@@ -220,10 +242,13 @@ class PanoFormViewController: UIViewController {
     
     @IBAction func unwindToPanoForm(segue: UIStoryboardSegue) {
         if let src = segue.source as? SingleValueEditViewController {
-            if let val = src.updatedValue {
-                if (src.updateTypeIdentifier == SingleValueEditViewController.panoIDString) {
+            if (src.updateTypeIdentifier == SingleValueEditViewController.panoIDString) {
+                if let val = src.updatedValue {
                     identifierButton.setTitle(val, for: .normal)
                     panoConfigEditor.setIdentifier(to: val)
+                } else {
+                    identifierButton.setTitle("What should I name this?", for: .normal)
+                    _ = panoConfigEditor.setIdentifier(to: nil)
                 }
             }
         }

@@ -67,6 +67,10 @@ class SingleValueEditViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        updatedValue = textfield.text
+        if let text = textfield.text {
+            if !text.isBlank {
+                updatedValue = text
+            }
+        }
     }
 }

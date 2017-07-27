@@ -72,10 +72,10 @@ class CameraFormViewController: UIViewController {
                     cameraConfigEditor.identifier = val
                 } else if (src.updateTypeIdentifier == SingleValueEditViewController.lensHRESString) {
                     hRESButton.setTitle(val, for: .normal)
-                    cameraConfigEditor.hRES = Int(val)!
+                    cameraConfigEditor.hRES = Int(val) ?? 0
                 } else if (src.updateTypeIdentifier == SingleValueEditViewController.lensVRESString) {
                     vRESButton.setTitle(val, for: .normal)
-                    cameraConfigEditor.vRES = Int(val)!
+                    cameraConfigEditor.vRES = Int(val) ?? 0
                 }
             }
         }
