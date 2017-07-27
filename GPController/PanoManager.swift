@@ -100,6 +100,8 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     let grid: PanoGrid
     var delegate: PanoramaListenerDelegate?
 
+    var bulb: Int = 3
+    
     var isCompleted: Bool {
         return !grid.canMove(dir: primaryDirection) &&
                !grid.canMove(dir: secondaryDirection) &&
@@ -148,7 +150,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
 
         if (pendingPicture) {
             pendingPicture = false
-            manager.send(text: GP_SHUTTER)
+            manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
         } else {
             unidirectionalNext()
             pendingPicture = true
@@ -245,7 +247,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         numTilts = abs(numTilts)
         
         for i in 0..<numPans {
-            guard (!grid.canMove(dir: horizontalDir)) else {
+            guard (grid.canMove(dir: horizontalDir)) else {
                 fatalError("Grid cannot pan past bounds: \(i + 1)/\(numPans)")
             }
 
