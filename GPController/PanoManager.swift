@@ -9,6 +9,7 @@
 import Foundation
 
 protocol PanoramaListenerDelegate {
+    func nextCycleWillBegin()
     func panoramaDidFinish()
 }
 
@@ -86,6 +87,10 @@ enum Pattern {
 
 class PanoManager: NSObject, GPCallbackListenerDelegate {
     
+    enum PanoState {
+        case stopped, paused, running
+    }
+    
     fileprivate let manager: GPBluetoothManager
     fileprivate let tiltAngle: Int
     fileprivate let panAngle: Int
@@ -94,8 +99,16 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate var primaryDirection: Direction
     fileprivate var secondaryDirection: Direction
     
-    fileprivate var isRunning: Bool = false
+    fileprivate var panoState: PanoState = .stopped
     fileprivate var pendingPicture: Bool = false
+    
+    fileprivate var pendingUnidirectionalSecondary: Bool = false
+    
+    fileprivate var cycleNum: Int = 0 {
+        didSet {
+            delegate?.nextCycleWillBegin()
+        }
+    }
     
     let startPosition: Corner
     let grid: PanoGrid
@@ -131,8 +144,18 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func start() {
         manager.listener = self
         pendingPicture = true
-        isRunning = true
+        cycleNum = 1
+        panoState = .running
         next()
+    }
+    
+    func resume() {
+        panoState = .running
+        next()
+    }
+    
+    func pause() {
+        panoState = .paused
     }
     
     /**
@@ -140,48 +163,61 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * movement pattern is a snake pattern. 
      */
     fileprivate func next() {
-
-        if (!isRunning) { return }
+        if (panoState == .stopped) { return }
         
         if (isCompleted) {
-            isRunning = false
+            panoState = .stopped
             delegate?.panoramaDidFinish()
-            print("Panorama completed")
             return
         }
 
         if (pendingPicture) {
-            pendingPicture = false
-            manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
+            triggerShutter()
         } else {
             pattern == .snake ? snakeNext() : unidirectionalNext()
-            pendingPicture = true
         }
     }
     
+    fileprivate func triggerShutter() {
+        manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
+        pendingPicture = false
+    }
+    
     fileprivate func unidirectionalNext() {
-        if (grid.canMove(dir: primaryDirection)) {
+        if (pendingUnidirectionalSecondary) {
+            takeSingleStep(dir: secondaryDirection)
+            pendingUnidirectionalSecondary = false
+        } else if (grid.canMove(dir: primaryDirection)) {
+            cycleNum += 1
             takeSingleStep(dir: primaryDirection)
         } else {
             let angle = primaryDirection.movesAlongHorizontal ? panAngle : tiltAngle
             let numComponents = primaryDirection.movesAlongHorizontal ? grid.columns : grid.rows
+
+            cycleNum += 1
             
             for _ in 0..<numComponents-1 {
                 grid.move(dir: primaryDirection.inverse)
             }
             
             move(dir: primaryDirection.inverse, angle: (numComponents - 1) * angle)
-            takeSingleStep(dir: secondaryDirection)
+            pendingUnidirectionalSecondary = true
+            return
         }
+            
+        pendingPicture = true
     }
     
     fileprivate func snakeNext() {
+        cycleNum += 1
         if (grid.canMove(dir: primaryDirection)) {
             takeSingleStep(dir: primaryDirection)
         } else {
             primaryDirection = primaryDirection.inverse
             takeSingleStep(dir: secondaryDirection)
         }
+        
+        pendingPicture = true
     }
     
     /**
@@ -194,7 +230,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate func move(dir _dir: Direction, angle: Int) {
         var cmd: String
         var dir = _dir
-        
+
         if (angle < 0) {
             dir = dir.inverse
         }
@@ -271,6 +307,14 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func moveToCenter() {
         
     }
+    
+    func getPanoState() -> PanoState {
+        return panoState
+    }
+    
+    func getCycleNum() -> Int {
+        return cycleNum
+    }
 
     func getStartPosition() -> Corner {
         return self.startPosition
@@ -279,7 +323,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     // MARK: - Delegate Functions
     
     func didReceiveCompletionCallback(msg: String) {
-        if (msg == "OK" && isRunning) {
+        if (msg == "OK" && panoState == .running) {
             next()
         }
     }

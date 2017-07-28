@@ -200,14 +200,22 @@ class SetReferenceViewController: UIViewController {
         }
     }
     
-    @IBAction func startPano(_ sender: UIButton) {
-        panoManager?.start()
+    @IBAction func completeSetup(_ sender: UIButton) {
+        performSegue(withIdentifier: "completeSetup", sender: self)
     }
     
     // MARK: - Navigation
     
     @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "completeSetup") {
+            if let dest = segue.destination as? PanoSessionViewController {
+                dest.panoManager = self.panoManager
+            }
+        }
     }
 }
 

@@ -41,6 +41,8 @@
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
 		07AD73241F16CCFE00D909DA /* PanoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */; };
 		07AE3C851F2691D100A46FE0 /* SetReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */; };
+		07B01EC71F2B962100B15911 /* PanoSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */; };
+		07B01EC91F2B987400B15911 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B01EC81F2B987400B15911 /* KDCircularProgress.swift */; };
 		07B2F9361F2A9BB000EDC354 /* GPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B2F9351F2A9BB000EDC354 /* GPEnums.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -130,6 +132,8 @@
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoFormViewController.swift; sourceTree = "<group>"; };
 		07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetReferenceViewController.swift; sourceTree = "<group>"; };
+		07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoSessionViewController.swift; sourceTree = "<group>"; };
+		07B01EC81F2B987400B15911 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		07B2F9351F2A9BB000EDC354 /* GPEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPEnums.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 		07369DF81ED753CB00DF29E3 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
+				07B01EC81F2B987400B15911 /* KDCircularProgress.swift */,
 				0718C73D1F21664F00C4FB39 /* PickerView.swift */,
 				07B962591F10328A008B7F9E /* GMStepper.swift */,
 				0720B7201F143F2E00F9A4E0 /* GPTextField.swift */,
@@ -282,6 +287,7 @@
 				07D8111E1F1E6ED30051C31A /* CameraFormViewController.swift */,
 				0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */,
 				07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */,
+				07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -636,12 +642,14 @@
 				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
 				07B2F9361F2A9BB000EDC354 /* GPEnums.swift in Sources */,
 				0718C73C1F212E6900C4FB39 /* ShootingConfigViewController.swift in Sources */,
+				07B01EC91F2B987400B15911 /* KDCircularProgress.swift in Sources */,
 				073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */,
 				0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */,
 				07B9625A1F10328A008B7F9E /* GMStepper.swift in Sources */,
 				0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
+				07B01EC71F2B962100B15911 /* PanoSessionViewController.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
 				07840A051EE9EB43008A0973 /* GPNavigationController.swift in Sources */,

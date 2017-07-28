@@ -17,7 +17,7 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
 
     let blurEffect = UIBlurEffect(style: .light)
     var blurEffectView: UIVisualEffectView?
-    
+
     let positions: [Corner] = [.topLeft, .topRight, .bottomLeft, .bottomRight]
     let orders: [Order] = [.rows, .columns]
     let patterns: [Pattern] = [.unidirectional, .snake]

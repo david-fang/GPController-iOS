@@ -15,6 +15,8 @@ class PanoGrid {
     
     let rows: Int
     let columns: Int
+    let totalComponents: Int
+    let startPosition: Corner
     
     var x: Int { return _x }
     var y: Int { return _y }
@@ -22,6 +24,8 @@ class PanoGrid {
     init(rows: Int, columns: Int, startPosition: Corner) {
         self.rows = rows
         self.columns = columns
+        self.totalComponents = rows * columns
+        self.startPosition = startPosition
         
         switch startPosition {
         case .topLeft:
