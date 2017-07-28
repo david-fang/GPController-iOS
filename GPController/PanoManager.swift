@@ -90,9 +90,10 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate let tiltAngle: Int
     fileprivate let panAngle: Int
 
+    fileprivate let pattern: Pattern
     fileprivate var primaryDirection: Direction
     fileprivate var secondaryDirection: Direction
-
+    
     fileprivate var isRunning: Bool = false
     fileprivate var pendingPicture: Bool = false
     
@@ -113,8 +114,9 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         self.tiltAngle = tiltAngle
         self.panAngle = panAngle
         self.startPosition = start
+        self.pattern = pattern
         self.grid = PanoGrid(rows: rows, columns: columns, startPosition: start)
-
+        
         switch order {
         case .columns:
             primaryDirection = (start.isAlignedToTop()) ? .down : .up
@@ -152,7 +154,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             pendingPicture = false
             manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
         } else {
-            unidirectionalNext()
+            pattern == .snake ? snakeNext() : unidirectionalNext()
             pendingPicture = true
         }
     }
