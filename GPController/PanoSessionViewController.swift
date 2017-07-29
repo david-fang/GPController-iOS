@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import AudioToolbox
+import AVFoundation
 
 class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
-
+    
     @IBOutlet weak var progressIndicator: KDCircularProgress!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var panoControlButton: UIButton!
-    
+
     var panoManager: PanoManager?
+    var finishFanfarePlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let path = Bundle.main.path(forResource: "fox_fanfare", ofType: "mp3")!
+        let url = URL(fileURLWithPath: path)
 
+        do {
+            finishFanfarePlayer = try AVAudioPlayer(contentsOf: url)
+            finishFanfarePlayer.prepareToPlay()
+        } catch {
+            print("Couldn't create audio player")
+        }
+        
         guard let manager = panoManager else {
             let alert = UIAlertController(title: "Unable to create panorama manager", message: "The panorama manager for the GigaPan could not be created. Make sure your Bluetooth is enabled and that your device is connected to the GigaPan.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
@@ -39,7 +52,6 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     @IBAction func startPanorama(_ sender: UIButton) {
         guard let manager = panoManager else {
@@ -75,8 +87,9 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
 
     func panoramaDidFinish() {
         let alert = UIAlertController(title: "Panorama complete", message: "Your panorama has been completed!", preferredStyle: .alert)
-
+        
         DispatchQueue.main.async {
+            self.finishFanfarePlayer.play()
             self.panoControlButton.setTitle("START", for: .normal)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                 alert.dismiss(animated: true, completion: nil)
@@ -91,6 +104,9 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
 
     @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func editSettings(_ sender: UIButton) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

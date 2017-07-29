@@ -43,6 +43,8 @@
 		07AE3C851F2691D100A46FE0 /* SetReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */; };
 		07B01EC71F2B962100B15911 /* PanoSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */; };
 		07B01EC91F2B987400B15911 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B01EC81F2B987400B15911 /* KDCircularProgress.swift */; };
+		07B01F641F2C00BA00B15911 /* fox_fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07B01F631F2C00BA00B15911 /* fox_fanfare.mp3 */; };
+		07B01F671F2C01B800B15911 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B01F661F2C01B800B15911 /* AVFoundation.framework */; };
 		07B2F9361F2A9BB000EDC354 /* GPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B2F9351F2A9BB000EDC354 /* GPEnums.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
 		07B457A71EE8B0DE00ABF165 /* Pods_GPController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 998E02544BD13A6886145A48 /* Pods_GPController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -134,6 +136,8 @@
 		07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetReferenceViewController.swift; sourceTree = "<group>"; };
 		07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoSessionViewController.swift; sourceTree = "<group>"; };
 		07B01EC81F2B987400B15911 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		07B01F631F2C00BA00B15911 /* fox_fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fox_fanfare.mp3; sourceTree = "<group>"; };
+		07B01F661F2C01B800B15911 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		07B2F9351F2A9BB000EDC354 /* GPEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPEnums.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
 		07B457A81EE8CD4300ABF165 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B01F671F2C01B800B15911 /* AVFoundation.framework in Frameworks */,
 				078506CC1F04601800297F4F /* CoreData.framework in Frameworks */,
 				1D79592495035270EA9006EA /* Pods_GPController.framework in Frameworks */,
 			);
@@ -264,6 +269,7 @@
 		07369DF91ED753E800DF29E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07B01F651F2C00BF00B15911 /* Audio */,
 				07B2F9351F2A9BB000EDC354 /* GPEnums.swift */,
 				07369DC81ED7406400DF29E3 /* AppDelegate.swift */,
 				079DDF391EE1C8910010CB9F /* NORData.swift */,
@@ -325,6 +331,14 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
+		07B01F651F2C00BF00B15911 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				07B01F631F2C00BA00B15911 /* fox_fanfare.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		4A55D4B9EAB1F8631B576C9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +355,7 @@
 		ABE058BA3F7156E409D1F446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07B01F661F2C01B800B15911 /* AVFoundation.framework */,
 				078506CB1F04601800297F4F /* CoreData.framework */,
 				998E02544BD13A6886145A48 /* Pods_GPController.framework */,
 				72315DC1439A7A44ADB53F11 /* Pods_GPControllerTests.framework */,
@@ -471,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B01F641F2C00BA00B15911 /* fox_fanfare.mp3 in Resources */,
 				07369DD31ED7406400DF29E3 /* LaunchScreen.storyboard in Resources */,
 				07369DD01ED7406400DF29E3 /* Assets.xcassets in Resources */,
 				07369DCE1ED7406400DF29E3 /* Main.storyboard in Resources */,
