@@ -34,6 +34,9 @@ import CoreBluetooth
 
 class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
 
+    // MARK: - Debugging Properties
+    fileprivate let debugIsOn: Bool = false
+    
     // MARK: - Delegate Properties
     var delegate: GPBluetoothManagerDelegate?
     var scanner: GPDeviceDiscoveryDelegate?
@@ -75,9 +78,9 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         bluetoothPeripheral = aPeripheral
 
         if let name = aPeripheral.name {
-            print("Connecting to: \(name)...")
+            debugLog("Connecting to: \(name)...", debugIsOn)
         } else {
-            print("Connecting to unnamed device...")
+            debugLog("Connecting to unnamed device...", debugIsOn)
         }
 
         centralManager.connect(aPeripheral, options: nil)
@@ -89,17 +92,17 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
      */
     func cancelPeripheralConnection() {
         guard bluetoothPeripheral != nil else {
-            print("Peripheral not set")
+            debugLog("Peripheral not set", debugIsOn)
             return
         }
 
         if connected {
             if let name = bluetoothPeripheral?.name {
-                print("Disconnecting from \(name)...")
+                debugLog("Disconnecting from \(name)...", debugIsOn)
             }
             connected = false
         } else {
-            print("Cancelling connection...")
+            debugLog("Cancelling connection...", debugIsOn)
         }
 
         centralManager.cancelPeripheralConnection(bluetoothPeripheral!)
@@ -169,18 +172,18 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
      */
     func send(text aText : String, withType aType : CBCharacteristicWriteType) {
         guard self.uartRXCharacteristic != nil else {
-            print("UART RX Characteristic not found")
+            debugLog("UART RX Characteristic not found", debugIsOn)
             return
         }
         
         let typeAsString = aType == .withoutResponse ? ".withoutResponse" : ".withResponse"
         let data = aText.data(using: String.Encoding.utf8)!
         
-        print("Writing to characteristic: \(uartRXCharacteristic!.uuid.uuidString)")
-        print("peripheral.writeValue(0x\(data.hexString), for: \(uartRXCharacteristic!.uuid.uuidString), type: \(typeAsString))")
+        debugLog("Writing to characteristic: \(uartRXCharacteristic!.uuid.uuidString)", debugIsOn)
+        debugLog("peripheral.writeValue(0x\(data.hexString), for: \(uartRXCharacteristic!.uuid.uuidString), type: \(typeAsString))", debugIsOn)
         self.bluetoothPeripheral!.writeValue(data, for: self.uartRXCharacteristic!, type: aType)
         
-        print("\"\(aText)\" sent")
+        debugLog("\"\(aText)\" sent", debugIsOn)
     }
     
     /**
@@ -193,7 +196,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
      */
     func send(text aText : String) {
         guard self.uartRXCharacteristic != nil else {
-            print("UART RX Characteristic not found")
+            debugLog("UART RX Characteristic not found", debugIsOn)
             return
         }
         
@@ -203,7 +206,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
         }
 
         let longWriteSupported = false
-        
+
         let textData = aText.data(using: String.Encoding.utf8)!
         textData.withUnsafeBytes { (u8Ptr: UnsafePointer<CChar>) in
             var buffer = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(u8Ptr))
@@ -262,23 +265,23 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             break
         }
         
-        print("Central Manager did update state to: \(state)")
+        debugLog("Central Manager did update state to: \(state)", debugIsOn)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("[Callback] Central Manager did connect peripheral")
+        debugLog("[Callback] Central Manager did connect peripheral", debugIsOn)
         if let name = peripheral.name {
-            print("[x] Connected to: \(name)")
+            debugLog("[x] Connected to: \(name)", debugIsOn)
         } else {
-            print("[x] Connected to unnamed device")
+            debugLog("[x] Connected to unnamed device", debugIsOn)
         }
         
         connected = true
         bluetoothPeripheral = peripheral
         bluetoothPeripheral!.delegate = self
         delegate?.didConnectPeripheral?(deviceName: peripheral.name)
-        print("Discovering services...")
-        print("peripheral.discoverServices([\(UARTServiceUUID.uuidString)])")
+        debugLog("Discovering services...", debugIsOn)
+        debugLog("peripheral.discoverServices([\(UARTServiceUUID.uuidString)])", debugIsOn)
         peripheral.discoverServices([UARTServiceUUID])
     }
     
@@ -295,52 +298,52 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard error == nil else {
-            print("Service discovery failed")
+            debugLog("Service discovery failed", debugIsOn)
             //TODO: Disconnect?
             return
         }
         
-        print("Services discovered")
+        debugLog("Services discovered", debugIsOn)
         
         for aService: CBService in peripheral.services! {
             if aService.uuid.isEqual(UARTServiceUUID) {
-                print("Nordic UART Service found")
-                print("Discovering characteristics...")
+                debugLog("Nordic UART Service found", debugIsOn)
+                debugLog("Discovering characteristics...", debugIsOn)
                 bluetoothPeripheral!.discoverCharacteristics(nil, for: aService)
                 return
             }
         }
 
-        print("UART Service not found. Try to turn bluetooth Off and On again to clear the cache.")
+        debugLog("UART Service not found. Try to turn bluetooth Off and On again to clear the cache.", debugIsOn)
         delegate?.peripheralNotSupported?()
         cancelPeripheralConnection()
     }
 
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard error == nil else {
-            print("Characteristics discovery failed")
+            debugLog("Characteristics discovery failed", debugIsOn)
             print(error!)
             return
         }
-        print("Characteristics discovered")
+        debugLog("Characteristics discovered", debugIsOn)
         
         if service.uuid.isEqual(UARTServiceUUID) {
             for aCharacteristic : CBCharacteristic in service.characteristics! {
                 if aCharacteristic.uuid.isEqual(UARTTXCharacteristicUUID) {
-                    print("TX Characteristic found")
+                    debugLog("TX Characteristic found", debugIsOn)
                     uartTXCharacteristic = aCharacteristic
                 } else if aCharacteristic.uuid.isEqual(UARTRXCharacteristicUUID) {
-                    print("RX Characteristic found")
+                    debugLog("RX Characteristic found", debugIsOn)
                     uartRXCharacteristic = aCharacteristic
                 }
             }
 
             if (uartTXCharacteristic != nil && uartRXCharacteristic != nil) {
-                print("Enabling notifications for \(uartTXCharacteristic!.uuid.uuidString)")
-                print("peripheral.setNotifyValue(true, for: \(uartTXCharacteristic!.uuid.uuidString))")
+                debugLog("Enabling notifications for \(uartTXCharacteristic!.uuid.uuidString)", debugIsOn)
+                debugLog("peripheral.setNotifyValue(true, for: \(uartTXCharacteristic!.uuid.uuidString))", debugIsOn)
                 bluetoothPeripheral!.setNotifyValue(true, for: uartTXCharacteristic!)
             } else {
-                print("UART service does not have required characteristics. Try to turn Bluetooth Off and On again to clear cache.")
+                debugLog("UART service does not have required characteristics. Try to turn Bluetooth Off and On again to clear cache.", debugIsOn)
                 delegate?.peripheralNotSupported?()
                 cancelPeripheralConnection()
             }
@@ -349,14 +352,14 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         guard error == nil else {
-            print("Enabling notifications failed")
+            debugLog("Enabling notifications failed", debugIsOn)
             return
         }
         
         if characteristic.isNotifying {
-            print("Notifications enabled for characteristic: \(characteristic.uuid.uuidString)")
+            debugLog("Notifications enabled for characteristic: \(characteristic.uuid.uuidString)", debugIsOn)
         } else {
-            print("Notifications disabled for characteristic: \(characteristic.uuid.uuidString)")
+            debugLog("Notifications disabled for characteristic: \(characteristic.uuid.uuidString)", debugIsOn)
         }
         
         delegate?.peripheralReady?()
@@ -364,34 +367,34 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         guard error == nil else {
-            print("Writing value to characteristic has failed")
+            debugLog("Writing value to characteristic has failed", debugIsOn)
             print(error!)
             return
         }
 
-        print("Data written to characteristic: \(characteristic.uuid.uuidString)")
+        debugLog("Data written to characteristic: \(characteristic.uuid.uuidString)", debugIsOn)
     }
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
         guard error == nil else {
-            print("Writing value to descriptor has failed")
+            debugLog("Writing value to descriptor has failed", debugIsOn)
             print(error!)
             return
         }
 
-        print("Data written to descriptor: \(descriptor.uuid.uuidString)")
+        debugLog("Data written to descriptor: \(descriptor.uuid.uuidString)", debugIsOn)
     }
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard error == nil else {
-            print("Updating characteristic has failed")
+            debugLog("Updating characteristic has failed", debugIsOn)
             print(error!)
             return
         }
         
         guard let bytesReceived = characteristic.value else {
-            print("Notification received from: \(characteristic.uuid.uuidString), with empty value")
-            print("Empty packet received")
+            debugLog("Notification received from: \(characteristic.uuid.uuidString), with empty value", debugIsOn)
+            debugLog("Empty packet received", debugIsOn)
             return
         }
         bytesReceived.withUnsafeBytes { (utf8Bytes: UnsafePointer<CChar>) in
@@ -400,12 +403,12 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
                 len -= 1
             }
             
-            print("Notification received from: \(characteristic.uuid.uuidString), with value: 0x\(bytesReceived.hexString)")
+            debugLog("Notification received from: \(characteristic.uuid.uuidString), with value: 0x\(bytesReceived.hexString)", debugIsOn)
             
             if let validUTF8String = String(utf8String: utf8Bytes) {
                 listener?.didReceiveCompletionCallback(msg: validUTF8String)
             } else {
-                print("\"0x\(bytesReceived.hexString)\" received")
+                debugLog("\"0x\(bytesReceived.hexString)\" received", debugIsOn)
             }
         }
     }

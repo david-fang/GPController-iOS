@@ -88,7 +88,7 @@ enum Pattern {
 class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     enum PanoState {
-        case stopped, paused, running
+        case stopped, paused, running, ready
     }
     
     fileprivate let manager: GPBluetoothManager
@@ -103,6 +103,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate var pendingPicture: Bool = false
     
     fileprivate var pendingUnidirectionalSecondary: Bool = false
+    fileprivate var commandCount: Int = 0     // the number of commands sent
     
     fileprivate var cycleNum: Int = 0 {
         didSet {
@@ -118,6 +119,10 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     var preTriggerDelay: Double = 0
     var bulb: Double = 0
     var postTriggerDelay: Double = 0
+    
+    var canReceiveNewCommand: Bool {
+        return commandCount == 0
+    }
     
     var isCompleted: Bool {
         return !grid.canMove(dir: primaryDirection) &&
@@ -147,10 +152,9 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func start() {
         manager.listener = self
         pendingPicture = true
+        panoState = .ready
         cycleNum = 1
-        panoState = .running
-        // moveToCorner(corner: grid.startPosition)
-        next()
+        moveToCorner(corner: grid.startPosition)
     }
     
     func resume() {
@@ -169,7 +173,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     @objc fileprivate func next() {
         print("Proceeding to next: \(Date())")
         
-        if (panoState == .stopped) { return }
+        if (panoState != .running) { return }
         
         if (isCompleted) {
             panoState = .stopped
@@ -189,6 +193,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         if (panoState != .running) { return }
         
         print("Picture fired: \(Date())")
+        commandCount += 1
         manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
         pendingPicture = false
     }
@@ -260,7 +265,57 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             cmd = GP_RIGHT
         }
 
+        commandCount += 1
         manager.send(text: "\(cmd) \(angle)")
+    }
+    
+    fileprivate func moveTo(x: Int, y: Int) -> Bool {
+        guard (x > -1 && x < grid.columns) else {
+            return false
+        }
+        
+        guard (y > -1 && y < grid.rows) else {
+            return false
+        }
+        
+        let horizontalDir: Direction
+        let verticalDir: Direction
+        var numPans = x - grid.x
+        var numTilts = y - grid.y
+        
+        horizontalDir = numPans > 0 ? .right : .left
+        verticalDir = numTilts > 0 ? .up : .down
+        numPans = abs(numPans)
+        numTilts = abs(numTilts)
+        
+        for i in 0..<numPans {
+            guard (grid.canMove(dir: horizontalDir)) else {
+                fatalError("Grid cannot pan past bounds: \(i + 1)/\(numPans)")
+            }
+            
+            grid.move(dir: horizontalDir)
+        }
+        
+        for i in 0..<numTilts {
+            guard (grid.canMove(dir: verticalDir)) else {
+                fatalError("Grid cannot tilt past bounds: \(i + 1)/\(numTilts)")
+            }
+            
+            grid.move(dir: verticalDir)
+        }
+
+        self.move(dir: horizontalDir, angle: numPans * panAngle)
+        self.move(dir: verticalDir, angle: numTilts * tiltAngle)
+        
+        return true
+    }
+    
+    fileprivate func resumeAt(x: Int, y: Int) {
+        if (panoState == .paused) {
+            if (moveTo(x: x, y: y)) {
+                panoState = .ready
+            }
+        }
     }
     
     func takeSingleStep(dir: Direction) {
@@ -272,50 +327,25 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     }
 
     func moveToCorner(corner: Corner) {
-        var numPans = 0
-        var numTilts = 0
-        let horizontalDir: Direction
-        let verticalDir: Direction
-
+        let x: Int
+        let y: Int
+        
         switch corner {
         case .topLeft:
-            numPans = grid.x * -1
-            numTilts = grid.rows - grid.y - 1
+            x = 0
+            y = grid.rows - 1
         case .topRight:
-            numPans = grid.columns - grid.x - 1
-            numTilts = grid.rows - grid.y - 1
+            x = grid.columns - 1
+            y = grid.rows - 1
         case .bottomLeft:
-            numPans = grid.x * -1
-            numTilts = grid.y * -1
+            x = 0
+            y = 0
         case .bottomRight:
-            numPans = grid.columns - grid.x - 1
-            numTilts = grid.y * -1
+            x = grid.columns - 1
+            y = 0
         }
         
-        horizontalDir = numPans > 0 ? .right : .left
-        verticalDir = numTilts > 0 ? .up : .down
-        
-        numPans = abs(numPans)
-        numTilts = abs(numTilts)
-        
-        for i in 0..<numPans {
-            guard (grid.canMove(dir: horizontalDir)) else {
-                fatalError("Grid cannot pan past bounds: \(i + 1)/\(numPans)")
-            }
-
-            grid.move(dir: horizontalDir)
-        }
-        
-        for i in 0..<numTilts {
-            guard (grid.canMove(dir: verticalDir)) else {
-                fatalError("Grid cannot tilt past bounds: \(i + 1)/\(numTilts)")
-            }
-
-            grid.move(dir: verticalDir)
-        }
-        
-        self.move(dir: horizontalDir, angle: numPans * panAngle)
-        self.move(dir: verticalDir, angle: numTilts * tiltAngle)
+        _ = moveTo(x: x, y: y)
     }
     
     func moveToCenter() {
@@ -337,12 +367,18 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     // MARK: - Delegate Functions
     
     func didReceiveCompletionCallback(msg: String) {
+        commandCount -= 1
+        print("Command count: \(commandCount)")
         if panoState == .running {
             if (msg == "SHUTTER OK") {
+                print("Waiting for post-trigger delay: \(Date())")
                 delay(postTriggerDelay, closure: { self.next() })
-            } else {
+            } else if (msg == "MOTORS OK") {
                 next()
             }
+        } else if canReceiveNewCommand && panoState == .ready {
+            panoState = .running
+            next()
         }
     }
 }
