@@ -50,7 +50,32 @@ class CameraFormViewController: UIViewController {
     }
     
     @IBAction func saveCameraConfig(_ sender: UIButton) {
-        cameraConfigEditor.saveCameraConfig(completionHandler: nil)
+        if (cameraConfigEditor.hFOV == 0 || cameraConfigEditor.vFOV == 0) {
+            let alert = UIAlertController(title: "Missing fields", message: "Camera configuration cannot have field of view of 0", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        if cameraConfigEditor.identifier == nil {
+            let alert = UIAlertController(title: "Missing fields", message: "Camera configuration cannot be saved without an identifier", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        else if (!cameraConfigEditor.saveCameraConfig()) {
+            let alert = UIAlertController(title: "Invalid identifier", message: "The desired identifier is already being used by an existing configuration", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Navigation
@@ -58,7 +83,7 @@ class CameraFormViewController: UIViewController {
     @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
     }
-    
+
     @IBAction func segueToSingleEdit(_ sender: UIButton) {
         performSegue(withIdentifier: "singleEditCamConfig", sender: sender)
     }

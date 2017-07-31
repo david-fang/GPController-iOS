@@ -67,7 +67,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tableView.updateGradients()
     }
-    
+
     func fetchCameraConfigsFromCoreData() {
         do {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate

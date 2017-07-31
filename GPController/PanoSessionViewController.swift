@@ -11,16 +11,29 @@ import AudioToolbox
 import AVFoundation
 
 class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
-    
+
+    @IBOutlet var timerSettingsPopup: UIView!
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var updateTextfield: UITextField!
+
     @IBOutlet weak var progressIndicator: KDCircularProgress!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var panoControlButton: UIButton!
 
+    let blurEffect = UIBlurEffect(style: .light)
+    var blurEffectView: UIVisualEffectView?
+    
     var panoManager: PanoManager?
     var finishFanfarePlayer: AVAudioPlayer!
     
+    var activeEditTag: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        blurEffectView = UIVisualEffectView()
+        blurEffectView?.frame = view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         let path = Bundle.main.path(forResource: "fox_fanfare", ofType: "mp3")!
         let url = URL(fileURLWithPath: path)
@@ -107,6 +120,66 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     }
     
     @IBAction func editSettings(_ sender: UIButton) {
+        activeEditTag = sender.tag
+        
+        if let blurView = blurEffectView {
+            view.addSubview(blurView)
+        }
+        
+        view.addSubview(timerSettingsPopup)
+        timerSettingsPopup.bounds = view.bounds
+        timerSettingsPopup.center = view.center
+        timerSettingsPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        timerSettingsPopup.alpha = 0
+        
+        switch activeEditTag {
+        case 0:
+            updateButton.setTitle("UPDATE PRE-TRIGGER DELAY", for: .normal)
+            updateTextfield.text = String(panoManager?.preTriggerDelay ?? 0)
+        case 1:
+            updateButton.setTitle("UPDATE BULB TIME", for: .normal)
+            updateTextfield.text = String(panoManager?.bulb ?? 0)
+        case 2:
+            updateButton.setTitle("UPDATE POST-TRIGGER DELAY", for: .normal)
+            updateTextfield.text = String(panoManager?.postTriggerDelay ?? 0)
+        default:
+            break
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurEffectView?.effect = self.blurEffect
+            self.timerSettingsPopup.alpha = 1
+            self.timerSettingsPopup.transform = .identity
+        })
+    }
+    
+    @IBAction func closePopup(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.timerSettingsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.timerSettingsPopup.alpha = 0
+            self.blurEffectView?.effect = nil
+        }, completion: { (success: Bool) in
+            self.timerSettingsPopup.removeFromSuperview()
+            self.blurEffectView?.removeFromSuperview()
+        })
+    }
+    
+    @IBAction func saveSettings(_ sender: UIButton) {
+        let text = updateTextfield.text ?? ""
+        let value = Double(text) ?? 0
+        
+        switch activeEditTag {
+        case 0:
+            panoManager?.preTriggerDelay = value
+        case 1:
+            panoManager?.bulb = value
+        case 2:
+            panoManager?.postTriggerDelay = value
+        default:
+            break
+        }
+        
+        closePopup(sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

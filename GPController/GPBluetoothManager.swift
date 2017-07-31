@@ -403,10 +403,7 @@ class GPBluetoothManager: NSObject, CBPeripheralDelegate, CBCentralManagerDelega
             print("Notification received from: \(characteristic.uuid.uuidString), with value: 0x\(bytesReceived.hexString)")
             
             if let validUTF8String = String(utf8String: utf8Bytes) {
-                print("\"\(validUTF8String)\" received")
-                if (validUTF8String == "OK") {
-                    listener?.didReceiveCompletionCallback(msg: validUTF8String)
-                }
+                listener?.didReceiveCompletionCallback(msg: validUTF8String)
             } else {
                 print("\"0x\(bytesReceived.hexString)\" received")
             }

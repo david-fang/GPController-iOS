@@ -114,7 +114,10 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     let grid: PanoGrid
     var delegate: PanoramaListenerDelegate?
 
-    var bulb: Int = 3
+    var timer: Timer = Timer()
+    var preTriggerDelay: Double = 0
+    var bulb: Double = 0
+    var postTriggerDelay: Double = 0
     
     var isCompleted: Bool {
         return !grid.canMove(dir: primaryDirection) &&
@@ -146,6 +149,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         pendingPicture = true
         cycleNum = 1
         panoState = .running
+        // moveToCorner(corner: grid.startPosition)
         next()
     }
     
@@ -162,7 +166,9 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * Performs the next action on the queue. By default, the current
      * movement pattern is a snake pattern. 
      */
-    fileprivate func next() {
+    @objc fileprivate func next() {
+        print("Proceeding to next: \(Date())")
+        
         if (panoState == .stopped) { return }
         
         if (isCompleted) {
@@ -172,18 +178,24 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         }
 
         if (pendingPicture) {
-            triggerShutter()
+            print("Waiting for pre-trigger delay: \(Date())")
+            delay(preTriggerDelay, closure: { self.triggerShutter() })
         } else {
             pattern == .snake ? snakeNext() : unidirectionalNext()
         }
     }
-    
-    fileprivate func triggerShutter() {
+
+    @objc fileprivate func triggerShutter() {
+        if (panoState != .running) { return }
+        
+        print("Picture fired: \(Date())")
         manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
         pendingPicture = false
     }
     
     fileprivate func unidirectionalNext() {
+        if (panoState != .running) { return }
+        
         if (pendingUnidirectionalSecondary) {
             takeSingleStep(dir: secondaryDirection)
             pendingUnidirectionalSecondary = false
@@ -209,6 +221,8 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     }
     
     fileprivate func snakeNext() {
+        if (panoState != .running) { return }
+        
         cycleNum += 1
         if (grid.canMove(dir: primaryDirection)) {
             takeSingleStep(dir: primaryDirection)
@@ -323,8 +337,12 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     // MARK: - Delegate Functions
     
     func didReceiveCompletionCallback(msg: String) {
-        if (msg == "OK" && panoState == .running) {
-            next()
+        if panoState == .running {
+            if (msg == "SHUTTER OK") {
+                delay(postTriggerDelay, closure: { self.next() })
+            } else {
+                next()
+            }
         }
     }
 }
