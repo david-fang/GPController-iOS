@@ -15,7 +15,9 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     @IBOutlet var timerSettingsPopup: UIView!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var updateTextfield: UITextField!
-
+    
+    @IBOutlet var resumeAtView: UIView!
+    
     @IBOutlet weak var progressIndicator: KDCircularProgress!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var panoControlButton: UIButton!
@@ -78,9 +80,9 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
             manager.pause()
             sender.setTitle("RESUME", for: .normal)
         } else {
-            manager.resume()
             sender.setTitle("PAUSE", for: .normal)
-        }
+            popupSubview(subview: resumeAtView)
+         }
     }
     
     func nextCycleWillBegin() {
@@ -112,25 +114,47 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         }
     }
     
-    
     // MARK: - Navigation
+    
+    func popupSubview(subview: UIView) {
+        DispatchQueue.main.async {
+            if let blurView = self.blurEffectView {
+                self.view.addSubview(blurView)
+            }
+            
+            self.view.addSubview(subview)
+            subview.bounds = self.view.bounds
+            subview.center = self.view.center
+            subview.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            subview.alpha = 0
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.blurEffectView?.effect = self.blurEffect
+                subview.alpha = 1
+                subview.transform = .identity
+            })
+        }
+    }
 
+    func closePopup(subview: UIView, completion: (() -> Void)?) {
+        UIView.animate(withDuration: 0.4, animations: {
+            subview.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            subview.alpha = 0
+            self.blurEffectView?.effect = nil
+        }, completion: { (success: Bool) in
+            subview.removeFromSuperview()
+            self.blurEffectView?.removeFromSuperview()
+            completion?()
+        })
+
+    }
+    
     @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func editSettings(_ sender: UIButton) {
         activeEditTag = sender.tag
-        
-        if let blurView = blurEffectView {
-            view.addSubview(blurView)
-        }
-        
-        view.addSubview(timerSettingsPopup)
-        timerSettingsPopup.bounds = view.bounds
-        timerSettingsPopup.center = view.center
-        timerSettingsPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        timerSettingsPopup.alpha = 0
         
         switch activeEditTag {
         case 0:
@@ -146,24 +170,20 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
             break
         }
         
-        UIView.animate(withDuration: 0.3, animations: {
-            self.blurEffectView?.effect = self.blurEffect
-            self.timerSettingsPopup.alpha = 1
-            self.timerSettingsPopup.transform = .identity
-        })
+        popupSubview(subview: timerSettingsPopup)
     }
     
-    @IBAction func closePopup(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.timerSettingsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.timerSettingsPopup.alpha = 0
-            self.blurEffectView?.effect = nil
-        }, completion: { (success: Bool) in
-            self.timerSettingsPopup.removeFromSuperview()
-            self.blurEffectView?.removeFromSuperview()
-        })
+    @IBAction func closeEditView(_ sender: UIButton) {
+        closePopup(subview: timerSettingsPopup, completion: nil)
     }
     
+    @IBAction func confirmResumeAt(_ sender: UIButton) {
+        closePopup(subview: resumeAtView, completion: {
+            // panoManager.resumeAt()
+            // self.panoManager?.resume()
+        })
+    }
+
     @IBAction func saveSettings(_ sender: UIButton) {
         let text = updateTextfield.text ?? ""
         let value = Double(text) ?? 0
@@ -179,7 +199,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
             break
         }
         
-        closePopup(sender)
+        closePopup(subview: timerSettingsPopup, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

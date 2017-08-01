@@ -99,12 +99,18 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate var primaryDirection: Direction
     fileprivate var secondaryDirection: Direction
     
-    fileprivate var panoState: PanoState = .stopped
+    fileprivate var panoState: PanoState = .stopped {
+        didSet {
+            if (panoState == .ready) {
+                print("Pano made ready")
+            }
+        }
+    }
     fileprivate var pendingPicture: Bool = false
     
     fileprivate var pendingUnidirectionalSecondary: Bool = false
-    fileprivate var commandCount: Int = 0     // the number of commands sent
-    
+    fileprivate var commandCount: Int = 0    // the number of commands sent
+        
     fileprivate var cycleNum: Int = 0 {
         didSet {
             delegate?.nextCycleWillBegin()
@@ -146,11 +152,14 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             primaryDirection = (start.isAlignedToLeft()) ? .right : .left
             secondaryDirection = (start.isAlignedToTop()) ? .down : .up
         }
+        
+        super.init()
+
+        self.manager.listener = self
     }
     
     /** Performs any final setup and starts the panorama session */
     func start() {
-        manager.listener = self
         pendingPicture = true
         panoState = .ready
         cycleNum = 1
@@ -165,7 +174,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func pause() {
         panoState = .paused
     }
-    
+
     /**
      * Performs the next action on the queue. By default, the current
      * movement pattern is a snake pattern. 
@@ -266,6 +275,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         }
 
         commandCount += 1
+        print("Did increment count: count = \(commandCount)")
         manager.send(text: "\(cmd) \(angle)")
     }
     
@@ -329,7 +339,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func moveToCorner(corner: Corner) {
         let x: Int
         let y: Int
-        
+
         switch corner {
         case .topLeft:
             x = 0
@@ -368,7 +378,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     func didReceiveCompletionCallback(msg: String) {
         commandCount -= 1
-        print("Command count: \(commandCount)")
+        print("Did receive callback: count = \(commandCount)")
         if panoState == .running {
             if (msg == "SHUTTER OK") {
                 print("Waiting for post-trigger delay: \(Date())")
