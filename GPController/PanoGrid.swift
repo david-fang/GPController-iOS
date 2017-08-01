@@ -13,6 +13,8 @@ class PanoGrid {
     fileprivate var _x: Int
     fileprivate var _y: Int
     
+    let startX: Int
+    let startY: Int
     let rows: Int
     let columns: Int
     let totalComponents: Int
@@ -29,12 +31,16 @@ class PanoGrid {
         
         switch startPosition {
         case .topLeft:
+            startX = 0; startY = rows - 1
             _x = 0; _y = rows - 1
         case .topRight:
+            startX = columns - 1; startY = rows - 1
             _x = columns - 1; _y = rows - 1
         case .bottomLeft:
+            startX = 0; startY = 0
             _x = 0; _y = 0
         case .bottomRight:
+            startX = columns - 1; startY = 0
             _x = columns - 1; _y = 0
         }
     }

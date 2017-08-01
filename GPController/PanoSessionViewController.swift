@@ -140,13 +140,12 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
          }
     }
     
-    func nextCycleWillBegin() {
+    func nextCycleWillBegin(cycleNum: Int) {
         guard let manager = panoManager else {
             return
         }
         
         DispatchQueue.main.async {
-            let cycleNum = manager.getCycleNum()
             let total = manager.grid.totalComponents
             let percentageComplete: Double = Double(cycleNum) / Double(total)
             
