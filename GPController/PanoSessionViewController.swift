@@ -17,6 +17,8 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     @IBOutlet weak var updateTextfield: UITextField!
     
     @IBOutlet var resumeAtView: UIView!
+    @IBOutlet weak var yCoordinateLabel: UILabel!
+    @IBOutlet weak var xCoordinateLabel: UILabel!
     
     @IBOutlet weak var progressIndicator: KDCircularProgress!
     @IBOutlet weak var progressLabel: UILabel!
@@ -32,6 +34,11 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        yCoordinateLabel.layer.borderWidth = 1.0
+        yCoordinateLabel.layer.borderColor = UIColor.white.cgColor
+        xCoordinateLabel.layer.borderWidth = 1.0
+        xCoordinateLabel.layer.borderColor = UIColor.white.cgColor
         
         blurEffectView = UIVisualEffectView()
         blurEffectView?.frame = view.bounds
@@ -58,16 +65,64 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         
         manager.delegate = self
         progressLabel.text = "# 0 of \(manager.grid.totalComponents)"
-        
-        // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Resume Picker View
+    
+    fileprivate func loadResumeAtView() {
+        guard let manager = panoManager else {
+            return
+        }
+        
+        xCoordinateLabel.text = String(manager.grid.x)
+        yCoordinateLabel.text = String(manager.grid.y)
+        popupSubview(subview: resumeAtView)
+    }
 
+    @IBAction func incrementCoordinate(_ sender: UIButton) {
+        guard let manager = panoManager else {
+            return
+        }
+        
+        let label: UILabel
+        let max: Int
+        
+        switch sender.tag {
+        case 0: label = xCoordinateLabel; max = manager.grid.columns - 1
+        case 1: label = yCoordinateLabel; max = manager.grid.rows - 1
+        default:
+            return
+        }
+        
+        if let val = Int(label.text!) {
+            if (val < max) {
+                label.text = String(val + 1)
+            }
+        }
+    }
+    
+    @IBAction func decrementCoordinate(_ sender: UIButton) {
+        let label: UILabel
+        
+        switch sender.tag {
+        case 0: label = xCoordinateLabel
+        case 1: label = yCoordinateLabel
+        default:
+            return
+        }
+        
+        if let val = Int(label.text!) {
+            if (val > 0) {
+                label.text = String(val - 1)
+            }
+        }
+    }
+    
     @IBAction func startPanorama(_ sender: UIButton) {
         guard let manager = panoManager else {
             return
@@ -81,7 +136,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
             sender.setTitle("RESUME", for: .normal)
         } else {
             sender.setTitle("PAUSE", for: .normal)
-            popupSubview(subview: resumeAtView)
+            loadResumeAtView()
          }
     }
     
@@ -179,8 +234,14 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     
     @IBAction func confirmResumeAt(_ sender: UIButton) {
         closePopup(subview: resumeAtView, completion: {
-            // panoManager.resumeAt()
-            // self.panoManager?.resume()
+            if let manager = self.panoManager {
+                guard let x = Int(self.xCoordinateLabel.text!), let y = Int(self.yCoordinateLabel.text!) else {
+                    manager.resumeAt(at: manager.grid.x, manager.grid.y)
+                    return
+                }
+
+                manager.resumeAt(at: x, y)
+            }
         })
     }
 

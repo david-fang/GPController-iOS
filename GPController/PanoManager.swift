@@ -166,9 +166,13 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         moveToCorner(corner: grid.startPosition)
     }
     
-    func resume() {
-        panoState = .running
-        next()
+    func resumeAt(at x: Int, _ y: Int) {
+        if (panoState == .paused) {
+            if (grid.coordinateIsWithinBounds(for: x, y)) {
+                panoState = .ready
+                moveTo(x: x, y: y)
+            }
+        }
     }
     
     func pause() {
@@ -279,13 +283,10 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         manager.send(text: "\(cmd) \(angle)")
     }
     
-    fileprivate func moveTo(x: Int, y: Int) -> Bool {
-        guard (x > -1 && x < grid.columns) else {
-            return false
-        }
-        
-        guard (y > -1 && y < grid.rows) else {
-            return false
+    fileprivate func moveTo(x: Int, y: Int) {
+        guard grid.coordinateIsWithinBounds(for: x, y) else {
+            print("Coordinate (\(x),\(y)) is out of bounds")
+            return
         }
         
         let horizontalDir: Direction
@@ -316,16 +317,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
 
         self.move(dir: horizontalDir, angle: numPans * panAngle)
         self.move(dir: verticalDir, angle: numTilts * tiltAngle)
-        
-        return true
-    }
-    
-    fileprivate func resumeAt(x: Int, y: Int) {
-        if (panoState == .paused) {
-            if (moveTo(x: x, y: y)) {
-                panoState = .ready
-            }
-        }
     }
     
     func takeSingleStep(dir: Direction) {
@@ -340,6 +331,8 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         let x: Int
         let y: Int
 
+        print("Moving to corner")
+        
         switch corner {
         case .topLeft:
             x = 0

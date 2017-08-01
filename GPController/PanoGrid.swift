@@ -66,5 +66,9 @@ class PanoGrid {
             return (y > 0)
         }
     }
+    
+    func coordinateIsWithinBounds(for x: Int, _ y: Int) -> Bool {
+        return (x > -1 && x < columns && y > -1 && y < rows)
+    }
 }
 
