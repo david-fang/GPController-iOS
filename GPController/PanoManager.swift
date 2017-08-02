@@ -181,7 +181,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      */
     @objc fileprivate func next() {
         // print("Proceeding to next: \(Date())")
-        
         if (panoState != .running) { return }
         
         if (isCompleted) {
@@ -220,7 +219,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         } else {
             let angle = primaryDirection.movesAlongHorizontal ? panAngle : tiltAngle
             let numComponents = primaryDirection.movesAlongHorizontal ? grid.columns : grid.rows
-            
+
             for _ in 0..<numComponents-1 {
                 grid.move(dir: primaryDirection.inverse)
             }
@@ -236,15 +235,15 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     fileprivate func snakeNext() {
         if (panoState != .running) { return }
-        
-        delegate?.nextCycleWillBegin(cycleNum: getCycleNum())
+
         if (grid.canMove(dir: primaryDirection)) {
             takeSingleStep(dir: primaryDirection)
         } else {
             primaryDirection = primaryDirection.inverse
             takeSingleStep(dir: secondaryDirection)
         }
-        
+
+        delegate?.nextCycleWillBegin(cycleNum: getCycleNum())
         pendingPicture = true
     }
     
@@ -365,7 +364,27 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
                 return abs(grid.x - grid.startX) * grid.rows + abs(grid.y - grid.startY) + 1
             }
         case .snake:
-            return 0
+            switch order {
+            case .rows:
+                let remainder: Int
+                if (startPosition.isAlignedToLeft()) {
+                    remainder = (abs(grid.y - grid.startY) % 2 == 0) ? (grid.x + 1) : (grid.columns - grid.x)
+                } else {
+                    remainder = (abs(grid.y - grid.startY) % 2 == 0) ? (grid.columns - grid.x) : (grid.x + 1)
+                }
+
+                return abs(grid.y - grid.startY) * grid.columns + remainder
+
+            case .columns:
+                let remainder: Int
+                if (startPosition.isAlignedToTop()) {
+                    remainder = (abs(grid.x - grid.startX) % 2 == 0) ? (grid.rows - grid.y) : (grid.y + 1)
+                } else {
+                    remainder = (abs(grid.x - grid.startX) % 2 == 0) ? (grid.y + 1) : (grid.rows - grid.y)
+                }
+
+                return abs(grid.x - grid.startX) * grid.rows + remainder
+            }
         }
     }
 
