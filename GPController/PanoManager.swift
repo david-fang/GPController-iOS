@@ -165,8 +165,10 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func resumeAt(at x: Int, _ y: Int) {
         if (panoState == .paused) {
             if (grid.coordinateIsWithinBounds(for: x, y)) {
+                pendingPicture = true
                 panoState = .ready
                 moveTo(x: x, y: y)
+                delegate?.nextCycleWillBegin(cycleNum: getCycleNum())
             }
         }
     }
@@ -235,6 +237,17 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     fileprivate func snakeNext() {
         if (panoState != .running) { return }
+        
+        let mainDirection: Direction
+        switch order {
+        case .rows:
+            mainDirection = startPosition.isAlignedToLeft() ? .right : .left
+            primaryDirection = (abs(grid.y - grid.startY) % 2 == 0) ? mainDirection : mainDirection.inverse
+
+        case .columns:
+            mainDirection = startPosition.isAlignedToTop() ? .down : .up
+            primaryDirection = (abs(grid.x - grid.startX) % 2 == 0) ? mainDirection : mainDirection.inverse
+        }
 
         if (grid.canMove(dir: primaryDirection)) {
             takeSingleStep(dir: primaryDirection)
@@ -283,6 +296,8 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             print("Coordinate (\(x),\(y)) is out of bounds")
             return
         }
+        
+        print("Moving to \(x), \(y)")
         
         let horizontalDir: Direction
         let verticalDir: Direction

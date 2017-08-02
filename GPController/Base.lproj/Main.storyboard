@@ -2396,7 +2396,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlv-uG-DG3" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="70.5" y="399" width="123" height="58"/>
+                            <rect key="frame" x="71" y="399" width="123" height="58"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -2416,7 +2416,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NB-72-Mja">
-                            <rect key="frame" x="47" y="212.5" width="170" height="64"/>
+                            <rect key="frame" x="47" y="213" width="170" height="64"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bS-gD-uKD">
                                     <rect key="frame" x="106" y="0.0" width="64" height="64"/>
@@ -2435,7 +2435,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTO-u0-3Tl">
-                                    <rect key="frame" x="81.5" y="17.5" width="7" height="30"/>
+                                    <rect key="frame" x="82" y="17" width="7" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -2458,7 +2458,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRy-GV-7dt" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="57" y="152.5" width="44" height="44"/>
+                            <rect key="frame" x="57" y="153" width="44" height="44"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="QRy-GV-7dt" secondAttribute="height" multiplier="1:1" id="dOw-wc-EdL"/>
@@ -2479,7 +2479,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3P-C2-y78" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="163" y="152.5" width="44" height="44"/>
+                            <rect key="frame" x="163" y="153" width="44" height="44"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                             <state key="normal" title="+">
@@ -2496,13 +2496,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What grid coordinate should I resume at?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dk-PZ-8vT">
-                            <rect key="frame" x="32" y="32" width="200" height="48"/>
+                            <rect key="frame" x="32" y="40" width="200" height="48"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CA-5X-yNW" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="163" y="292.5" width="44" height="44"/>
+                            <rect key="frame" x="163" y="293" width="44" height="44"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="1Ew-ks-Vsh"/>
@@ -2523,13 +2523,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom-leftmost point is origin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kme-Tv-My9">
-                            <rect key="frame" x="32" y="92" width="200" height="17"/>
+                            <rect key="frame" x="32" y="100" width="200" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-Lf-8Xa" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="57" y="292.5" width="44" height="44"/>
+                            <rect key="frame" x="57" y="293" width="44" height="44"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="kp0-Lf-8Xa" secondAttribute="height" multiplier="1:1" id="Mqq-ib-40e"/>
@@ -2559,7 +2559,7 @@
                         <constraint firstItem="kp0-Lf-8Xa" firstAttribute="top" secondItem="7NB-72-Mja" secondAttribute="bottom" constant="16" id="BYO-b1-aET"/>
                         <constraint firstAttribute="trailing" secondItem="3dk-PZ-8vT" secondAttribute="trailing" constant="32" id="DBE-WY-G9a"/>
                         <constraint firstItem="Kme-Tv-My9" firstAttribute="centerX" secondItem="3dk-PZ-8vT" secondAttribute="centerX" id="EUe-Kx-aeT"/>
-                        <constraint firstItem="3dk-PZ-8vT" firstAttribute="top" secondItem="4A7-Tu-RdO" secondAttribute="top" constant="32" id="GjX-e4-g88"/>
+                        <constraint firstItem="3dk-PZ-8vT" firstAttribute="top" secondItem="4A7-Tu-RdO" secondAttribute="top" constant="40" id="GjX-e4-g88"/>
                         <constraint firstItem="wcT-F4-EOB" firstAttribute="centerX" secondItem="QRy-GV-7dt" secondAttribute="centerX" id="KpQ-u7-XwE"/>
                         <constraint firstItem="6CA-5X-yNW" firstAttribute="centerY" secondItem="kp0-Lf-8Xa" secondAttribute="centerY" id="LWe-5N-N47"/>
                         <constraint firstItem="Kme-Tv-My9" firstAttribute="trailing" secondItem="3dk-PZ-8vT" secondAttribute="trailing" id="O12-tg-0tf"/>
@@ -2863,7 +2863,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hkd-R3-Wh0" id="tCA-8l-ZU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
