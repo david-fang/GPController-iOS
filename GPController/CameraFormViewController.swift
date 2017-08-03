@@ -8,15 +8,17 @@
 
 import UIKit
 
-class CameraFormViewController: UIViewController {
+class CameraFormViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var identifierButton: UIButton!
+    @IBOutlet weak var cameraImageView: UIImageView!
     @IBOutlet weak var hRESButton: UIButton!
     @IBOutlet weak var vRESButton: UIButton!
     @IBOutlet weak var hFOVStepper: GMStepper!
     @IBOutlet weak var vFOVStepper: GMStepper!
 
     var cameraConfigEditor: CameraConfigEditor!
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,7 @@ class CameraFormViewController: UIViewController {
             }))
 
             self.present(alert, animated: true, completion: nil)
+            return
         }
         
         if cameraConfigEditor.identifier == nil {
@@ -66,6 +69,7 @@ class CameraFormViewController: UIViewController {
             }))
             
             self.present(alert, animated: true, completion: nil)
+            return
         }
         
         else if (!cameraConfigEditor.saveCameraConfig()) {
@@ -75,7 +79,46 @@ class CameraFormViewController: UIViewController {
             }))
             
             self.present(alert, animated: true, completion: nil)
+            return
         }
+        
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func selectImage(_ sender: UIButton) {
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        let actionSheet = UIAlertController(title: "Image source", message: "Choose a source to get your image from", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            self.imagePicker.sourceType = .camera
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.imagePicker.sourceType = .camera
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                self.imagePicker.sourceType = .photoLibrary
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        cameraImageView.image = image
+        picker.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation

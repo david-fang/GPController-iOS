@@ -141,7 +141,6 @@ class SetReferenceViewController: UIViewController {
     }
     
     @IBAction func moveToCorner(_ sender: FlexiButton) {
-        
         sender.activate(true)
         activeCornerButton?.activate(false)
         activeCornerButton = sender
@@ -160,6 +159,14 @@ class SetReferenceViewController: UIViewController {
         }
     }
 
+    @IBAction func moveToCenter(_ sender: FlexiButton) {
+        sender.activate(true)
+        activeCornerButton?.activate(false)
+        activeCornerButton = sender
+        
+        panoManager?.moveToCenter()
+    }
+    
     func startMove(_ sender: RoundAxisButton) {
         if (freeformIsEnabled) {
             freeformMove(sender)

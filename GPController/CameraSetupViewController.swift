@@ -10,6 +10,7 @@ import UIKit
 
 class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
+    @IBOutlet weak var headerTextContainer: UIView!
     @IBOutlet weak var tableView: FadingTableView!
     
     var cameraConfigs: [CameraConfig] = []
@@ -17,7 +18,8 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.navigationController?.setNavigationBarHidden(true, animated: false)
+
+        headerTextContainer.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: headerTextContainer.frame, andColors: [UIColor.flatSand, UIColor.sandpaperWhite])
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -64,6 +66,25 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         performSegue(withIdentifier: "toPanoramaSelect", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let deleteAction: UITableViewRowAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(self.cameraConfigs[indexPath.row])
+            appDelegate.saveContext()
+            self.cameraConfigs.remove(at: indexPath.row)
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+        
+        deleteAction.backgroundColor = UIColor.clear
+
+        return [deleteAction]
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tableView.updateGradients()
     }

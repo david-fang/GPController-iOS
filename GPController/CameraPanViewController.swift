@@ -74,13 +74,5 @@ class CameraPanViewController: UIViewController {
         buttonPulse?.removeFromSuperlayer()
         gpBTManager.send(text: GP_PAUSE)
     }
-    
-    /* FOR DEMO */
-    
-    @IBAction func testNinetyHorizontal(_ sender: Any) {
-        let panoManager = PanoManager(with: gpBTManager, columns: 3, rows: 3, tiltAngle: 30, panAngle: 30, start: .topLeft, order: .rows, pattern: .snake)
-        
-        panoManager.start()
-    }
 }
 

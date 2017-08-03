@@ -62,6 +62,25 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
         performSegue(withIdentifier: "toPanoForm", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction: UITableViewRowAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(self.panoConfigs[indexPath.row])
+            appDelegate.saveContext()
+            self.panoConfigs.remove(at: indexPath.row)
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+        
+        deleteAction.backgroundColor = UIColor.clear
+        
+        return [deleteAction]
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tableView.updateGradients()
     }

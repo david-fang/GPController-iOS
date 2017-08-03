@@ -110,7 +110,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate var pendingPicture: Bool = false
     
     fileprivate var pendingUnidirectionalSecondary: Bool = false
-    fileprivate var commandCount: Int = 0    // the number of commands sent
+    fileprivate var commandCount: Int = 0
     
     let startPosition: Corner
     let grid: PanoGrid
@@ -182,7 +182,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
      * movement pattern is a snake pattern. 
      */
     @objc fileprivate func next() {
-        // print("Proceeding to next: \(Date())")
         if (panoState != .running) { return }
         
         if (isCompleted) {
@@ -192,7 +191,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         }
 
         if (pendingPicture) {
-            // print("Waiting for pre-trigger delay: \(Date())")
             delay(preTriggerDelay, closure: { self.triggerShutter() })
         } else {
             pattern == .snake ? snakeNext() : unidirectionalNext()
@@ -202,7 +200,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     @objc fileprivate func triggerShutter() {
         if (panoState != .running) { return }
         
-        // print("Picture fired: \(Date())")
         commandCount += 1
         manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
         pendingPicture = false
@@ -287,7 +284,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         }
 
         commandCount += 1
-        // print("Did increment count: count = \(commandCount)")
         manager.send(text: "\(cmd) \(angle)")
     }
     
@@ -340,8 +336,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     func moveToCorner(corner: Corner) {
         let x: Int
         let y: Int
-
-        // print("Moving to corner")
         
         switch corner {
         case .topLeft:
@@ -358,11 +352,16 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
             y = 0
         }
         
-        _ = moveTo(x: x, y: y)
+        moveTo(x: x, y: y)
     }
     
+    // Moves to a point in the grid as close to the actual center as
+    // possible.
     func moveToCenter() {
+        let midX = (grid.columns - 1) / 2
+        let midY = (grid.rows - 1) / 2
         
+        moveTo(x: midX, y: midY)
     }
     
     func getPanoState() -> PanoState {
@@ -411,7 +410,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     func didReceiveCompletionCallback(msg: String) {
         commandCount -= 1
-        // print("Did receive callback: count = \(commandCount)")
         if panoState == .running {
             if (msg == "SHUTTER OK") {
                 print("Waiting for post-trigger delay: \(Date())")
