@@ -12,7 +12,7 @@ import CoreData
 
 class CameraConfigEditor {
     
-    fileprivate let config:     CameraConfig?
+    fileprivate var config:     CameraConfig?
     
     var identifier: String?
     var image: UIImage
@@ -48,6 +48,10 @@ class CameraConfigEditor {
         self.image = #imageLiteral(resourceName: "Nikon3200")
     }
 
+    func getCameraConfig() -> CameraConfig? {
+        return config
+    }
+    
     func identifierIsUnique(identifier: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -80,7 +84,6 @@ class CameraConfigEditor {
             fatalError("Cannot save a camera config with an empty identifier")
         }
         
-        let cameraConfig: CameraConfig
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -88,20 +91,18 @@ class CameraConfigEditor {
             return false
         }
         
-        if (self.config != nil) {
-            cameraConfig = self.config!
-        } else {
-            cameraConfig = CameraConfig(context: context)
+        if (self.config == nil) {
+            self.config = CameraConfig(context: context)
         }
         
         let imageData = UIImageJPEGRepresentation(self.image, 1)
 
-        cameraConfig.setValue(identifier, forKey: core_identifierKey)
-        cameraConfig.setValue(hFOV, forKey: core_hFOVKey)
-        cameraConfig.setValue(vFOV, forKey: core_vFOVKey)
-        cameraConfig.setValue(hRES, forKey: core_hRESKey)
-        cameraConfig.setValue(vRES, forKey: core_vRESKey)
-        cameraConfig.setValue(imageData, forKey: core_imageDataKey)
+        config!.setValue(identifier, forKey: core_identifierKey)
+        config!.setValue(hFOV, forKey: core_hFOVKey)
+        config!.setValue(vFOV, forKey: core_vFOVKey)
+        config!.setValue(hRES, forKey: core_hRESKey)
+        config!.setValue(vRES, forKey: core_vRESKey)
+        config!.setValue(imageData, forKey: core_imageDataKey)
             
         appDelegate.saveContext()
 

@@ -17,30 +17,35 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
     @IBOutlet weak var hFOVStepper: GMStepper!
     @IBOutlet weak var vFOVStepper: GMStepper!
 
+    var cameraConfig: CameraConfig?
+    
     var cameraConfigEditor: CameraConfigEditor!
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initDefaultConfig()
+        if let config = cameraConfig {
+            cameraConfigEditor = CameraConfigEditor(config: config)
+        } else {
+            cameraConfigEditor = CameraConfigEditor()
+        }
+        
         refreshMenuItems()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func initDefaultConfig() {
-        cameraConfigEditor = CameraConfigEditor()
     }
     
     func refreshMenuItems() {
+        cameraImageView.image = cameraConfigEditor.image
         hFOVStepper.value = cameraConfigEditor.hFOV
         vFOVStepper.value = cameraConfigEditor.vFOV
         hRESButton.setTitle(String(cameraConfigEditor.hRES) + " px", for: .normal)
         vRESButton.setTitle(String(cameraConfigEditor.vRES) + " px", for: .normal)
+        
+        if let identifier = cameraConfigEditor.identifier {
+            identifierButton.setTitle(identifier, for: .normal)
+        } else {
+            identifierButton.setTitle("What should I name this?", for: .normal)
+        }
     }
     
     @IBAction func updateHFOV(_ sender: GMStepper) {
@@ -82,7 +87,7 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
             return
         }
         
-        _ = self.navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: "toPanoramaSetup", sender: self)
     }
     
     @IBAction func selectImage(_ sender: UIButton) {
@@ -167,9 +172,16 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
                     }
                 }
             }
+        } else if (segue.identifier == "toPanoramaSetup") {
+            if let dest = segue.destination as? PanoramaSetupViewController {
+                if let selectedConfig = cameraConfigEditor.getCameraConfig() {
+                    dest.camera = selectedConfig
+                }
+            }
         }
     }
 }
+
 
 
 

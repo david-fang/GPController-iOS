@@ -70,7 +70,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedConfig = cameraConfigs[indexPath.row]
-        performSegue(withIdentifier: "toPanoramaSelect", sender: self)
+        performSegue(withIdentifier: "toCameraForm", sender: self)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -118,11 +118,16 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         })
     }
     
+    @IBAction func addNewConfig(_ sender: UIButton) {
+        selectedConfig = nil
+        performSegue(withIdentifier: "toCameraForm", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "toPanoramaSelect") {
-            if let dest = segue.destination as? PanoramaSetupViewController {
+        if (segue.identifier == "toCameraForm") {
+            if let dest = segue.destination as? CameraFormViewController {
                 if let selectedConfig = selectedConfig {
-                    dest.camera = selectedConfig
+                    dest.cameraConfig = selectedConfig
                 }
             }
         }
