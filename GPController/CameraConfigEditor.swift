@@ -12,8 +12,8 @@ import CoreData
 
 class CameraConfigEditor {
     
-    fileprivate var config:     CameraConfig?
-    
+    fileprivate var config: CameraConfig?
+
     var identifier: String?
     var image: UIImage
     var hFOV: Int
@@ -36,7 +36,7 @@ class CameraConfigEditor {
             }
         }
         
-        self.image = #imageLiteral(resourceName: "Nikon3200")
+        self.image = #imageLiteral(resourceName: "DefaultCamera")
     }
     
     init() {
@@ -45,7 +45,7 @@ class CameraConfigEditor {
         self.hRES = 1440
         self.vFOV = 30
         self.vRES = 900
-        self.image = #imageLiteral(resourceName: "Nikon3200")
+        self.image = #imageLiteral(resourceName: "DefaultCamera")
     }
 
     func getCameraConfig() -> CameraConfig? {
@@ -79,7 +79,7 @@ class CameraConfigEditor {
         return true
     }
     
-    func saveCameraConfig() -> Bool {
+    func saveCameraConfig(completion: ((_ success: Bool) -> Void)?) {
         guard let identifier = self.identifier else {
             fatalError("Cannot save a camera config with an empty identifier")
         }
@@ -88,14 +88,15 @@ class CameraConfigEditor {
         let context = appDelegate.persistentContainer.viewContext
         
         if (!identifierIsUnique(identifier: identifier)) {
-            return false
+            completion?(false)
+            return
         }
         
         if (self.config == nil) {
             self.config = CameraConfig(context: context)
         }
         
-        let imageData = UIImagePNGRepresentation(self.image)
+        let imageData = UIImageJPEGRepresentation(self.image, 1)
 
         config!.setValue(identifier, forKey: core_identifierKey)
         config!.setValue(hFOV, forKey: core_hFOVKey)
@@ -103,9 +104,8 @@ class CameraConfigEditor {
         config!.setValue(hRES, forKey: core_hRESKey)
         config!.setValue(vRES, forKey: core_vRESKey)
         config!.setValue(imageData, forKey: core_imageDataKey)
-            
+        
         appDelegate.saveContext()
-
-        return true
+        completion?(true)
     }
 }

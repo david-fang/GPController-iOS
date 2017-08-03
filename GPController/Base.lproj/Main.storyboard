@@ -3429,7 +3429,7 @@
                                     <action selector="segueToSingleEdit:" destination="9L0-LG-8d3" eventType="touchUpInside" id="wXf-iH-4O7"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nikon3200" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-bO-ajp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultCamera" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-bO-ajp">
                                 <rect key="frame" x="67" y="106" width="240.5" height="241"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3645,9 +3645,9 @@
     </scenes>
     <resources>
         <image name="Bluetooth_Logo" width="100" height="100"/>
+        <image name="DefaultCamera" width="640" height="640"/>
         <image name="Floppy" width="100" height="100"/>
         <image name="More" width="100" height="100"/>
-        <image name="Nikon3200" width="740" height="635"/>
         <image name="Notes" width="100" height="100"/>
         <image name="Panorama" width="100" height="100"/>
         <image name="PatternedRushmore" width="2144" height="1424"/>

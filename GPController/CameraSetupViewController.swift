@@ -15,6 +15,14 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     
     var cameraConfigs: [CameraConfig] = []
     var selectedConfig: CameraConfig?
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshItems), for: .valueChanged)
+        refreshControl.tintColor = UIColor.white
+        
+        return refreshControl
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +33,17 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorStyle = .none
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchCameraConfigsFromCoreData()
-        tableView.reloadData()
+        
+        refreshItems()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        refreshItems()
+    }
+    
+    @objc func refreshItems() {
+        fetchCameraConfigsFromCoreData()
+        tableView.reloadData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,21 +57,24 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let config = cameraConfigs[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cameraSelectionCell", for: indexPath) as! GPCamSelectionCell
+        var cellImg: UIImage = #imageLiteral(resourceName: "DefaultCamera")
         
-        cell.identifierLabel.text = config.identifier
-        cell.hFOVLabel.text = String(config.hFOV) + "°"
-        cell.vFOVLabel.text = String(config.vFOV) + "°"
-        cell.hRESLabel.text = String(config.hRES) + "px"
-        cell.vRESLabel.text = String(config.vRES) + "px"        
-        
-        if let imageData = config.imageData {
-            if let image = UIImage(data: imageData as Data) {
-                cell.cameraImageView.image = image
-                return cell
+        DispatchQueue.main.async {
+            cell.identifierLabel.text = config.identifier
+            cell.hFOVLabel.text = String(config.hFOV) + "°"
+            cell.vFOVLabel.text = String(config.vFOV) + "°"
+            cell.hRESLabel.text = String(config.hRES) + "px"
+            cell.vRESLabel.text = String(config.vRES) + "px"
+
+            if let imageData = config.imageData {
+                if let image = UIImage(data: imageData as Data) {
+                    cellImg = image
+                }
             }
+            
+            cell.cameraImageView.image = cellImg
         }
         
-        cell.cameraImageView.image = #imageLiteral(resourceName: "Nikon3200")
         return cell
     }
     

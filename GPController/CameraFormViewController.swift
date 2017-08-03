@@ -22,6 +22,8 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
     var cameraConfigEditor: CameraConfigEditor!
     var imagePicker = UIImagePickerController()
     
+    var loadingOverlay: UIAlertController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +48,22 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
         } else {
             identifierButton.setTitle("What should I name this?", for: .normal)
         }
+    }
+    
+    func displayLoadingPopup(completion: (() -> Void)?) {
+        loadingOverlay = UIAlertController(title: nil, message: "Updating...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+        
+        loadingOverlay!.view.addSubview(loadingIndicator)
+        present(loadingOverlay!, animated: true, completion: completion)
+    }
+    
+    func removeLoadingPopup(completion: (() -> Void)?) {
+        loadingOverlay?.dismiss(animated: true, completion: completion)
     }
     
     @IBAction func updateHFOV(_ sender: GMStepper) {
@@ -77,17 +95,25 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
             return
         }
         
-        else if (!cameraConfigEditor.saveCameraConfig()) {
-            let alert = UIAlertController(title: "Invalid identifier", message: "The desired identifier is already being used by an existing configuration", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-            return
+        displayLoadingPopup { 
+            self.cameraConfigEditor.saveCameraConfig { (success) in
+                if (success) {
+                    self.removeLoadingPopup(completion: {
+                        self.performSegue(withIdentifier: "toPanoramaSetup", sender: self)
+                    })
+                } else {
+                    self.removeLoadingPopup(completion: {
+                        let alert = UIAlertController(title: "Invalid identifier", message: "The desired identifier is already being used by an existing configuration", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                    })
+                }
+            }
+
         }
-        
-        performSegue(withIdentifier: "toPanoramaSetup", sender: self)
     }
     
     @IBAction func selectImage(_ sender: UIButton) {
@@ -95,9 +121,9 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
-        let actionSheet = UIAlertController(title: "Image source", message: "Choose a source to get your image from", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { (action: UIAlertAction) in
             self.imagePicker.sourceType = .camera
             
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -106,12 +132,17 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
             }
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { (action: UIAlertAction) in
             
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                 self.imagePicker.sourceType = .photoLibrary
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Delete Photo", style: .default, handler: { (action: UIAlertAction) in
+            self.cameraImageView.image = #imageLiteral(resourceName: "DefaultCamera")
+            self.cameraConfigEditor.image = #imageLiteral(resourceName: "DefaultCamera")
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -121,9 +152,10 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
+
         cameraImageView.image = image
         cameraConfigEditor.image = image
+
         picker.dismiss(animated: true, completion: nil)
     }
     
