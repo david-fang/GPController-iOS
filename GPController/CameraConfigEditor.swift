@@ -95,7 +95,7 @@ class CameraConfigEditor {
             self.config = CameraConfig(context: context)
         }
         
-        let imageData = UIImageJPEGRepresentation(self.image, 1)
+        let imageData = UIImagePNGRepresentation(self.image)
 
         config!.setValue(identifier, forKey: core_identifierKey)
         config!.setValue(hFOV, forKey: core_hFOVKey)
