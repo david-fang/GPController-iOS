@@ -9,6 +9,7 @@
 import Foundation
 
 let core_identifierKey = "identifier"
+let core_imageDataKey = "imageData"
 let core_rowsKey = "rows"
 let core_hFOVKey = "hFOV"
 let core_hOverlapKey = "hOverlap"

@@ -54,9 +54,16 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         cell.hFOVLabel.text = String(config.hFOV) + "°"
         cell.vFOVLabel.text = String(config.vFOV) + "°"
         cell.hRESLabel.text = String(config.hRES) + "px"
-        cell.vRESLabel.text = String(config.vRES) + "px"
-        cell.cameraImageView.image = UIImage(named: "Nikon3200")
+        cell.vRESLabel.text = String(config.vRES) + "px"        
         
+        if let imageData = config.imageData {
+            if let image = UIImage(data: imageData as Data) {
+                cell.cameraImageView.image = image
+                return cell
+            }
+        }
+        
+        cell.cameraImageView.image = #imageLiteral(resourceName: "Nikon3200")
         return cell
     }
     

@@ -39,8 +39,8 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
     func refreshMenuItems() {
         hFOVStepper.value = cameraConfigEditor.hFOV
         vFOVStepper.value = cameraConfigEditor.vFOV
-        hRESButton.setTitle(String(cameraConfigEditor.hRES), for: .normal)
-        vRESButton.setTitle(String(cameraConfigEditor.vRES), for: .normal)
+        hRESButton.setTitle(String(cameraConfigEditor.hRES) + " px", for: .normal)
+        vRESButton.setTitle(String(cameraConfigEditor.vRES) + " px", for: .normal)
     }
     
     @IBAction func updateHFOV(_ sender: GMStepper) {
@@ -118,6 +118,7 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         cameraImageView.image = image
+        cameraConfigEditor.image = image
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -139,10 +140,10 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
                     identifierButton.setTitle(val, for: .normal)
                     cameraConfigEditor.identifier = val
                 } else if (src.updateTypeIdentifier == SingleValueEditViewController.lensHRESString) {
-                    hRESButton.setTitle(val, for: .normal)
+                    hRESButton.setTitle(val + " px", for: .normal)
                     cameraConfigEditor.hRES = Int(val) ?? 0
                 } else if (src.updateTypeIdentifier == SingleValueEditViewController.lensVRESString) {
-                    vRESButton.setTitle(val, for: .normal)
+                    vRESButton.setTitle(val + " px", for: .normal)
                     cameraConfigEditor.vRES = Int(val) ?? 0
                 }
             }

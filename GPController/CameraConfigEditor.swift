@@ -15,6 +15,7 @@ class CameraConfigEditor {
     fileprivate let config:     CameraConfig?
     
     var identifier: String?
+    var image: UIImage
     var hFOV: Int
     var hRES: Int
     var vFOV: Int
@@ -27,14 +28,24 @@ class CameraConfigEditor {
         self.hRES = Int(config.hRES)
         self.vFOV = Int(config.vFOV)
         self.vRES = Int(config.vRES)
+
+        if let imageData = config.imageData {
+            if let image = UIImage(data: imageData as Data) {
+                self.image = image
+                return
+            }
+        }
+        
+        self.image = #imageLiteral(resourceName: "Nikon3200")
     }
     
     init() {
-        config = nil
-        hFOV = 60
-        hRES = 1440
-        vFOV = 30
-        vRES = 900
+        self.config = nil
+        self.hFOV = 60
+        self.hRES = 1440
+        self.vFOV = 30
+        self.vRES = 900
+        self.image = #imageLiteral(resourceName: "Nikon3200")
     }
 
     func identifierIsUnique(identifier: String) -> Bool {
@@ -83,14 +94,16 @@ class CameraConfigEditor {
             cameraConfig = CameraConfig(context: context)
         }
         
+        let imageData = UIImageJPEGRepresentation(self.image, 1)
+
         cameraConfig.setValue(identifier, forKey: core_identifierKey)
         cameraConfig.setValue(hFOV, forKey: core_hFOVKey)
         cameraConfig.setValue(vFOV, forKey: core_vFOVKey)
         cameraConfig.setValue(hRES, forKey: core_hRESKey)
         cameraConfig.setValue(vRES, forKey: core_vRESKey)
+        cameraConfig.setValue(imageData, forKey: core_imageDataKey)
             
         appDelegate.saveContext()
-        print("Saved config")
 
         return true
     }
