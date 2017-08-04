@@ -18,12 +18,21 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     var selectedPeripheral: CBPeripheral?
     var gpBTManager: GPBluetoothManager!
     
+    let blurEffectView = UIVisualEffectView()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
         devicesTableView.delegate = self
         devicesTableView.dataSource = self
         devicesTableView.tableFooterView = UIView(frame: CGRect.zero)
+        devicesTableView.separatorStyle = .none
+        
         gpBTManager.scanner = self
     }
 
@@ -31,10 +40,10 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewWillAppear(animated)
 
         if (gpBTManager.isEnabled()) {
-            noBluetoothView.alpha = 0.0
+            toggleBluetoothWarning(to: false)
             gpBTManager.scanForPeripherals(true)
         } else {
-            noBluetoothView.alpha = 1.0
+            toggleBluetoothWarning(to: true)
         }
     }
     
@@ -43,9 +52,11 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     fileprivate func toggleBluetoothWarning(to on: Bool) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.noBluetoothView.alpha = on ? 1.0 : 0.0
-        })
+        if (on) {
+            self.view.popupSubview(subview: noBluetoothView, blurEffectView: blurEffectView)
+        } else {
+            self.view.closePopup(subview: noBluetoothView, blurEffectView: blurEffectView, completion: nil)
+        }
     }
     
     // MARK: - GPDeviceDiscoveryDelegate
@@ -55,7 +66,12 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
             DispatchQueue.main.async(execute: {
                 if ((self.peripherals.contains(peripheral)) == false) {
                     self.peripherals.append(peripheral)
-                    self.devicesTableView.reloadData()
+                    
+                    self.devicesTableView.beginUpdates()
+                    self.devicesTableView.insertRows(at: [IndexPath(row: self.peripherals.count - 1, section: 0)], with: .automatic)
+                    self.devicesTableView.endUpdates()
+                    
+                    // self.devicesTableView.reloadData()
                 }
             })
         }
@@ -87,9 +103,15 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = devicesTableView.dequeueReusableCell(withIdentifier: "discoveredDeviceCell", for: indexPath)
-        cell.textLabel?.text = peripherals[indexPath.row].name
+        let peripheral = peripherals[indexPath.row]
+        let cell = devicesTableView.dequeueReusableCell(withIdentifier: "discoveredDeviceCell", for: indexPath) as! ScannedDeviceCell
         
+        if let name = peripheral.name {
+            cell.deviceIdentifier.text = "◆  \(name)"
+        } else {
+            cell.deviceIdentifier.text = "◆  Unidentified"
+        }
+
         return cell
     }
     

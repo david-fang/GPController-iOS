@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705CA751F1C700300BEF34B /* CoreDataKeys.swift */; };
+		070F839B1F33F66100D97583 /* ScannedDeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070F839A1F33F66100D97583 /* ScannedDeviceCell.swift */; };
 		0715BDA61EDF696200035E9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BDA51EDF696200035E9D /* MainViewController.swift */; };
 		0718C73C1F212E6900C4FB39 /* ShootingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */; };
 		0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0718C73D1F21664F00C4FB39 /* PickerView.swift */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		0705CA751F1C700300BEF34B /* CoreDataKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataKeys.swift; sourceTree = "<group>"; };
+		070F839A1F33F66100D97583 /* ScannedDeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedDeviceCell.swift; sourceTree = "<group>"; };
 		0715BDA51EDF696200035E9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShootingConfigViewController.swift; sourceTree = "<group>"; };
 		0718C73D1F21664F00C4FB39 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
 				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
 				079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */,
+				070F839A1F33F66100D97583 /* ScannedDeviceCell.swift */,
 			);
 			name = Designables;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				07D811231F1E87570051C31A /* CameraConfigEditor.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
 				0771831F1EF0924A008AF478 /* Extensions.swift in Sources */,
+				070F839B1F33F66100D97583 /* ScannedDeviceCell.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
 				07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */,
 				073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */,

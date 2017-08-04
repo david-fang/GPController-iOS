@@ -21,13 +21,51 @@ func delay(_ delay: Double, closure:@escaping ()->()) {
 }
 
 extension UIView {
-    func addDropShadow(color: UIColor, offset: CGSize, opacity: Float, radius: CGFloat) {   
+    func addDropShadow(color: UIColor, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
-        self.layer.shadowOffset = offset
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowRadius = radius
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowOpacity = shadowOpacity
+        self.layer.shadowRadius = shadowRadius
+        
+        self.layer.masksToBounds = true
     }
+    
+    func popupSubview(subview: UIView, blurEffectView: UIVisualEffectView) {
+        let blurEffect = UIBlurEffect(style: .light)
+
+        blurEffectView.frame = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        DispatchQueue.main.async {
+            self.addSubview(blurEffectView)
+
+            self.addSubview(subview)
+            subview.bounds = self.bounds
+            subview.center = self.center
+            subview.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            subview.alpha = 0
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                blurEffectView.effect = blurEffect
+                subview.alpha = 1
+                subview.transform = .identity
+            })
+        }
+    }
+    
+    func closePopup(subview: UIView, blurEffectView: UIVisualEffectView, completion: (() -> Void)?) {
+        UIView.animate(withDuration: 0.4, animations: {
+            subview.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            subview.alpha = 0
+            blurEffectView.effect = nil
+        }, completion: { (success: Bool) in
+            subview.removeFromSuperview()
+            blurEffectView.removeFromSuperview()
+            completion?()
+        })
+    }
+
 }
 
 extension String {
