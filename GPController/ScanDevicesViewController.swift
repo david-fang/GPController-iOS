@@ -9,10 +9,13 @@
 import UIKit
 import CoreBluetooth
 
-class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GPDeviceDiscoveryDelegate {
+class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GPDeviceDiscoveryDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var noBluetoothView: UIView!
-    @IBOutlet weak var devicesTableView: UITableView!
+    @IBOutlet weak var devicesTableView:FadingTableView!
+    @IBOutlet weak var linearProgressBarContainer: UIView!
+    
+    var linearProgressBar: LinearProgressBar!
 
     var peripherals: [CBPeripheral] = []
     var selectedPeripheral: CBPeripheral?
@@ -27,11 +30,19 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
+        
+        linearProgressBar = LinearProgressBar(frame: linearProgressBarContainer.frame)
+        linearProgressBar.backgroundColor = UIColor.clear
+        linearProgressBar.backgroundProgressBarColor = UIColor.clear
+        linearProgressBar.progressBarColor = UIColor.cyarkGold
+        
         devicesTableView.delegate = self
         devicesTableView.dataSource = self
-        devicesTableView.tableFooterView = UIView(frame: CGRect.zero)
+        devicesTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: devicesTableView.frame.width, height: 12))
+        devicesTableView.tableFooterView?.backgroundColor = UIColor.clear
         devicesTableView.separatorStyle = .none
+        devicesTableView.clipsToBounds = false
+        devicesTableView.layer.masksToBounds = false
         
         gpBTManager.scanner = self
     }
@@ -41,6 +52,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
 
         if (gpBTManager.isEnabled()) {
             toggleBluetoothWarning(to: false)
+            self.linearProgressBar.startAnimation()
             gpBTManager.scanForPeripherals(true)
         } else {
             toggleBluetoothWarning(to: true)
@@ -68,10 +80,8 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
                     self.peripherals.append(peripheral)
                     
                     self.devicesTableView.beginUpdates()
-                    self.devicesTableView.insertRows(at: [IndexPath(row: self.peripherals.count - 1, section: 0)], with: .automatic)
-                    self.devicesTableView.endUpdates()
-                    
-                    // self.devicesTableView.reloadData()
+                    self.devicesTableView.insertRows(at: [IndexPath(row: self.peripherals.count - 1, section: 0)], with: .left)
+                    self.devicesTableView.endUpdates()                    
                 }
             })
         }
@@ -81,6 +91,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     func scannerMadeUnavailable() {
         DispatchQueue.main.async {
             self.toggleBluetoothWarning(to: true)
+            self.linearProgressBar.stopAnimation()
             self.gpBTManager.scanForPeripherals(false)  // Does nothing; Bluetooth already off
         }
     }
@@ -88,6 +99,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     func scannerMadeAvailable() {
         DispatchQueue.main.async {
             self.toggleBluetoothWarning(to: false)
+            self.linearProgressBar.startAnimation()
             self.gpBTManager.scanForPeripherals(true)
         }
     }
@@ -99,31 +111,41 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return peripherals.count
+        // return peripherals.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let peripheral = peripherals[indexPath.row]
+//        let peripheral = peripherals[indexPath.row]
         let cell = devicesTableView.dequeueReusableCell(withIdentifier: "discoveredDeviceCell", for: indexPath) as! ScannedDeviceCell
+        cell.deviceIdentifier.text = "◆  GigaPan Epic Pro"
         
-        if let name = peripheral.name {
-            cell.deviceIdentifier.text = "◆  \(name)"
-        } else {
-            cell.deviceIdentifier.text = "◆  Unidentified"
-        }
+//        if let name = peripheral.name {
+//            cell.deviceIdentifier.text = "◆  \(name)"
+//        } else {
+//            cell.deviceIdentifier.text = "◆  Unidentified"
+//        }
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPeripheral = peripherals[indexPath.row]
+        linearProgressBar.stopAnimation()
         gpBTManager.scanForPeripherals(false)
         performSegue(withIdentifier: "scannerToMain", sender: self)
+    }
+    
+    // MARK: - UIScrollViewDelegate
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        devicesTableView.updateGradients()
     }
     
     // MARK: - Navigation
     
     @IBAction func returnToMain(_ sender: Any) {
+        linearProgressBar.stopAnimation()
         gpBTManager.scanForPeripherals(false)
         performSegue(withIdentifier: "scannerToMain", sender: self)
     }

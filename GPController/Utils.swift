@@ -27,8 +27,6 @@ extension UIView {
         self.layer.shadowOffset = shadowOffset
         self.layer.shadowOpacity = shadowOpacity
         self.layer.shadowRadius = shadowRadius
-        
-        self.layer.masksToBounds = true
     }
     
     func popupSubview(subview: UIView, blurEffectView: UIVisualEffectView) {

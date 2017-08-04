@@ -33,8 +33,7 @@ class PanoFormViewController: UIViewController {
         }
     }
 
-    var camera: CameraConfig!           // You should not be able to reach this screen
-                                        // without already having picked a camera
+    var camera: CameraConfig!
     var selectedPano: PanoConfig?
 
     var gpBTManager: GPBluetoothManager?
@@ -53,11 +52,6 @@ class PanoFormViewController: UIViewController {
         if let nc = self.navigationController as? GPNavigationController {
             self.gpBTManager = nc.gpBTManager
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func initDefaultConfig() {

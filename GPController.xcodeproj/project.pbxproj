@@ -37,6 +37,7 @@
 		078506D11F04652C00297F4F /* CommandStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078506D01F04652C00297F4F /* CommandStrings.swift */; };
 		0792BF591F27C47E009197D1 /* PanoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792BF581F27C47E009197D1 /* PanoGrid.swift */; };
 		079B9EF21F26BFF7003AF2B0 /* FlexiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */; };
+		079C766D1F350C730040F720 /* LinearProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C766C1F350C730040F720 /* LinearProgressBar.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */; };
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
@@ -131,6 +132,7 @@
 		078506D01F04652C00297F4F /* CommandStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandStrings.swift; sourceTree = "<group>"; };
 		0792BF581F27C47E009197D1 /* PanoGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoGrid.swift; sourceTree = "<group>"; };
 		079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiLabel.swift; sourceTree = "<group>"; };
+		079C766C1F350C730040F720 /* LinearProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressBar.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationConstants.swift; sourceTree = "<group>"; };
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		07369DF81ED753CB00DF29E3 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
+				079C766C1F350C730040F720 /* LinearProgressBar.swift */,
 				07B01EC81F2B987400B15911 /* KDCircularProgress.swift */,
 				0718C73D1F21664F00C4FB39 /* PickerView.swift */,
 				07B962591F10328A008B7F9E /* GMStepper.swift */,
@@ -673,6 +676,7 @@
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
 				07840A051EE9EB43008A0973 /* GPNavigationController.swift in Sources */,
 				07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */,
+				079C766D1F350C730040F720 /* LinearProgressBar.swift in Sources */,
 				078506D11F04652C00297F4F /* CommandStrings.swift in Sources */,
 				0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */,
 				07D811231F1E87570051C31A /* CameraConfigEditor.swift in Sources */,

@@ -39,6 +39,14 @@ extension UIColor {
         return UIColor(red: 195/255, green: 179/255, blue: 146/255, alpha: 1.0)
     }
     
+    static var cyarkGold: UIColor {
+        return UIColor(red: 255/255, green: 206/255, blue: 0/255, alpha: 1.0)
+    }
+    
+    static var cyarkBlack: UIColor {
+        return UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1.0)
+    }
+    
     static func getWithRGB(_ red: Double, green: Double, blue: Double, alpha: CGFloat) -> UIColor {
         return UIColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: alpha)
     }

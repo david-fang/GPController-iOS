@@ -19,10 +19,10 @@ import QuartzCore
     be a UIScrollViewDelegate and implement the scrollViewDidScroll
     function in order to dynamically update the gradients:
  
-    ```swift
-       func scrollViewDidScroll (...) {
-           fadingTableView.updateGradients()
-       }
+        func scrollViewDidScroll (...) {
+            fadingTableView.updateGradients()
+        }
+
  */
 class FadingTableView: UITableView {
     

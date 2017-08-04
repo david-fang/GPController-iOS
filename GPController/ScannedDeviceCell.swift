@@ -12,14 +12,16 @@ class ScannedDeviceCell: UITableViewCell {
     
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var deviceIdentifier: UILabel!
-    @IBOutlet weak var rssiImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clear
         self.selectionStyle = .none
-
-        cardView.addDropShadow(color: UIColor.darkGray, shadowOffset: CGSize(width: 10.0, height: 10.0), shadowOpacity: 0.2, shadowRadius: 10.0)
+        self.clipsToBounds = false
+        self.layer.masksToBounds = false
+        
+        cardView.clipsToBounds = false
+        cardView.addDropShadow(color: UIColor.darkGray, shadowOffset: CGSize(width: 0, height: 7), shadowOpacity: 0.2, shadowRadius: 3.0)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
