@@ -288,13 +288,13 @@
 		07369DFA1ED7540400DF29E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
 				07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
 				0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */,
 				07840A041EE9EB43008A0973 /* GPNavigationController.swift */,
 				0715BDA51EDF696200035E9D /* MainViewController.swift */,
 				0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */,
-				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
 				07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */,
 				07D8111E1F1E6ED30051C31A /* CameraFormViewController.swift */,
 				0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */,

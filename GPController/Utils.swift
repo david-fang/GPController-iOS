@@ -39,7 +39,8 @@ extension UIView {
             self.addSubview(blurEffectView)
 
             self.addSubview(subview)
-            subview.bounds = self.bounds
+            subview.frame = self.bounds
+            // subview.bounds = self.bounds
             subview.center = self.center
             subview.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             subview.alpha = 0
