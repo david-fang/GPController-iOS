@@ -38,6 +38,8 @@
 		0792BF591F27C47E009197D1 /* PanoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792BF581F27C47E009197D1 /* PanoGrid.swift */; };
 		079B9EF21F26BFF7003AF2B0 /* FlexiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */; };
 		079C766D1F350C730040F720 /* LinearProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C766C1F350C730040F720 /* LinearProgressBar.swift */; };
+		079C76701F35A2B00040F720 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C766F1F35A2B00040F720 /* LaunchScreenViewController.swift */; };
+		079C76721F35A8630040F720 /* WatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C76711F35A8630040F720 /* WatermarkImageView.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */; };
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
@@ -133,6 +135,8 @@
 		0792BF581F27C47E009197D1 /* PanoGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoGrid.swift; sourceTree = "<group>"; };
 		079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiLabel.swift; sourceTree = "<group>"; };
 		079C766C1F350C730040F720 /* LinearProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressBar.swift; sourceTree = "<group>"; };
+		079C766F1F35A2B00040F720 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		079C76711F35A8630040F720 /* WatermarkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkImageView.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationConstants.swift; sourceTree = "<group>"; };
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
 				079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */,
 				070F839A1F33F66100D97583 /* ScannedDeviceCell.swift */,
+				079C76711F35A8630040F720 /* WatermarkImageView.swift */,
 			);
 			name = Designables;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 		07369DFA1ED7540400DF29E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				079C766F1F35A2B00040F720 /* LaunchScreenViewController.swift */,
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
 				07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */,
 				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
@@ -671,6 +677,7 @@
 				0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
+				079C76721F35A8630040F720 /* WatermarkImageView.swift in Sources */,
 				07B01EC71F2B962100B15911 /* PanoSessionViewController.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
@@ -685,6 +692,7 @@
 				070F839B1F33F66100D97583 /* ScannedDeviceCell.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
 				07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */,
+				079C76701F35A2B00040F720 /* LaunchScreenViewController.swift in Sources */,
 				073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
