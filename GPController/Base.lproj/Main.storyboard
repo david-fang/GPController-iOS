@@ -129,12 +129,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iyy-R8-RwZ" userLabel="Content">
                                 <rect key="frame" x="0.0" y="424.5" width="375" height="242.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZb-ZV-4v6" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="40" width="82.5" height="82.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZb-ZV-4v6" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="39.5" width="82.5" height="82"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" title="Ƥ">
+                                        <state key="normal" image="Shutter">
                                             <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -147,12 +145,11 @@
                                             <action selector="segueToSetup:" destination="f0L-5c-wUg" eventType="touchUpInside" id="fg7-Al-pa4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqZ-nO-S35" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqZ-nO-S35" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="146.5" y="40" width="82" height="82.5"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" title="Ɱ">
+                                        <state key="normal" image="Axis">
                                             <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -165,15 +162,14 @@
                                             <action selector="segueToManualControl:" destination="f0L-5c-wUg" eventType="touchUpInside" id="qWY-En-U4w"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKF-Qr-8Ij" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="260.5" y="40" width="82.5" height="82.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKF-Qr-8Ij" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="260.5" y="39.5" width="82.5" height="82"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zKF-Qr-8Ij" secondAttribute="height" multiplier="1:1" id="1i1-YN-MOb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" title="Ç">
+                                        <state key="normal" image="BluetoothLogo_White">
                                             <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -3713,9 +3709,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Axis" width="30" height="30"/>
         <image name="Bagan_BW" width="1280" height="851"/>
+        <image name="BluetoothLogo_White" width="30" height="30"/>
         <image name="DefaultCamera" width="640" height="640"/>
         <image name="HexagonalPattern" width="1200" height="1200"/>
+        <image name="Shutter" width="30" height="30"/>
         <image name="VectorPattern" width="1300" height="1300"/>
         <image name="bulb" width="70" height="70"/>
         <image name="post_trigger" width="70" height="70"/>
