@@ -13,11 +13,10 @@
 		0718C73C1F212E6900C4FB39 /* ShootingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */; };
 		0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0718C73D1F21664F00C4FB39 /* PickerView.swift */; };
 		071B01E71ED7788300A117E7 /* RoundAxisButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B01E61ED7788300A117E7 /* RoundAxisButton.swift */; };
-		0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */; };
 		0720B7211F143F2E00F9A4E0 /* GPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0720B7201F143F2E00F9A4E0 /* GPTextField.swift */; };
 		0732BCEA1F06EE8A006A91DF /* PanoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732BCE91F06EE8A006A91DF /* PanoManager.swift */; };
 		07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DC81ED7406400DF29E3 /* AppDelegate.swift */; };
-		07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */; };
+		07369DCB1ED7406400DF29E3 /* ManualControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DCA1ED7406400DF29E3 /* ManualControlViewController.swift */; };
 		07369DCE1ED7406400DF29E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07369DCC1ED7406400DF29E3 /* Main.storyboard */; };
 		07369DD01ED7406400DF29E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07369DCF1ED7406400DF29E3 /* Assets.xcassets */; };
 		07369DD31ED7406400DF29E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07369DD11ED7406400DF29E3 /* LaunchScreen.storyboard */; };
@@ -26,6 +25,7 @@
 		073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62861ED77F1500D28EBA /* PulseLayer.swift */; };
 		073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */; };
 		074E84181F38E46F00F6940D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84171F38E46F00F6940D /* TriangleView.swift */; };
+		074E841A1F390FC600F6940D /* JTMaterialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84191F390FC600F6940D /* JTMaterialTransition.swift */; };
 		0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */; };
 		0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
@@ -40,7 +40,6 @@
 		079B9EF21F26BFF7003AF2B0 /* FlexiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */; };
 		079C766D1F350C730040F720 /* LinearProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C766C1F350C730040F720 /* LinearProgressBar.swift */; };
 		079C76701F35A2B00040F720 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C766F1F35A2B00040F720 /* LaunchScreenViewController.swift */; };
-		079C76721F35A8630040F720 /* WatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C76711F35A8630040F720 /* WatermarkImageView.swift */; };
 		079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079DDF391EE1C8910010CB9F /* NORData.swift */; };
 		07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */; };
 		07AD73221F16CBE200D909DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AD73211F16CBE200D909DA /* Utils.swift */; };
@@ -105,12 +104,11 @@
 		0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShootingConfigViewController.swift; sourceTree = "<group>"; };
 		0718C73D1F21664F00C4FB39 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		071B01E61ED7788300A117E7 /* RoundAxisButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundAxisButton.swift; sourceTree = "<group>"; };
-		0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		0720B7201F143F2E00F9A4E0 /* GPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTextField.swift; sourceTree = "<group>"; };
 		0732BCE91F06EE8A006A91DF /* PanoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoManager.swift; sourceTree = "<group>"; };
 		07369DC51ED7406400DF29E3 /* GPController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07369DC81ED7406400DF29E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPanViewController.swift; sourceTree = "<group>"; };
+		07369DCA1ED7406400DF29E3 /* ManualControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualControlViewController.swift; sourceTree = "<group>"; };
 		07369DCD1ED7406400DF29E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07369DCF1ED7406400DF29E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07369DD21ED7406400DF29E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,6 +122,7 @@
 		073D62861ED77F1500D28EBA /* PulseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseLayer.swift; sourceTree = "<group>"; };
 		073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoConfigEditor.swift; sourceTree = "<group>"; };
 		074E84171F38E46F00F6940D /* TriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
+		074E84191F390FC600F6940D /* JTMaterialTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTMaterialTransition.swift; sourceTree = "<group>"; };
 		0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSetupViewController.swift; sourceTree = "<group>"; };
 		0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaSetupViewController.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
@@ -138,7 +137,6 @@
 		079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiLabel.swift; sourceTree = "<group>"; };
 		079C766C1F350C730040F720 /* LinearProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressBar.swift; sourceTree = "<group>"; };
 		079C766F1F35A2B00040F720 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
-		079C76711F35A8630040F720 /* WatermarkImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkImageView.swift; sourceTree = "<group>"; };
 		079DDF391EE1C8910010CB9F /* NORData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORData.swift; sourceTree = "<group>"; };
 		07A16B7D1F1944DE00CB5E9C /* ConfigurationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationConstants.swift; sourceTree = "<group>"; };
 		07AD73211F16CBE200D909DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -268,14 +266,13 @@
 				0720B7201F143F2E00F9A4E0 /* GPTextField.swift */,
 				07B962541F0FF18A008B7F9E /* GPPanoSelectionCell.swift */,
 				07D811201F1E83240051C31A /* GPCamSelectionCell.swift */,
-				0720B71E1F1429F500F9A4E0 /* CheckboxButton.swift */,
 				07B962571F0FFA11008B7F9E /* FadingTableView.swift */,
 				071B01E61ED7788300A117E7 /* RoundAxisButton.swift */,
 				07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */,
 				079B9EF11F26BFF7003AF2B0 /* FlexiLabel.swift */,
 				070F839A1F33F66100D97583 /* ScannedDeviceCell.swift */,
-				079C76711F35A8630040F720 /* WatermarkImageView.swift */,
 				074E84171F38E46F00F6940D /* TriangleView.swift */,
+				074E84191F390FC600F6940D /* JTMaterialTransition.swift */,
 			);
 			name = Designables;
 			sourceTree = "<group>";
@@ -299,7 +296,7 @@
 				079C766F1F35A2B00040F720 /* LaunchScreenViewController.swift */,
 				07EDEF3D1EEF2054008A9D24 /* ScanDevicesViewController.swift */,
 				07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */,
-				07369DCA1ED7406400DF29E3 /* CameraPanViewController.swift */,
+				07369DCA1ED7406400DF29E3 /* ManualControlViewController.swift */,
 				0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */,
 				07840A041EE9EB43008A0973 /* GPNavigationController.swift */,
 				0715BDA51EDF696200035E9D /* MainViewController.swift */,
@@ -671,7 +668,6 @@
 				074E84181F38E46F00F6940D /* TriangleView.swift in Sources */,
 				0705CA761F1C700300BEF34B /* CoreDataKeys.swift in Sources */,
 				079DDF3A1EE1C8910010CB9F /* NORData.swift in Sources */,
-				0720B71F1F1429F500F9A4E0 /* CheckboxButton.swift in Sources */,
 				07B2F9361F2A9BB000EDC354 /* GPEnums.swift in Sources */,
 				0718C73C1F212E6900C4FB39 /* ShootingConfigViewController.swift in Sources */,
 				07B01EC91F2B987400B15911 /* KDCircularProgress.swift in Sources */,
@@ -681,7 +677,6 @@
 				0718C73E1F21664F00C4FB39 /* PickerView.swift in Sources */,
 				075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */,
 				0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */,
-				079C76721F35A8630040F720 /* WatermarkImageView.swift in Sources */,
 				07B01EC71F2B962100B15911 /* PanoSessionViewController.swift in Sources */,
 				075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */,
 				07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */,
@@ -691,8 +686,9 @@
 				078506D11F04652C00297F4F /* CommandStrings.swift in Sources */,
 				0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */,
 				07D811231F1E87570051C31A /* CameraConfigEditor.swift in Sources */,
-				07369DCB1ED7406400DF29E3 /* CameraPanViewController.swift in Sources */,
+				07369DCB1ED7406400DF29E3 /* ManualControlViewController.swift in Sources */,
 				0771831F1EF0924A008AF478 /* Extensions.swift in Sources */,
+				074E841A1F390FC600F6940D /* JTMaterialTransition.swift in Sources */,
 				070F839B1F33F66100D97583 /* ScannedDeviceCell.swift in Sources */,
 				07369DC91ED7406400DF29E3 /* AppDelegate.swift in Sources */,
 				07B457A91EE8CD4300ABF165 /* CustomColors.swift in Sources */,

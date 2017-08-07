@@ -16,6 +16,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     @IBOutlet var navigationButtons: [FlexiButton]!
 
     var gpBTManager: GPBluetoothManager!
+    var transition: JTMaterialTransition?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -27,7 +28,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         loadBootupAnimations(completion: {
             self.gpBTManager = GPBluetoothManager()
             self.gpBTManager.delegate = self
-        }, delayBy: 1.0)
+        }, delayBy: 0.0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,9 +51,9 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     }
     
     // MARK: - Navigation
-    
+
     @IBAction func segueToManualControl(_ sender: UIButton) {
-        performSegue(withIdentifier: "toManualControl", sender: sender)
+        performSegue(withIdentifier: "toManualControl", sender: transition)
     }
     
     @IBAction func segueToScanner(_ sender: UIButton) {
@@ -65,7 +66,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toManualControl") {
-            if let dest = segue.destination as? CameraPanViewController {
+            if let dest = segue.destination as? ManualControlViewController {
                 dest.gpBTManager = self.gpBTManager
             }
         } else if (segue.identifier == "toDeviceScanner") {
@@ -76,7 +77,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
             }
         } else if (segue.identifier == "toSessionSetup") {
             if let nc = segue.destination as? GPNavigationController {
-                if (nc.childViewControllerForStatusBarHidden as? CameraSetupViewController) != nil {
+                if let dest = nc.childViewControllerForStatusBarHidden as? CameraSetupViewController {
                     nc.gpBTManager = self.gpBTManager
                 }
             }
@@ -124,13 +125,13 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
                         UIView.animate(withDuration: 1.0, animations: {
                             self.titleView.alpha = 1
                         }, completion: { (success) in
-                            for button in self.navigationButtons {
-                                button.isUserInteractionEnabled = true
-                            }
-                            
                             delay(delayInterval, closure: {
                                 completion?()
                             })
+
+                            for button in self.navigationButtons {
+                                button.isUserInteractionEnabled = true
+                            }
                         })
                     })
                 })

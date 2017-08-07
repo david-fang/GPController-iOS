@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CameraPanViewController: UIViewController {
+class ManualControlViewController: UIViewController {
 
     @IBOutlet weak var up: RoundAxisButton!
     @IBOutlet weak var right: RoundAxisButton!
@@ -16,11 +16,9 @@ class CameraPanViewController: UIViewController {
     @IBOutlet weak var left: RoundAxisButton!
     
     var gpBTManager: GPBluetoothManager!
-    var buttonPulse: PulseLayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         left.direction = .left
         up.direction = .up
@@ -36,43 +34,34 @@ class CameraPanViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    @IBAction func triggerShutter(_ sender: Any) {
+    @IBAction func triggerShutter(_ sender: FlexiButton) {
         gpBTManager.send(text: GP_SHUTTER)
     }
     
     func beginMove(sender: RoundAxisButton) {
-        buttonPulse = PulseLayer(radius: sender.frame.height * 1.0, position: sender.center)
-        buttonPulse?.animationDuration = 1.5
-        buttonPulse?.backgroundColor = sender.borderColor.cgColor
-
-        if let buttonPulse = buttonPulse {
-            self.view.layer.insertSublayer(buttonPulse, below: sender.layer)
-        }
-
         switch sender.direction {
         case .left:
             gpBTManager.send(text: GP_LEFT)
-            break
         case .up:
             gpBTManager.send(text: GP_FORWARD)
-            break
         case .down:
             gpBTManager.send(text: GP_BACKWARD)
-            break
         case .right:
             gpBTManager.send(text: GP_RIGHT)
-            break
         }
     }
     
     func stopMove() {
-        buttonPulse?.removeFromSuperlayer()
         gpBTManager.send(text: GP_PAUSE)
+    }
+
+    @IBAction func back(_ sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
 

@@ -11,10 +11,11 @@ import UIKit
 class FlexiButton: UIButton {
 
     @IBInspectable var borderWidth: CGFloat = 1.5
-    @IBInspectable var borderColor: UIColor = UIColor.black
+    @IBInspectable var borderColor: UIColor? = UIColor.black
     @IBInspectable var cornerRadius: CGFloat = 30
     @IBInspectable var isCircular: Bool = false
 
+    fileprivate var cachedBorderColor: UIColor?
     fileprivate var cachedBackgroundColor: UIColor?
     
     required init?(coder aDecoder: NSCoder) {
@@ -22,6 +23,7 @@ class FlexiButton: UIButton {
         self.titleLabel?.numberOfLines = 1
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.titleLabel?.lineBreakMode = NSLineBreakMode.byClipping
+        self.cachedBorderColor = self.borderColor
         self.cachedBackgroundColor = self.backgroundColor
     }
     
@@ -30,15 +32,20 @@ class FlexiButton: UIButton {
         self.layer.cornerRadius = isCircular ? 0.5 * self.bounds.size.width : cornerRadius
         self.clipsToBounds = true
         self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderColor = borderColor?.cgColor
     }
     
     override var isHighlighted: Bool {
         didSet {
-            let color = self.isHighlighted ? self.cachedBackgroundColor?.withAlphaComponent(0.8) : self.cachedBackgroundColor
-            UIView.animate(withDuration: 0.2, animations: { _ in
-                self.backgroundColor = color
-            })
+            if self.cachedBackgroundColor != UIColor.clear {
+                let background = self.isHighlighted ? self.cachedBackgroundColor?.withAlphaComponent(0.7) : self.cachedBackgroundColor
+                let border = self.isHighlighted ? self.cachedBorderColor?.withAlphaComponent(0.7) : self.cachedBorderColor
+
+                UIView.animate(withDuration: 0.3, animations: { _ in
+                    self.backgroundColor = background
+                    self.borderColor = border
+                })
+            }
         }
     }
 
