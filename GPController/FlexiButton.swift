@@ -1,5 +1,5 @@
 //
-//  RoundedButton.swift
+//  FlexiButton.swift
 //  GPController
 //
 //  Created by David Fang on 6/7/17.
@@ -22,6 +22,7 @@ class FlexiButton: UIButton {
         self.titleLabel?.numberOfLines = 1
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.titleLabel?.lineBreakMode = NSLineBreakMode.byClipping
+        self.cachedBackgroundColor = self.backgroundColor
     }
     
     override func draw(_ rect: CGRect) {
@@ -34,12 +35,13 @@ class FlexiButton: UIButton {
     
     override var isHighlighted: Bool {
         didSet {
+            let color = self.isHighlighted ? self.cachedBackgroundColor?.withAlphaComponent(0.8) : self.cachedBackgroundColor
             UIView.animate(withDuration: 0.2, animations: { _ in
-                self.alpha = self.isHighlighted ? 0.65 : 1.0
+                self.backgroundColor = color
             })
         }
     }
-    
+
     func activate(_ on: Bool) {
         if (on) {
             cachedBackgroundColor = self.backgroundColor

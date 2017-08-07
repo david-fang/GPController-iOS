@@ -11,15 +11,9 @@ import CoreBluetooth
 import ChameleonFramework
 
 class MainViewController: UIViewController, GPBluetoothManagerDelegate {
-    @IBOutlet weak var dashboardContainer: UIView!
-    @IBOutlet weak var headerContainer: UIView!
-    
-    @IBOutlet weak var connectButton: FlexiButton!
-    @IBOutlet weak var panoramaButton: FlexiButton!
-    @IBOutlet weak var controlButton: FlexiButton!
-    @IBOutlet weak var savedConfigsButton: FlexiButton!
-    @IBOutlet weak var changeMeLaterButton: FlexiButton!
-    @IBOutlet weak var settingsButton: FlexiButton!
+
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet var navigationButtons: [FlexiButton]!
 
     var gpBTManager: GPBluetoothManager!
 
@@ -29,79 +23,58 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gpBTManager = GPBluetoothManager()
-        gpBTManager.delegate = self
-        initCustomViews()
+
+        loadBootupAnimations(completion: {
+            self.gpBTManager = GPBluetoothManager()
+            self.gpBTManager.delegate = self
+        }, delayBy: 1.0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        updateMainView(animated: false)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    /** Set up the header and menu views */
-    fileprivate func initCustomViews() {
-        for button in [panoramaButton, controlButton, changeMeLaterButton, settingsButton] {
-            button?.tintColor = .rushmoreBrown
-        }
-
-        connectButton.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
-    }
-    
-    /** Update the header depending on whether or not a GigaPan device
-        has been connected. */
-    func updateMainView(animated: Bool) {
-        let animationDuration = animated ? 0.7 : 0.0
-        let connected = gpBTManager.isConnected()
-        
-        UIView.animate(withDuration: animationDuration, animations: {
-            if (connected) { self.connectButton.layer.removeAllAnimations() }
-            
-            self.connectButton.isUserInteractionEnabled = !connected
-            self.panoramaButton.isUserInteractionEnabled = connected
-            self.controlButton.isUserInteractionEnabled = connected
-
-            self.connectButton.alpha = connected ? 0.0 : 1.0
-            self.panoramaButton.alpha = connected ? 1.0 : 0.5
-            self.controlButton.alpha = connected ? 1.0 : 0.5
-        }, completion: { (finished: Bool) in
-            if (!connected) { self.connectButton.layer.addFlashLayer() }
-        })
-    }
- 
     // MARK: - GPBluetoothManagerDelegate
     
     func peripheralReady() {
-        DispatchQueue.main.async {
-            self.updateMainView(animated: true)
-        }
+        // Connected
     }
 
     func didDisconnectPeripheral() {
-        DispatchQueue.main.async {
-            self.updateMainView(animated: true)
-        }
+        // Disconnected
     }
     
     // MARK: - Navigation
     
+    @IBAction func segueToManualControl(_ sender: UIButton) {
+        performSegue(withIdentifier: "toManualControl", sender: sender)
+    }
+    
+    @IBAction func segueToScanner(_ sender: UIButton) {
+        performSegue(withIdentifier: "toDeviceScanner", sender: sender)
+    }
+
+    @IBAction func segueToSetup(_ sender: UIButton) {
+        performSegue(withIdentifier: "toSessionSetup", sender: sender)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "toMotorControl") {
+        if (segue.identifier == "toManualControl") {
             if let dest = segue.destination as? CameraPanViewController {
                 dest.gpBTManager = self.gpBTManager
             }
-        } else if (segue.identifier == "scanForDevices") {
+        } else if (segue.identifier == "toDeviceScanner") {
             if let nc = segue.destination as? UINavigationController {
                 if let dest = nc.childViewControllerForStatusBarHidden as? ScanDevicesViewController {
                     dest.gpBTManager = self.gpBTManager
                }
             }
-        } else if (segue.identifier == "toCameraSetup") {
+        } else if (segue.identifier == "toSessionSetup") {
             if let nc = segue.destination as? GPNavigationController {
                 if (nc.childViewControllerForStatusBarHidden as? CameraSetupViewController) != nil {
                     nc.gpBTManager = self.gpBTManager
@@ -119,4 +92,50 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
             }
         }
     }
+    
+    // MARK: - View Update Functions
+
+    fileprivate func loadBootupAnimations(completion: (() -> Void)?, delayBy delayInterval: Double) {
+        for button in navigationButtons {
+            button.isUserInteractionEnabled = false
+            button.transform = CGAffineTransform(scaleX: 0, y: 0)
+        }
+        
+        titleView.alpha = 0
+        
+        let panoButton = navigationButtons[0]
+        let manualButton = navigationButtons[1]
+        let connectButton = navigationButtons[2]
+        
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
+            panoButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }, completion: { (success) in
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
+                panoButton.transform = CGAffineTransform.identity
+                manualButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            }, completion: { (success) in
+                UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
+                    manualButton.transform = CGAffineTransform.identity
+                    connectButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                }, completion: { (success) in
+                    UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
+                        connectButton.transform = CGAffineTransform.identity
+                    }, completion: { (success) in
+                        UIView.animate(withDuration: 1.0, animations: {
+                            self.titleView.alpha = 1
+                        }, completion: { (success) in
+                            for button in self.navigationButtons {
+                                button.isUserInteractionEnabled = true
+                            }
+                            
+                            delay(delayInterval, closure: {
+                                completion?()
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    }
+
 }
