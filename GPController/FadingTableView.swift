@@ -70,14 +70,13 @@ class FadingTableView: UITableView {
         the keyPath field should be the string of the attribute
         that your CALayer will be modifying.
 
-        - Parameter colors: An array of CGColors to redraw onto the gradient
-                      layer
+        - Parameter colors: An array of CGColors to redraw onto the gradient layer
      */
     private func toggleMask(_ colors: [Any]?) {
         let animation = CABasicAnimation(keyPath: "colors")
         animation.fromValue = gradientLayer.colors
         animation.toValue = colors
-        animation.duration = CFTimeInterval(0.3)
+        animation.duration = CFTimeInterval(0.2)
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         
         CATransaction.begin()

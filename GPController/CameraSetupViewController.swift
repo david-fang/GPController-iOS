@@ -23,11 +23,13 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         
         return refreshControl
     }()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        headerTextContainer.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: headerTextContainer.frame, andColors: [UIColor.flatSand, UIColor.sandpaperWhite])
         
         tableView.delegate = self
         tableView.dataSource = self
