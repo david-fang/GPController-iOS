@@ -35,6 +35,8 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 12))
+        tableView.tableFooterView?.backgroundColor = UIColor.clear
         
         refreshItems()
     }
@@ -88,7 +90,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        let deleteAction: UITableViewRowAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let deleteAction: UITableViewRowAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (action, indexPath) in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             context.delete(self.cameraConfigs[indexPath.row])

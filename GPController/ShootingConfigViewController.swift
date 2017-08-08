@@ -54,6 +54,10 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     @IBOutlet weak var orderBtn: UIButton!
     @IBOutlet weak var patternBtn: UIButton!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.delegate = self
@@ -104,7 +108,7 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         
         if highlighted {
             label.font = UIFont.systemFont(ofSize: 23.0)
-            label.textColor = UIColor(red: 209/255, green: 181/255, blue: 121/255, alpha: 1.0)
+            label.textColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
         } else {
             label.font = UIFont.systemFont(ofSize: 20.0)
             label.textColor = UIColor.lightGray.withAlphaComponent(0.7)
@@ -173,7 +177,7 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
                 if let nc = self.navigationController as? GPNavigationController {
                     if let manager = nc.gpBTManager {
                         dest.gpBTManager = manager
-
+                        
                         let tiltAngle = GPCalculate.angle(panoFOV: vValueSet.fov, numComponents: vValueSet.components)
                         let panAngle = GPCalculate.angle(panoFOV: hValueSet.fov, numComponents: hValueSet.components)
 

@@ -20,10 +20,14 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
     var cameraConfig: CameraConfig?
     
     var cameraConfigEditor: CameraConfigEditor!
-    var imagePicker = UIImagePickerController()
+    var imagePicker: UIImagePickerController!
     
     var loadingOverlay: UIAlertController?
-    
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -42,20 +42,23 @@ class PanoFormViewController: UIViewController {
         super.viewDidLoad()
         
         if let panoConfig = selectedPano {
-            panoConfigEditor = PanoConfigEditor(config: panoConfig)
+            panoConfigEditor = PanoConfigEditor(config: panoConfig, camHFOV: Int(camera.hFOV), camVFOV: Int(camera.vFOV))
         } else {
-            initDefaultConfig()
+            panoConfigEditor = PanoConfigEditor(camHFOV: Int(camera.hFOV), camVFOV: Int(camera.vFOV))
         }
 
-        refreshMenuItems()
+        performFullRefresh()
         
         if let nc = self.navigationController as? GPNavigationController {
             self.gpBTManager = nc.gpBTManager
         }
     }
     
-    func initDefaultConfig() {
-        panoConfigEditor = PanoConfigEditor(camHFOV: Int(camera.hFOV), camVFOV: Int(camera.vFOV))
+    fileprivate func performFullRefresh() {
+        activeAxis = .vertical
+        refreshMenuItems()
+        activeAxis = .horizontal
+        refreshMenuItems()
     }
     
     func refreshMenuItems() {
@@ -140,22 +143,22 @@ class PanoFormViewController: UIViewController {
     
     @IBAction func updateNumComponents(_ sender: GMStepper) {
         panoConfigEditor.setComponents(for: activeAxis, to: sender.value)
-        updateAllStepperValues()
+        updateAllStepperValues(for: activeAxis)
     }
     
     @IBAction func updatePanoFOV(_ sender: GMStepper) {
         panoConfigEditor.setFieldOfView(for: activeAxis, to: sender.value)
-        updateAllStepperValues()
+        updateAllStepperValues(for: activeAxis)
     }
     
     @IBAction func updateOverlap(_ sender: GMStepper) {
         panoConfigEditor.setOverlap(for: activeAxis, to: sender.value)
-        updateAllStepperValues()
+        updateAllStepperValues(for: activeAxis)
     }
     
-    fileprivate func updateAllStepperValues() {
-        let cameraFOV: Int = activeAxis == .horizontal ? Int(camera.hFOV) : Int(camera.vFOV)
-        let valueSet = panoConfigEditor.getValueSet(for: activeAxis)
+    fileprivate func updateAllStepperValues(for axis: Axis) {
+        let cameraFOV: Int = axis == .horizontal ? Int(camera.hFOV) : Int(camera.vFOV)
+        let valueSet = panoConfigEditor.getValueSet(for: axis)
         
         if (componentsToggle.isOn && fovToggle.isOn) {
             overlapStepper.value = GPCalculate.overlap(numComponents: valueSet.components, panoFOV: valueSet.fov, lensFOV: cameraFOV)
@@ -189,12 +192,11 @@ class PanoFormViewController: UIViewController {
     }
     
     fileprivate func togglePlanarButton(_button: UIButton, on: Bool) {
-        let titleColor = on ? UIColor(red: 209/255, green: 181/255, blue: 121/255, alpha: 1.0) : UIColor.white
-        
+
         _button.isEnabled = !on
         UIView.animate(withDuration: 0.3, animations: {
             _button.alpha = on ? 1.0 : 0.5
-            _button.setTitleColor(titleColor, for: .normal)
+            _button.titleLabel?.font = on ? UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20) : UIFont(name: "AppleSDGothicNeo-SemiBold", size: 17)
         }, completion: nil)
     }
     
@@ -257,6 +259,9 @@ class PanoFormViewController: UIViewController {
             if let dest = segue.destination as? ShootingConfigViewController {
                 dest.hValueSet = panoConfigEditor.getValueSet(for: .horizontal)
                 dest.vValueSet = panoConfigEditor.getValueSet(for: .vertical)
+                
+                print("\(dest.hValueSet.components) \(dest.hValueSet.fov) \(dest.hValueSet.overlap)")
+                print("\(dest.vValueSet.components) \(dest.vValueSet.fov) \(dest.vValueSet.overlap)")
             }
         }
     }

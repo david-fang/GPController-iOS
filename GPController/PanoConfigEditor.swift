@@ -57,21 +57,41 @@ class PanoConfigEditor {
     fileprivate var vFOVLock:       Bool
     fileprivate var vOverlapLock:   Bool
     
-    init(config: PanoConfig) {
+    init(config: PanoConfig, camHFOV: Int, camVFOV: Int) {
         self.config = config
+
         identifier = config.identifier!
+
         columns = Int(config.columns)
         hFOV = Int(config.hFOV)
         hOverlap = Int(config.hOverlap)
         columnsLock = config.columnsLock
         hFOVLock = config.hFOVLock
         hOverlapLock = config.hOverlapLock
+
         rows = Int(config.rows)
         vFOV = Int(config.vFOV)
         vOverlap = Int(config.vOverlap)
         rowsLock = config.rowsLock
         vFOVLock = config.vFOVLock
         vOverlapLock = config.vOverlapLock
+        
+        if (columnsLock && hFOVLock) {
+            hOverlap = GPCalculate.overlap(numComponents: columns, panoFOV: hFOV, lensFOV: camHFOV)
+        } else if (columnsLock && hOverlapLock) {
+            hFOV = GPCalculate.panoFOV(numComponents: columns, lensFOV: camHFOV, overlap: hOverlap)
+        } else if (hFOVLock && hOverlapLock) {
+            columns = GPCalculate.numComponents(panoFOV: hFOV, lensFOV: camHFOV, overlap: hOverlap)
+        }
+        
+        if (rowsLock && vFOVLock) {
+            vOverlap = GPCalculate.overlap(numComponents: rows, panoFOV: vFOV, lensFOV: camVFOV)
+        } else if (rowsLock && vOverlapLock) {
+            vFOV = GPCalculate.panoFOV(numComponents: rows, lensFOV: camVFOV, overlap: vOverlap)
+        } else if (vFOVLock && vOverlapLock) {
+            rows = GPCalculate.numComponents(panoFOV: vFOV, lensFOV: camVFOV, overlap: vOverlap)
+        }
+        
     }
     
     init(camHFOV: Int, camVFOV: Int) {
@@ -250,8 +270,6 @@ class PanoConfigEditor {
         panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: core_vOverlapKey)
         
         appDelegate.saveContext()
-        print("Saved config!")
-        
         return true
     }
 }
