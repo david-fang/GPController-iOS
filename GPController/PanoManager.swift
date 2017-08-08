@@ -100,13 +100,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
     fileprivate var primaryDirection: Direction
     fileprivate var secondaryDirection: Direction
     
-    fileprivate var panoState: PanoState = .stopped {
-        didSet {
-            if (panoState == .ready) {
-                print("Pano made ready")
-            }
-        }
-    }
+    fileprivate var panoState: PanoState = .stopped
     fileprivate var pendingPicture: Bool = false
     
     fileprivate var pendingUnidirectionalSecondary: Bool = false

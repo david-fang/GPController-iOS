@@ -51,8 +51,7 @@ class FlexiButton: UIButton {
 
     func activate(_ on: Bool) {
         if (on) {
-            cachedBackgroundColor = self.backgroundColor
-            self.backgroundColor = UIColor(red: 234/255, green: 203/255, blue: 137/255, alpha: 1.0)
+            self.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
         } else {
             self.backgroundColor = cachedBackgroundColor
         }

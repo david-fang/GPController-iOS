@@ -334,13 +334,13 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOy-KQ-W8W" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dOy-KQ-W8W" secondAttribute="height" multiplier="1:1" id="jTQ-2O-H2F"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -351,10 +351,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fg-AQ-kaN" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="49" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -365,10 +365,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXI-5F-EvD" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="98" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="3">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -379,10 +379,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yM-86-14O" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="147" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="4">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -984,13 +984,13 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yl-xa-Udm" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="2Yl-xa-Udm" secondAttribute="height" multiplier="1:1" id="tah-nc-aM6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1001,10 +1001,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeN-B9-Sny" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="49" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1015,10 +1015,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQk-MS-JVV" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="98" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="3">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1029,10 +1029,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDL-dI-Itu" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="147" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="4">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1338,13 +1338,13 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01Z-11-RmO" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="01Z-11-RmO" secondAttribute="height" multiplier="1:1" id="sIO-Iz-HhA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1355,10 +1355,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioB-no-RpS" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="49" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1369,10 +1369,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeP-io-eMK" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="98" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="3">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -1383,10 +1383,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaB-A0-HGE" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="147" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="4">
-                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -2085,22 +2085,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VectorPattern" translatesAutoresizingMaskIntoConstraints="NO" id="k2T-Zm-uNv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HexagonalPattern" translatesAutoresizingMaskIntoConstraints="NO" id="k2T-Zm-uNv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9A-of-Yx4" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                <rect key="frame" x="24" y="36" width="46" height="46"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="8" y="40" width="46" height="46"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="←">
-                                    <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -2109,20 +2106,20 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLk-CY-l8v">
-                                <rect key="frame" x="32" y="132.5" width="311" height="402.5"/>
+                                <rect key="frame" x="24" y="153" width="327" height="379.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWr-ku-jpI" customClass="KDCircularProgress" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="21.5" width="295" height="295"/>
+                                        <rect key="frame" x="-14" y="24" width="355" height="355.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj9-4g-e68" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="74" width="147.5" height="147.5"/>
+                                                <rect key="frame" x="89" y="89.5" width="178" height="177.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Xj9-4g-e68" secondAttribute="height" multiplier="1:1" id="0Xu-5v-lDk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="30"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" title="START">
-                                                    <color key="titleColor" red="0.81960784310000001" green="0.70980392160000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -2149,7 +2146,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
-                                                <color key="value" red="0.81960784310000001" green="0.70980392160000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="value" white="1" alpha="0.98069711540000004" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
                                                 <real key="value" value="0.40000000000000002"/>
@@ -2160,10 +2157,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 0 of 256" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-nw-ApO" customClass="FlexiLabel" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="112.5" y="0.0" width="87" height="21.5"/>
+                                        <rect key="frame" x="120" y="0.0" width="87" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <color key="textColor" red="0.81960784310000001" green="0.70980392160000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <color key="textColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="topInset">
@@ -2183,112 +2180,151 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peq-em-3J8">
-                                        <rect key="frame" x="34" y="332.5" width="242" height="70"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rji-4U-cBn" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="86" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="rji-4U-cBn" secondAttribute="height" multiplier="1:1" id="1HW-v8-qzD"/>
-                                                </constraints>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                <state key="normal" image="bulb">
-                                                    <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="editSettings:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="5gl-92-eTO"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dO4-Ff-hW2" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.5" width="70" height="70"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                <state key="normal" image="pre_trigger">
-                                                    <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="editSettings:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="dmI-sk-Tgu"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwO-wx-nr8" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                <state key="normal" image="post_trigger">
-                                                    <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="editSettings:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="dXZ-MD-2Ia"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="VWr-ku-jpI" firstAttribute="top" secondItem="jWp-nw-ApO" secondAttribute="bottom" id="7lY-1T-6ar"/>
+                                    <constraint firstItem="VWr-ku-jpI" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="Cax-OA-OcQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="VWr-ku-jpI" secondAttribute="bottom" id="RTV-U8-yyN"/>
+                                    <constraint firstItem="jWp-nw-ApO" firstAttribute="top" secondItem="PLk-CY-l8v" secondAttribute="top" id="dnP-WZ-KvV"/>
+                                    <constraint firstItem="jWp-nw-ApO" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="vdd-lc-Kbf"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PANORAMA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6f-8L-UZa">
+                                <rect key="frame" x="117" y="46" width="141" height="34"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGS-aA-ZAh" userLabel="Separator">
+                                <rect key="frame" x="101" y="96" width="173" height="33"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqv-TY-dED" customClass="TriangleView" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="72.5" y="17" width="27" height="16"/>
+                                        <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="wwO-wx-nr8" firstAttribute="width" secondItem="rji-4U-cBn" secondAttribute="width" id="0uw-am-X1H"/>
-                                            <constraint firstItem="dO4-Ff-hW2" firstAttribute="leading" secondItem="peq-em-3J8" secondAttribute="leading" id="HV0-yq-9dX"/>
-                                            <constraint firstItem="rji-4U-cBn" firstAttribute="leading" secondItem="dO4-Ff-hW2" secondAttribute="trailing" constant="16" id="InG-Bs-qJY"/>
-                                            <constraint firstAttribute="bottom" secondItem="rji-4U-cBn" secondAttribute="bottom" id="MLw-d0-hko"/>
-                                            <constraint firstItem="rji-4U-cBn" firstAttribute="width" secondItem="dO4-Ff-hW2" secondAttribute="width" id="Xwd-nG-gYd"/>
-                                            <constraint firstItem="rji-4U-cBn" firstAttribute="top" secondItem="peq-em-3J8" secondAttribute="top" id="YpM-K2-QdV"/>
-                                            <constraint firstItem="wwO-wx-nr8" firstAttribute="height" secondItem="rji-4U-cBn" secondAttribute="height" id="aVZ-vY-gjc"/>
-                                            <constraint firstItem="rji-4U-cBn" firstAttribute="centerY" secondItem="dO4-Ff-hW2" secondAttribute="centerY" id="gNi-Pl-NPf"/>
-                                            <constraint firstItem="dO4-Ff-hW2" firstAttribute="height" secondItem="rji-4U-cBn" secondAttribute="height" id="oEf-Et-Hdg"/>
-                                            <constraint firstItem="wwO-wx-nr8" firstAttribute="centerY" secondItem="rji-4U-cBn" secondAttribute="centerY" id="ugz-mW-sOw"/>
-                                            <constraint firstItem="wwO-wx-nr8" firstAttribute="leading" secondItem="rji-4U-cBn" secondAttribute="trailing" constant="16" id="w2g-a5-XOY"/>
-                                            <constraint firstAttribute="trailing" secondItem="wwO-wx-nr8" secondAttribute="trailing" id="xbW-Qq-ciN"/>
+                                            <constraint firstAttribute="width" secondItem="Dqv-TY-dED" secondAttribute="height" multiplier="5:3" id="7Kx-6C-cmP"/>
+                                            <constraint firstAttribute="height" constant="16" id="JwQ-pK-boH"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="facingDown" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vU-La-1VU" userLabel="Horizontal Separator">
+                                        <rect key="frame" x="0.0" y="0.0" width="173" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="yN6-CA-rIX"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="VWr-ku-jpI" firstAttribute="top" secondItem="jWp-nw-ApO" secondAttribute="bottom" id="7lY-1T-6ar"/>
-                                    <constraint firstItem="jWp-nw-ApO" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="CG4-gr-xlz"/>
-                                    <constraint firstAttribute="bottom" secondItem="peq-em-3J8" secondAttribute="bottom" id="V8Y-JB-Kuy"/>
-                                    <constraint firstItem="peq-em-3J8" firstAttribute="top" secondItem="VWr-ku-jpI" secondAttribute="bottom" constant="16" id="YvO-0D-y9d"/>
-                                    <constraint firstItem="VWr-ku-jpI" firstAttribute="leading" secondItem="PLk-CY-l8v" secondAttribute="leading" constant="8" id="ZyU-8V-qEn"/>
-                                    <constraint firstItem="jWp-nw-ApO" firstAttribute="top" secondItem="PLk-CY-l8v" secondAttribute="top" id="nVn-49-SFi"/>
-                                    <constraint firstAttribute="trailing" secondItem="VWr-ku-jpI" secondAttribute="trailing" constant="8" id="urf-u7-1Og"/>
-                                    <constraint firstItem="peq-em-3J8" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="z3o-zu-BsS"/>
+                                    <constraint firstItem="8vU-La-1VU" firstAttribute="top" secondItem="SGS-aA-ZAh" secondAttribute="top" id="5aD-qN-nKu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dqv-TY-dED" secondAttribute="bottom" id="Cns-1H-mHJ"/>
+                                    <constraint firstItem="Dqv-TY-dED" firstAttribute="top" secondItem="8vU-La-1VU" secondAttribute="bottom" constant="16" id="erA-KW-DPF"/>
+                                    <constraint firstItem="8vU-La-1VU" firstAttribute="leading" secondItem="SGS-aA-ZAh" secondAttribute="leading" id="hlx-Yh-kSk"/>
+                                    <constraint firstItem="Dqv-TY-dED" firstAttribute="centerX" secondItem="SGS-aA-ZAh" secondAttribute="centerX" id="l0o-b5-GYe"/>
+                                    <constraint firstAttribute="trailing" secondItem="8vU-La-1VU" secondAttribute="trailing" id="s76-yU-LyM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-Xo-sWM">
+                                <rect key="frame" x="0.0" y="532.5" width="375" height="134.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dO4-Ff-hW2" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="24" width="86.5" height="86.5"/>
+                                        <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="pre_trigger">
+                                            <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editSettings:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="dmI-sk-Tgu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rji-4U-cBn" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="143.5" y="24" width="87" height="86.5"/>
+                                        <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rji-4U-cBn" secondAttribute="height" multiplier="1:1" id="WJ2-Xb-xXR"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="bulb">
+                                            <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editSettings:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="5gl-92-eTO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwO-wx-nr8" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
+                                        <rect key="frame" x="246.5" y="24" width="86.5" height="86.5"/>
+                                        <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="post_trigger">
+                                            <color key="titleColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="editSettings:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="dXZ-MD-2Ia"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rji-4U-cBn" firstAttribute="top" secondItem="oYy-Xo-sWM" secondAttribute="top" constant="24" id="0N7-rC-1zc"/>
+                                    <constraint firstItem="wwO-wx-nr8" firstAttribute="leading" secondItem="rji-4U-cBn" secondAttribute="trailing" constant="16" id="11x-x9-Y25"/>
+                                    <constraint firstItem="dO4-Ff-hW2" firstAttribute="width" secondItem="rji-4U-cBn" secondAttribute="width" id="6RJ-GG-J1H"/>
+                                    <constraint firstItem="rji-4U-cBn" firstAttribute="leading" secondItem="dO4-Ff-hW2" secondAttribute="trailing" constant="15" id="D9p-x1-FS6"/>
+                                    <constraint firstItem="rji-4U-cBn" firstAttribute="centerX" secondItem="oYy-Xo-sWM" secondAttribute="centerX" id="Dc1-mx-7Ix"/>
+                                    <constraint firstItem="wwO-wx-nr8" firstAttribute="width" secondItem="rji-4U-cBn" secondAttribute="width" id="RYH-8p-rdp"/>
+                                    <constraint firstAttribute="bottom" secondItem="rji-4U-cBn" secondAttribute="bottom" constant="24" id="YCe-kX-sph"/>
+                                    <constraint firstItem="dO4-Ff-hW2" firstAttribute="centerY" secondItem="rji-4U-cBn" secondAttribute="centerY" id="jAO-MP-oMr"/>
+                                    <constraint firstItem="dO4-Ff-hW2" firstAttribute="leading" secondItem="oYy-Xo-sWM" secondAttribute="leading" constant="42" id="kit-Uf-y71"/>
+                                    <constraint firstItem="dO4-Ff-hW2" firstAttribute="height" secondItem="rji-4U-cBn" secondAttribute="height" id="nm8-Po-ta3"/>
+                                    <constraint firstItem="wwO-wx-nr8" firstAttribute="height" secondItem="rji-4U-cBn" secondAttribute="height" id="pdH-fo-7pB"/>
+                                    <constraint firstItem="wwO-wx-nr8" firstAttribute="centerY" secondItem="rji-4U-cBn" secondAttribute="centerY" id="xdi-67-XxD"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.34417708330000002" green="0.29890361440000002" blue="0.20184958250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="F6f-8L-UZa" firstAttribute="centerY" secondItem="Y9A-of-Yx4" secondAttribute="centerY" id="1MW-RJ-QAq"/>
+                            <constraint firstItem="oYy-Xo-sWM" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leading" id="2zs-6J-P1B"/>
                             <constraint firstAttribute="trailing" secondItem="k2T-Zm-uNv" secondAttribute="trailing" id="3Mb-a3-A8R"/>
-                            <constraint firstItem="Y9A-of-Yx4" firstAttribute="top" secondItem="SQg-yq-NWj" secondAttribute="bottom" constant="16" id="KNs-mF-1fS"/>
+                            <constraint firstAttribute="trailing" secondItem="oYy-Xo-sWM" secondAttribute="trailing" id="A0Y-AZ-TQq"/>
+                            <constraint firstItem="F6f-8L-UZa" firstAttribute="leading" secondItem="SGS-aA-ZAh" secondAttribute="leading" constant="16" id="BeR-9J-oe3"/>
+                            <constraint firstItem="F6f-8L-UZa" firstAttribute="centerX" secondItem="7M2-2L-ufC" secondAttribute="centerX" id="DNb-9H-xUP"/>
+                            <constraint firstItem="oYy-Xo-sWM" firstAttribute="top" secondItem="PLk-CY-l8v" secondAttribute="bottom" id="FZX-1q-sK5"/>
                             <constraint firstItem="k2T-Zm-uNv" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leading" id="NAf-Hy-3Gt"/>
-                            <constraint firstItem="PLk-CY-l8v" firstAttribute="centerY" secondItem="7M2-2L-ufC" secondAttribute="centerY" id="V83-dQ-rlQ"/>
+                            <constraint firstItem="SGS-aA-ZAh" firstAttribute="top" secondItem="F6f-8L-UZa" secondAttribute="bottom" constant="16" id="PiQ-vk-zX4"/>
+                            <constraint firstItem="Y9A-of-Yx4" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leading" constant="8" id="UOd-TV-x9y"/>
                             <constraint firstItem="k2T-Zm-uNv" firstAttribute="top" secondItem="7M2-2L-ufC" secondAttribute="top" id="Wnv-Gl-dLJ"/>
-                            <constraint firstItem="PLk-CY-l8v" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leadingMargin" constant="16" id="aiP-T5-hPm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PLk-CY-l8v" secondAttribute="trailing" constant="16" id="cor-j8-HSI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PLk-CY-l8v" secondAttribute="trailing" constant="8" id="XfV-oI-RTN"/>
+                            <constraint firstItem="PLk-CY-l8v" firstAttribute="top" secondItem="SGS-aA-ZAh" secondAttribute="bottom" constant="24" id="YH9-tv-prR"/>
+                            <constraint firstItem="Y9A-of-Yx4" firstAttribute="top" secondItem="7M2-2L-ufC" secondAttribute="top" constant="40" id="feB-sw-mlM"/>
+                            <constraint firstItem="SGS-aA-ZAh" firstAttribute="trailing" secondItem="F6f-8L-UZa" secondAttribute="trailing" constant="16" id="gDv-fY-ayL"/>
                             <constraint firstItem="Y9A-of-Yx4" firstAttribute="width" secondItem="Y9A-of-Yx4" secondAttribute="height" multiplier="1:1" id="h44-lq-Ivl"/>
+                            <constraint firstItem="PLk-CY-l8v" firstAttribute="centerX" secondItem="7M2-2L-ufC" secondAttribute="centerX" id="kVT-xN-WWO"/>
                             <constraint firstItem="y54-1g-39s" firstAttribute="top" secondItem="k2T-Zm-uNv" secondAttribute="bottom" id="m4V-N0-gsg"/>
-                            <constraint firstItem="Y9A-of-Yx4" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leadingMargin" constant="8" id="sFo-7i-Zmf"/>
+                            <constraint firstItem="PLk-CY-l8v" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leadingMargin" constant="8" id="xMJ-m3-VqI"/>
+                            <constraint firstItem="y54-1g-39s" firstAttribute="top" secondItem="oYy-Xo-sWM" secondAttribute="bottom" id="z2T-wT-15l"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2309,19 +2345,19 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOA-Vd-5mi" userLabel="Divider">
-                            <rect key="frame" x="16" y="164" width="261" height="1"/>
-                            <color key="backgroundColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="162.5" width="261" height="1"/>
+                            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Ltw-hx-EK4"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stf-33-zk4">
-                            <rect key="frame" x="28" y="189" width="238" height="48"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <rect key="frame" x="22.5" y="187.5" width="249" height="51"/>
+                            <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                             <state key="normal" title="UPDATE PRE-TRIGGER DELAY">
-                                <color key="titleColor" red="0.81960784310000001" green="0.70980392160000005" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2334,29 +2370,26 @@
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yFA-Lb-JTZ">
-                            <rect key="frame" x="24" y="132" width="245" height="24"/>
+                            <rect key="frame" x="24" y="130.5" width="245" height="24"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textColor" red="0.81916666670000005" green="0.81916666670000005" blue="0.81916666670000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="decimalPad" keyboardAppearance="alert"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Url-Ym-vWk" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                            <rect key="frame" x="24" y="36" width="46" height="46"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="8" y="36" width="41" height="41"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Url-Ym-vWk" secondAttribute="height" multiplier="1:1" id="04y-cG-uKY"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                             <state key="normal" title="X">
-                                <color key="titleColor" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                     <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" red="0.66637775460000004" green="0.57655006669999997" blue="0.38864219220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -2372,7 +2405,7 @@
                         <constraint firstAttribute="trailing" secondItem="KOA-Vd-5mi" secondAttribute="trailing" constant="16" id="PrA-FB-Sht"/>
                         <constraint firstItem="KOA-Vd-5mi" firstAttribute="top" secondItem="yFA-Lb-JTZ" secondAttribute="bottom" constant="8" id="QV8-5D-kEI"/>
                         <constraint firstItem="KOA-Vd-5mi" firstAttribute="trailing" secondItem="yFA-Lb-JTZ" secondAttribute="trailing" constant="8" id="V8T-l0-Tg7"/>
-                        <constraint firstItem="Url-Ym-vWk" firstAttribute="leading" secondItem="D43-am-huY" secondAttribute="leading" constant="24" id="VKg-nG-EDo"/>
+                        <constraint firstItem="Url-Ym-vWk" firstAttribute="leading" secondItem="D43-am-huY" secondAttribute="leading" constant="8" id="VKg-nG-EDo"/>
                         <constraint firstItem="Url-Ym-vWk" firstAttribute="top" secondItem="D43-am-huY" secondAttribute="top" constant="36" id="fGd-Gd-94O"/>
                         <constraint firstItem="KOA-Vd-5mi" firstAttribute="leading" secondItem="D43-am-huY" secondAttribute="leading" constant="16" id="nXY-rP-Gnm"/>
                         <constraint firstItem="stf-33-zk4" firstAttribute="centerX" secondItem="D43-am-huY" secondAttribute="centerX" id="qez-bP-YN2"/>
@@ -2385,11 +2418,11 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlv-uG-DG3" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                             <rect key="frame" x="71" y="399" width="123" height="58"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                             <state key="normal" title="Continue">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2447,14 +2480,14 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRy-GV-7dt" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                             <rect key="frame" x="57" y="153" width="44" height="44"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="QRy-GV-7dt" secondAttribute="height" multiplier="1:1" id="dOw-wc-EdL"/>
                                 <constraint firstAttribute="height" constant="44" id="laQ-Q0-rWG"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                             <state key="normal" title="+">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2468,10 +2501,10 @@
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3P-C2-y78" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                             <rect key="frame" x="163" y="153" width="44" height="44"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                             <state key="normal" title="+">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2491,14 +2524,14 @@
                         </label>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CA-5X-yNW" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                             <rect key="frame" x="163" y="293" width="44" height="44"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="1Ew-ks-Vsh"/>
                                 <constraint firstAttribute="width" secondItem="6CA-5X-yNW" secondAttribute="height" multiplier="1:1" id="d8T-dZ-1ll"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                             <state key="normal" title="-">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2518,14 +2551,14 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-Lf-8Xa" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                             <rect key="frame" x="57" y="293" width="44" height="44"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="kp0-Lf-8Xa" secondAttribute="height" multiplier="1:1" id="Mqq-ib-40e"/>
                                 <constraint firstAttribute="height" constant="44" id="dCH-bn-OmL"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                             <state key="normal" title="-">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -2902,7 +2935,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HexagonalPattern" translatesAutoresizingMaskIntoConstraints="NO" id="dJo-4s-kQP">
+                            <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HexagonalPattern" translatesAutoresizingMaskIntoConstraints="NO" id="dJo-4s-kQP">
                                 <rect key="frame" x="0.0" y="82" width="375" height="585"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVy-fS-RlI" userLabel="Header">
@@ -3193,13 +3226,13 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Llk-or-HN9" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.64192708333333326" green="0.64192708333333326" blue="0.64192708333333326" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Llk-or-HN9" secondAttribute="height" multiplier="1:1" id="TL0-cb-rPi"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -3210,10 +3243,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5H-Da-wEd" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="49" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="2">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -3224,10 +3257,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpB-a4-d0X" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="98" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="3">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -3238,10 +3271,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkM-JN-R2R" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                                 <rect key="frame" x="147" y="0.0" width="33" height="33"/>
-                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.64192708330000003" green="0.64192708330000003" blue="0.64192708330000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="4">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="0.98069711540000004" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircular" value="YES"/>
@@ -3782,9 +3815,9 @@
         <image name="Shutter" width="30" height="30"/>
         <image name="Teotihuacan" width="3854" height="2537"/>
         <image name="VectorPattern" width="1300" height="1300"/>
-        <image name="bulb" width="70" height="70"/>
-        <image name="post_trigger" width="70" height="70"/>
-        <image name="pre_trigger" width="70" height="70"/>
+        <image name="bulb" width="30" height="30"/>
+        <image name="post_trigger" width="30" height="30"/>
+        <image name="pre_trigger" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5TU-L0-cgQ"/>

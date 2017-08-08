@@ -24,7 +24,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var panoControlButton: UIButton!
 
-    let blurEffect = UIBlurEffect(style: .light)
+    let blurEffect = UIBlurEffect(style: .dark)
     var blurEffectView: UIVisualEffectView?
     
     var panoManager: PanoManager?
@@ -128,18 +128,20 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
             return
         }
 
-        if (manager.getPanoState() == .stopped) {
+        switch manager.getPanoState() {
+        case .stopped:
             manager.start()
             sender.setTitle("PAUSE", for: .normal)
-        } else if (manager.getPanoState() == .running) {
+        case .running:
             manager.pause()
             sender.setTitle("RESUME", for: .normal)
-        } else {
-            sender.setTitle("PAUSE", for: .normal)
+        case .paused:
             loadResumeAtView()
-         }
+        default:
+            break
+        }
     }
-    
+
     func nextCycleWillBegin(cycleNum: Int) {
         guard let manager = panoManager else {
             return
@@ -148,7 +150,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         DispatchQueue.main.async {
             let total = manager.grid.totalComponents
             let percentageComplete: Double = Double(cycleNum) / Double(total)
-            
+
             self.progressLabel.text = "# \(cycleNum) of \(total)"
             self.progressIndicator.animate(toAngle: 360 * percentageComplete, duration: 0.3, completion: nil)
         }
@@ -233,6 +235,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     
     @IBAction func confirmResumeAt(_ sender: UIButton) {
         closePopup(subview: resumeAtView, completion: {
+            self.panoControlButton.setTitle("PAUSE", for: .normal)
             if let manager = self.panoManager {
                 guard let x = Int(self.xCoordinateLabel.text!), let y = Int(self.yCoordinateLabel.text!) else {
                     manager.resumeAt(at: manager.grid.x, manager.grid.y)

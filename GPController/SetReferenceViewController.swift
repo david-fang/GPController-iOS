@@ -46,6 +46,10 @@ class SetReferenceViewController: UIViewController {
     var gpBTManager: GPBluetoothManager?
     var panoManager: PanoManager?
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +90,13 @@ class SetReferenceViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -141,8 +152,6 @@ class SetReferenceViewController: UIViewController {
     }
     
     @IBAction func moveToCorner(_ sender: FlexiButton) {
-        sender.activate(true)
-        activeCornerButton?.activate(false)
         activeCornerButton = sender
         
         switch sender.tag {
@@ -160,8 +169,6 @@ class SetReferenceViewController: UIViewController {
     }
 
     @IBAction func moveToCenter(_ sender: FlexiButton) {
-        sender.activate(true)
-        activeCornerButton?.activate(false)
         activeCornerButton = sender
         
         panoManager?.moveToCenter()
