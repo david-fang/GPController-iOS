@@ -21,6 +21,8 @@ class CameraConfigEditor {
     var vFOV: Int
     var vRES: Int
     
+    var imageDataWasTouched: Bool = false
+    
     init(config: CameraConfig) {
         self.config = config
         self.identifier = config.identifier!
@@ -96,14 +98,17 @@ class CameraConfigEditor {
             self.config = CameraConfig(context: context)
         }
         
-        let imageData = UIImageJPEGRepresentation(self.image, 1)
+        if (imageDataWasTouched) {
+            print("Updating image data")
+            let imageData = UIImageJPEGRepresentation(self.image, 1)
+            config!.setValue(imageData, forKey: core_imageDataKey)
+        }
 
         config!.setValue(identifier, forKey: core_identifierKey)
         config!.setValue(hFOV, forKey: core_hFOVKey)
         config!.setValue(vFOV, forKey: core_vFOVKey)
         config!.setValue(hRES, forKey: core_hRESKey)
         config!.setValue(vRES, forKey: core_vRESKey)
-        config!.setValue(imageData, forKey: core_imageDataKey)
         
         appDelegate.saveContext()
         completion?(true)

@@ -37,10 +37,6 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
             cameraConfigEditor = CameraConfigEditor()
         }
         
-        refreshMenuItems()
-    }
-    
-    func refreshMenuItems() {
         cameraImageView.image = cameraConfigEditor.image
         hFOVStepper.value = cameraConfigEditor.hFOV
         vFOVStepper.value = cameraConfigEditor.vFOV
@@ -52,8 +48,9 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
         } else {
             identifierButton.setTitle("What should I name this?", for: .normal)
         }
+
     }
-    
+
     func displayLoadingPopup(completion: (() -> Void)?) {
         loadingOverlay = UIAlertController(title: nil, message: "Updating...", preferredStyle: .alert)
         
@@ -159,6 +156,7 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
 
         cameraImageView.image = image
         cameraConfigEditor.image = image
+        cameraConfigEditor.imageDataWasTouched = true
 
         picker.dismiss(animated: true, completion: nil)
     }
