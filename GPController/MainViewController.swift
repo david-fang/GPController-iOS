@@ -110,21 +110,21 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         
         UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
             panoButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        }, completion: { (success) in
+        }, completion: { _ in
             UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
                 panoButton.transform = CGAffineTransform.identity
                 manualButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            }, completion: { (success) in
+            }, completion: { _ in
                 UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
                     manualButton.transform = CGAffineTransform.identity
                     connectButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-                }, completion: { (success) in
+                }, completion: { _ in
                     UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: {
                         connectButton.transform = CGAffineTransform.identity
-                    }, completion: { (success) in
+                    }, completion: { _ in
                         UIView.animate(withDuration: 1.0, animations: {
                             self.titleView.alpha = 1
-                        }, completion: { (success) in
+                        }, completion: { _ in
                             delay(delayInterval, closure: {
                                 completion?()
                             })

@@ -159,7 +159,7 @@ class SetReferenceViewController: UIViewController {
             subview.alpha = 1
             self.controlPanel.alpha = 0
             self.arrowPad.alpha = 1.0
-        }, completion: { (success) in
+        }, completion: { _ in
             self.indicatorTriangle.layer.addFlashLayer()
             self.arrowPad.isUserInteractionEnabled = true
         })
@@ -192,7 +192,7 @@ class SetReferenceViewController: UIViewController {
             self.controlPanel.alpha = 1
             self.indicatorTriangle.alpha = 0
             self.arrowPad.alpha = 0.7
-        }) { (success) in
+        }) { _ in
             self.controlPanel.isUserInteractionEnabled = true
             subview.removeFromSuperview()
             

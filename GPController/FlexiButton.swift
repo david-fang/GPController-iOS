@@ -14,6 +14,7 @@ class FlexiButton: UIButton {
     @IBInspectable var borderColor: UIColor? = UIColor.black
     @IBInspectable var cornerRadius: CGFloat = 30
     @IBInspectable var isCircular: Bool = false
+    @IBInspectable var isCoverButton: Bool = false
 
     fileprivate var cachedBorderColor: UIColor?
     fileprivate var cachedBackgroundColor: UIColor?
@@ -41,9 +42,13 @@ class FlexiButton: UIButton {
                 let background = self.isHighlighted ? self.cachedBackgroundColor?.withAlphaComponent(0.7) : self.cachedBackgroundColor
                 let border = self.isHighlighted ? self.cachedBorderColor?.withAlphaComponent(0.7) : self.cachedBorderColor
 
-                UIView.animate(withDuration: 0.3, animations: { _ in
+                UIView.animate(withDuration: 0.3, animations: {
                     self.backgroundColor = background
                     self.borderColor = border
+                })
+            } else if isCoverButton {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.backgroundColor = self.isHighlighted ? UIColor.darkGray.withAlphaComponent(0.5) : UIColor.clear
                 })
             }
         }

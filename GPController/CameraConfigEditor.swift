@@ -21,7 +21,7 @@ class CameraConfigEditor {
     var vFOV: Int
     var vRES: Int
     
-    var imageDataWasTouched: Bool = false
+    fileprivate var imageDataWasTouched: Bool = false
     
     init(config: CameraConfig) {
         self.config = config
@@ -52,6 +52,11 @@ class CameraConfigEditor {
 
     func getCameraConfig() -> CameraConfig? {
         return config
+    }
+    
+    func setImage(to image: UIImage) {
+        self.image = image
+        imageDataWasTouched = true
     }
     
     func identifierIsUnique(identifier: String) -> Bool {

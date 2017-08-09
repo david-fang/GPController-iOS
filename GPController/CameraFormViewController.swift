@@ -143,7 +143,7 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
         
         actionSheet.addAction(UIAlertAction(title: "Delete Photo", style: .default, handler: { (action: UIAlertAction) in
             self.cameraImageView.image = #imageLiteral(resourceName: "DefaultCamera")
-            self.cameraConfigEditor.image = #imageLiteral(resourceName: "DefaultCamera")
+            self.cameraConfigEditor.setImage(to: #imageLiteral(resourceName: "DefaultCamera"))
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -155,8 +155,7 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
 
         cameraImageView.image = image
-        cameraConfigEditor.image = image
-        cameraConfigEditor.imageDataWasTouched = true
+        cameraConfigEditor.setImage(to: image)
 
         picker.dismiss(animated: true, completion: nil)
     }
