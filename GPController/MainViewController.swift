@@ -53,7 +53,19 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     // MARK: - Navigation
 
     @IBAction func segueToManualControl(_ sender: UIButton) {
-        performSegue(withIdentifier: "toManualControl", sender: transition)
+        if let manager = gpBTManager {
+            if manager.isConnected() {
+                performSegue(withIdentifier: "toManualControl", sender: transition)
+                return
+            }
+        }
+
+        let alert = UIAlertController(title: "No device connected", message: "This feature requires a connected device. Please connect to a GigaPan device to continue.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func segueToScanner(_ sender: UIButton) {
@@ -77,7 +89,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
             }
         } else if (segue.identifier == "toSessionSetup") {
             if let nc = segue.destination as? GPNavigationController {
-                if let dest = nc.childViewControllerForStatusBarHidden as? CameraSetupViewController {
+                if (nc.childViewControllerForStatusBarHidden as? CameraSetupViewController) != nil {
                     nc.gpBTManager = self.gpBTManager
                 }
             }

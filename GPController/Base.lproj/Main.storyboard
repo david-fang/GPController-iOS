@@ -1287,8 +1287,8 @@
                                                 <color key="textColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designate a reference point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBy-ge-lFc">
-                                                <rect key="frame" x="98" y="69" width="179" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview your panorama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBy-ge-lFc">
+                                                <rect key="frame" x="111.5" y="69" width="152" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1613,7 +1613,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXx-6i-2rV" customClass="TriangleView" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="99.5" y="17" width="27" height="16"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="FLc-R4-Gna"/>
                                             <constraint firstAttribute="width" secondItem="aXx-6i-2rV" secondAttribute="height" multiplier="5:3" id="x05-HN-pZW"/>
@@ -2217,17 +2217,17 @@
                                     <constraint firstItem="jWp-nw-ApO" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="vdd-lc-Kbf"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PANORAMA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6f-8L-UZa">
-                                <rect key="frame" x="117" y="46" width="141" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUTO-PANO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6f-8L-UZa">
+                                <rect key="frame" x="112" y="46" width="151" height="34"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGS-aA-ZAh" userLabel="Separator">
-                                <rect key="frame" x="101" y="96" width="173" height="33"/>
+                                <rect key="frame" x="96" y="96" width="183" height="33"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqv-TY-dED" customClass="TriangleView" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="72.5" y="17" width="27" height="16"/>
+                                        <rect key="frame" x="77.5" y="17" width="27" height="16"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Dqv-TY-dED" secondAttribute="height" multiplier="5:3" id="7Kx-6C-cmP"/>
@@ -2238,7 +2238,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vU-La-1VU" userLabel="Horizontal Separator">
-                                        <rect key="frame" x="0.0" y="0.0" width="173" height="1"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="yN6-CA-rIX"/>

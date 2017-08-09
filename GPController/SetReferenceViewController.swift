@@ -48,6 +48,7 @@ class SetReferenceViewController: UIViewController {
     @IBOutlet weak var previewButton: FlexiButton!
     
     fileprivate var freeformIsEnabled: Bool = false
+    fileprivate var startPositionSet: Bool = false
     fileprivate var displayedForm: UIView?
     
     var gpBTManager: GPBluetoothManager?
@@ -101,6 +102,8 @@ class SetReferenceViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        startPositionSet = false
+        
         arrowPad.isUserInteractionEnabled = false
         arrowPad.alpha = 0.7
         indicatorTriangle.alpha = 0
@@ -198,6 +201,7 @@ class SetReferenceViewController: UIViewController {
             subview.removeFromSuperview()
             
             if (sender.tag == 3) {
+                self.startPositionSet = true
                 self.panoManager?.grid.moveToStart()
                 self.gridButton.activate(true, animated: true)
                 self.previewButton.activate(true, animated: true)
@@ -271,7 +275,16 @@ class SetReferenceViewController: UIViewController {
     }
     
     @IBAction func completeSetup(_ sender: UIButton) {
-        performSegue(withIdentifier: "completeSetup", sender: self)
+        if (startPositionSet) {
+            performSegue(withIdentifier: "completeSetup", sender: self)
+        } else {
+            let alert = UIAlertController(title: "Missing start position", message: "Panorama start position needs to be set before proceeding", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Navigation

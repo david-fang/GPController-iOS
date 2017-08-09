@@ -168,7 +168,21 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     }
 
     @IBAction func toReferenceSetting(_ sender: UIButton) {
-        performSegue(withIdentifier: "toReferencePoint", sender: sender)
+        if let nc = self.navigationController as? GPNavigationController {
+            if let manager = nc.gpBTManager {
+                if manager.isConnected() {
+                    performSegue(withIdentifier: "toReferencePoint", sender: sender)
+                    return
+                }
+            }
+        }
+        
+        let alert = UIAlertController(title: "No device connected", message: "This feature requires a connected device. Please connect to a GigaPan device to continue.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
