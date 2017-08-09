@@ -127,12 +127,11 @@ class SetReferenceViewController: UIViewController {
             freeformIsEnabled = true
             form = moveToStartView
         case 1:
-            freeformIsEnabled = false
-            
             if let manager = panoManager {
                 referencePointLabel.text = "(\(manager.grid.x), \(manager.grid.y))"
             }
 
+            freeformIsEnabled = false
             form = gridView
         case 2:
             freeformIsEnabled = true
@@ -148,7 +147,7 @@ class SetReferenceViewController: UIViewController {
         view.addSubview(subview)
         subview.bounds = displaySection.bounds
         subview.center = displaySection.center
-        subview.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        subview.transform = CGAffineTransform.init(scaleX: 1.7, y: 1.7)
         subview.alpha = 0
         displayedForm = subview
         
@@ -157,6 +156,7 @@ class SetReferenceViewController: UIViewController {
         UIView.animate(withDuration: 0.4, animations: {
             subview.transform = .identity
             subview.alpha = 1
+            self.controlPanel.transform = CGAffineTransform.init(scaleX: 0.3, y: 0.3)
             self.controlPanel.alpha = 0
             self.arrowPad.alpha = 1.0
         }, completion: { _ in
@@ -187,8 +187,9 @@ class SetReferenceViewController: UIViewController {
         indicatorTriangle.layer.removeAllAnimations()
         
         UIView.animate(withDuration: 0.4, animations: {
-            subview.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            subview.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
             subview.alpha = 0
+            self.controlPanel.transform = CGAffineTransform.identity
             self.controlPanel.alpha = 1
             self.indicatorTriangle.alpha = 0
             self.arrowPad.alpha = 0.7

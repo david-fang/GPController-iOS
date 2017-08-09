@@ -2192,35 +2192,26 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 0 of 256" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-nw-ApO" customClass="FlexiLabel" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="120" y="0.0" width="87" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 256" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-nw-ApO">
+                                        <rect key="frame" x="127.5" y="0.0" width="72" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
                                         <color key="textColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="topInset">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
-                                                <real key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-c1-VoS">
+                                        <rect key="frame" x="114.5" y="0.0" width="11" height="24"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="jWp-nw-ApO" firstAttribute="leading" secondItem="v6M-c1-VoS" secondAttribute="trailing" constant="2" id="3yE-Df-cCB"/>
                                     <constraint firstItem="VWr-ku-jpI" firstAttribute="top" secondItem="jWp-nw-ApO" secondAttribute="bottom" id="7lY-1T-6ar"/>
                                     <constraint firstItem="VWr-ku-jpI" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="Cax-OA-OcQ"/>
+                                    <constraint firstItem="v6M-c1-VoS" firstAttribute="centerY" secondItem="jWp-nw-ApO" secondAttribute="centerY" id="JVn-S4-faC"/>
                                     <constraint firstAttribute="bottom" secondItem="VWr-ku-jpI" secondAttribute="bottom" id="RTV-U8-yyN"/>
                                     <constraint firstItem="jWp-nw-ApO" firstAttribute="top" secondItem="PLk-CY-l8v" secondAttribute="top" id="dnP-WZ-KvV"/>
                                     <constraint firstItem="jWp-nw-ApO" firstAttribute="centerX" secondItem="PLk-CY-l8v" secondAttribute="centerX" id="vdd-lc-Kbf"/>
@@ -3864,6 +3855,6 @@
         <image name="pre_trigger" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5TU-L0-cgQ"/>
+        <segue reference="p0F-NA-aRu"/>
     </inferredMetricsTieBreakers>
 </document>

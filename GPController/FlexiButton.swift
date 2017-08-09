@@ -46,7 +46,9 @@ class FlexiButton: UIButton {
                     self.backgroundColor = background
                     self.borderColor = border
                 })
-            } else if isCoverButton {
+            }
+            
+            if isCoverButton {
                 UIView.animate(withDuration: 0.3, animations: {
                     self.backgroundColor = self.isHighlighted ? UIColor.darkGray.withAlphaComponent(0.5) : UIColor.clear
                 })

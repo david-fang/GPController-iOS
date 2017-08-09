@@ -64,7 +64,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         }
         
         manager.delegate = self
-        progressLabel.text = "# 0 of \(manager.grid.totalComponents)"
+        progressLabel.text = "0 of \(manager.grid.totalComponents)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,7 +151,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
             let total = manager.grid.totalComponents
             let percentageComplete: Double = Double(cycleNum) / Double(total)
 
-            self.progressLabel.text = "# \(cycleNum) of \(total)"
+            self.progressLabel.text = "\(cycleNum) of \(total)"
             self.progressIndicator.animate(toAngle: 360 * percentageComplete, duration: 0.3, completion: nil)
         }
     }
@@ -230,6 +230,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
     }
     
     @IBAction func closeEditView(_ sender: UIButton) {
+        view.endEditing(true)
         closePopup(subview: timerSettingsPopup, completion: nil)
     }
     
