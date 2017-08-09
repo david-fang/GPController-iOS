@@ -49,11 +49,18 @@ class FlexiButton: UIButton {
         }
     }
 
-    func activate(_ on: Bool) {
-        if (on) {
-            self.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+    func activate(_ on: Bool, animated: Bool) {
+        self.isUserInteractionEnabled = on
+        if (animated) {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.alpha = on ? 1.0 : 0.7
+            })
         } else {
-            self.backgroundColor = cachedBackgroundColor
+            self.alpha = on ? 1.0 : 0.7
         }
+    }
+    
+    func cacheBackgroundColor() {
+        cachedBackgroundColor = self.backgroundColor
     }
 }

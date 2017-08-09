@@ -24,12 +24,12 @@ class ScannedDeviceCell: UITableViewCell {
         cardView.addDropShadow(color: UIColor.darkGray, shadowOffset: CGSize(width: 0, height: 7), shadowOpacity: 0.2, shadowRadius: 3.0)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if (!animated) {
-            cardView.alpha = selected ? 0.65 : 1
+            cardView.alpha = highlighted ? 0.65 : 1
         } else {
             UIView.animate(withDuration: 0.75, animations: {
-                self.cardView.alpha = selected ? 0.65 : 1
+                self.cardView.alpha = highlighted ? 0.65 : 1
             })
         }
     }

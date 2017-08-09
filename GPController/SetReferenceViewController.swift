@@ -20,7 +20,7 @@ class SetReferenceViewController: UIViewController {
     
     // MARK: - Edit Reference View
     
-    @IBOutlet var editReferenceView: UIView!
+    @IBOutlet var gridView: UIView!
     @IBOutlet weak var referencePointLabel: UILabel!
 
     // MARK: - Preview View
@@ -35,13 +35,20 @@ class SetReferenceViewController: UIViewController {
     var activeCornerButton: FlexiButton?
     
     // MARK: - Main View
-
+    
+    @IBOutlet weak var arrowPad: UIView!
     @IBOutlet weak var upButton: RoundAxisButton!
     @IBOutlet weak var rightButton: RoundAxisButton!
     @IBOutlet weak var downButton: RoundAxisButton!
     @IBOutlet weak var leftButton: RoundAxisButton!
+    @IBOutlet weak var indicatorTriangle: TriangleView!
 
+    @IBOutlet weak var setStartButton: FlexiButton!
+    @IBOutlet weak var gridButton: FlexiButton!
+    @IBOutlet weak var previewButton: FlexiButton!
+    
     fileprivate var freeformIsEnabled: Bool = false
+    fileprivate var displayedForm: UIView?
     
     var gpBTManager: GPBluetoothManager?
     var panoManager: PanoManager?
@@ -86,70 +93,118 @@ class SetReferenceViewController: UIViewController {
                 activeCornerButton = bottomRightButton
             }
             
-            activeCornerButton?.activate(true)
+            activeCornerButton?.backgroundColor = UIColor.sandpaperWhite
+            activeCornerButton?.cacheBackgroundColor()
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        arrowPad.isUserInteractionEnabled = false
+        arrowPad.alpha = 0.7
+        indicatorTriangle.alpha = 0
+        indicatorTriangle.layer.removeAllAnimations()
         
-        
-        
+        controlPanel.alpha = 1
+        controlPanel.isUserInteractionEnabled = true
+        displayedForm?.removeFromSuperview()
+
+        gridButton.activate(false, animated: false)
+        previewButton.activate(false, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func displayForm(_ sender: UIButton) {
+        let form: UIView?
+        
+        switch sender.tag {
+        case 0:
+            freeformIsEnabled = true
+            form = moveToStartView
+        case 1:
+            freeformIsEnabled = false
+            
+            if let manager = panoManager {
+                referencePointLabel.text = "(\(manager.grid.x), \(manager.grid.y))"
+            }
 
-    @IBAction func displayEditForm(_ sender: UIButton) {
-        view.addSubview(editReferenceView)
-        editReferenceView.bounds = displaySection.bounds
-        editReferenceView.center = displaySection.center
+            form = gridView
+        case 2:
+            freeformIsEnabled = true
+            form = previewView
+        default:
+            form = nil
+        }
         
-        controlPanel.alpha = 0
-        controlPanel.isUserInteractionEnabled = false
-    }
-    
-    @IBAction func displayInitForm(_ sender: UIButton) {
-        freeformIsEnabled = true
-        view.addSubview(moveToStartView)
-        moveToStartView.bounds = displaySection.bounds
-        moveToStartView.center = displaySection.center
+        guard let subview = form else {
+            return
+        }
         
-        controlPanel.alpha = 0
-        controlPanel.isUserInteractionEnabled = false
-    }
-    
-    @IBAction func displayPreviewForm(_ sender: UIButton) {
-        freeformIsEnabled = true
-        view.addSubview(previewView)
-        previewView.bounds = displaySection.bounds
-        previewView.center = displaySection.center
+        view.addSubview(subview)
+        subview.bounds = displaySection.bounds
+        subview.center = displaySection.center
+        subview.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        subview.alpha = 0
+        displayedForm = subview
         
-        controlPanel.alpha = 0
         controlPanel.isUserInteractionEnabled = false
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            subview.transform = .identity
+            subview.alpha = 1
+            self.controlPanel.alpha = 0
+            self.arrowPad.alpha = 1.0
+        }, completion: { (success) in
+            self.indicatorTriangle.layer.addFlashLayer()
+            self.arrowPad.isUserInteractionEnabled = true
+        })
     }
     
-    @IBAction func dismissInitForm(_ sender: UIButton) {
-        freeformIsEnabled = false
-        moveToStartView.removeFromSuperview()
-        controlPanel.alpha = 1
-        controlPanel.isUserInteractionEnabled = true
+    @IBAction func dismissForm(_ sender: UIButton) {
+        let form: UIView?
+        
+        switch sender.tag {
+        case 0, 3:
+            form = moveToStartView
+        case 1:
+            form = gridView
+        case 2:
+            form = previewView
+        default:
+            form = nil
+        }
+        
+        guard let subview = form else {
+            return
+        }
+        
+        arrowPad.isUserInteractionEnabled = false
+        indicatorTriangle.layer.removeAllAnimations()
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            subview.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            subview.alpha = 0
+            self.controlPanel.alpha = 1
+            self.indicatorTriangle.alpha = 0
+            self.arrowPad.alpha = 0.7
+        }) { (success) in
+            self.controlPanel.isUserInteractionEnabled = true
+            subview.removeFromSuperview()
+            
+            if (sender.tag == 3) {
+                self.panoManager?.grid.moveToStart()
+                self.gridButton.activate(true, animated: true)
+                self.previewButton.activate(true, animated: true)
+            }
+        }
     }
     
-    @IBAction func dismissPreviewForm(_ sender: UIButton) {
-        freeformIsEnabled = false
-        previewView.removeFromSuperview()
-        controlPanel.alpha = 1
-        controlPanel.isUserInteractionEnabled = true
-    }
-    
-    @IBAction func dismissEditForm(_ sender: UIButton) {
-        editReferenceView.removeFromSuperview()
-        controlPanel.alpha = 1
-        controlPanel.isUserInteractionEnabled = true
-    }
+    // MARK: - Movement Handlers
     
     @IBAction func moveToCorner(_ sender: FlexiButton) {
         activeCornerButton = sender
@@ -173,7 +228,7 @@ class SetReferenceViewController: UIViewController {
         
         panoManager?.moveToCenter()
     }
-    
+
     func startMove(_ sender: RoundAxisButton) {
         if (freeformIsEnabled) {
             freeformMove(sender)

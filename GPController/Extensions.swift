@@ -13,14 +13,14 @@ extension CALayer {
     /** Adds a flashing animation */
     func addFlashLayer() {
         let flash: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-        let easeOut = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        let easeIn = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 
-        flash.fromValue = 1.0
-        flash.toValue = 0.675
-        flash.duration = 1.3
+        flash.fromValue = 0.0
+        flash.toValue = 1.0
+        flash.duration = 1.0
         flash.autoreverses = true
         flash.repeatCount = Float.infinity
-        flash.timingFunction = easeOut
+        flash.timingFunction = easeIn
 
         self.add(flash, forKey: "flashAnimation")
     }
