@@ -164,7 +164,7 @@
                                             <constraint firstAttribute="width" secondItem="zKF-Qr-8Ij" secondAttribute="height" multiplier="1:1" id="1i1-YN-MOb"/>
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" image="BluetoothLogo_White">
+                                        <state key="normal" image="bluetooth_white">
                                             <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -231,6 +231,7 @@
                     <navigationItem key="navigationItem" id="4eA-ei-got"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="bluetoothButton" destination="zKF-Qr-8Ij" id="EKr-qU-NMc"/>
                         <outlet property="titleView" destination="jH5-OE-6yn" id="bMY-VB-xDJ"/>
                         <outletCollection property="navigationButtons" destination="jZb-ZV-4v6" collectionClass="NSMutableArray" id="Jrk-2z-J5V"/>
                         <outletCollection property="navigationButtons" destination="cqZ-nO-S35" collectionClass="NSMutableArray" id="XA4-pP-6lZ"/>
@@ -2127,7 +2128,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9A-of-Yx4" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="8" y="40" width="46" height="46"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                                 <state key="normal" title="←">
                                     <color key="titleColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -2142,13 +2143,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLk-CY-l8v">
-                                <rect key="frame" x="24" y="153" width="327" height="379.5"/>
+                                <rect key="frame" x="24" y="149" width="327" height="383.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWr-ku-jpI" customClass="KDCircularProgress" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="-14" y="24" width="355" height="355.5"/>
+                                        <rect key="frame" x="-16" y="24" width="359" height="359.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj9-4g-e68" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
-                                                <rect key="frame" x="89" y="89.5" width="178" height="177.5"/>
+                                                <rect key="frame" x="90" y="90.5" width="180" height="179.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Xj9-4g-e68" secondAttribute="height" multiplier="1:1" id="0Xu-5v-lDk"/>
                                                 </constraints>
@@ -2224,7 +2225,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGS-aA-ZAh" userLabel="Separator">
-                                <rect key="frame" x="96" y="96" width="183" height="33"/>
+                                <rect key="frame" x="96" y="92" width="183" height="33"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqv-TY-dED" customClass="TriangleView" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="77.5" y="17" width="27" height="16"/>
@@ -2330,6 +2331,17 @@
                                     <constraint firstItem="wwO-wx-nr8" firstAttribute="centerY" secondItem="rji-4U-cBn" secondAttribute="centerY" id="xdi-67-XxD"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTT-MN-OAy">
+                                <rect key="frame" x="327" y="49" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uTT-MN-OAy" secondAttribute="height" multiplier="1:1" id="1b2-Kb-A0Q"/>
+                                    <constraint firstAttribute="height" constant="28" id="zdU-87-bZq"/>
+                                </constraints>
+                                <state key="normal" image="home"/>
+                                <connections>
+                                    <action selector="returnToHome:" destination="hWb-Xe-jM0" eventType="touchUpInside" id="WV4-vN-PDL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2339,15 +2351,17 @@
                             <constraint firstAttribute="trailing" secondItem="oYy-Xo-sWM" secondAttribute="trailing" id="A0Y-AZ-TQq"/>
                             <constraint firstItem="F6f-8L-UZa" firstAttribute="leading" secondItem="SGS-aA-ZAh" secondAttribute="leading" constant="16" id="BeR-9J-oe3"/>
                             <constraint firstItem="F6f-8L-UZa" firstAttribute="centerX" secondItem="7M2-2L-ufC" secondAttribute="centerX" id="DNb-9H-xUP"/>
+                            <constraint firstAttribute="trailing" secondItem="uTT-MN-OAy" secondAttribute="trailing" constant="20" id="DxZ-Ii-bim"/>
                             <constraint firstItem="oYy-Xo-sWM" firstAttribute="top" secondItem="PLk-CY-l8v" secondAttribute="bottom" id="FZX-1q-sK5"/>
                             <constraint firstItem="k2T-Zm-uNv" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leading" id="NAf-Hy-3Gt"/>
-                            <constraint firstItem="SGS-aA-ZAh" firstAttribute="top" secondItem="F6f-8L-UZa" secondAttribute="bottom" constant="16" id="PiQ-vk-zX4"/>
+                            <constraint firstItem="SGS-aA-ZAh" firstAttribute="top" secondItem="F6f-8L-UZa" secondAttribute="bottom" constant="12" id="PiQ-vk-zX4"/>
                             <constraint firstItem="Y9A-of-Yx4" firstAttribute="leading" secondItem="7M2-2L-ufC" secondAttribute="leading" constant="8" id="UOd-TV-x9y"/>
                             <constraint firstItem="k2T-Zm-uNv" firstAttribute="top" secondItem="7M2-2L-ufC" secondAttribute="top" id="Wnv-Gl-dLJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PLk-CY-l8v" secondAttribute="trailing" constant="8" id="XfV-oI-RTN"/>
                             <constraint firstItem="PLk-CY-l8v" firstAttribute="top" secondItem="SGS-aA-ZAh" secondAttribute="bottom" constant="24" id="YH9-tv-prR"/>
                             <constraint firstItem="Y9A-of-Yx4" firstAttribute="top" secondItem="7M2-2L-ufC" secondAttribute="top" constant="40" id="feB-sw-mlM"/>
                             <constraint firstItem="SGS-aA-ZAh" firstAttribute="trailing" secondItem="F6f-8L-UZa" secondAttribute="trailing" constant="16" id="gDv-fY-ayL"/>
+                            <constraint firstItem="uTT-MN-OAy" firstAttribute="centerY" secondItem="Y9A-of-Yx4" secondAttribute="centerY" id="gmh-03-Ta0"/>
                             <constraint firstItem="Y9A-of-Yx4" firstAttribute="width" secondItem="Y9A-of-Yx4" secondAttribute="height" multiplier="1:1" id="h44-lq-Ivl"/>
                             <constraint firstItem="PLk-CY-l8v" firstAttribute="centerX" secondItem="7M2-2L-ufC" secondAttribute="centerX" id="kVT-xN-WWO"/>
                             <constraint firstItem="y54-1g-39s" firstAttribute="top" secondItem="k2T-Zm-uNv" secondAttribute="bottom" id="m4V-N0-gsg"/>
@@ -2746,7 +2760,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1s-T1-ohk" customClass="FlexiButton" customModule="GPController" customModuleProvider="target">
                                 <rect key="frame" x="8" y="40" width="46" height="46"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
                                 <state key="normal" title="←">
                                     <color key="titleColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -2786,10 +2800,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzh-oc-gkK">
-                                <rect key="frame" x="16" y="138" width="343" height="427"/>
+                                <rect key="frame" x="16" y="134" width="343" height="423"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcR-ol-So9" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="210.5" y="179" width="70" height="70"/>
+                                        <rect key="frame" x="206.5" y="176.5" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="→">
@@ -2805,7 +2819,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boq-bO-CoD" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="136.5" y="105" width="70" height="70"/>
+                                        <rect key="frame" x="136.5" y="106.5" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="0mL-dO-2Xt"/>
@@ -2826,7 +2840,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE2-F9-ejy" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="62.5" y="179" width="70" height="70"/>
+                                        <rect key="frame" x="66.5" y="176.5" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="←">
@@ -2842,7 +2856,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-PJ-pTW" customClass="RoundAxisButton" customModule="GPController" customModuleProvider="target">
-                                        <rect key="frame" x="136.5" y="253" width="70" height="70"/>
+                                        <rect key="frame" x="136.5" y="246.5" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="↓">
@@ -2861,18 +2875,18 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="OcR-ol-So9" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="FiJ-o4-z2C"/>
-                                    <constraint firstItem="TE2-F9-ejy" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="4" id="J6S-Ru-dBJ"/>
-                                    <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="OcR-ol-So9" secondAttribute="bottom" constant="4" id="KfI-l4-F6A"/>
+                                    <constraint firstItem="TE2-F9-ejy" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" id="J6S-Ru-dBJ"/>
+                                    <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="OcR-ol-So9" secondAttribute="bottom" id="KfI-l4-F6A"/>
                                     <constraint firstItem="TE2-F9-ejy" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="KvT-vg-5Us"/>
                                     <constraint firstItem="boq-bO-CoD" firstAttribute="centerX" secondItem="Fzh-oc-gkK" secondAttribute="centerX" id="Ocg-eA-jva"/>
                                     <constraint firstItem="m6K-PJ-pTW" firstAttribute="centerX" secondItem="boq-bO-CoD" secondAttribute="centerX" id="PBF-gf-mwY"/>
-                                    <constraint firstItem="OcR-ol-So9" firstAttribute="leading" secondItem="boq-bO-CoD" secondAttribute="trailing" constant="4" id="Rvp-2o-fmd"/>
+                                    <constraint firstItem="OcR-ol-So9" firstAttribute="leading" secondItem="boq-bO-CoD" secondAttribute="trailing" id="Rvp-2o-fmd"/>
                                     <constraint firstItem="OcR-ol-So9" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="Vrw-Z8-c0x"/>
                                     <constraint firstItem="OcR-ol-So9" firstAttribute="centerY" secondItem="TE2-F9-ejy" secondAttribute="centerY" id="WW8-Ai-Ai9"/>
-                                    <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="TE2-F9-ejy" secondAttribute="bottom" constant="4" id="ikW-BU-vHa"/>
-                                    <constraint firstItem="boq-bO-CoD" firstAttribute="leading" secondItem="TE2-F9-ejy" secondAttribute="trailing" constant="4" id="ptE-eG-zQx"/>
+                                    <constraint firstItem="m6K-PJ-pTW" firstAttribute="top" secondItem="TE2-F9-ejy" secondAttribute="bottom" id="ikW-BU-vHa"/>
+                                    <constraint firstItem="boq-bO-CoD" firstAttribute="leading" secondItem="TE2-F9-ejy" secondAttribute="trailing" id="ptE-eG-zQx"/>
                                     <constraint firstItem="m6K-PJ-pTW" firstAttribute="height" secondItem="boq-bO-CoD" secondAttribute="height" id="ser-Br-I7Z"/>
-                                    <constraint firstItem="OcR-ol-So9" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" constant="4" id="svl-9l-LY9"/>
+                                    <constraint firstItem="OcR-ol-So9" firstAttribute="top" secondItem="boq-bO-CoD" secondAttribute="bottom" id="svl-9l-LY9"/>
                                     <constraint firstItem="m6K-PJ-pTW" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="tpO-dB-8bp"/>
                                     <constraint firstItem="TE2-F9-ejy" firstAttribute="centerY" secondItem="Fzh-oc-gkK" secondAttribute="centerY" id="vW9-og-Sa8"/>
                                     <constraint firstItem="TE2-F9-ejy" firstAttribute="width" secondItem="boq-bO-CoD" secondAttribute="width" id="ywC-3T-gPQ"/>
@@ -2885,7 +2899,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Du-pQ-qqY" userLabel="Separator">
-                                <rect key="frame" x="84" y="97" width="207" height="33"/>
+                                <rect key="frame" x="84" y="92.5" width="207" height="33"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-Z5-QSi" customClass="TriangleView" customModule="GPController" customModuleProvider="target">
                                         <rect key="frame" x="89.5" y="17" width="27" height="16"/>
@@ -2920,7 +2934,6 @@
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="R29-TS-OA4" firstAttribute="leading" secondItem="1Du-pQ-qqY" secondAttribute="leading" constant="16" id="4C6-s3-AE9"/>
-                            <constraint firstItem="5IS-Xq-eHl" firstAttribute="top" secondItem="Fzh-oc-gkK" secondAttribute="bottom" constant="8" id="8Io-GX-5ru"/>
                             <constraint firstItem="R29-TS-OA4" firstAttribute="centerY" secondItem="w1s-T1-ohk" secondAttribute="centerY" id="ATv-w8-LBC"/>
                             <constraint firstItem="R29-TS-OA4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B7z-NU-Ot5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5IS-Xq-eHl" secondAttribute="bottom" constant="24" id="Bg9-lB-Fpa"/>
@@ -2929,7 +2942,8 @@
                             <constraint firstItem="w1s-T1-ohk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Gch-32-dHW"/>
                             <constraint firstItem="g4u-WE-c04" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Gs3-71-L0V"/>
                             <constraint firstItem="5IS-Xq-eHl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HNr-Na-9gC"/>
-                            <constraint firstItem="1Du-pQ-qqY" firstAttribute="top" secondItem="R29-TS-OA4" secondAttribute="bottom" constant="16" id="OBa-oj-K5C"/>
+                            <constraint firstItem="5IS-Xq-eHl" firstAttribute="top" secondItem="Fzh-oc-gkK" secondAttribute="bottom" constant="16" id="MzO-xU-47E"/>
+                            <constraint firstItem="1Du-pQ-qqY" firstAttribute="top" secondItem="R29-TS-OA4" secondAttribute="bottom" constant="12" id="OBa-oj-K5C"/>
                             <constraint firstItem="Fzh-oc-gkK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Tdh-KQ-i8N"/>
                             <constraint firstItem="1Du-pQ-qqY" firstAttribute="trailing" secondItem="R29-TS-OA4" secondAttribute="trailing" constant="16" id="Zw0-zi-B6A"/>
                             <constraint firstItem="g4u-WE-c04" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bGU-X0-SAk"/>
@@ -2944,6 +2958,7 @@
                         <outlet property="down" destination="m6K-PJ-pTW" id="doE-AG-yHC"/>
                         <outlet property="left" destination="TE2-F9-ejy" id="uPC-F1-P6v"/>
                         <outlet property="right" destination="OcR-ol-So9" id="Lni-6F-fEx"/>
+                        <outlet property="triangleIndicator" destination="ThU-Z5-QSi" id="sXt-wG-iR4"/>
                         <outlet property="up" destination="boq-bO-CoD" id="lMO-Hd-e1Y"/>
                     </connections>
                 </viewController>
@@ -3841,15 +3856,16 @@
     </scenes>
     <resources>
         <image name="Axis" width="30" height="30"/>
-        <image name="BluetoothLogo_White" width="30" height="30"/>
         <image name="DefaultCamera" width="640" height="640"/>
         <image name="HexagonalPattern" width="1200" height="1200"/>
         <image name="Shutter" width="30" height="30"/>
         <image name="Teotihuacan" width="3854" height="2537"/>
         <image name="VectorPattern" width="1300" height="1300"/>
+        <image name="bluetooth_white" width="30" height="30"/>
         <image name="bulb" width="30" height="30"/>
         <image name="coordinate" width="30" height="30"/>
         <image name="grid" width="30" height="30"/>
+        <image name="home" width="30" height="30"/>
         <image name="magnifying-glass" width="30" height="30"/>
         <image name="post_trigger" width="30" height="30"/>
         <image name="pre_trigger" width="30" height="30"/>

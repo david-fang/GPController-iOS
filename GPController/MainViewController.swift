@@ -14,6 +14,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
     @IBOutlet weak var titleView: UIView!
     @IBOutlet var navigationButtons: [FlexiButton]!
+    @IBOutlet weak var bluetoothButton: FlexiButton!
 
     var gpBTManager: GPBluetoothManager!
     var transition: JTMaterialTransition?
@@ -43,11 +44,15 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     // MARK: - GPBluetoothManagerDelegate
     
     func peripheralReady() {
-        // Connected
+        DispatchQueue.main.async {
+            self.bluetoothButton.setImage(#imageLiteral(resourceName: "bluetooth_gold"), for: .normal)
+        }
     }
 
     func didDisconnectPeripheral() {
-        // Disconnected
+        DispatchQueue.main.async {
+            self.bluetoothButton.setImage(#imageLiteral(resourceName: "bluetooth_white"), for: .normal)
+        }
     }
     
     // MARK: - Navigation

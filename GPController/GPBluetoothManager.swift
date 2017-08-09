@@ -28,7 +28,6 @@ import CoreBluetooth
 
 @objc protocol GPMotorManagerInterruptDelegate {
     @objc func deviceDidDisconnect()
-    // @objc func deviceDidReconnect()
     @objc func bluetoothDidDisable()
 }
 

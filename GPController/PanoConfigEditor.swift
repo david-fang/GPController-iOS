@@ -36,7 +36,7 @@ class PanoConfigEditor {
         }
     }
     
-    fileprivate let config:         PanoConfig?
+    fileprivate var config:         PanoConfig?
     fileprivate var identifier:     String?
 
     // HORIZONTAL SETTINGS
@@ -217,9 +217,11 @@ class PanoConfigEditor {
                 let queryConfig = fetchResults[0]
                 
                 if let config = self.config {
+                    print("Not equal")
                     return queryConfig == config
                 }
                 
+                print("Could not unwrap")
                 return false
             }
         } catch {
@@ -250,6 +252,7 @@ class PanoConfigEditor {
             panoConfig = self.config!
         } else {
             panoConfig = PanoConfig(context: context)
+            self.config = panoConfig
         }
 
         panoConfig.setValue(identifier, forKey: core_identifierKey)

@@ -14,6 +14,7 @@ class ManualControlViewController: UIViewController {
     @IBOutlet weak var right: RoundAxisButton!
     @IBOutlet weak var down: RoundAxisButton!
     @IBOutlet weak var left: RoundAxisButton!
+    @IBOutlet weak var triangleIndicator: TriangleView!
     
     var gpBTManager: GPBluetoothManager!
 
@@ -37,6 +38,7 @@ class ManualControlViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        triangleIndicator.layer.addFlashLayer()
     }
     
     @IBAction func triggerShutter(_ sender: FlexiButton) {
