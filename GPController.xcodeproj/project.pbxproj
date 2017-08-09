@@ -23,7 +23,7 @@
 		07369DE91ED7406500DF29E3 /* GPControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */; };
 		073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62861ED77F1500D28EBA /* PulseLayer.swift */; };
 		073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */; };
-		074B26491F3BD0580039924E /* catch_success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 074B26481F3BD0580039924E /* catch_success.mp3 */; };
+		074B264D1F3BD34A0039924E /* catch_success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 074B264C1F3BD34A0039924E /* catch_success.mp3 */; };
 		074E84181F38E46F00F6940D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84171F38E46F00F6940D /* TriangleView.swift */; };
 		074E841A1F390FC600F6940D /* JTMaterialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84191F390FC600F6940D /* JTMaterialTransition.swift */; };
 		0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */; };
@@ -119,7 +119,7 @@
 		07369DEA1ED7406500DF29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073D62861ED77F1500D28EBA /* PulseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseLayer.swift; sourceTree = "<group>"; };
 		073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoConfigEditor.swift; sourceTree = "<group>"; };
-		074B26481F3BD0580039924E /* catch_success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = catch_success.mp3; sourceTree = "<group>"; };
+		074B264C1F3BD34A0039924E /* catch_success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = catch_success.mp3; sourceTree = "<group>"; };
 		074E84171F38E46F00F6940D /* TriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		074E84191F390FC600F6940D /* JTMaterialTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTMaterialTransition.swift; sourceTree = "<group>"; };
 		0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSetupViewController.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 		07B01F651F2C00BF00B15911 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				074B26481F3BD0580039924E /* catch_success.mp3 */,
+				074B264C1F3BD34A0039924E /* catch_success.mp3 */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -496,8 +496,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				07369DD31ED7406400DF29E3 /* LaunchScreen.storyboard in Resources */,
-				074B26491F3BD0580039924E /* catch_success.mp3 in Resources */,
 				07369DD01ED7406400DF29E3 /* Assets.xcassets in Resources */,
+				074B264D1F3BD34A0039924E /* catch_success.mp3 in Resources */,
 				07369DCE1ED7406400DF29E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

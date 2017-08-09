@@ -155,13 +155,14 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         let alert = UIAlertController(title: "Panorama complete", message: "Your panorama has been completed!", preferredStyle: .alert)
         
         DispatchQueue.main.async {
-            self.finishFanfarePlayer.play()
             self.panoControlButton.setTitle("START", for: .normal)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                 alert.dismiss(animated: true, completion: nil)
             }))
 
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: {
+                self.finishFanfarePlayer.play()
+            })
         }
     }
     
