@@ -23,6 +23,7 @@
 		07369DE91ED7406500DF29E3 /* GPControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07369DE81ED7406500DF29E3 /* GPControllerUITests.swift */; };
 		073D62871ED77F1500D28EBA /* PulseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D62861ED77F1500D28EBA /* PulseLayer.swift */; };
 		073E3F8E1F1AAF8500F3B208 /* PanoConfigEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */; };
+		074B26491F3BD0580039924E /* catch_success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 074B26481F3BD0580039924E /* catch_success.mp3 */; };
 		074E84181F38E46F00F6940D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84171F38E46F00F6940D /* TriangleView.swift */; };
 		074E841A1F390FC600F6940D /* JTMaterialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84191F390FC600F6940D /* JTMaterialTransition.swift */; };
 		0754B1561F0EB14D0009A557 /* CameraSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */; };
@@ -46,7 +47,6 @@
 		07AE3C851F2691D100A46FE0 /* SetReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */; };
 		07B01EC71F2B962100B15911 /* PanoSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */; };
 		07B01EC91F2B987400B15911 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B01EC81F2B987400B15911 /* KDCircularProgress.swift */; };
-		07B01F641F2C00BA00B15911 /* fox_fanfare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07B01F631F2C00BA00B15911 /* fox_fanfare.mp3 */; };
 		07B01F671F2C01B800B15911 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B01F661F2C01B800B15911 /* AVFoundation.framework */; };
 		07B2F9361F2A9BB000EDC354 /* GPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B2F9351F2A9BB000EDC354 /* GPEnums.swift */; };
 		07B4579F1EE8A7E200ABF165 /* FlexiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */; };
@@ -119,6 +119,7 @@
 		07369DEA1ED7406500DF29E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073D62861ED77F1500D28EBA /* PulseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseLayer.swift; sourceTree = "<group>"; };
 		073E3F8D1F1AAF8500F3B208 /* PanoConfigEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoConfigEditor.swift; sourceTree = "<group>"; };
+		074B26481F3BD0580039924E /* catch_success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = catch_success.mp3; sourceTree = "<group>"; };
 		074E84171F38E46F00F6940D /* TriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		074E84191F390FC600F6940D /* JTMaterialTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTMaterialTransition.swift; sourceTree = "<group>"; };
 		0754B1551F0EB14D0009A557 /* CameraSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSetupViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetReferenceViewController.swift; sourceTree = "<group>"; };
 		07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoSessionViewController.swift; sourceTree = "<group>"; };
 		07B01EC81F2B987400B15911 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
-		07B01F631F2C00BA00B15911 /* fox_fanfare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fox_fanfare.mp3; sourceTree = "<group>"; };
 		07B01F661F2C01B800B15911 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		07B2F9351F2A9BB000EDC354 /* GPEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPEnums.swift; sourceTree = "<group>"; };
 		07B4579E1EE8A7E200ABF165 /* FlexiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexiButton.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 		07B01F651F2C00BF00B15911 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				07B01F631F2C00BA00B15911 /* fox_fanfare.mp3 */,
+				074B26481F3BD0580039924E /* catch_success.mp3 */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -495,8 +495,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B01F641F2C00BA00B15911 /* fox_fanfare.mp3 in Resources */,
 				07369DD31ED7406400DF29E3 /* LaunchScreen.storyboard in Resources */,
+				074B26491F3BD0580039924E /* catch_success.mp3 in Resources */,
 				07369DD01ED7406400DF29E3 /* Assets.xcassets in Resources */,
 				07369DCE1ED7406400DF29E3 /* Main.storyboard in Resources */,
 			);

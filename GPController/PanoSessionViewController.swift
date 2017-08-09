@@ -44,7 +44,7 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         blurEffectView?.frame = view.bounds
         blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        let path = Bundle.main.path(forResource: "fox_fanfare", ofType: "mp3")!
+        let path = Bundle.main.path(forResource: "catch_success", ofType: "mp3")!
         let url = URL(fileURLWithPath: path)
 
         do {
@@ -65,11 +65,6 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
         
         manager.delegate = self
         progressLabel.text = "0 of \(manager.grid.totalComponents)"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Resume Picker View
