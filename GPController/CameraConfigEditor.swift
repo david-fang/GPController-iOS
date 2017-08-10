@@ -104,7 +104,6 @@ class CameraConfigEditor {
         }
         
         if (imageDataWasTouched) {
-            print("Updating image data")
             let imageData = UIImageJPEGRepresentation(self.image, 1)
             config!.setValue(imageData, forKey: core_imageDataKey)
         }

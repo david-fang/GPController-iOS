@@ -217,11 +217,9 @@ class PanoConfigEditor {
                 let queryConfig = fetchResults[0]
                 
                 if let config = self.config {
-                    print("Not equal")
                     return queryConfig == config
                 }
                 
-                print("Could not unwrap")
                 return false
             }
         } catch {

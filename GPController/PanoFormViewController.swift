@@ -263,9 +263,6 @@ class PanoFormViewController: UIViewController {
             if let dest = segue.destination as? ShootingConfigViewController {
                 dest.hValueSet = panoConfigEditor.getValueSet(for: .horizontal)
                 dest.vValueSet = panoConfigEditor.getValueSet(for: .vertical)
-                
-                print("\(dest.hValueSet.components) \(dest.hValueSet.fov) \(dest.hValueSet.overlap)")
-                print("\(dest.vValueSet.components) \(dest.vValueSet.fov) \(dest.vValueSet.overlap)")
             }
         }
     }

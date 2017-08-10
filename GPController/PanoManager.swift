@@ -278,17 +278,14 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         }
 
         commandCount += 1
-        manager.send(text: "\(cmd) \(angle)")
+        manager.send(text: "\(cmd) \(abs(angle))")
     }
     
     fileprivate func moveTo(x: Int, y: Int) {
         guard grid.coordinateIsWithinBounds(for: x, y) else {
-            print("Coordinate (\(x),\(y)) is out of bounds")
             return
         }
-        
-        print("Moving to \(x), \(y)")
-        
+ 
         let horizontalDir: Direction
         let verticalDir: Direction
         var numPans = x - grid.x
@@ -406,7 +403,6 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         commandCount -= 1
         if panoState == .running {
             if (msg == "SHUTTER OK") {
-                print("Waiting for post-trigger delay: \(Date())")
                 delay(postTriggerDelay, closure: { self.next() })
             } else if (msg == "MOTORS OK") {
                 next()
