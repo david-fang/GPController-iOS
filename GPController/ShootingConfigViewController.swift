@@ -14,12 +14,13 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
     
     @IBOutlet var pickerPopup: UIView!
     @IBOutlet weak var pickerView: PickerView!
+    @IBOutlet weak var configPreview: UIImageView!
 
     let blurEffect = UIBlurEffect(style: .light)
     var blurEffectView: UIVisualEffectView?
 
-    let positions: [Corner] = [.topLeft, .topRight, .bottomLeft, .bottomRight]
-    let orders: [Order] = [.rows, .columns]
+    let positions: [Corner] = [.bottomLeft, .topLeft, .topRight, .bottomRight]
+    let orders: [Order] = [.columns, .rows]
     let patterns: [Pattern] = [.unidirectional, .snake]
     
     var hValueSet: PanoConfigEditor.PanoValueSet!
@@ -69,10 +70,34 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func updatePreviewOrientation() {
+        let pattern = patterns[patternIndex]
+        let order = orders[orderIndex]
+        let start = positions[startPositionIndex]
+        
+        configPreview.image = pattern == .unidirectional ? #imageLiteral(resourceName: "unidirectional") : #imageLiteral(resourceName: "unidirectional")
+        
+        var transform = CGAffineTransform.identity
+
+        if (order == .rows) {
+            transform = transform.rotated(by: CGFloat(M_PI_2) * -1)
+            transform = transform.scaledBy(x: 1, y: -1)
+        }
+
+        switch start {
+        case .bottomLeft:
+            break
+        case .bottomRight:
+            transform = order == .rows ? transform.scaledBy(x: 1, y: -1) : transform.scaledBy(x: -1, y: 1)
+        case .topLeft:
+            transform = order == .rows ? transform.scaledBy(x: -1, y: 1) : transform.scaledBy(x: 1, y: -1)
+        case .topRight:
+            transform = transform.scaledBy(x: -1, y: -1)
+        }
+        
+        configPreview.transform = transform
     }
-   
+    
     func pickerViewNumberOfRows(_ pickerView: PickerView) -> Int {
         switch pickerTag {
         case 0:
@@ -129,6 +154,8 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         default:
             break
         }
+        
+        updatePreviewOrientation()
     }
     
     // MARK: - Picker View Display
