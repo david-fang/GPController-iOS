@@ -2387,6 +2387,7 @@
                         <outlet property="progressIndicator" destination="VWr-ku-jpI" id="kCt-Pc-ZQV"/>
                         <outlet property="progressLabel" destination="jWp-nw-ApO" id="55k-oW-qgJ"/>
                         <outlet property="resumeAtView" destination="4A7-Tu-RdO" id="oQC-0t-PNg"/>
+                        <outlet property="timerSettingsContainer" destination="oYy-Xo-sWM" id="cN9-rz-DOo"/>
                         <outlet property="timerSettingsPopup" destination="D43-am-huY" id="WaF-lN-ruR"/>
                         <outlet property="updateButton" destination="stf-33-zk4" id="OvC-gT-HMU"/>
                         <outlet property="updateTextfield" destination="yFA-Lb-JTZ" id="c5l-NQ-8KR"/>

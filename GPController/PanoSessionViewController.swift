@@ -13,6 +13,7 @@ import AVFoundation
 class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
 
     @IBOutlet var timerSettingsPopup: UIView!
+    @IBOutlet weak var timerSettingsContainer: UIView!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var updateTextfield: UITextField!
     
@@ -125,11 +126,21 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
 
         switch manager.getPanoState() {
         case .stopped:
-            manager.start()
-            sender.setTitle("PAUSE", for: .normal)
+            timerSettingsContainer.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.4, animations: {
+                self.timerSettingsContainer.alpha = 0
+                sender.setTitle("PAUSE", for: .normal)
+            }, completion: { _ in
+                manager.start()
+            })
         case .running:
-            manager.pause()
-            sender.setTitle("RESUME", for: .normal)
+            UIView.animate(withDuration: 0.4, animations: {
+                self.timerSettingsContainer.alpha = 1
+                sender.setTitle("RESUME", for: .normal)
+            }, completion: { _ in
+                self.timerSettingsContainer.isUserInteractionEnabled = true
+                manager.pause()
+            })
         case .paused:
             loadResumeAtView()
         default:
@@ -239,7 +250,11 @@ class PanoSessionViewController: UIViewController, PanoramaListenerDelegate {
                     return
                 }
 
-                manager.resumeAt(at: x, y)
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.timerSettingsContainer.alpha = 0
+                }, completion: { _ in
+                    manager.resumeAt(at: x, y)
+                })
             }
         })
     }
