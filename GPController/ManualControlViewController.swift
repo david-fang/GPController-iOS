@@ -42,24 +42,24 @@ class ManualControlViewController: UIViewController {
     }
     
     @IBAction func triggerShutter(_ sender: FlexiButton) {
-        gpBTManager.send(text: GP_SHUTTER)
+        gpBTManager.send(text: GPCommands.shutter)
     }
     
     func beginMove(sender: RoundAxisButton) {
         switch sender.direction {
         case .left:
-            gpBTManager.send(text: GP_LEFT)
+            gpBTManager.send(text: GPCommands.left)
         case .up:
-            gpBTManager.send(text: GP_FORWARD)
+            gpBTManager.send(text: GPCommands.forward)
         case .down:
-            gpBTManager.send(text: GP_BACKWARD)
+            gpBTManager.send(text: GPCommands.backward)
         case .right:
-            gpBTManager.send(text: GP_RIGHT)
+            gpBTManager.send(text: GPCommands.right)
         }
     }
     
     func stopMove() {
-        gpBTManager.send(text: GP_PAUSE)
+        gpBTManager.send(text: GPCommands.pause)
     }
 
     @IBAction func back(_ sender: UIButton) {

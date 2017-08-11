@@ -246,13 +246,13 @@ class SetReferenceViewController: UIViewController {
         if let manager = gpBTManager {
             switch sender.direction {
             case .left:
-                manager.send(text: GP_LEFT)
+                manager.send(text: GPCommands.left)
             case .up:
-                manager.send(text: GP_FORWARD)
+                manager.send(text: GPCommands.forward)
             case .down:
-                manager.send(text: GP_BACKWARD)
+                manager.send(text: GPCommands.backward)
             case .right:
-                manager.send(text: GP_RIGHT)
+                manager.send(text: GPCommands.right)
             }
         }
     }
@@ -269,7 +269,7 @@ class SetReferenceViewController: UIViewController {
 
         if (freeformIsEnabled) {
             if let manager = gpBTManager {
-                manager.send(text: GP_PAUSE)
+                manager.send(text: GPCommands.pause)
             }
         }
     }

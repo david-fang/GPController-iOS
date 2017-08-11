@@ -43,10 +43,10 @@ class CameraConfigEditor {
     
     init() {
         self.config = nil
-        self.hFOV = 60
-        self.hRES = 1440
-        self.vFOV = 30
-        self.vRES = 900
+        self.hFOV = DEFAULT_LENS_HFOV
+        self.hRES = DEFAULT_LENS_HRES
+        self.vFOV = DEFAULT_LENS_VFOV
+        self.vRES = DEFAULT_LENS_VRES
         self.image = #imageLiteral(resourceName: "DefaultCamera")
     }
 
@@ -63,7 +63,7 @@ class CameraConfigEditor {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", identifier)
+        let filterPred = NSPredicate(format: "\(CoreKeys.identifier) == %@", identifier)
         let fetchRequest: NSFetchRequest<CameraConfig> = CameraConfig.fetchRequest()
         fetchRequest.predicate = filterPred
         fetchRequest.fetchLimit = 1
@@ -105,14 +105,14 @@ class CameraConfigEditor {
         
         if (imageDataWasTouched) {
             let imageData = UIImageJPEGRepresentation(self.image, 1)
-            config!.setValue(imageData, forKey: core_imageDataKey)
+            config!.setValue(imageData, forKey: CoreKeys.imageData)
         }
 
-        config!.setValue(identifier, forKey: core_identifierKey)
-        config!.setValue(hFOV, forKey: core_hFOVKey)
-        config!.setValue(vFOV, forKey: core_vFOVKey)
-        config!.setValue(hRES, forKey: core_hRESKey)
-        config!.setValue(vRES, forKey: core_vRESKey)
+        config!.setValue(identifier, forKey: CoreKeys.identifier)
+        config!.setValue(hFOV, forKey: CoreKeys.hfov)
+        config!.setValue(vFOV, forKey: CoreKeys.vfov)
+        config!.setValue(hRES, forKey: CoreKeys.hres)
+        config!.setValue(vRES, forKey: CoreKeys.vres)
         
         appDelegate.saveContext()
         completion?(true)

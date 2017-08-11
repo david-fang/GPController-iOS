@@ -206,7 +206,7 @@ class PanoConfigEditor {
         
         // Check that identifier is unique
         
-        let filterPred = NSPredicate(format: "\(core_identifierKey) == %@", identifier)
+        let filterPred = NSPredicate(format: "\(CoreKeys.identifier) == %@", identifier)
         let fetchRequest: NSFetchRequest<PanoConfig> = PanoConfig.fetchRequest()
         fetchRequest.predicate = filterPred
         fetchRequest.fetchLimit = 1
@@ -253,22 +253,22 @@ class PanoConfigEditor {
             self.config = panoConfig
         }
 
-        panoConfig.setValue(identifier, forKey: core_identifierKey)
+        panoConfig.setValue(identifier, forKey: CoreKeys.identifier)
 
-        panoConfig.setValue(rowsLock, forKey: core_rowsLockKey)
-        panoConfig.setValue(columnsLock, forKey: core_columnsLockKey)
-        panoConfig.setValue(hFOVLock, forKey: core_hFOVLockKey)
-        panoConfig.setValue(vFOVLock, forKey: core_vFOVLockKey)
-        panoConfig.setValue(hOverlapLock, forKey: core_hOverlapLockKey)
-        panoConfig.setValue(vOverlapLock, forKey: core_vOverlapLockKey)
+        panoConfig.setValue(rowsLock, forKey: CoreKeys.rowsLock)
+        panoConfig.setValue(columnsLock, forKey: CoreKeys.columnsLock)
+        panoConfig.setValue(hFOVLock, forKey: CoreKeys.hfovLock)
+        panoConfig.setValue(vFOVLock, forKey: CoreKeys.vfovLock)
+        panoConfig.setValue(hOverlapLock, forKey: CoreKeys.hoverlapLock)
+        panoConfig.setValue(vOverlapLock, forKey: CoreKeys.voverlapLock)
 
-        panoConfig.setValue(columnsLock ? columns : nil, forKey: core_columnsKey)
-        panoConfig.setValue(hFOVLock ? hFOV : nil, forKey: core_hFOVKey)
-        panoConfig.setValue(hOverlapLock ? hOverlap : nil, forKey: core_hOverlapKey)
+        panoConfig.setValue(columnsLock ? columns : nil, forKey: CoreKeys.columns)
+        panoConfig.setValue(hFOVLock ? hFOV : nil, forKey: CoreKeys.hfov)
+        panoConfig.setValue(hOverlapLock ? hOverlap : nil, forKey: CoreKeys.hoverlap)
         
-        panoConfig.setValue(rowsLock ? rows : nil, forKey: core_rowsKey)
-        panoConfig.setValue(vFOVLock ? vFOV : nil, forKey: core_vFOVKey)
-        panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: core_vOverlapKey)
+        panoConfig.setValue(rowsLock ? rows : nil, forKey: CoreKeys.rows)
+        panoConfig.setValue(vFOVLock ? vFOV : nil, forKey: CoreKeys.vfov)
+        panoConfig.setValue(vOverlapLock ? vOverlap : nil, forKey: CoreKeys.voverlap)
         
         appDelegate.saveContext()
         return true

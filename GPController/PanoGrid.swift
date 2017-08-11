@@ -82,4 +82,3 @@ class PanoGrid {
         _y = startY
     }
 }
-

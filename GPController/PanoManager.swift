@@ -13,78 +13,6 @@ protocol PanoramaListenerDelegate {
     func panoramaDidFinish()
 }
 
-enum Direction {
-    case left, right, up, down
-    
-    var inverse: Direction {
-        switch self {
-        case .left:
-            return .right
-        case .right:
-            return .left
-        case .up:
-            return .down
-        case .down:
-            return .up
-        }
-    }
-    
-    var movesAlongHorizontal: Bool {
-        return (self == Direction.left || self == Direction.right)
-    }
-}
-
-enum Corner {
-    case topLeft, topRight, bottomLeft, bottomRight
-    
-    func isAlignedToTop() -> Bool {
-        return (self == .topLeft || self == .topRight)
-    }
-    
-    func isAlignedToLeft() -> Bool {
-        return (self == .topLeft || self == .bottomLeft)
-    }
-    
-    var asString: String {
-        switch self {
-        case .topLeft:
-            return "Top left"
-        case .topRight:
-            return "Top right"
-        case .bottomLeft:
-            return "Bottom left"
-        case .bottomRight:
-            return "Bottom right"
-        }
-    }
-}
-
-enum Order {
-    case rows, columns
-    
-    var asString: String {
-        switch self {
-        case .rows:
-            return "Rows"
-        case .columns:
-            return "Columns"
-        }
-    }
-}
-
-enum Pattern {
-    case unidirectional, snake
-    
-    var asString: String {
-        switch self {
-        case .unidirectional:
-            return "Unidirectional"
-        case .snake:
-            return "Snake"
-        }
-    }
-}
-
 class PanoManager: NSObject, GPCallbackListenerDelegate {
     
     enum PanoState {
@@ -195,7 +123,7 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
         if (panoState != .running) { return }
         
         commandCount += 1
-        manager.send(text: "\(GP_SHUTTER) \(self.bulb)")
+        manager.send(text: "\(GPCommands.shutter) \(self.bulb)")
         pendingPicture = false
     }
     
@@ -268,13 +196,13 @@ class PanoManager: NSObject, GPCallbackListenerDelegate {
 
         switch dir {
         case .up:
-            cmd = GP_FORWARD
+            cmd = GPCommands.forward
         case .down:
-            cmd = GP_BACKWARD
+            cmd = GPCommands.backward
         case .left:
-            cmd = GP_LEFT
+            cmd = GPCommands.left
         case .right:
-            cmd = GP_RIGHT
+            cmd = GPCommands.right
         }
 
         commandCount += 1

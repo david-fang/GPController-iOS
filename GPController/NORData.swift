@@ -20,9 +20,9 @@
 * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-import Foundation
-
 // Source: http://stackoverflow.com/a/35201226/2115352
+
+import Foundation
 
 extension Data {
 

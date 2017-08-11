@@ -1,10 +1,17 @@
-//
-//  ServiceIdentifiers.swift
-//  GPController
-//
-//  Created by David Fang on 6/1/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * ServiceIdentifiers.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Bluetooth service identifier UUID strings. These strings
+ * are used during device discovery to see what services
+ * a discovered device has.
+ *
+ */
 
 import Foundation
 
