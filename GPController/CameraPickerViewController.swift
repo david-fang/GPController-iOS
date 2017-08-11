@@ -41,21 +41,15 @@ class CameraPickerViewController: UIViewController, UITableViewDelegate, UITable
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 12))
         tableView.tableFooterView?.backgroundColor = UIColor.clear
-        
-        refreshItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        refreshItems()
-    }
-    
-    // MARK: - Table Population Functions
-    
-    /** Fetch all camera configs and populate them on the table view */
-    func refreshItems() {
+        super.viewWillAppear(animated)
         fetchCameraConfigsFromCoreData()
         tableView.reloadData()
     }
+    
+    // MARK: - Table Population Functions
     
     /**
      * Populates the cameraConfigs array with all saved CameraConfig

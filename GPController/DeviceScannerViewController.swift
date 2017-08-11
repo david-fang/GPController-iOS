@@ -116,7 +116,7 @@ class DeviceScannerViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
 
-    // MARK: - TableViewDataSource / TableViewDelegate
+    // MARK: - TableViewDelegate / DataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

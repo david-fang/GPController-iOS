@@ -1,18 +1,30 @@
-//
-//  PanoramaSettingsViewController.swift
-//  GPController
-//
-//  Created by David Fang on 7/5/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * PanoramaPickerViewController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Controller for panorama config setups. Responsible
+ * for populating the table with all found PanoConfig
+ * objects and providing information to the PanoForm
+ * upon selection.
+ *
+ */
 
 import UIKit
 
-class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class PanoramaPickerViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
+    // MARK: - Subviews
+    
     @IBOutlet weak var headerTextContainer: UIView!
     @IBOutlet weak var tableView: FadingTableView!
 
+    // MARK: - Config Variables
+    
     var camera: CameraConfig!
     var panoConfigs: [PanoConfig] = []
     var selectedConfig: PanoConfig?
@@ -38,10 +50,24 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
         tableView.reloadData()
         selectedConfig = nil
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+
+    // MARK: - Table Population Functions
+
+    /**
+     * Populates the panoConfigs array with all saved CameraConfig
+     * objects found in CoreData.
+     */
+    func fetchPanoConfigsFromCoreData() {
+        do {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            panoConfigs = try context.fetch(PanoConfig.fetchRequest())
+        } catch {
+            print("ERROR: Could not fetch panos from CoreData")
+        }
     }
+
+    // MARK: - TableViewDelegate / DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -84,31 +110,22 @@ class PanoramaSetupViewController: UIViewController,UITableViewDelegate, UITable
         return [deleteAction]
     }
     
+    // MARK: - UIScrollViewDelegate
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tableView.updateGradients()
     }
-    
-    func fetchPanoConfigsFromCoreData() {
-        do {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            panoConfigs = try context.fetch(PanoConfig.fetchRequest())
-        } catch {
-            print("ERROR: Could not fetch panos from CoreData")
-        }
-    }
-    
-    @IBAction func createNewConfig(_ sender: UIButton) {
-        performSegue(withIdentifier: "toPanoForm", sender: self)
-    }
-    
-    
+
     // MARK: - Navigation
     
     @IBAction func back(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
     }
-    
+
+    @IBAction func createNewConfig(_ sender: UIButton) {
+        performSegue(withIdentifier: "toPanoForm", sender: self)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toPanoForm") {
             if let dest = segue.destination as? PanoFormViewController {

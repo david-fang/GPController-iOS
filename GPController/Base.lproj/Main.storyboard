@@ -248,7 +248,7 @@
         <!--Panorama Setup-->
         <scene sceneID="O93-TJ-3I2">
             <objects>
-                <viewController id="p7Q-ab-9GY" userLabel="Panorama Setup" customClass="PanoramaSetupViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p7Q-ab-9GY" userLabel="Panorama Setup" customClass="PanoramaPickerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nqz-gO-DzT"/>
                         <viewControllerLayoutGuide type="bottom" id="2l3-2Y-5kC"/>

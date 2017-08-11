@@ -58,11 +58,11 @@ class CameraConfigEditor {
         self.image = image
         imageDataWasTouched = true
     }
-    
+
     func identifierIsUnique(identifier: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
+
         let filterPred = NSPredicate(format: "\(CoreKeys.identifier) == %@", identifier)
         let fetchRequest: NSFetchRequest<CameraConfig> = CameraConfig.fetchRequest()
         fetchRequest.predicate = filterPred
@@ -98,7 +98,7 @@ class CameraConfigEditor {
             completion?(false)
             return
         }
-        
+
         if (self.config == nil) {
             self.config = CameraConfig(context: context)
         }

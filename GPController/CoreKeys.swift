@@ -23,7 +23,7 @@ class CoreKeys {
     static let vfov = "vFOV"
     static let voverlap = "vOverlap"
     static let vres = "vRES"
-    static let hres = "hRes"
+    static let hres = "hRES"
     
     static let rowsLock = "rowsLock"
     static let columnsLock = "columnsLock"

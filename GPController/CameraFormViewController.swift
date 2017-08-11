@@ -252,7 +252,7 @@ class CameraFormViewController: UIViewController, UINavigationControllerDelegate
             }
 
         } else if (segue.identifier == "toPanoramaSetup") {
-            guard let dest = segue.destination as? PanoramaSetupViewController, let selectedConfig = cameraConfigEditor.getCameraConfig() else {
+            guard let dest = segue.destination as? PanoramaPickerViewController, let selectedConfig = cameraConfigEditor.getCameraConfig() else {
                 return
             }
 

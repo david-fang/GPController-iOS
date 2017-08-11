@@ -26,7 +26,7 @@
 		074E84181F38E46F00F6940D /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84171F38E46F00F6940D /* TriangleView.swift */; };
 		074E841A1F390FC600F6940D /* JTMaterialTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E84191F390FC600F6940D /* JTMaterialTransition.swift */; };
 		0754B1561F0EB14D0009A557 /* CameraPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0754B1551F0EB14D0009A557 /* CameraPickerViewController.swift */; };
-		0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */; };
+		0755449F1F0D856A00A53FB6 /* PanoramaPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755449E1F0D856A00A53FB6 /* PanoramaPickerViewController.swift */; };
 		075D07BC1EE0CC8000592BBA /* GPBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */; };
 		075D07BF1EE0CF2700592BBA /* ServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */; };
 		0771831F1EF0924A008AF478 /* DesignUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771831E1EF0924A008AF478 /* DesignUtils.swift */; };
@@ -121,7 +121,7 @@
 		074E84171F38E46F00F6940D /* TriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		074E84191F390FC600F6940D /* JTMaterialTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JTMaterialTransition.swift; sourceTree = "<group>"; };
 		0754B1551F0EB14D0009A557 /* CameraPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPickerViewController.swift; sourceTree = "<group>"; };
-		0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaSetupViewController.swift; sourceTree = "<group>"; };
+		0755449E1F0D856A00A53FB6 /* PanoramaPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaPickerViewController.swift; sourceTree = "<group>"; };
 		075D07BB1EE0CC8000592BBA /* GPBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPBluetoothManager.swift; sourceTree = "<group>"; };
 		075D07BE1EE0CF2700592BBA /* ServiceIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceIdentifiers.swift; sourceTree = "<group>"; };
 		0771831E1EF0924A008AF478 /* DesignUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignUtils.swift; sourceTree = "<group>"; };
@@ -292,9 +292,9 @@
 				07369DCA1ED7406400DF29E3 /* ManualControlViewController.swift */,
 				0754B1551F0EB14D0009A557 /* CameraPickerViewController.swift */,
 				07D8111E1F1E6ED30051C31A /* CameraFormViewController.swift */,
-				07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */,
-				0755449E1F0D856A00A53FB6 /* PanoramaSetupViewController.swift */,
+				0755449E1F0D856A00A53FB6 /* PanoramaPickerViewController.swift */,
 				07AD73231F16CCFE00D909DA /* PanoFormViewController.swift */,
+				07D8111C1F1D97BA0051C31A /* SingleValueEditViewController.swift */,
 				0718C73B1F212E6800C4FB39 /* ShootingConfigViewController.swift */,
 				07AE3C841F2691D100A46FE0 /* SetReferenceViewController.swift */,
 				07B01EC61F2B962100B15911 /* PanoSessionViewController.swift */,
@@ -677,7 +677,7 @@
 				07A16B7E1F1944DE00CB5E9C /* ConfigurationConstants.swift in Sources */,
 				079C766D1F350C730040F720 /* LinearProgressBar.swift in Sources */,
 				078506D11F04652C00297F4F /* CommandStrings.swift in Sources */,
-				0755449F1F0D856A00A53FB6 /* PanoramaSetupViewController.swift in Sources */,
+				0755449F1F0D856A00A53FB6 /* PanoramaPickerViewController.swift in Sources */,
 				07D811231F1E87570051C31A /* CameraConfigEditor.swift in Sources */,
 				07369DCB1ED7406400DF29E3 /* ManualControlViewController.swift in Sources */,
 				07FA9AF71F3E0D6E00694405 /* GPCalculate.swift in Sources */,
