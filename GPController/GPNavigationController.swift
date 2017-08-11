@@ -1,11 +1,22 @@
-//
-//  GPNavigationControllerViewController.swift
-//  GPController
-//
-//  Created by David Fang on 6/8/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
-
+/**
+ *
+ * GPNavigationController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * The navigation controller used for the panorama session
+ * views.
+ *
+ * IMPORTANT: Holds a reference to the GPBluetoothManager used
+ * to communicate with the GigaPan's Bluetooth module. This
+ * design allows for sessions views within this navigation
+ * controller to share the same manager without having to pass
+ * them around in segues every time.
+ *
+ */
 import UIKit
 
 class GPNavigationController: UINavigationController {
@@ -25,21 +36,4 @@ class GPNavigationController: UINavigationController {
             self.navigationBar.isTranslucent = true
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

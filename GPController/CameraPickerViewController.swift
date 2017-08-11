@@ -1,28 +1,32 @@
-//
-//  CameraSetupViewController.swift
-//  GPController
-//
-//  Created by David Fang on 7/6/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * CameraPickerViewController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Controller for camera config selections. Responsible
+ * for populating the table with all found CameraConfig 
+ * objects and providing information to the CameraForm
+ * upon selection.
+ *
+ */
 
 import UIKit
 
-class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class CameraPickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    
+    // MARK: - Subviews
     
     @IBOutlet weak var headerTextContainer: UIView!
     @IBOutlet weak var tableView: FadingTableView!
     
+    // MARK: Config Variables
+    
     var cameraConfigs: [CameraConfig] = []
     var selectedConfig: CameraConfig?
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshItems), for: .valueChanged)
-        refreshControl.tintColor = UIColor.white
-        
-        return refreshControl
-    }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -45,10 +49,29 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         refreshItems()
     }
     
-    @objc func refreshItems() {
+    // MARK: - Table Population Functions
+    
+    /** Fetch all camera configs and populate them on the table view */
+    func refreshItems() {
         fetchCameraConfigsFromCoreData()
         tableView.reloadData()
     }
+    
+    /**
+     * Populates the cameraConfigs array with all saved CameraConfig
+     * objects found in CoreData.
+     */
+    func fetchCameraConfigsFromCoreData() {
+        do {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            cameraConfigs = try context.fetch(CameraConfig.fetchRequest())
+        } catch {
+            print("ERROR: Could not fetch cameras from CoreData")
+        }
+    }
+    
+    // MARK: - TableViewDelegate / DataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -90,7 +113,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        let deleteAction: UITableViewRowAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (action, indexPath) in
+        let deleteAction: UITableViewRowAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             context.delete(self.cameraConfigs[indexPath.row])
@@ -107,18 +130,10 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         return [deleteAction]
     }
 
+    // MARK: - UIScrollViewDelegate
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         tableView.updateGradients()
-    }
-
-    func fetchCameraConfigsFromCoreData() {
-        do {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            cameraConfigs = try context.fetch(CameraConfig.fetchRequest())
-        } catch {
-            print("ERROR: Could not fetch cameras from CoreData")
-        }
     }
     
     // MARK: - Navigation
@@ -133,7 +148,7 @@ class CameraSetupViewController: UIViewController, UITableViewDelegate, UITableV
         })
     }
     
-    @IBAction func addNewConfig(_ sender: UIButton) {
+    @IBAction func createNewConfig(_ sender: UIButton) {
         selectedConfig = nil
         performSegue(withIdentifier: "toCameraForm", sender: self)
     }

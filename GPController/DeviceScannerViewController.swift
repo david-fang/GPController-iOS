@@ -1,28 +1,37 @@
-//
-//  ScanDevicesViewController.swift
-//  GPController
-//
-//  Created by David Fang on 6/9/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * DeviceScannerViewController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Controller for the device scanner view. Handles the device
+ * discovery and device selection.
+ *
+ */
 
 import UIKit
 import CoreBluetooth
 
-class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GPDeviceDiscoveryDelegate, UIScrollViewDelegate {
+class DeviceScannerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GPDeviceDiscoveryDelegate, UIScrollViewDelegate {
 
+    // MARK: - Subviews
+    
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var devicesTableView:FadingTableView!
     @IBOutlet weak var bluetoothStatusLabel: UILabel!
     @IBOutlet weak var linearProgressBarContainer: UIView!
 
     var linearProgressBar: LinearProgressBar!
+    let blurEffectView = UIVisualEffectView()
 
+    // MARK: - Bluetooth Variables
+    
     var peripherals: [CBPeripheral] = []
     var selectedPeripheral: CBPeripheral?
     var gpBTManager: GPBluetoothManager!
-
-    let blurEffectView = UIVisualEffectView()
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
@@ -60,10 +69,12 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+    /**
+     * Updates the status label based on the device's Bluetooth
+     * availablility.
+     *
+     * - Parameter on: true if Bluetooth is available; false otherwise
+     */
     fileprivate func toggleBluetoothWarning(to on: Bool) {
         if (on) {
             bluetoothStatusLabel.text = "Please enable Bluetooth"
@@ -93,7 +104,7 @@ class ScanDevicesViewController: UIViewController, UITableViewDelegate, UITableV
         DispatchQueue.main.async {
             self.toggleBluetoothWarning(to: true)
             self.linearProgressBar.stopAnimation()
-            self.gpBTManager.scanForPeripherals(false)  // Does nothing; Bluetooth already off
+            self.gpBTManager.scanForPeripherals(false)
         }
     }
 

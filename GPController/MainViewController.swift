@@ -1,10 +1,18 @@
-//
-//  MainViewController.swift
-//  GPController
-//
-//  Created by David Fang on 5/31/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * MainViewController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Controller for the main view. Primarily acts as a landing
+ * screen for creating the Bluetooth manager for the first time
+ * and handling navigation to the scanner, manual control, and
+ * session views.
+ *
+ */
 
 import UIKit
 import CoreBluetooth
@@ -12,12 +20,15 @@ import ChameleonFramework
 
 class MainViewController: UIViewController, GPBluetoothManagerDelegate {
 
+    // MARK: - Subviews
+    
     @IBOutlet weak var titleView: UIView!
     @IBOutlet var navigationButtons: [FlexiButton]!
     @IBOutlet weak var bluetoothButton: FlexiButton!
 
+    // MARK: - Bluetooth Variables
+    
     var gpBTManager: GPBluetoothManager!
-    var transition: JTMaterialTransition?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -36,13 +47,9 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     // MARK: - GPBluetoothManagerDelegate
-    
+
     func peripheralReady() {
         DispatchQueue.main.async {
             self.bluetoothButton.setImage(#imageLiteral(resourceName: "bluetooth_gold"), for: .normal)
@@ -60,7 +67,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     @IBAction func segueToManualControl(_ sender: UIButton) {
         if let manager = gpBTManager {
             if manager.isConnected() {
-                performSegue(withIdentifier: "toManualControl", sender: transition)
+                performSegue(withIdentifier: "toManualControl", sender: sender)
                 return
             }
         }
@@ -88,13 +95,13 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
             }
         } else if (segue.identifier == "toDeviceScanner") {
             if let nc = segue.destination as? UINavigationController {
-                if let dest = nc.childViewControllerForStatusBarHidden as? ScanDevicesViewController {
+                if let dest = nc.childViewControllerForStatusBarHidden as? DeviceScannerViewController {
                     dest.gpBTManager = self.gpBTManager
                }
             }
         } else if (segue.identifier == "toSessionSetup") {
             if let nc = segue.destination as? GPNavigationController {
-                if (nc.childViewControllerForStatusBarHidden as? CameraSetupViewController) != nil {
+                if (nc.childViewControllerForStatusBarHidden as? CameraPickerViewController) != nil {
                     nc.gpBTManager = self.gpBTManager
                 }
             }
@@ -103,7 +110,7 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     
     @IBAction func unwindToMain(_ segue: UIStoryboardSegue) {
         if (segue.identifier == "scannerToMain") {
-            if let src = segue.source as? ScanDevicesViewController {
+            if let src = segue.source as? DeviceScannerViewController {
                 if let peripheral = src.selectedPeripheral {
                     gpBTManager?.connectPeripheral(peripheral: peripheral)
                 }
@@ -113,6 +120,13 @@ class MainViewController: UIViewController, GPBluetoothManagerDelegate {
     
     // MARK: - View Update Functions
 
+    /**
+     * Performs view's loadup animations. Includes the button popup and
+     * logo fade in.
+     *
+     * - Parameter completion: Completion handler for post-bootup
+     * - Parameter delayBy: Amount of time in seconds to delay the completion handler
+     */
     fileprivate func loadBootupAnimations(completion: (() -> Void)?, delayBy delayInterval: Double) {
         for button in navigationButtons {
             button.isUserInteractionEnabled = false

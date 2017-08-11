@@ -2980,10 +2980,10 @@
             </objects>
             <point key="canvasLocation" x="557.60000000000002" y="-466.41679160419795"/>
         </scene>
-        <!--Scan Devices View Controller-->
+        <!--Device Scanner View Controller-->
         <scene sceneID="lnZ-eE-PgF">
             <objects>
-                <viewController id="Oq5-3H-I4J" customClass="ScanDevicesViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Oq5-3H-I4J" customClass="DeviceScannerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lKI-WE-Cxa"/>
                         <viewControllerLayoutGuide type="bottom" id="ADD-Rp-R7o"/>
@@ -3196,7 +3196,7 @@
         <!--Camera Setup-->
         <scene sceneID="OwV-om-Any">
             <objects>
-                <viewController id="51C-fu-yhk" userLabel="Camera Setup" customClass="CameraSetupViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="51C-fu-yhk" userLabel="Camera Setup" customClass="CameraPickerViewController" customModule="GPController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WjI-U4-P8g"/>
                         <viewControllerLayoutGuide type="bottom" id="4lZ-Zo-j0b"/>
@@ -3261,7 +3261,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="addNewConfig:" destination="51C-fu-yhk" eventType="touchUpInside" id="tWK-Xc-CZC"/>
+                                                    <action selector="createNewConfig:" destination="51C-fu-yhk" eventType="touchUpInside" id="PSc-mK-KLj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
