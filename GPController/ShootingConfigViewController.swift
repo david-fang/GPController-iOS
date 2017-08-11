@@ -75,7 +75,7 @@ class ShootingConfigViewController: UIViewController, PickerViewDelegate, Picker
         let order = orders[orderIndex]
         let start = positions[startPositionIndex]
         
-        configPreview.image = pattern == .unidirectional ? #imageLiteral(resourceName: "unidirectional") : #imageLiteral(resourceName: "unidirectional")
+        configPreview.image = pattern == .unidirectional ? #imageLiteral(resourceName: "unidirectional") : #imageLiteral(resourceName: "snake")
         
         var transform = CGAffineTransform.identity
 
