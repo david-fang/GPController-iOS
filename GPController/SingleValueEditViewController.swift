@@ -1,10 +1,17 @@
-//
-//  SingleValueEditViewController.swift
-//  GPController
-//
-//  Created by David Fang on 7/17/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * SingleValueEditViewController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Controller for creating, previewing, and editing
+ * PanoramaConfigs. This controller enforces valid
+ * config inputs before saving.
+ *
+ */
 
 import UIKit
 

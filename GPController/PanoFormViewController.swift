@@ -1,16 +1,26 @@
-//
-//  ProtoFormViewController.swift
-//  GPController
-//
-//  Created by David Fang on 7/12/17.
-//  Copyright © 2017 CyArk. All rights reserved.
-//
+/**
+ *
+ * PanoramaFormViewController.swift
+ *
+ * Copyright (c) 2017, CyArk
+ * All rights reserved.
+ *
+ * Created by David Fang
+ *
+ * Controller for creating, previewing, and editing
+ * PanoramaConfigs. This controller enforces valid
+ * config inputs before saving.
+ *
+ */
 
 import UIKit
 
 class PanoFormViewController: UIViewController {
 
+    // MARK: - Subviews
+    
     @IBOutlet weak var identifierButton: UIButton!
+
     @IBOutlet weak var componentsStepper: GMStepper!
     @IBOutlet weak var fovStepper: GMStepper!
     @IBOutlet weak var overlapStepper: GMStepper!
@@ -26,6 +36,8 @@ class PanoFormViewController: UIViewController {
     @IBOutlet weak var horizontalToggle: UIButton!
     @IBOutlet weak var verticalToggle: UIButton!
 
+    // MARK: - Config Variables
+    
     var panoConfigEditor: PanoConfigEditor!
     var activeAxis: Axis = .horizontal {
         didSet {
@@ -36,6 +48,8 @@ class PanoFormViewController: UIViewController {
     var camera: CameraConfig!
     var selectedPano: PanoConfig?
 
+    // MARK: - Bluetooth Variables
+    
     var gpBTManager: GPBluetoothManager?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -45,6 +59,9 @@ class PanoFormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // If a panorama was selected, populate the form with its values.
+        // Otherwise, create a new config with default values
+        
         if let panoConfig = selectedPano {
             panoConfigEditor = PanoConfigEditor(config: panoConfig, camHFOV: Int(camera.hFOV), camVFOV: Int(camera.vFOV))
         } else {
@@ -53,11 +70,20 @@ class PanoFormViewController: UIViewController {
 
         performFullRefresh()
         
+        // Pull the bluetooth manager from the navigation controller
+        
         if let nc = self.navigationController as? GPNavigationController {
             self.gpBTManager = nc.gpBTManager
         }
     }
     
+    /**
+     * Loads both the vertical axis and horizontal axis subviews
+     * with the proper values. This step is crucial, as it makes
+     * sure that 'unlocked' values from the config are computed during
+     * the population of the form, preventing lots of mathematical
+     * errors and outdated values.
+     */
     fileprivate func performFullRefresh() {
         activeAxis = .vertical
         refreshMenuItems()
@@ -65,6 +91,10 @@ class PanoFormViewController: UIViewController {
         refreshMenuItems()
     }
     
+    /**
+     * Refreshes the form's values based on the currently active
+     * axis (i.e. horizontal or vertical settings)
+     */
     func refreshMenuItems() {
         if (activeAxis == .horizontal) {
             componentsLabel.text = "NUMBER OF COLUMNS"
@@ -160,6 +190,7 @@ class PanoFormViewController: UIViewController {
         updateAllStepperValues(for: activeAxis)
     }
     
+    /** Computes the third, unlocked value based on the two locked values */
     fileprivate func updateAllStepperValues(for axis: Axis) {
         let cameraFOV: Int = axis == .horizontal ? Int(camera.hFOV) : Int(camera.vFOV)
         let valueSet = panoConfigEditor.getValueSet(for: axis)
@@ -207,6 +238,9 @@ class PanoFormViewController: UIViewController {
     // MARK: - CoreData
     
     @IBAction func savePanoConfig(_sender: UIButton) {
+        
+        // Displays alert if the identifier is empty
+
         if panoConfigEditor.getIdentifier() == nil {
             let alert = UIAlertController(title: "Missing fields", message: "Panorama configuration cannot be saved without an identifier", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
@@ -216,6 +250,8 @@ class PanoFormViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
+        // Displays alert if the identifier is not unique
+            
         else if (!panoConfigEditor.savePanoConfig()) {
             let alert = UIAlertController(title: "Invalid identifier", message: "The desired identifier is already being used by an existing configuration", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
